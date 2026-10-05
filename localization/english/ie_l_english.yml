@@ -120,3 +120,7 @@
  ie_theft.0011.a:0 "Offer weregild to settle the debt."
  ie_theft.0011.b:0 "Offer [avenger.GetHerHim] a place at court."
  ie_theft.0011.c:0 "Throw [avenger.GetHerHim] out."
+ # ---------- Story tab entry ----------
+ ie_story_theft:0 "Theft at Court"
+ ie_story_theft_desc:0 "Someone has been robbing your treasury, and the matter is not yet settled."
+ IE_STORY_THEFT_INFO:0 "A theft from your treasury is still unresolved. The way you handle the investigation, and the choices you make in later events, will shape what follows: who is punished, how the court sees you, and whether the matter reaches beyond your borders."

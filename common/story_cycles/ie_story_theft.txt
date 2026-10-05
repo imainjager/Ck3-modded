@@ -10,6 +10,17 @@
 #   avenger          - a relative who may seek revenge later
 #   method           - how the thief was identified (1..9, see events file)
 ie_story_theft = {
+	visible = yes
+
+	icon = {
+		trigger = { always = yes }
+		reference = "gfx/interface/icons/story_cycles/story_icon_palace_politics.dds"
+	}
+
+	# Deliberately generic: naming the thief here would give the culprit away
+	visualization = {
+		custom_string_key = "IE_STORY_THEFT_INFO"
+	}
 
 	on_owner_death = {
 		end_story = yes
