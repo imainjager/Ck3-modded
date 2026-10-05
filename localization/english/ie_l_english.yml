@@ -2,3 +2,121 @@
  ie.0001.t:0 "Interactive Events: Setup Check"
  ie.0001.desc:0 "If you can read this, the mod is loaded and events work."
  ie.0001.a:0 "Excellent"
+
+ # ---------- Theft at Court: modifiers and war ----------
+ ie_bandit_haven_modifier:0 "Bandit Haven"
+ ie_bandit_haven_modifier_desc:0 "Brigands paid with stolen treasury gold have made this county their hunting ground."
+ ie_lax_treasury_modifier:0 "Lax Treasury"
+ ie_lax_treasury_modifier_desc:0 "Word has spread that the ruler does not punish thieves, and the coffers leak."
+ IE_STOLEN_JUSTICE_WAR_NAME:0 "War of the Stolen Gold"
+ ie_stolen_justice_cb:0 "War of the Stolen Gold"
+ ie_stolen_justice_cb_victory_desc:0 "[defender.GetShortUIName|U] is forced to hand over the thief and pay reparations. [attacker.GetShortUIName|U] gains great prestige."
+ ie_stolen_justice_cb_white_peace_desc:0 "The war ends without justice for either side."
+ ie_stolen_justice_cb_defeat_desc:0 "[attacker.GetShortUIName|U] fails to obtain justice and is humiliated."
+ ie_stolen_justice_cb_invalidated_desc:0 "The War of the Stolen Gold is no longer relevant."
+
+ # ---------- 0001 A Hole in the Treasury ----------
+ ie_theft.0001.t:0 "A Hole in the Treasury"
+ ie_theft.0001.desc:0 "A clerk found the strongroom ledgers do not match the coin in the chests. Someone with access to the court has been helping themselves, and a sizeable sum is gone.\n\nThe court is already whispering. Any of your courtiers could be the guilty one, and anyone might be accused wrongly. How you find out may matter as much as what you do next."
+ ie_theft.0001.a:0 "I will question the court myself."
+ ie_theft.0001.b:0 "[steward.GetShortUIName], audit the accounts."
+ ie_theft.0001.c:0 "[spymaster.GetShortUIName], find out who did this."
+ ie_theft.0001.d:0 "Let [steward.GetShortUIName] deal with it quietly."
+ ie_theft.0001.f:0 "The treasury can bear it. Let it go."
+ ie_theft.0001.d.success.t:0 "Quietly Resolved"
+ ie_theft.0001.d.success.desc:0 "[steward.GetShortUIName] turned up the thief within days. [thief.GetShortUIName] repaid half of what was taken in exchange for the matter being kept from the court."
+ ie_theft.0001.d.fail.t:0 "The Culprit Slips Away"
+ ie_theft.0001.d.fail.desc:0 "[steward.GetShortUIName] found nothing in time. The thief, sensing the net closing, left your court with the coin before anyone could act."
+
+ # ---------- 0002 The Culprit Revealed ----------
+ ie_theft.0002.t:0 "The Culprit Revealed"
+ ie_theft.0002.desc.opening:0 "The truth is out. The one who emptied your strongroom is [thief.GetShortUIName]."
+ ie_theft.0002.desc.method_1:0 "\n\nYour own questioning did it: a slip of the tongue, a nervous glance, a lie that fell apart."
+ ie_theft.0002.desc.method_2:0 "\n\n[steward.GetShortUIName]'s audit traced the missing coin through false entries to a single hand."
+ ie_theft.0002.desc.method_3:0 "\n\n[spymaster.GetShortUIName]'s informants watched the strongroom and caught [thief.GetHerHim] at it."
+ ie_theft.0002.desc.method_4:0 "\n\nYour private words with the wrongly accused gave you what you needed. Frightened and relieved, they pointed you to the real thief."
+ ie_theft.0002.desc.method_5:0 "\n\nYour riders picked up the trail and brought back proof that left no room for doubt."
+ ie_theft.0002.desc.sponsor:0 "\n\nWorse, [thief.GetHeShe] did not act alone. [thief.GetSheHe] was paid by [harbor_ruler.GetTitledFirstName], who wanted your treasury weakened."
+ ie_theft.0002.desc.ending:0 "\n\n[thief.GetShortUIName] kneels before you. The court waits to see what kind of ruler you are."
+ ie_theft.0002.a:0 "Execute [thief.GetHerHim] and seize the estate."
+ ie_theft.0002.b:0 "Throw [thief.GetHerHim] in the dungeon."
+ ie_theft.0002.c:0 "[thief.GetSheHe|U] will work off the debt in my service."
+ ie_theft.0002.d:0 "Banish [thief.GetHerHim] from the realm."
+ ie_theft.0002.e:0 "I forgive [thief.GetHerHim]. Once."
+ ie_theft.0002.f:0 "Bury the matter. [thief.GetSheHe|U] is a friend."
+ ie_theft.0002.g:0 "Hold [thief.GetHerHim] as proof and confront [harbor_ruler.GetTitledFirstName]."
+
+ # ---------- 0003 A Convenient Culprit ----------
+ ie_theft.0003.t:0 "A Convenient Culprit"
+ ie_theft.0003.desc:0 "The trail has led to [scapegoat.GetShortUIName]. The evidence is thin: a key found in the wrong place, a witness who is a little too certain. It would be easy to end this here, with a guilty face and a closed case.\n\nBut something feels off. The real thief may be laughing."
+ ie_theft.0003.a:0 "Punish [scapegoat.GetShortUIName]. The case is closed."
+ ie_theft.0003.b:0 "I do not trust this. Keep digging."
+ ie_theft.0003.e:0 "Speak to [scapegoat.GetShortUIName] in private."
+ ie_theft.0003.c:0 "I cannot prove it. Write the loss off."
+
+ # ---------- 0004 A Second Look ----------
+ ie_theft.0004.t:0 "A Second Look"
+ ie_theft.0004.desc:0 "Weeks of quiet inquiry have turned up a new lead. A stranger was seen leaving the capital with a heavy load the night the gold vanished.\n\nThe trail is cooling. Riders could be sent now, at some expense, or the matter could be dropped."
+ ie_theft.0004.a:0 "Dispatch riders after the trail."
+ ie_theft.0004.b:0 "Call off the search."
+
+ # ---------- 0005 The Truth Comes Out ----------
+ ie_theft.0005.t:0 "The Truth Comes Out"
+ ie_theft.0005.desc:0 "A letter from a distant merchant proves [scapegoat.GetShortUIName] was elsewhere the night the treasury was robbed. You punished an innocent person while the real thief walked free.\n\nThe court has heard. [scapegoat.GetShortUIName]'s family has heard. Everyone is waiting to see what you will do."
+ ie_theft.0005.a:0 "Free [scapegoat.GetShortUIName], pay compensation and admit the error publicly."
+ ie_theft.0005.b:0 "Free [scapegoat.GetShortUIName] quietly and say nothing."
+ ie_theft.0005.c:0 "I will not be made a fool. [scapegoat.GetShortUIName] stays where [scapegoat.GetSheHe] is."
+
+ # ---------- 0006 The Thief Surfaces ----------
+ ie_theft.0006.t:0 "The Thief Surfaces"
+ ie_theft.0006.desc:0 "Word comes from travelers. [thief.GetShortUIName] has been seen at the court of [harbor_ruler.GetTitledFirstName], dressed in new silks and spending freely. Your gold, by all accounts.\n\n[harbor_ruler.GetTitledFirstName] is under no obligation to give [thief.GetHerHim] up."
+ ie_theft.0006.a:0 "[spymaster.GetShortUIName]'s agents will bring [thief.GetHerHim] back."
+ ie_theft.0006.b:0 "Demand extradition."
+ ie_theft.0006.d:0 "Post a bounty on [thief.GetHerHis] head."
+ ie_theft.0006.c:0 "Let [thief.GetHerHim] go. The gold is gone."
+
+ # ---------- 0007 A Matter of Honor ----------
+ ie_theft.0007.t:0 "A Matter of Honor"
+ ie_theft.0007.desc.harbor:0 "[harbor_ruler.GetTitledFirstName] has refused your demand outright. [harbor_ruler.GetSheHe|U] calls the matter a trifle and says the thief is now a guest under [harbor_ruler.GetHerHis] protection. Your envoy was laughed out of the hall.\n\nThe insult is public. Other rulers are watching to see whether you will answer it."
+ ie_theft.0007.desc.sponsor:0 "[harbor_ruler.GetTitledFirstName] denies any part in the theft, even with [thief.GetShortUIName] chained in your dungeon and willing to talk. The envoys on both sides trade bland words.\n\nBoth of you know the truth. The question is what you will do about it."
+ ie_theft.0007.a:0 "This insult will be answered with steel."
+ ie_theft.0007.b:0 "Call in your hold over [harbor_ruler.GetShortUIName]."
+ ie_theft.0007.d:0 "Spread the story to every court in Christendom."
+ ie_theft.0007.c:0 "Swallow your pride."
+
+ # ---------- 0008 Justice Delivered ----------
+ ie_theft.0008.t:0 "Justice Delivered"
+ ie_theft.0008.desc.opening:0 "[thief.GetShortUIName] stands in chains before your throne, and the stolen gold has been returned to your treasury."
+ ie_theft.0008.desc.method_6:0 "\n\nYour spymaster's agents slipped across the border by night and returned with their prize and no questions answered."
+ ie_theft.0008.desc.method_7:0 "\n\n[harbor_ruler.GetTitledFirstName] has handed the thief over, with a show of reluctance."
+ ie_theft.0008.desc.method_8:0 "\n\nYour armies have won. [harbor_ruler.GetTitledFirstName] has been forced to give up the thief and to pay for the insult."
+ ie_theft.0008.desc.method_9:0 "\n\nA bounty hunter has dragged [thief.GetHerHim] home, to the delight of everyone who heard the story."
+ ie_theft.0008.desc.ending:0 "\n\nThe court has gathered to watch. Your reputation will depend on what you do now."
+ ie_theft.0008.a:0 "Execute [thief.GetHerHim] publicly."
+ ie_theft.0008.b:0 "Imprison [thief.GetHerHim] for life."
+ ie_theft.0008.c:0 "[thief.GetSheHe|U] will serve me to pay the debt."
+ ie_theft.0008.d:0 "Banish [thief.GetHerHim]."
+ ie_theft.0008.e:0 "Show mercy."
+
+ # ---------- 0009 Stolen Gold, Spent Well ----------
+ ie_theft.0009.t:0 "Stolen Gold, Spent Well"
+ ie_theft.0009.desc:0 "The gold taken from your treasury has turned up where you did not expect: in the hands of brigands in [haven_county.GetName]. They are well armed and well fed, and the people there fear them more than they fear you.\n\nYou are paying the price of letting the thief go."
+ ie_theft.0009.a:0 "Send in the soldiers at once."
+ ie_theft.0009.d:0 "I will lead the hunt myself."
+ ie_theft.0009.b:0 "Buy the brigands off."
+ ie_theft.0009.c:0 "Ignore it. It will pass."
+
+ # ---------- 0010 Old Habits ----------
+ ie_theft.0010.t:0 "Old Habits"
+ ie_theft.0010.desc:0 "Your steward brings bad news. [thief.GetShortUIName], the one you spared, has been at the strongroom again, and this time took twice as much.\n\nThe court is watching to see whether you learn from this."
+ ie_theft.0010.a:0 "Into the dungeon. For good."
+ ie_theft.0010.b:0 "Execute [thief.GetHerHim]."
+ ie_theft.0010.c:0 "Banish [thief.GetHerHim]."
+ ie_theft.0010.d:0 "Forgive [thief.GetHerHim] again."
+
+ # ---------- 0011 A Blood Debt ----------
+ ie_theft.0011.t:0 "A Blood Debt"
+ ie_theft.0011.desc:0 "[avenger.GetShortUIName] has come to court, cold and calm. [avenger.GetSheHe|U] blames you for what happened to [avenger.GetHerHis] kin and says there will be a reckoning.\n\nThe rest of the court goes quiet. A hint of steel can be seen at the visitor's belt."
+ ie_theft.0011.a:0 "Offer weregild to settle the debt."
+ ie_theft.0011.b:0 "Offer [avenger.GetHerHim] a place at court."
+ ie_theft.0011.c:0 "Throw [avenger.GetHerHim] out."

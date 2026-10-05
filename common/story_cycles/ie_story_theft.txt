@@ -1,0 +1,28 @@
+# Story: "Theft at Court"
+# Owner: the ruler whose treasury was robbed.
+# Variables on the story:
+#   thief            - the real thief
+#   scapegoat        - an innocent courtier the evidence can wrongly point at
+#   harbor_ruler     - foreign ruler who shelters (or sponsored) the thief
+#   thief_sponsored  - set if a foreign ruler paid for the theft
+#   thief_at_large   - set once the thief has escaped
+#   scapegoat_punished - set if the wrong person was punished
+#   avenger          - a relative who may seek revenge later
+#   method           - how the thief was identified (1..9, see events file)
+ie_story_theft = {
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Hard cap so a forgotten story can never block new ones forever
+	effect_group = {
+		years = 5
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+}

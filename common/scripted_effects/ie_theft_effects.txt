@@ -1,0 +1,210 @@
+# Re-create the scopes every follow-up event needs, from variables stored on the story.
+# Call from the ruler (the story owner).
+ie_theft_load_scopes_effect = {
+	random_owned_story = {
+		type = ie_story_theft
+		save_scope_as = story
+	}
+	scope:story.var:thief = { save_scope_as = thief }
+	if = {
+		limit = { exists = scope:story.var:scapegoat }
+		scope:story.var:scapegoat = { save_scope_as = scapegoat }
+	}
+	if = {
+		limit = { exists = scope:story.var:harbor_ruler }
+		scope:story.var:harbor_ruler = { save_scope_as = harbor_ruler }
+	}
+	if = {
+		limit = { exists = cp:councillor_steward }
+		cp:councillor_steward = { save_scope_as = steward }
+	}
+	if = {
+		limit = { exists = cp:councillor_spymaster }
+		cp:councillor_spymaster = { save_scope_as = spymaster }
+	}
+}
+
+# How the thief was identified. 1 you, 2 steward, 3 spymaster, 4 private talk,
+# 5 second look, 6 abduction, 7 extradition, 8 war, 9 bounty
+ie_theft_set_method_effect = {
+	scope:story = {
+		set_variable = {
+			name = method
+			value = $METHOD$
+		}
+	}
+}
+
+# Finish the story and start a cooldown before the next theft.
+ie_theft_end_story_effect = {
+	scope:story = { end_story = yes }
+	add_character_flag = {
+		flag = ie_theft_cooldown
+		years = 3
+	}
+}
+
+# The thief gets away and leaves court. Months later they turn up abroad.
+ie_theft_thief_escapes_effect = {
+	scope:story = {
+		set_variable = {
+			name = thief_at_large
+			value = 1
+		}
+	}
+	scope:thief = { add_character_flag = ie_fugitive }
+	remove_courtier_or_guest = scope:thief
+	trigger_event = {
+		id = ie_theft.0006
+		months = { 4 9 }
+	}
+}
+
+# The stolen gold is never recovered. It may fund trouble in your realm later.
+ie_theft_unrecovered_effect = {
+	random_list = {
+		60 = {
+			trigger_event = {
+				id = ie_theft.0009
+				months = { 10 28 }
+			}
+		}
+		40 = {
+			ie_theft_end_story_effect = yes
+		}
+	}
+}
+
+# A relative of $TARGET$ may come looking for revenge in a year or two.
+ie_theft_register_avenger_effect = {
+	$TARGET$ = {
+		random_close_family_member = {
+			limit = {
+				is_adult = yes
+				is_alive = yes
+				NOT = { this = root }
+			}
+			save_scope_as = avenger
+		}
+	}
+	if = {
+		limit = { exists = scope:avenger }
+		scope:story = {
+			set_variable = {
+				name = avenger
+				value = scope:avenger
+			}
+		}
+		trigger_event = {
+			id = ie_theft.0011
+			years = { 1 3 }
+		}
+	}
+}
+
+##### Fates of a caught thief. $RECOVER$ is the share of the loot you get back. #####
+
+ie_theft_fate_execute_effect = {
+	add_gold = {
+		value = ie_theft_loot_value
+		multiply = $RECOVER$
+	}
+	add_dread = minor_dread_gain
+	if = {
+		limit = {
+			OR = {
+				has_trait = sadistic
+				has_trait = wrathful
+			}
+		}
+		add_dread = minor_dread_gain
+	}
+	ie_theft_register_avenger_effect = { TARGET = scope:thief }
+	scope:thief = {
+		death = {
+			death_reason = death_execution
+			killer = root
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:avenger } }
+		ie_theft_end_story_effect = yes
+	}
+}
+
+ie_theft_fate_imprison_effect = {
+	add_gold = {
+		value = ie_theft_loot_value
+		multiply = $RECOVER$
+	}
+	imprison = {
+		target = scope:thief
+		type = dungeon
+	}
+	add_prestige = 25
+	ie_theft_end_story_effect = yes
+}
+
+# The thief works off the debt and answers to you.
+ie_theft_fate_debt_effect = {
+	add_gold = {
+		value = ie_theft_loot_value
+		multiply = $RECOVER$
+	}
+	add_hook = {
+		target = scope:thief
+		type = strong_indebted_hook
+	}
+	scope:thief = {
+		add_opinion = {
+			target = root
+			modifier = grateful_opinion
+			opinion = 10
+		}
+	}
+	ie_theft_end_story_effect = yes
+}
+
+ie_theft_fate_exile_effect = {
+	add_gold = {
+		value = ie_theft_loot_value
+		multiply = $RECOVER$
+	}
+	remove_courtier_or_guest = scope:thief
+	scope:thief = {
+		add_opinion = {
+			target = root
+			modifier = disappointed_opinion
+			opinion = -30
+		}
+	}
+	ie_theft_end_story_effect = yes
+}
+
+# Half the time mercy reforms them, half the time they come back for more.
+ie_theft_fate_mercy_effect = {
+	scope:thief = {
+		add_opinion = {
+			target = root
+			modifier = grateful_opinion
+			opinion = 30
+		}
+	}
+	random_list = {
+		50 = {
+			scope:thief = {
+				if = {
+					limit = { NOT = { has_trait = deceitful } }
+					add_trait = honest
+				}
+			}
+			ie_theft_end_story_effect = yes
+		}
+		50 = {
+			trigger_event = {
+				id = ie_theft.0010
+				years = { 2 4 }
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+# How much gold the thief makes off with. Scales with the size of your realm.
+ie_theft_loot_value = {
+	value = 75
+	if = {
+		limit = { highest_held_title_tier >= tier_duchy }
+		add = 75
+	}
+	if = {
+		limit = { highest_held_title_tier >= tier_kingdom }
+		add = 150
+	}
+	if = {
+		limit = { highest_held_title_tier >= tier_empire }
+		add = 300
+	}
+}

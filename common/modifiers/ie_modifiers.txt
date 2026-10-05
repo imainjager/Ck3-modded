@@ -1,0 +1,12 @@
+# County hurt by bandits funded with stolen treasury gold
+ie_bandit_haven_modifier = {
+	icon = county_modifier_development_negative
+	county_opinion_add = -10
+	development_growth_factor = -0.25
+}
+
+# Courtiers think your treasury is easy pickings
+ie_lax_treasury_modifier = {
+	icon = economy_negative
+	monthly_income_mult = -0.05
+}
