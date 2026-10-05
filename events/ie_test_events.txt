@@ -1,0 +1,14 @@
+﻿namespace = ie
+
+# Setup check: a one-option event you can fire from the debug console.
+ie.0001 = {
+	type = character_event
+	title = ie.0001.t
+	desc = ie.0001.desc
+	theme = court
+
+	option = {
+		name = ie.0001.a
+		add_gold = 10
+	}
+}
