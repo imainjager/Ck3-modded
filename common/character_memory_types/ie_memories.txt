@@ -1,4 +1,4 @@
-ie_memory_thief_executed = {
+﻿ie_memory_thief_executed = {
 	categories = { crime justice }
 	icon = "intimidation.dds"
 

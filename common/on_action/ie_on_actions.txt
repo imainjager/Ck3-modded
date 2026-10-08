@@ -1,4 +1,4 @@
-# Hook the reworked events into the game's yearly random pulse for playable characters.
+﻿# Hook the reworked events into the game's yearly random pulse for playable characters.
 # on_actions with the same name are additive, so vanilla events keep firing.
 random_yearly_playable_pulse = {
 	on_actions = { ie_yearly_flavor_pulse }

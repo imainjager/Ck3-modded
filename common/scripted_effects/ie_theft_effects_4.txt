@@ -1,0 +1,119 @@
+﻿##########################################################################
+# Theft at Court - world-changing consequences
+##########################################################################
+
+# Councillor scopes only (used where the story variables are not needed yet).
+ie_theft_load_councillors_effect = {
+	if = {
+		limit = { exists = cp:councillor_steward }
+		cp:councillor_steward = { save_scope_as = steward }
+	}
+	if = {
+		limit = { exists = cp:councillor_spymaster }
+		cp:councillor_spymaster = { save_scope_as = spymaster }
+	}
+	if = {
+		limit = { exists = cp:councillor_marshal }
+		cp:councillor_marshal = { save_scope_as = marshal }
+	}
+	if = {
+		limit = { exists = cp:councillor_court_chaplain }
+		cp:councillor_court_chaplain = { save_scope_as = chaplain }
+	}
+}
+
+# A foreign ruler you clashed with over the thief becomes your rival.
+ie_theft_foreign_rival_effect = {
+	if = {
+		limit = {
+			exists = scope:harbor_ruler
+			NOT = { has_relation_rival = scope:harbor_ruler }
+		}
+		set_relation_rival = {
+			target = scope:harbor_ruler
+			reason = rival_ie_theft_foreign
+		}
+	}
+}
+
+# A vassal who defied you over the thief becomes your rival.
+ie_theft_vassal_rival_effect = {
+	if = {
+		limit = {
+			exists = scope:harbor_vassal
+			NOT = { has_relation_rival = scope:harbor_vassal }
+		}
+		set_relation_rival = {
+			target = scope:harbor_vassal
+			reason = rival_ie_theft_vassal
+		}
+	}
+}
+
+# A failed dealing with a foreign court. The ruler may decide to back the thief's
+# claim on one of your counties, which leads to a real war.
+ie_theft_foreign_failure_effect = {
+	random_list = {
+		30 = {
+			trigger = { exists = scope:harbor_ruler }
+			scope:story = {
+				set_variable = {
+					name = pending_claim
+					value = 1
+				}
+			}
+			trigger_event = {
+				id = ie_theft.0050
+				months = { 6 18 }
+			}
+		}
+		70 = {
+			ie_theft_unrecovered_effect = yes
+		}
+	}
+}
+
+# A failed attempt against the bandit chief. He may seize a county outright.
+ie_theft_bandit_fail_effect = {
+	random_list = {
+		40 = {
+			trigger = { any_realm_county = { count >= 1 } }
+			scope:story = {
+				set_variable = {
+					name = pending_usurper
+					value = 1
+				}
+			}
+			trigger_event = {
+				id = ie_theft.0041
+				months = { 4 10 }
+			}
+		}
+		60 = {
+			ie_theft_unrecovered_effect = yes
+		}
+	}
+}
+
+# The foreign ruler declares a claim war against you, with the thief as claimant.
+ie_theft_claim_war_effect = {
+	if = {
+		limit = {
+			exists = scope:harbor_ruler
+			scope:harbor_ruler = {
+				is_at_war = no
+				NOT = { has_truce = root }
+			}
+		}
+		scope:harbor_ruler = {
+			add_character_flag = temp_no_claim_war_cost
+			start_war = {
+				cb = claim_cb
+				target = root
+				claimant = scope:thief
+				target_title = scope:claimed_title
+			}
+			remove_character_flag = temp_no_claim_war_cost
+		}
+	}
+}

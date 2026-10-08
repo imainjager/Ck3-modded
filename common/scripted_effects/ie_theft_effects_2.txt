@@ -1,4 +1,4 @@
-# A vassal gives the thief up (or the patron pays up if the thief is already in your dungeon).
+﻿# A vassal gives the thief up (or the patron pays up if the thief is already in your dungeon).
 ie_theft_vassal_success_effect = {
 	if = {
 		limit = { scope:thief = { is_imprisoned = yes } }
@@ -34,9 +34,4 @@ ie_theft_foreign_success_effect = {
 			days = 6
 		}
 	}
-}
-
-# Any foreign dispute that goes nowhere ends here.
-ie_theft_foreign_failure_effect = {
-	ie_theft_unrecovered_effect = yes
 }

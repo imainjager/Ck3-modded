@@ -1,4 +1,4 @@
-# Story: "Theft at Court"
+﻿# Story: "Theft at Court"
 # Owner: the ruler whose treasury was robbed.
 # Variables on the story:
 #   thief            - the real thief

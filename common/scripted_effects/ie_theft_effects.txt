@@ -1,4 +1,4 @@
-##########################################################################
+﻿##########################################################################
 # Theft at Court - helper effects
 # All of these are called from the ruler (the story owner) unless noted.
 ##########################################################################
@@ -159,6 +159,8 @@ ie_theft_end_story_effect = {
 					exists = var:pending_avenger
 					exists = var:pending_gold
 					exists = var:pending_habit
+					exists = var:pending_claim
+					exists = var:pending_usurper
 				}
 			}
 		}
@@ -310,6 +312,15 @@ ie_theft_thief_escapes_effect = {
 			}
 			trigger_event = {
 				id = ie_theft.0040
+				months = { 3 8 }
+			}
+		}
+		15 = {
+			trigger = {
+				any_realm_county = { count >= 1 }
+			}
+			trigger_event = {
+				id = ie_theft.0042
 				months = { 3 8 }
 			}
 		}

@@ -1,9 +1,26 @@
-namespace = ie_theft
+﻿namespace = ie_theft
 
 ##################################################################
 # THEFT AT COURT - part 1: the investigation
 #
 # 0001 A Hole in the Treasury   - entry; choose how to investigate
+# 0020 The Interrogation        - when you question the court yourself
+# 0013 The Confession           - the thief comes forward (amnesty / conscience)
+# 0002 The Culprit Revealed     - thief identified; choose their fate
+# 0003 A Convenient Culprit     - investigation points at the wrong person
+# 0004 A Second Look            - keep digging after a wrong lead
+# 0005 The Truth Comes Out      - the innocent you punished is cleared
+#
+# Story variables used here:
+#   motive        1 greed, 2 desperation, 3 paid by a vassal, 4 paid by a foreign ruler
+#   investigator  who investigated (see ie_theft_set_investigator_effect)
+#   approach      how you questioned the court yourself
+##################################################################
+
+
+#####################################
+# 0001 A Hole in the Treasury
+#####################################
 # 0020 The Interrogation        - when you question the court yourself
 # 0013 The Confession           - the thief comes forward (amnesty / conscience)
 # 0002 The Culprit Revealed     - thief identified; choose their fate
@@ -158,7 +175,7 @@ ie_theft.0001 = {
 				}
 			}
 		}
-		ie_theft_load_scopes_effect = yes
+		ie_theft_load_councillors_effect = yes
 	}
 
 	# Question the court yourself - how is up to you

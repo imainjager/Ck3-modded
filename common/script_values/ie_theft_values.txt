@@ -1,4 +1,4 @@
-# How much gold the thief makes off with. Scales with the size of your realm.
+﻿# How much gold the thief makes off with. Scales with the size of your realm.
 ie_theft_loot_value = {
 	value = 75
 	if = {

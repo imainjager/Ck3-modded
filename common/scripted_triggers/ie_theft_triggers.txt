@@ -1,4 +1,4 @@
-# A courtier who could plausibly be the thief (or be wrongly accused).
+﻿# A courtier who could plausibly be the thief (or be wrongly accused).
 # Used inside any_courtier / random_courtier of the ruler.
 ie_theft_candidate_trigger = {
 	is_adult = yes

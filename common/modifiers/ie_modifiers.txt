@@ -1,4 +1,4 @@
-# County hurt by bandits funded with stolen treasury gold
+﻿# County hurt by bandits funded with stolen treasury gold
 ie_bandit_haven_modifier = {
 	icon = county_modifier_development_negative
 	county_opinion_add = -10

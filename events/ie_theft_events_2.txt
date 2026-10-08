@@ -1,4 +1,4 @@
-namespace = ie_theft
+﻿namespace = ie_theft
 
 ##################################################################
 # THEFT AT COURT - part 2: the thief at large, and the fallout
@@ -104,6 +104,7 @@ ie_theft.0006 = {
 			}
 			35 = {
 				desc = ie_theft.out.incident
+				ie_theft_foreign_rival_effect = yes
 				scope:harbor_ruler = {
 					add_opinion = {
 						target = root
@@ -325,6 +326,11 @@ ie_theft.0007 = {
 
 	immediate = {
 		ie_theft_load_scopes_effect = yes
+		# Being refused or denied in public makes bad blood
+		random = {
+			chance = 70
+			ie_theft_foreign_rival_effect = yes
+		}
 	}
 
 	# War
@@ -380,6 +386,48 @@ ie_theft.0007 = {
 				}
 				ie_theft_foreign_failure_effect = yes
 			}
+		}
+	}
+
+	# Have your scholars unearth an old claim to answer the insult
+	option = {
+		name = ie_theft.0007.j
+		trigger = {
+			OR = {
+				learning >= 12
+				has_perk = accomplished_forger_perk
+			}
+		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.15 }
+		scope:harbor_ruler = {
+			random_realm_county = {
+				save_scope_as = harbor_county
+			}
+		}
+		if = {
+			limit = { exists = scope:harbor_county }
+			add_pressed_claim = scope:harbor_county
+		}
+		scope:harbor_ruler = {
+			add_opinion = {
+				target = root
+				modifier = insulted_opinion
+				opinion = -10
+			}
+		}
+		stress_impact = {
+			honest = minor_stress_impact_gain
+			just = miniscule_stress_impact_gain
+			deceitful = miniscule_stress_impact_loss
+		}
+		if = {
+			limit = {
+				scope:story = { var:thief_sponsored ?= 1 }
+			}
+			ie_theft_end_story_effect = yes
+		}
+		else = {
+			ie_theft_unrecovered_effect = yes
 		}
 	}
 
@@ -655,6 +703,7 @@ ie_theft.0030 = {
 			}
 			40 = {
 				desc = ie_theft.out.vassal_defiant
+				ie_theft_vassal_rival_effect = yes
 				scope:harbor_vassal = {
 					add_opinion = {
 						target = root
@@ -742,6 +791,7 @@ ie_theft.0030 = {
 			}
 			35 = {
 				desc = ie_theft.out.spying_discovered
+				ie_theft_vassal_rival_effect = yes
 				scope:harbor_vassal = {
 					add_opinion = {
 						target = root
@@ -894,7 +944,7 @@ ie_theft.0040 = {
 				desc = ie_theft.out.ambushed
 				remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.25 }
 				add_prestige = -25
-				ie_theft_unrecovered_effect = yes
+				ie_theft_bandit_fail_effect = yes
 			}
 		}
 	}
@@ -950,7 +1000,7 @@ ie_theft.0040 = {
 					VAR = ie_mockery
 					AMOUNT = 1
 				}
-				ie_theft_unrecovered_effect = yes
+				ie_theft_bandit_fail_effect = yes
 			}
 		}
 	}
@@ -994,7 +1044,7 @@ ie_theft.0040 = {
 			}
 			35 = {
 				desc = ie_theft.out.gang_alerted
-				ie_theft_unrecovered_effect = yes
+				ie_theft_bandit_fail_effect = yes
 			}
 		}
 	}
@@ -1038,7 +1088,7 @@ ie_theft.0040 = {
 			}
 			20 = {
 				desc = ie_theft.out.hostage_fails
-				ie_theft_unrecovered_effect = yes
+				ie_theft_bandit_fail_effect = yes
 			}
 		}
 	}
@@ -1047,7 +1097,7 @@ ie_theft.0040 = {
 	# Ignore them
 	option = {
 		name = ie_theft.0040.g
-		ie_theft_unrecovered_effect = yes
+		ie_theft_bandit_fail_effect = yes
 	}
 }
 
@@ -1097,6 +1147,10 @@ ie_theft.0008 = {
 				trigger = { scope:story = { var:method ?= 14 } }
 				desc = ie_theft.0008.method_14
 			}
+			triggered_desc = {
+				trigger = { scope:story = { var:method ?= 15 } }
+				desc = ie_theft.0008.method_15
+			}
 		}
 		desc = ie_theft.0008.ending
 	}
@@ -1136,6 +1190,13 @@ ie_theft.0008 = {
 			add_courtier = scope:thief
 		}
 		ie_theft_memory_effect = { TYPE = ie_memory_thief_caught }
+		if = {
+			limit = { scope:story = { var:method ?= 9 } }
+			trigger_event = {
+				id = ie_theft.0051
+				days = 8
+			}
+		}
 		# In the sponsor case the war already paid reparations
 		if = {
 			limit = {

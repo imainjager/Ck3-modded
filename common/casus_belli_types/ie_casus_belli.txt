@@ -1,4 +1,4 @@
-# War fought because a foreign ruler shelters (or sponsored) a thief and refuses justice.
+﻿# War fought because a foreign ruler shelters (or sponsored) a thief and refuses justice.
 # Only started from the Theft at Court story, never from the declare-war screen.
 ie_stolen_justice_cb = {
 	group = event
