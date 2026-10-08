@@ -60,6 +60,27 @@ ie_theft_load_scopes_effect = {
 		}
 		scope:chaplain = { save_scope_as = inv_char }
 	}
+	# Safety: make sure a wrongly accused courtier always exists
+	if = {
+		limit = { NOT = { exists = scope:scapegoat } }
+		random_courtier = {
+			limit = {
+				is_adult = yes
+				NOT = { this = scope:thief }
+			}
+			save_scope_as = scapegoat
+		}
+		if = {
+			limit = { NOT = { exists = scope:scapegoat } }
+			ie_theft_create_courtier_effect = { SCOPE = scapegoat }
+		}
+		scope:story = {
+			set_variable = {
+				name = scapegoat
+				value = scope:scapegoat
+			}
+		}
+	}
 }
 
 # Who investigated: 1 you (see approach), 2 steward, 3 spymaster, 5 chaplain,
@@ -340,6 +361,9 @@ ie_theft_register_avenger_effect = {
 	}
 	if = {
 		limit = { exists = scope:avenger }
+		scope:avenger = {
+			ie_theft_trait_effect = { TRAIT = vengeful OPPOSITE = forgiving CHANCE = 70 }
+		}
 		scope:story = {
 			set_variable = {
 				name = avenger
@@ -378,6 +402,9 @@ ie_theft_fate_execute_effect = {
 		VAR = ie_fear
 		AMOUNT = 2
 	}
+	ie_theft_trait_effect = { TRAIT = callous OPPOSITE = compassionate CHANCE = 25 }
+	ie_theft_court_trait_effect = { TRAIT = craven OPPOSITE = brave CHANCE = 15 }
+	ie_theft_memory_effect = { TYPE = ie_memory_thief_executed }
 	every_courtier = {
 		limit = { is_close_family_of = scope:thief }
 		add_opinion = {
@@ -493,6 +520,8 @@ ie_theft_fate_mercy_effect = {
 		VAR = ie_loyalty
 		AMOUNT = 1
 	}
+	ie_theft_trait_effect = { TRAIT = forgiving OPPOSITE = vengeful CHANCE = 25 }
+	ie_theft_memory_effect = { TYPE = ie_memory_thief_pardoned }
 	random_list = {
 		50 = {
 			scope:thief = {

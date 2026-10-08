@@ -263,6 +263,7 @@ ie_theft.0006 = {
 	# Swear an oath of vengeance
 	option = {
 		name = ie_theft.0006.h
+		ie_theft_trait_effect = { TRAIT = vengeful OPPOSITE = forgiving CHANCE = 30 }
 		trigger = { has_trait = vengeful }
 		ie_theft_make_rival_effect = yes
 		stress_impact = {
@@ -495,6 +496,7 @@ ie_theft.0007 = {
 	# Swallow your pride
 	option = {
 		name = ie_theft.0007.g
+		ie_theft_trait_effect = { TRAIT = craven OPPOSITE = brave CHANCE = 25 }
 		add_prestige = -75
 		ie_theft_rep_effect = {
 			VAR = ie_mockery
@@ -612,6 +614,8 @@ ie_theft.0030 = {
 	# Humiliate them before the court
 	option = {
 		name = ie_theft.0030.c
+		scope:harbor_vassal = { ie_theft_trait_effect = { TRAIT = vengeful OPPOSITE = forgiving CHANCE = 30 } }
+		ie_theft_trait_effect = { TRAIT = arrogant OPPOSITE = humble CHANCE = 20 }
 		trigger = {
 			OR = {
 				martial >= 12
@@ -711,6 +715,7 @@ ie_theft.0030 = {
 	# Blackmail them
 	option = {
 		name = ie_theft.0030.e
+		ie_theft_trait_effect = { TRAIT = deceitful OPPOSITE = honest CHANCE = 30 }
 		trigger = {
 			OR = {
 				intrigue >= 12
@@ -752,6 +757,7 @@ ie_theft.0030 = {
 	# Imprison the vassal for harbouring a thief
 	option = {
 		name = ie_theft.0030.f
+		ie_theft_trait_effect = { TRAIT = arbitrary OPPOSITE = just CHANCE = 40 }
 		trigger = {
 			OR = {
 				has_trait = arbitrary
@@ -897,6 +903,7 @@ ie_theft.0040 = {
 	# Offer a pardon and a post
 	option = {
 		name = ie_theft.0040.c
+		ie_theft_trait_effect = { TRAIT = forgiving OPPOSITE = vengeful CHANCE = 20 }
 		trigger = {
 			OR = {
 				diplomacy >= 10
@@ -951,6 +958,7 @@ ie_theft.0040 = {
 	# Send a knife in the night
 	option = {
 		name = ie_theft.0040.d
+		ie_theft_trait_effect = { TRAIT = deceitful OPPOSITE = honest CHANCE = 20 }
 		trigger = {
 			OR = {
 				intrigue >= 12
@@ -994,6 +1002,7 @@ ie_theft.0040 = {
 	# Seize his family as leverage
 	option = {
 		name = ie_theft.0040.e
+		ie_theft_trait_effect = { TRAIT = callous OPPOSITE = compassionate CHANCE = 30 }
 		trigger = {
 			scope:thief = { any_close_family_member = { is_alive = yes } }
 			OR = {
@@ -1126,6 +1135,7 @@ ie_theft.0008 = {
 			}
 			add_courtier = scope:thief
 		}
+		ie_theft_memory_effect = { TYPE = ie_memory_thief_caught }
 		# In the sponsor case the war already paid reparations
 		if = {
 			limit = {
@@ -1150,6 +1160,7 @@ ie_theft.0008 = {
 	# Let your court sit in judgement
 	option = {
 		name = ie_theft.0008.f
+		ie_theft_trait_effect = { TRAIT = just OPPOSITE = arbitrary CHANCE = 20 }
 		ie_theft_rep_effect = {
 			VAR = ie_loyalty
 			AMOUNT = 1
@@ -1426,6 +1437,7 @@ ie_theft.0011 = {
 	# Pay weregild
 	option = {
 		name = ie_theft.0011.a
+		ie_theft_trait_effect = { TRAIT = generous OPPOSITE = greedy CHANCE = 20 }
 		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.5 }
 		scope:avenger = {
 			add_opinion = {
@@ -1510,6 +1522,7 @@ ie_theft.0011 = {
 	# Refuse - and face the consequences
 	option = {
 		name = ie_theft.0011.c
+		ie_theft_trait_effect = { TRAIT = arrogant OPPOSITE = humble CHANCE = 25 }
 		scope:avenger = {
 			add_opinion = {
 				target = root

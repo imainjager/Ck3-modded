@@ -1,0 +1,73 @@
+##########################################################################
+# Theft at Court - lasting consequences for characters
+##########################################################################
+
+# Chance for the current character to gain a trait, unless they already have it
+# or its opposite. Works in any character scope.
+ie_theft_trait_effect = {
+	random = {
+		chance = $CHANCE$
+		if = {
+			limit = {
+				NOT = {
+					has_trait = $TRAIT$
+					has_trait = $OPPOSITE$
+				}
+			}
+			add_trait = $TRAIT$
+		}
+	}
+}
+
+# Every adult courtier has a chance to be changed by what they just witnessed.
+ie_theft_court_trait_effect = {
+	every_courtier = {
+		limit = { is_adult = yes }
+		ie_theft_trait_effect = {
+			TRAIT = $TRAIT$
+			OPPOSITE = $OPPOSITE$
+			CHANCE = $CHANCE$
+		}
+	}
+}
+
+# A memory on the ruler that mentions the thief.
+ie_theft_memory_effect = {
+	if = {
+		limit = { exists = scope:thief }
+		create_character_memory = {
+			type = $TYPE$
+			participants = {
+				thief = scope:thief
+			}
+		}
+	}
+}
+
+# A memory on the wronged courtier that mentions the ruler.
+ie_theft_wronged_memory_effect = {
+	if = {
+		limit = { exists = scope:scapegoat }
+		scope:scapegoat = {
+			create_character_memory = {
+				type = ie_memory_scapegoat_wronged
+				participants = {
+					ruler = root
+				}
+			}
+		}
+	}
+}
+
+# Makes a courtier on the spot (used if the court is too small for the story).
+ie_theft_create_courtier_effect = {
+	create_character = {
+		location = root.capital_province
+		employer = root
+		culture = root.culture
+		faith = root.faith
+		age = { 25 50 }
+		gender_female_chance = 0.4
+		save_scope_as = $SCOPE$
+	}
+}

@@ -1,0 +1,134 @@
+ie_memory_thief_executed = {
+	categories = { crime justice }
+	icon = "intimidation.dds"
+
+	description = {
+		random_valid = {
+			desc = ie_memory_thief_executed_desc_1
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = ie_memory_thief_executed_desc_second_perspective_1
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = ie_memory_thief_executed_desc_third_perspective_1
+		}
+	}
+
+	participants = { thief }
+
+	duration = {
+		years = 25
+	}
+}
+
+ie_memory_thief_pardoned = {
+	categories = { crime justice }
+	icon = "friend.dds"
+
+	description = {
+		random_valid = {
+			desc = ie_memory_thief_pardoned_desc_1
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = ie_memory_thief_pardoned_desc_second_perspective_1
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = ie_memory_thief_pardoned_desc_third_perspective_1
+		}
+	}
+
+	participants = { thief }
+
+	duration = {
+		years = 25
+	}
+}
+
+ie_memory_thief_caught = {
+	categories = { crime justice }
+	icon = "prison.dds"
+
+	description = {
+		random_valid = {
+			desc = ie_memory_thief_caught_desc_1
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = ie_memory_thief_caught_desc_second_perspective_1
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = ie_memory_thief_caught_desc_third_perspective_1
+		}
+	}
+
+	participants = { thief }
+
+	duration = {
+		years = 25
+	}
+}
+
+ie_memory_scapegoat_wronged = {
+	categories = { crime justice }
+	icon = "prison.dds"
+
+	description = {
+		random_valid = {
+			desc = ie_memory_scapegoat_wronged_desc_1
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = ie_memory_scapegoat_wronged_desc_second_perspective_1
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = ie_memory_scapegoat_wronged_desc_third_perspective_1
+		}
+	}
+
+	participants = { ruler }
+
+	duration = {
+		years = 30
+	}
+}
+
+ie_memory_admitted_error = {
+	categories = { crime justice }
+	icon = "family.dds"
+
+	description = {
+		random_valid = {
+			desc = ie_memory_admitted_error_desc_1
+		}
+	}
+	second_perspective_description = {
+		random_valid = {
+			desc = ie_memory_admitted_error_desc_second_perspective_1
+		}
+	}
+	third_perspective_description = {
+		random_valid = {
+			desc = ie_memory_admitted_error_desc_third_perspective_1
+		}
+	}
+
+	participants = { wronged }
+
+	duration = {
+		years = 25
+	}
+}
