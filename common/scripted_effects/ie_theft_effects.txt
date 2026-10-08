@@ -248,7 +248,6 @@ ie_theft_thief_escapes_effect = {
 			value = 1
 		}
 	}
-	scope:thief = { add_character_flag = ie_fugitive }
 	remove_courtier_or_guest = scope:thief
 	random = {
 		chance = 70
@@ -262,12 +261,6 @@ ie_theft_thief_escapes_effect = {
 			modifier = {
 				add = 80
 				scope:story = { var:motive ?= 4 }
-			}
-			scope:story = {
-				set_variable = {
-					name = escape_route
-					value = 1
-				}
 			}
 			trigger_event = {
 				id = ie_theft.0006
@@ -285,12 +278,6 @@ ie_theft_thief_escapes_effect = {
 				add = 80
 				scope:story = { var:motive ?= 3 }
 			}
-			scope:story = {
-				set_variable = {
-					name = escape_route
-					value = 2
-				}
-			}
 			trigger_event = {
 				id = ie_theft.0030
 				months = { 3 8 }
@@ -299,12 +286,6 @@ ie_theft_thief_escapes_effect = {
 		30 = {
 			trigger = {
 				any_realm_county = { count >= 1 }
-			}
-			scope:story = {
-				set_variable = {
-					name = escape_route
-					value = 3
-				}
 			}
 			trigger_event = {
 				id = ie_theft.0040

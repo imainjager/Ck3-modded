@@ -81,10 +81,7 @@ ie_theft.0001 = {
 			}
 			save_scope_as = scapegoat
 		}
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -1
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 1 }
 		create_story = {
 			type = ie_story_theft
 			save_scope_as = story
@@ -250,49 +247,21 @@ ie_theft.0001 = {
 		}
 	}
 
-	# Chaplain hears confessions and swears the court on relics
-	option = {
-		name = ie_theft.0001.d
-		trigger = { exists = scope:chaplain }
-		ie_theft_set_investigator_effect = { INV = 5 }
-		random_list = {
-			40 = {
-				desc = ie_theft.out.identified
-				modifier = {
-					add = 15
-					scope:chaplain = { learning >= 10 }
-				}
-				modifier = {
-					add = 10
-					scope:chaplain = { has_trait = zealous }
-				}
-				modifier = {
-					add = -20
-					scope:thief = { has_trait = zealous }
-				}
-				modifier = {
-					add = -10
-					scope:thief = { has_trait = deceitful }
-				}
-				trigger_event = {
-					id = ie_theft.0002
-					days = 4
-				}
-			}
-			45 = {
-				desc = ie_theft.out.wrong_lead
-				trigger_event = {
-					id = ie_theft.0003
-					days = 4
-				}
-			}
-		}
-	}
 
 	# Paranoid: trust nobody and lock the court down
 	option = {
 		name = ie_theft.0001.e
-		trigger = { has_trait = paranoid }
+		# Only one personality option is shown at a time: cruel > paranoid > merciful > open-handed
+		trigger = {
+			has_trait = paranoid
+			NOT = {
+				OR = {
+					has_trait = sadistic
+					has_perk = torturer_perk
+					has_trait = torturer
+				}
+			}
+		}
 		ie_theft_set_investigator_effect = { INV = 8 }
 		ie_theft_court_mood_effect = { OPINION = -10 }
 		stress_impact = {
@@ -375,12 +344,18 @@ ie_theft.0001 = {
 				has_trait = gregarious
 				has_trait = trusting
 			}
+			NOR = {
+				has_trait = sadistic
+				has_perk = torturer_perk
+				has_trait = torturer
+				has_trait = paranoid
+				has_trait = compassionate
+				has_trait = forgiving
+				has_trait = just
+			}
 		}
 		ie_theft_set_investigator_effect = { INV = 6 }
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.15
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.15 }
 		stress_impact = {
 			greedy = minor_stress_impact_gain
 			generous = miniscule_stress_impact_loss
@@ -411,6 +386,12 @@ ie_theft.0001 = {
 				has_trait = compassionate
 				has_trait = forgiving
 				has_trait = just
+			}
+			NOR = {
+				has_trait = sadistic
+				has_perk = torturer_perk
+				has_trait = torturer
+				has_trait = paranoid
 			}
 		}
 		ie_theft_set_investigator_effect = { INV = 7 }
@@ -546,7 +527,6 @@ ie_theft.0020 = {
 				has_perk = dreadful_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		ie_theft_set_approach_effect = { APPROACH = 1 }
 		ie_theft_rep_effect = {
 			VAR = ie_fear
@@ -603,7 +583,6 @@ ie_theft.0020 = {
 				has_perk = diplomat_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		ie_theft_set_approach_effect = { APPROACH = 2 }
 		ie_theft_rep_effect = {
 			VAR = ie_loyalty
@@ -652,7 +631,6 @@ ie_theft.0020 = {
 				has_trait = shrewd
 			}
 		}
-		show_as_unavailable = { always = yes }
 		ie_theft_set_approach_effect = { APPROACH = 3 }
 		stress_impact = {
 			impatient = miniscule_stress_impact_gain
@@ -694,7 +672,6 @@ ie_theft.0020 = {
 				has_perk = digging_for_dirt_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		ie_theft_set_approach_effect = { APPROACH = 4 }
 		stress_impact = {
 			impatient = miniscule_stress_impact_gain
@@ -732,7 +709,6 @@ ie_theft.0020 = {
 				has_trait = honest
 			}
 		}
-		show_as_unavailable = { always = yes }
 		ie_theft_set_approach_effect = { APPROACH = 5 }
 		ie_theft_rep_effect = {
 			VAR = ie_loyalty
@@ -777,7 +753,6 @@ ie_theft.0020 = {
 	option = {
 		name = ie_theft.0020.f
 		trigger = { has_trait = deceitful }
-		show_as_unavailable = { always = yes }
 		ie_theft_set_approach_effect = { APPROACH = 6 }
 		stress_impact = {
 			honest = minor_stress_impact_gain
@@ -1068,18 +1043,21 @@ ie_theft.0002 = {
 		}
 	}
 
-	# Dungeon
-	option = {
-		name = ie_theft.0002.b
-		ie_theft_fate_imprison_effect = { RECOVER = 0.5 }
-		stress_impact = {
-			vengeful = miniscule_stress_impact_loss
-		}
-	}
 
 	# Work off the debt
 	option = {
 		name = ie_theft.0002.c
+		# The steward's and spymaster's own ways of putting a thief to use replace this one
+		trigger = {
+			NOT = {
+				scope:story = {
+					OR = {
+						var:investigator ?= 2
+						var:investigator ?= 3
+					}
+				}
+			}
+		}
 		ie_theft_fate_debt_effect = { RECOVER = 0.75 }
 		stress_impact = {
 			greedy = miniscule_stress_impact_loss
@@ -1087,11 +1065,6 @@ ie_theft.0002 = {
 		}
 	}
 
-	# Exile
-	option = {
-		name = ie_theft.0002.d
-		ie_theft_fate_exile_effect = { RECOVER = 0.25 }
-	}
 
 	# Mercy
 	option = {
@@ -1217,7 +1190,7 @@ ie_theft.0002 = {
 				}
 				add_hook = {
 					target = scope:thief
-					type = strong_blackmail_hook
+					type = threat_hook
 				}
 				add_character_modifier = {
 					modifier = ie_court_informant_modifier
@@ -1236,35 +1209,6 @@ ie_theft.0002 = {
 		}
 	}
 
-	# Chaplain: penance and a pilgrimage
-	option = {
-		name = ie_theft.0002.i
-		trigger = {
-			scope:story = { var:investigator ?= 5 }
-			exists = scope:chaplain
-		}
-		add_piety = 100
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = 0.25
-		}
-		remove_courtier_or_guest = scope:thief
-		scope:thief = {
-			add_opinion = {
-				target = root
-				modifier = grateful_opinion
-				opinion = 15
-			}
-		}
-		ie_theft_rep_effect = {
-			VAR = ie_loyalty
-			AMOUNT = 1
-		}
-		stress_impact = {
-			zealous = minor_stress_impact_loss
-		}
-		ie_theft_end_story_effect = yes
-	}
 
 	# Desperate thief: pay for the cure and forgive
 	option = {
@@ -1411,87 +1355,12 @@ ie_theft.0003 = {
 		}
 	}
 
-	# Flog and banish the accused (cruel rulers)
-	option = {
-		name = ie_theft.0003.b
-		trigger = {
-			OR = {
-				has_trait = wrathful
-				has_trait = sadistic
-				has_trait = callous
-				has_trait = arbitrary
-			}
-		}
-		scope:scapegoat = {
-			add_opinion = {
-				target = root
-				modifier = insulted_opinion
-				opinion = -60
-			}
-		}
-		remove_courtier_or_guest = scope:scapegoat
-		add_dread = minor_dread_gain
-		ie_theft_rep_effect = {
-			VAR = ie_fear
-			AMOUNT = 2
-		}
-		scope:story = {
-			set_variable = {
-				name = scapegoat_punished
-				value = 1
-			}
-		}
-		stress_impact = {
-			wrathful = miniscule_stress_impact_loss
-			sadistic = minor_stress_impact_loss
-			just = minor_stress_impact_gain
-			compassionate = minor_stress_impact_gain
-		}
-		ie_theft_register_avenger_effect = { TARGET = scope:scapegoat }
-		ie_theft_thief_escapes_effect = yes
-		trigger_event = {
-			id = ie_theft.0005
-			months = { 6 12 }
-		}
-	}
 
-	# Fine them and be done
-	option = {
-		name = ie_theft.0003.c
-		scope:scapegoat = {
-			add_opinion = {
-				target = root
-				modifier = insulted_opinion
-				opinion = -20
-			}
-		}
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = 0.15
-		}
-		scope:story = {
-			set_variable = {
-				name = scapegoat_punished
-				value = 1
-			}
-		}
-		stress_impact = {
-			just = miniscule_stress_impact_gain
-		}
-		ie_theft_thief_escapes_effect = yes
-		trigger_event = {
-			id = ie_theft.0005
-			months = { 6 12 }
-		}
-	}
 
 	# Keep digging
 	option = {
 		name = ie_theft.0003.d
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.1
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.1 }
 		ie_theft_set_bonus_effect = { BONUS = 10 }
 		stress_impact = {
 			diligent = miniscule_stress_impact_loss
@@ -1510,10 +1379,8 @@ ie_theft.0003 = {
 			OR = {
 				diplomacy >= 10
 				has_trait = compassionate
-				has_trait = empathetic
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			shy = miniscule_stress_impact_gain
 		}
@@ -1563,7 +1430,6 @@ ie_theft.0003 = {
 				has_trait = paranoid
 			}
 		}
-		show_as_unavailable = { always = yes }
 		ie_theft_set_bonus_effect = { BONUS = 25 }
 		stress_impact = {
 			paranoid = miniscule_stress_impact_loss
@@ -1574,35 +1440,8 @@ ie_theft.0003 = {
 		}
 	}
 
-	# Ask for a second opinion
-	option = {
-		name = ie_theft.0003.g
-		trigger = {
-			OR = {
-				exists = scope:steward
-				exists = scope:spymaster
-			}
-		}
-		ie_theft_set_bonus_effect = { BONUS = 15 }
-		trigger_event = {
-			id = ie_theft.0004
-			months = 1
-		}
-	}
 
-	# Write it off
-	option = {
-		name = ie_theft.0003.h
-		add_character_modifier = {
-			modifier = ie_lax_treasury_modifier
-			years = 3
-		}
-		ie_theft_rep_effect = {
-			VAR = ie_mockery
-			AMOUNT = 1
-		}
-		ie_theft_thief_escapes_effect = yes
-	}
+
 }
 
 
@@ -1626,10 +1465,7 @@ ie_theft.0004 = {
 	# Dispatch riders after the trail
 	option = {
 		name = ie_theft.0004.a
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.1
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.1 }
 		random_list = {
 			40 = {
 				desc = ie_theft.out.identified
@@ -1678,7 +1514,6 @@ ie_theft.0004 = {
 				has_perk = digging_for_dirt_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		random_list = {
 			55 = {
 				desc = ie_theft.out.caught_in_act
@@ -1703,44 +1538,6 @@ ie_theft.0004 = {
 		}
 	}
 
-	# Wait and watch
-	option = {
-		name = ie_theft.0004.c
-		trigger = {
-			OR = {
-				has_trait = patient
-				has_trait = calm
-				has_trait = shrewd
-			}
-		}
-		show_as_unavailable = { always = yes }
-		stress_impact = {
-			impatient = minor_stress_impact_gain
-			patient = miniscule_stress_impact_loss
-		}
-		random_list = {
-			45 = {
-				desc = ie_theft.out.identified
-				modifier = {
-					add = 15
-					has_trait = patient
-				}
-				modifier = {
-					add = 10
-					scope:story = { var:dig_bonus ?= 25 }
-				}
-				ie_theft_set_investigator_effect = { INV = 0 }
-				trigger_event = {
-					id = ie_theft.0002
-					months = { 2 3 }
-				}
-			}
-			35 = {
-				desc = ie_theft.out.trail_cold
-				ie_theft_thief_escapes_effect = yes
-			}
-		}
-	}
 
 	# Call off the search
 	option = {
@@ -1801,10 +1598,7 @@ ie_theft.0005 = {
 			}
 			add_courtier = scope:scapegoat
 		}
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.5
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.5 }
 		add_prestige = -50
 		ie_theft_rep_effect = {
 			VAR = ie_loyalty
@@ -1817,25 +1611,6 @@ ie_theft.0005 = {
 		}
 	}
 
-	# Release them quietly
-	option = {
-		name = ie_theft.0005.b
-		scope:scapegoat = {
-			if = {
-				limit = { is_imprisoned = yes }
-				release_from_prison = yes
-			}
-			add_opinion = {
-				target = root
-				modifier = disappointed_opinion
-				opinion = -15
-			}
-		}
-		ie_theft_rep_effect = {
-			VAR = ie_mockery
-			AMOUNT = 1
-		}
-	}
 
 	# Blame whoever gathered the evidence
 	option = {

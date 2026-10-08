@@ -45,24 +45,34 @@ ie_theft.0006 = {
 		}
 	}
 
-	# Have the spymaster snatch him
+	# Covert action: have him taken or silenced
 	option = {
 		name = ie_theft.0006.a
-		trigger = { exists = scope:spymaster }
+		trigger = {
+			OR = {
+				exists = scope:spymaster
+				intrigue >= 12
+				has_trait = schemer
+				has_perk = digging_for_dirt_perk
+			}
+		}
 		stress_impact = {
-			honest = miniscule_stress_impact_gain
+			honest = minor_stress_impact_gain
 			just = miniscule_stress_impact_gain
+			compassionate = miniscule_stress_impact_gain
+			deceitful = miniscule_stress_impact_loss
 		}
 		random_list = {
-			40 = {
+			35 = {
 				desc = ie_theft.out.captured
 				modifier = {
 					add = 15
+					exists = scope:spymaster
 					scope:spymaster = { intrigue >= 12 }
 				}
 				modifier = {
-					add = 20
-					scope:spymaster = { intrigue >= 18 }
+					add = 15
+					intrigue >= 16
 				}
 				modifier = {
 					add = 10
@@ -74,50 +84,8 @@ ie_theft.0006 = {
 					days = 6
 				}
 			}
-			45 = {
-				desc = ie_theft.out.incident
-				scope:harbor_ruler = {
-					add_opinion = {
-						target = root
-						modifier = insulted_opinion
-						opinion = -30
-					}
-				}
-				ie_theft_unrecovered_effect = yes
-			}
-		}
-	}
-
-	# Hire an assassin
-	option = {
-		name = ie_theft.0006.b
-		trigger = {
-			OR = {
-				intrigue >= 12
-				has_trait = schemer
-				has_trait = torturer
-				has_perk = digging_for_dirt_perk
-			}
-		}
-		show_as_unavailable = { always = yes }
-		stress_impact = {
-			honest = minor_stress_impact_gain
-			just = minor_stress_impact_gain
-			compassionate = miniscule_stress_impact_gain
-			deceitful = miniscule_stress_impact_loss
-		}
-		random_list = {
-			50 = {
+			20 = {
 				desc = ie_theft.out.thief_dead
-				modifier = {
-					add = 15
-					intrigue >= 16
-				}
-				modifier = {
-					add = 10
-					exists = scope:spymaster
-					scope:spymaster = { intrigue >= 14 }
-				}
 				add_gold = {
 					value = ie_theft_loot_value
 					multiply = 0.3
@@ -135,12 +103,12 @@ ie_theft.0006 = {
 				ie_theft_end_story_effect = yes
 			}
 			35 = {
-				desc = ie_theft.out.exposed
+				desc = ie_theft.out.incident
 				scope:harbor_ruler = {
 					add_opinion = {
 						target = root
 						modifier = insulted_opinion
-						opinion = -40
+						opinion = -30
 					}
 				}
 				add_prestige = -25
@@ -149,32 +117,29 @@ ie_theft.0006 = {
 		}
 	}
 
+
 	# Negotiate a deal
 	option = {
 		name = ie_theft.0006.c
-		trigger = {
-			OR = {
-				diplomacy >= 12
-				has_trait = gregarious
-				has_trait = diplomat
-				has_perk = friendly_counsel_perk
-			}
-		}
-		show_as_unavailable = { always = yes }
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.2
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.2 }
 		stress_impact = {
 			shy = miniscule_stress_impact_gain
 			gregarious = miniscule_stress_impact_loss
 		}
 		random_list = {
-			55 = {
+			35 = {
 				desc = ie_theft.out.surrender_deal
+				modifier = {
+					add = 10
+					diplomacy >= 10
+				}
 				modifier = {
 					add = 15
 					diplomacy >= 16
+				}
+				modifier = {
+					add = 10
+					has_perk = friendly_counsel_perk
 				}
 				modifier = {
 					add = 25
@@ -205,7 +170,7 @@ ie_theft.0006 = {
 					days = 6
 				}
 			}
-			30 = {
+			50 = {
 				desc = ie_theft.out.refused
 				trigger_event = {
 					id = ie_theft.0007
@@ -226,7 +191,6 @@ ie_theft.0006 = {
 				has_perk = dreadful_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			craven = miniscule_stress_impact_gain
 			brave = miniscule_stress_impact_loss
@@ -274,98 +238,12 @@ ie_theft.0006 = {
 		}
 	}
 
-	# Appeal to the Church
-	option = {
-		name = ie_theft.0006.e
-		trigger = {
-			OR = {
-				has_trait = zealous
-				learning >= 12
-			}
-		}
-		show_as_unavailable = { always = yes }
-		stress_impact = {
-			zealous = minor_stress_impact_loss
-			cynical = miniscule_stress_impact_gain
-		}
-		random_list = {
-			45 = {
-				desc = ie_theft.out.surrender_church
-				modifier = {
-					add = 15
-					has_trait = zealous
-				}
-				modifier = {
-					add = 20
-					scope:harbor_ruler = { faith = root.faith }
-				}
-				add_piety = 25
-				ie_theft_set_method_effect = { METHOD = 7 }
-				trigger_event = {
-					id = ie_theft.0008
-					days = 8
-				}
-			}
-			40 = {
-				desc = ie_theft.out.church_ignored
-				scope:harbor_ruler = {
-					add_opinion = {
-						target = root
-						modifier = insulted_opinion
-						opinion = -15
-					}
-				}
-				ie_theft_unrecovered_effect = yes
-			}
-		}
-	}
 
-	# Formal extradition demand
-	option = {
-		name = ie_theft.0006.f
-		random_list = {
-			30 = {
-				desc = ie_theft.out.surrender
-				modifier = {
-					add = 15
-					diplomacy >= 12
-				}
-				modifier = {
-					add = 25
-					scope:harbor_ruler = {
-						opinion = {
-							target = root
-							value >= 20
-						}
-					}
-				}
-				modifier = {
-					add = 10
-					scope:harbor_ruler = { highest_held_title_tier < root.highest_held_title_tier }
-				}
-				ie_theft_set_method_effect = { METHOD = 7 }
-				trigger_event = {
-					id = ie_theft.0008
-					days = 6
-				}
-			}
-			55 = {
-				desc = ie_theft.out.refused
-				trigger_event = {
-					id = ie_theft.0007
-					days = 3
-				}
-			}
-		}
-	}
 
 	# Offer a bounty
 	option = {
 		name = ie_theft.0006.g
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.4
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.4 }
 		random_list = {
 			55 = {
 				desc = ie_theft.out.bounty_hunter
@@ -467,7 +345,6 @@ ie_theft.0007 = {
 	option = {
 		name = ie_theft.0007.b
 		trigger = { has_hook = scope:harbor_ruler }
-		show_as_unavailable = { always = yes }
 		use_hook = scope:harbor_ruler
 		ie_theft_foreign_success_effect = { METHOD = 7 }
 	}
@@ -478,7 +355,6 @@ ie_theft.0007 = {
 		trigger = {
 			any_ally = { count >= 1 }
 		}
-		show_as_unavailable = { always = yes }
 		random_list = {
 			40 = {
 				desc = ie_theft.out.allies_prevail
@@ -512,10 +388,7 @@ ie_theft.0007 = {
 		trigger = {
 			NOT = { scope:story = { var:thief_sponsored ?= 1 } }
 		}
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.5
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.5 }
 		ie_theft_rep_effect = {
 			VAR = ie_mockery
 			AMOUNT = 1
@@ -540,62 +413,6 @@ ie_theft.0007 = {
 		}
 	}
 
-	# Hire an assassin
-	option = {
-		name = ie_theft.0007.e
-		trigger = {
-			NOT = { scope:story = { var:thief_sponsored ?= 1 } }
-			OR = {
-				intrigue >= 12
-				has_trait = schemer
-				has_perk = digging_for_dirt_perk
-			}
-		}
-		show_as_unavailable = {
-			NOT = { scope:story = { var:thief_sponsored ?= 1 } }
-		}
-		stress_impact = {
-			honest = minor_stress_impact_gain
-			just = minor_stress_impact_gain
-			deceitful = miniscule_stress_impact_loss
-		}
-		random_list = {
-			50 = {
-				desc = ie_theft.out.thief_dead
-				modifier = {
-					add = 15
-					intrigue >= 16
-				}
-				add_gold = {
-					value = ie_theft_loot_value
-					multiply = 0.3
-				}
-				ie_theft_rep_effect = {
-					VAR = ie_fear
-					AMOUNT = 1
-				}
-				scope:thief = {
-					death = {
-						death_reason = death_murder
-						killer = root
-					}
-				}
-				ie_theft_end_story_effect = yes
-			}
-			35 = {
-				desc = ie_theft.out.exposed
-				scope:harbor_ruler = {
-					add_opinion = {
-						target = root
-						modifier = insulted_opinion
-						opinion = -40
-					}
-				}
-				add_prestige = -25
-				ie_theft_unrecovered_effect = yes
-			}
-		}
-	}
 
 	# Demand reparations (the thief is in your dungeon)
 	option = {
@@ -674,28 +491,6 @@ ie_theft.0007 = {
 		ie_theft_end_story_effect = yes
 	}
 
-	# Smear campaign
-	option = {
-		name = ie_theft.0007.f
-		scope:harbor_ruler = {
-			add_prestige = -50
-			add_opinion = {
-				target = root
-				modifier = insulted_opinion
-				opinion = -25
-			}
-		}
-		add_prestige = 25
-		if = {
-			limit = {
-				scope:story = { var:thief_sponsored ?= 1 }
-			}
-			ie_theft_end_story_effect = yes
-		}
-		else = {
-			ie_theft_unrecovered_effect = yes
-		}
-	}
 
 	# Swallow your pride
 	option = {
@@ -772,6 +567,10 @@ ie_theft.0030 = {
 			45 = {
 				desc = ie_theft.out.surrender
 				modifier = {
+					add = 30
+					has_hook = scope:harbor_vassal
+				}
+				modifier = {
 					add = 25
 					scope:harbor_vassal = {
 						opinion = {
@@ -809,14 +608,6 @@ ie_theft.0030 = {
 		}
 	}
 
-	# Call in your hold over them
-	option = {
-		name = ie_theft.0030.b
-		trigger = { has_hook = scope:harbor_vassal }
-		show_as_unavailable = { always = yes }
-		use_hook = scope:harbor_vassal
-		ie_theft_vassal_success_effect = yes
-	}
 
 	# Humiliate them before the court
 	option = {
@@ -829,7 +620,6 @@ ie_theft.0030 = {
 				has_perk = dreadful_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			humble = minor_stress_impact_gain
 			compassionate = miniscule_stress_impact_gain
@@ -888,7 +678,6 @@ ie_theft.0030 = {
 				has_perk = diplomat_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			shy = miniscule_stress_impact_gain
 			gregarious = miniscule_stress_impact_loss
@@ -929,7 +718,6 @@ ie_theft.0030 = {
 				has_perk = digging_for_dirt_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			honest = minor_stress_impact_gain
 			deceitful = miniscule_stress_impact_loss
@@ -943,7 +731,7 @@ ie_theft.0030 = {
 				}
 				add_hook = {
 					target = scope:harbor_vassal
-					type = strong_blackmail_hook
+					type = threat_hook
 				}
 				ie_theft_vassal_success_effect = yes
 			}
@@ -973,7 +761,6 @@ ie_theft.0030 = {
 				has_trait = sadistic
 			}
 		}
-		show_as_unavailable = { always = yes }
 		imprison = {
 			target = scope:harbor_vassal
 			type = dungeon
@@ -1056,24 +843,20 @@ ie_theft.0040 = {
 		}
 	}
 
-	# Lead the hunt yourself
+	# Hunt him down (you lead if you can fight; otherwise the marshal does)
 	option = {
 		name = ie_theft.0040.a
-		trigger = {
-			OR = {
-				martial >= 10
-				has_trait = brave
-				has_perk = hit_and_run_perk
-			}
-		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			craven = minor_stress_impact_gain
 			brave = miniscule_stress_impact_loss
 		}
 		random_list = {
-			50 = {
+			40 = {
 				desc = ie_theft.out.captured
+				modifier = {
+					add = 10
+					martial >= 10
+				}
 				modifier = {
 					add = 15
 					martial >= 16
@@ -1081,6 +864,15 @@ ie_theft.0040 = {
 				modifier = {
 					add = 10
 					has_trait = brave
+				}
+				modifier = {
+					add = 10
+					has_perk = hit_and_run_perk
+				}
+				modifier = {
+					add = 15
+					exists = scope:marshal
+					scope:marshal = { martial >= 12 }
 				}
 				scope:haven_county = {
 					remove_county_modifier = ie_bandit_haven_modifier
@@ -1094,50 +886,13 @@ ie_theft.0040 = {
 			}
 			35 = {
 				desc = ie_theft.out.ambushed
-				add_gold = {
-					value = ie_theft_loot_value
-					multiply = -0.25
-				}
+				remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.25 }
 				add_prestige = -25
 				ie_theft_unrecovered_effect = yes
 			}
 		}
 	}
 
-	# Send the marshal and the knights
-	option = {
-		name = ie_theft.0040.b
-		trigger = { exists = scope:marshal }
-		random_list = {
-			45 = {
-				desc = ie_theft.out.captured
-				modifier = {
-					add = 15
-					scope:marshal = { martial >= 12 }
-				}
-				modifier = {
-					add = 20
-					scope:marshal = { martial >= 18 }
-				}
-				scope:haven_county = {
-					remove_county_modifier = ie_bandit_haven_modifier
-				}
-				ie_theft_set_method_effect = { METHOD = 10 }
-				trigger_event = {
-					id = ie_theft.0008
-					days = 12
-				}
-			}
-			40 = {
-				desc = ie_theft.out.ambushed
-				add_gold = {
-					value = ie_theft_loot_value
-					multiply = -0.2
-				}
-				ie_theft_unrecovered_effect = yes
-			}
-		}
-	}
 
 	# Offer a pardon and a post
 	option = {
@@ -1149,7 +904,6 @@ ie_theft.0040 = {
 				has_trait = compassionate
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			vengeful = minor_stress_impact_gain
 			wrathful = miniscule_stress_impact_gain
@@ -1204,7 +958,6 @@ ie_theft.0040 = {
 				has_perk = digging_for_dirt_perk
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			honest = minor_stress_impact_gain
 			just = miniscule_stress_impact_gain
@@ -1250,7 +1003,6 @@ ie_theft.0040 = {
 				has_trait = sadistic
 			}
 		}
-		show_as_unavailable = { always = yes }
 		add_tyranny = minor_tyranny_gain
 		ie_theft_rep_effect = {
 			VAR = ie_fear
@@ -1282,26 +1034,6 @@ ie_theft.0040 = {
 		}
 	}
 
-	# Buy the gang off
-	option = {
-		name = ie_theft.0040.f
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.3
-		}
-		scope:haven_county = {
-			remove_county_modifier = ie_bandit_haven_modifier
-			add_county_modifier = {
-				modifier = ie_bandit_haven_modifier
-				years = 2
-			}
-		}
-		ie_theft_rep_effect = {
-			VAR = ie_mockery
-			AMOUNT = 1
-		}
-		ie_theft_unrecovered_effect = yes
-	}
 
 	# Ignore them
 	option = {
@@ -1415,11 +1147,41 @@ ie_theft.0008 = {
 		}
 	}
 
+	# Let your court sit in judgement
 	option = {
-		name = ie_theft.0008.b
-		ie_theft_fate_imprison_effect = { RECOVER = 0 }
+		name = ie_theft.0008.f
+		ie_theft_rep_effect = {
+			VAR = ie_loyalty
+			AMOUNT = 1
+		}
 		stress_impact = {
-			vengeful = miniscule_stress_impact_loss
+			just = miniscule_stress_impact_loss
+			arbitrary = miniscule_stress_impact_gain
+		}
+		random_list = {
+			45 = {
+				desc = ie_theft.out.verdict_death
+				ie_theft_fate_execute_effect = { RECOVER = 0 }
+			}
+			35 = {
+				desc = ie_theft.out.verdict_exile
+				ie_theft_fate_exile_effect = { RECOVER = 0 }
+			}
+			20 = {
+				desc = ie_theft.out.verdict_acquitted
+				scope:thief = {
+					add_opinion = {
+						target = root
+						modifier = grateful_opinion
+						opinion = 20
+					}
+				}
+				ie_theft_rep_effect = {
+					VAR = ie_mockery
+					AMOUNT = 1
+				}
+				ie_theft_end_story_effect = yes
+			}
 		}
 	}
 
@@ -1430,11 +1192,6 @@ ie_theft.0008 = {
 			vengeful = miniscule_stress_impact_gain
 			greedy = miniscule_stress_impact_loss
 		}
-	}
-
-	option = {
-		name = ie_theft.0008.d
-		ie_theft_fate_exile_effect = { RECOVER = 0 }
 	}
 
 	option = {
@@ -1482,10 +1239,7 @@ ie_theft.0009 = {
 	# Crack down with gold
 	option = {
 		name = ie_theft.0009.a
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.5
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.5 }
 		scope:haven_county = {
 			remove_county_modifier = ie_bandit_haven_modifier
 		}
@@ -1502,7 +1256,6 @@ ie_theft.0009 = {
 				has_trait = brave
 			}
 		}
-		show_as_unavailable = { always = yes }
 		stress_impact = {
 			craven = minor_stress_impact_gain
 			brave = miniscule_stress_impact_loss
@@ -1522,10 +1275,7 @@ ie_theft.0009 = {
 			}
 			40 = {
 				desc = ie_theft.out.ambushed
-				add_gold = {
-					value = ie_theft_loot_value
-					multiply = -0.25
-				}
+				remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.25 }
 				ie_theft_end_story_effect = yes
 			}
 		}
@@ -1541,7 +1291,6 @@ ie_theft.0009 = {
 				has_trait = compassionate
 			}
 		}
-		show_as_unavailable = { always = yes }
 		random_list = {
 			55 = {
 				desc = ie_theft.out.brigands_settle
@@ -1569,52 +1318,7 @@ ie_theft.0009 = {
 		}
 	}
 
-	# Infiltrate the gang
-	option = {
-		name = ie_theft.0009.f
-		trigger = {
-			OR = {
-				intrigue >= 10
-				has_trait = schemer
-			}
-		}
-		show_as_unavailable = { always = yes }
-		random_list = {
-			50 = {
-				desc = ie_theft.out.brigands_crushed
-				modifier = {
-					add = 15
-					intrigue >= 16
-				}
-				scope:haven_county = {
-					remove_county_modifier = ie_bandit_haven_modifier
-				}
-				add_prestige = 50
-				ie_theft_end_story_effect = yes
-			}
-			35 = {
-				desc = ie_theft.out.gang_alerted
-				ie_theft_end_story_effect = yes
-			}
-		}
-	}
 
-	# Buy the brigands off
-	option = {
-		name = ie_theft.0009.b
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.25
-		}
-		scope:haven_county = {
-			remove_county_modifier = ie_bandit_haven_modifier
-			add_county_modifier = {
-				modifier = ie_bandit_haven_modifier
-				years = 2
-			}
-		}
-		ie_theft_end_story_effect = yes
-	}
 
 	# Do nothing
 	option = {
@@ -1654,17 +1358,9 @@ ie_theft.0010 = {
 	immediate = {
 		ie_theft_load_scopes_effect = yes
 		scope:story = { remove_variable = pending_habit }
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -2
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 2 }
 	}
 
-	# Dungeon
-	option = {
-		name = ie_theft.0010.a
-		ie_theft_fate_imprison_effect = { RECOVER = 0.5 }
-	}
 
 	# Execute
 	option = {
@@ -1730,10 +1426,7 @@ ie_theft.0011 = {
 	# Pay weregild
 	option = {
 		name = ie_theft.0011.a
-		add_gold = {
-			value = ie_theft_loot_value
-			multiply = -0.5
-		}
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.5 }
 		scope:avenger = {
 			add_opinion = {
 				target = root
@@ -1779,7 +1472,6 @@ ie_theft.0011 = {
 				has_trait = gregarious
 			}
 		}
-		show_as_unavailable = { always = yes }
 		random_list = {
 			55 = {
 				desc = ie_theft.out.reconciled
@@ -1814,52 +1506,6 @@ ie_theft.0011 = {
 		}
 	}
 
-	# Meet them in a duel of honour
-	option = {
-		name = ie_theft.0011.e
-		trigger = {
-			OR = {
-				martial >= 12
-				has_trait = brave
-			}
-		}
-		show_as_unavailable = { always = yes }
-		stress_impact = {
-			craven = minor_stress_impact_gain
-			brave = miniscule_stress_impact_loss
-		}
-		random_list = {
-			55 = {
-				desc = ie_theft.out.duel_won
-				modifier = {
-					add = 15
-					martial >= 16
-				}
-				add_prestige = 75
-				scope:avenger = {
-					add_opinion = {
-						target = root
-						modifier = grateful_opinion
-						opinion = 20
-					}
-				}
-				ie_theft_rep_effect = {
-					VAR = ie_fear
-					AMOUNT = 1
-				}
-				ie_theft_end_story_effect = yes
-			}
-			35 = {
-				desc = ie_theft.out.duel_lost
-				add_prestige = -50
-				ie_theft_rep_effect = {
-					VAR = ie_mockery
-					AMOUNT = 1
-				}
-				ie_theft_end_story_effect = yes
-			}
-		}
-	}
 
 	# Refuse - and face the consequences
 	option = {

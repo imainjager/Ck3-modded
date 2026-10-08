@@ -152,7 +152,7 @@
  ie_theft.0002.motive_3:0 "\n\nThe coin was not for [thief.GetHerHim]. [thief.GetSheHe|U] was paid to take it by [harbor_vassal.GetShortUIName], one of your own vassals."
  ie_theft.0002.motive_4:0 "\n\nThe coin was not for [thief.GetHerHim]. [thief.GetSheHe|U] was paid to take it by [harbor_ruler.GetTitledFirstName], who wanted your treasury weakened."
  ie_theft.0002.ending:0 "\n\n[thief.GetShortUIName] kneels before you. The court waits to see what kind of ruler you are."
- ie_theft.0002.a:0 "Execute [thief.GetHerHim] and seize the estate."
+ ie_theft.0002.a:0 "Make an example of [thief.GetHerHim]: execute and seize the estate."
  ie_theft.0002.b:0 "Throw [thief.GetHerHim] in the dungeon."
  ie_theft.0002.c:0 "[thief.GetSheHe|U] will work off the debt in my service."
  ie_theft.0002.d:0 "Banish [thief.GetHerHim] from the realm."
@@ -200,9 +200,9 @@
  # ---------- 0006 The Thief Surfaces ----------
  ie_theft.0006.t:0 "The Thief Surfaces"
  ie_theft.0006.desc:0 "#bold [thief.GetShortUIName] has been found at the court of [harbor_ruler.GetTitledFirstName].#!\n\n[thief.GetSheHe|U] has been seen in new silks, spending freely. Your gold, by all accounts.\n\n[harbor_ruler.GetTitledFirstName] is under no obligation to give [thief.GetHerHim] up."
- ie_theft.0006.a:0 "[spymaster.GetShortUIName]'s agents will bring [thief.GetHerHim] back."
+ ie_theft.0006.a:0 "Have [thief.GetHerHim] taken, or silenced."
  ie_theft.0006.b:0 "Hire an assassin."
- ie_theft.0006.c:0 "Negotiate a deal with [harbor_ruler.GetShortUIName]."
+ ie_theft.0006.c:0 "Negotiate with [harbor_ruler.GetShortUIName] for the thief."
  ie_theft.0006.d:0 "Make it clear that refusing would be unwise."
  ie_theft.0006.e:0 "Appeal to the Church."
  ie_theft.0006.f:0 "Formally demand extradition."
@@ -239,7 +239,7 @@
  # ---------- 0040 The Bandit Chief ----------
  ie_theft.0040.t:0 "The Bandit Chief"
  ie_theft.0040.desc:0 "#bold [thief.GetShortUIName] has surfaced as the leader of a band of brigands in [haven_county.GetName].#!\n\nStolen gold has bought swords. The roads are no longer safe, and the people of the county fear the brigands more than they fear you.\n\nA thief who turns outlaw is a problem that can be solved in many ways."
- ie_theft.0040.a:0 "Lead the hunt yourself."
+ ie_theft.0040.a:0 "Hunt [thief.GetHerHim] down."
  ie_theft.0040.b:0 "Send [marshal.GetShortUIName] and the knights."
  ie_theft.0040.c:0 "Offer a pardon and a post as warden of the marches."
  ie_theft.0040.d:0 "Send a knife in the night."
@@ -301,3 +301,8 @@
  ie_theft.0090.mockery:0 "#bold The court laughs at how you handled the theft.#!\n\nThe story is told with a smirk. A ruler who lets thieves walk free invites more of them."
  ie_theft.0090.neutral:0 "#bold The matter fades from memory.#!\n\nIt was a theft like any other, and nothing in how you handled it changed anyone's mind."
  ie_theft.0090.a:0 "So be it."
+ # ---------- Added: court trial ----------
+ ie_theft.0008.f:0 "Let your court sit in judgement."
+ ie_theft.out.verdict_death:0 "The court condemns the thief to death."
+ ie_theft.out.verdict_exile:0 "The court banishes the thief."
+ ie_theft.out.verdict_acquitted:0 "The court acquits the thief, and the matter is laughed about."

@@ -8,7 +8,7 @@
 #   thief_at_large   - set once the thief has escaped
 #   scapegoat_punished - set if the wrong person was punished
 #   avenger          - a relative who may seek revenge later
-#   method           - how the thief was identified (1..9, see events file)
+#   method           - how the thief was finally caught (see the events file)
 ie_story_theft = {
 	visible = yes
 
@@ -26,9 +26,25 @@ ie_story_theft = {
 		end_story = yes
 	}
 
-	# Hard cap so a forgotten story can never block new ones forever
+	# Safety net: a story that has stalled for any reason still ends with its epilogue
 	effect_group = {
 		years = 5
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+				story_owner = {
+					trigger_event = {
+						id = ie_theft.0090
+						days = 5
+					}
+				}
+			}
+		}
+	}
+
+	# Hard cap so a forgotten story can never block new ones forever
+	effect_group = {
+		years = 7
 		triggered_effect = {
 			trigger = { always = yes }
 			effect = {
