@@ -10,3 +10,35 @@ ie_lax_treasury_modifier = {
 	icon = economy_negative
 	monthly_income_mult = -0.05
 }
+
+# Epilogue: how the court came to see you after the theft
+ie_feared_justice_modifier = {
+	icon = dread_positive
+	dread_gain_mult = 0.25
+	courtier_and_guest_opinion = -5
+	monthly_prestige = 0.2
+}
+
+ie_respected_justice_modifier = {
+	icon = diplomacy_positive
+	courtier_and_guest_opinion = 10
+	vassal_opinion = 5
+}
+
+ie_laughingstock_modifier = {
+	icon = diplomacy_negative
+	monthly_prestige = -0.3
+	vassal_opinion = -5
+	monthly_income_mult = -0.03
+}
+
+# Rewards of specific choices
+ie_audited_treasury_modifier = {
+	icon = economy_positive
+	monthly_income_mult = 0.05
+}
+
+ie_court_informant_modifier = {
+	icon = intrigue_positive
+	owned_hostile_scheme_success_chance_add = 10
+}

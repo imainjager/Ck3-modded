@@ -1,5 +1,9 @@
+##########################################################################
+# Theft at Court - helper effects
+# All of these are called from the ruler (the story owner) unless noted.
+##########################################################################
+
 # Re-create the scopes every follow-up event needs, from variables stored on the story.
-# Call from the ruler (the story owner).
 ie_theft_load_scopes_effect = {
 	random_owned_story = {
 		type = ie_story_theft
@@ -15,6 +19,10 @@ ie_theft_load_scopes_effect = {
 		scope:story.var:harbor_ruler = { save_scope_as = harbor_ruler }
 	}
 	if = {
+		limit = { exists = scope:story.var:harbor_vassal }
+		scope:story.var:harbor_vassal = { save_scope_as = harbor_vassal }
+	}
+	if = {
 		limit = { exists = cp:councillor_steward }
 		cp:councillor_steward = { save_scope_as = steward }
 	}
@@ -22,10 +30,63 @@ ie_theft_load_scopes_effect = {
 		limit = { exists = cp:councillor_spymaster }
 		cp:councillor_spymaster = { save_scope_as = spymaster }
 	}
+	if = {
+		limit = { exists = cp:councillor_marshal }
+		cp:councillor_marshal = { save_scope_as = marshal }
+	}
+	if = {
+		limit = { exists = cp:councillor_court_chaplain }
+		cp:councillor_court_chaplain = { save_scope_as = chaplain }
+	}
+	# Whoever carried out the first investigation
+	if = {
+		limit = {
+			scope:story = { var:investigator ?= 2 }
+			exists = scope:steward
+		}
+		scope:steward = { save_scope_as = inv_char }
+	}
+	else_if = {
+		limit = {
+			scope:story = { var:investigator ?= 3 }
+			exists = scope:spymaster
+		}
+		scope:spymaster = { save_scope_as = inv_char }
+	}
+	else_if = {
+		limit = {
+			scope:story = { var:investigator ?= 5 }
+			exists = scope:chaplain
+		}
+		scope:chaplain = { save_scope_as = inv_char }
+	}
 }
 
-# How the thief was identified. 1 you, 2 steward, 3 spymaster, 4 private talk,
-# 5 second look, 6 abduction, 7 extradition, 8 war, 9 bounty
+# Who investigated: 1 you (see approach), 2 steward, 3 spymaster, 5 chaplain,
+# 6 informant reward, 7 amnesty offer, 8 court lockdown, 9 torture
+ie_theft_set_investigator_effect = {
+	scope:story = {
+		set_variable = {
+			name = investigator
+			value = $INV$
+		}
+	}
+}
+
+# How you questioned the court yourself: 1 intimidate, 2 charm, 3 logic trap,
+# 4 bait chest, 5 appeal to conscience, 6 bluff, 7 harsh questioning
+ie_theft_set_approach_effect = {
+	ie_theft_set_investigator_effect = { INV = 1 }
+	scope:story = {
+		set_variable = {
+			name = approach
+			value = $APPROACH$
+		}
+	}
+}
+
+# How the thief was caught later: 6 abduction, 7 extradition, 8 war, 9 bounty,
+# 10 hunted down, 11 long pursuit, 12 vassal surrendered, 13 hostage leverage
 ie_theft_set_method_effect = {
 	scope:story = {
 		set_variable = {
@@ -35,16 +96,151 @@ ie_theft_set_method_effect = {
 	}
 }
 
-# Finish the story and start a cooldown before the next theft.
+# Bonus applied to the next attempt after a wrong lead
+ie_theft_set_bonus_effect = {
+	scope:story = {
+		set_variable = {
+			name = dig_bonus
+			value = $BONUS$
+		}
+	}
+}
+
+# Your reputation counters: ie_fear, ie_loyalty, ie_mockery.
+# They carry over and decide the story's epilogue.
+ie_theft_rep_effect = {
+	if = {
+		limit = { has_variable = $VAR$ }
+		change_variable = {
+			name = $VAR$
+			add = $AMOUNT$
+		}
+	}
+	else = {
+		set_variable = {
+			name = $VAR$
+			value = $AMOUNT$
+		}
+	}
+}
+
+# Finish the story. The epilogue fires shortly after, unless a follow-up
+# (revenge, a repeat theft, spent gold) is still pending.
 ie_theft_end_story_effect = {
-	scope:story = { end_story = yes }
 	add_character_flag = {
 		flag = ie_theft_cooldown
 		years = 3
 	}
+	if = {
+		limit = {
+			scope:story = {
+				NOR = {
+					exists = var:pending_avenger
+					exists = var:pending_gold
+					exists = var:pending_habit
+				}
+			}
+		}
+		trigger_event = {
+			id = ie_theft.0090
+			days = 14
+		}
+	}
 }
 
-# The thief gets away and leaves court. Months later they turn up abroad.
+# Every adult courtier thinks a little less of you.
+ie_theft_court_mood_effect = {
+	every_courtier = {
+		limit = { is_adult = yes }
+		add_opinion = {
+			target = root
+			modifier = insulted_opinion
+			opinion = $OPINION$
+		}
+	}
+}
+
+# You regard the thief as a rival from now on.
+ie_theft_make_rival_effect = {
+	if = {
+		limit = { NOT = { has_relation_rival = scope:thief } }
+		set_relation_rival = {
+			target = scope:thief
+			reason = rival_ie_theft
+		}
+	}
+}
+
+# Choose a vassal to shelter or sponsor the thief. Prefers vassals who dislike you.
+ie_theft_pick_vassal_effect = {
+	if = {
+		limit = { NOT = { exists = scope:harbor_vassal } }
+		if = {
+			limit = {
+				any_vassal = {
+					highest_held_title_tier >= tier_county
+					is_adult = yes
+					opinion = {
+						target = root
+						value <= 20
+					}
+				}
+			}
+			random_vassal = {
+				limit = {
+					highest_held_title_tier >= tier_county
+					is_adult = yes
+					opinion = {
+						target = root
+						value <= 20
+					}
+				}
+				save_scope_as = harbor_vassal
+			}
+		}
+		else = {
+			random_vassal = {
+				limit = {
+					highest_held_title_tier >= tier_county
+					is_adult = yes
+				}
+				save_scope_as = harbor_vassal
+			}
+		}
+		if = {
+			limit = { exists = scope:harbor_vassal }
+			scope:story = {
+				set_variable = {
+					name = harbor_vassal
+					value = scope:harbor_vassal
+				}
+			}
+		}
+	}
+}
+
+# Choose a neighbouring ruler to shelter or sponsor the thief.
+ie_theft_pick_foreign_effect = {
+	if = {
+		limit = { NOT = { exists = scope:harbor_ruler } }
+		random_neighboring_and_across_water_top_liege_realm_owner = {
+			limit = { is_alive = yes }
+			save_scope_as = harbor_ruler
+		}
+		if = {
+			limit = { exists = scope:harbor_ruler }
+			scope:story = {
+				set_variable = {
+					name = harbor_ruler
+					value = scope:harbor_ruler
+				}
+			}
+		}
+	}
+}
+
+# The thief gets away. Where they go depends on why they stole and who you are:
+# 1 abroad, 2 sheltered by one of your vassals, 3 a bandit chief in your realm.
 ie_theft_thief_escapes_effect = {
 	scope:story = {
 		set_variable = {
@@ -54,16 +250,90 @@ ie_theft_thief_escapes_effect = {
 	}
 	scope:thief = { add_character_flag = ie_fugitive }
 	remove_courtier_or_guest = scope:thief
-	trigger_event = {
-		id = ie_theft.0006
-		months = { 4 9 }
+	random = {
+		chance = 70
+		ie_theft_make_rival_effect = yes
+	}
+	random_list = {
+		40 = {
+			trigger = {
+				any_neighboring_and_across_water_top_liege_realm_owner = { is_alive = yes }
+			}
+			modifier = {
+				add = 80
+				scope:story = { var:motive ?= 4 }
+			}
+			scope:story = {
+				set_variable = {
+					name = escape_route
+					value = 1
+				}
+			}
+			trigger_event = {
+				id = ie_theft.0006
+				months = { 3 8 }
+			}
+		}
+		30 = {
+			trigger = {
+				any_vassal = {
+					highest_held_title_tier >= tier_county
+					is_adult = yes
+				}
+			}
+			modifier = {
+				add = 80
+				scope:story = { var:motive ?= 3 }
+			}
+			scope:story = {
+				set_variable = {
+					name = escape_route
+					value = 2
+				}
+			}
+			trigger_event = {
+				id = ie_theft.0030
+				months = { 3 8 }
+			}
+		}
+		30 = {
+			trigger = {
+				any_realm_county = { count >= 1 }
+			}
+			scope:story = {
+				set_variable = {
+					name = escape_route
+					value = 3
+				}
+			}
+			trigger_event = {
+				id = ie_theft.0040
+				months = { 3 8 }
+			}
+		}
+		1 = {
+			trigger = {
+				NOR = {
+					any_neighboring_and_across_water_top_liege_realm_owner = { is_alive = yes }
+					any_vassal = { highest_held_title_tier >= tier_county }
+					any_realm_county = { count >= 1 }
+				}
+			}
+			ie_theft_end_story_effect = yes
+		}
 	}
 }
 
-# The stolen gold is never recovered. It may fund trouble in your realm later.
+# The stolen gold is never recovered. It may resurface as trouble in your realm.
 ie_theft_unrecovered_effect = {
 	random_list = {
 		60 = {
+			scope:story = {
+				set_variable = {
+					name = pending_gold
+					value = 1
+				}
+			}
 			trigger_event = {
 				id = ie_theft.0009
 				months = { 10 28 }
@@ -94,6 +364,10 @@ ie_theft_register_avenger_effect = {
 				name = avenger
 				value = scope:avenger
 			}
+			set_variable = {
+				name = pending_avenger
+				value = 1
+			}
 		}
 		trigger_event = {
 			id = ie_theft.0011
@@ -117,7 +391,19 @@ ie_theft_fate_execute_effect = {
 				has_trait = wrathful
 			}
 		}
-		add_dread = minor_dread_gain
+		add_dread = miniscule_dread_gain
+	}
+	ie_theft_rep_effect = {
+		VAR = ie_fear
+		AMOUNT = 2
+	}
+	every_courtier = {
+		limit = { is_close_family_of = scope:thief }
+		add_opinion = {
+			target = root
+			modifier = insulted_opinion
+			opinion = -25
+		}
 	}
 	ie_theft_register_avenger_effect = { TARGET = scope:thief }
 	scope:thief = {
@@ -142,6 +428,22 @@ ie_theft_fate_imprison_effect = {
 		type = dungeon
 	}
 	add_prestige = 25
+	ie_theft_rep_effect = {
+		VAR = ie_fear
+		AMOUNT = 1
+	}
+	random = {
+		chance = 60
+		ie_theft_make_rival_effect = yes
+	}
+	every_courtier = {
+		limit = { is_close_family_of = scope:thief }
+		add_opinion = {
+			target = root
+			modifier = insulted_opinion
+			opinion = -15
+		}
+	}
 	ie_theft_end_story_effect = yes
 }
 
@@ -162,9 +464,24 @@ ie_theft_fate_debt_effect = {
 			opinion = 10
 		}
 	}
+	ie_theft_rep_effect = {
+		VAR = ie_loyalty
+		AMOUNT = 1
+	}
+	random = {
+		chance = 30
+		if = {
+			limit = { NOT = { has_relation_friend = scope:thief } }
+			set_relation_friend = {
+				target = scope:thief
+				reason = friend_ie_theft
+			}
+		}
+	}
 	ie_theft_end_story_effect = yes
 }
 
+# Banished, and bitter about it.
 ie_theft_fate_exile_effect = {
 	add_gold = {
 		value = ie_theft_loot_value
@@ -178,6 +495,7 @@ ie_theft_fate_exile_effect = {
 			opinion = -30
 		}
 	}
+	ie_theft_make_rival_effect = yes
 	ie_theft_end_story_effect = yes
 }
 
@@ -190,6 +508,10 @@ ie_theft_fate_mercy_effect = {
 			opinion = 30
 		}
 	}
+	ie_theft_rep_effect = {
+		VAR = ie_loyalty
+		AMOUNT = 1
+	}
 	random_list = {
 		50 = {
 			scope:thief = {
@@ -198,9 +520,25 @@ ie_theft_fate_mercy_effect = {
 					add_trait = honest
 				}
 			}
+			random = {
+				chance = 25
+				if = {
+					limit = { NOT = { has_relation_friend = scope:thief } }
+					set_relation_friend = {
+						target = scope:thief
+						reason = friend_ie_theft
+					}
+				}
+			}
 			ie_theft_end_story_effect = yes
 		}
 		50 = {
+			scope:story = {
+				set_variable = {
+					name = pending_habit
+					value = 1
+				}
+			}
 			trigger_event = {
 				id = ie_theft.0010
 				years = { 2 4 }
