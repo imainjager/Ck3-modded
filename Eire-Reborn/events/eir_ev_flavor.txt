@@ -163,6 +163,23 @@ eir.0032 = {
 		add_prestige = 10
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0032.d
+		random_list = {
+			60 = {
+				desc = eir.out.g32w
+				add_character_modifier = { modifier = eir_beltane_vigor_modifier years = 3 }
+				add_prestige = 50
+			}
+			40 = {
+				desc = eir.out.g32l
+				add_prestige = -25
+				remove_short_term_gold = minor_gold_value
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0033 = {
@@ -285,6 +302,23 @@ eir.0034 = {
 		add_character_modifier = { modifier = eir_sidhe_favour_modifier years = 3 }
 		add_learning_lifestyle_xp = 50
 		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = eir.0034.d
+		random_list = {
+			45 = {
+				desc = eir.out.g34w
+				add_prestige = 75
+				add_piety = 50
+			}
+			55 = {
+				desc = eir.out.g34l
+				add_stress = 20
+				eir_trait_effect = { TRAIT = paranoid OPPOSITE = trusting CHANCE = 25 }
+			}
+		}
+		ai_chance = { base = 15 }
 	}
 }
 
@@ -495,6 +529,23 @@ eir.0038 = {
 		add_gold = medium_gold_value
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0038.d
+		random_list = {
+			45 = {
+				desc = eir.out.g38w
+				add_gold = medium_gold_value
+				add_prestige = 50
+			}
+			55 = {
+				desc = eir.out.g38l
+				remove_short_term_gold = minor_gold_value
+				add_prestige = -50
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0050 = {
@@ -534,6 +585,22 @@ eir.0050 = {
 		add_prestige = 75
 		add_character_modifier = { modifier = eir_celtic_brotherhood_modifier years = 3 }
 		ai_chance = { base = 20 }
+	}
+
+	option = {
+		name = eir.0050.d
+		random_list = {
+			65 = {
+				desc = eir.out.g50w
+				add_character_modifier = { modifier = eir_wolfhound_bond_modifier years = 12 }
+			}
+			35 = {
+				desc = eir.out.g50l
+				increase_wounds_effect = { REASON = fight }
+				add_prestige = -10
+			}
+		}
+		ai_chance = { base = 15 }
 	}
 }
 

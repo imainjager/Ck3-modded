@@ -149,10 +149,6 @@
  eir_armorica_voyage_modifier_desc:0 "A ship returned from Brittany, with news and silver."
  eir_gaulish_heritage_modifier:0 "Gaulish Heritage"
  eir_gaulish_heritage_modifier_desc:0 "The Celts once ruled from the Danube to the Atlantic."
- eir_britannia_modifier:0 "Britannia Restored"
- eir_britannia_modifier_desc:0 "The whole of the Celtic west is within your reach."
- eir_hebridean_ties_modifier:0 "Hebridean Kinship"
- eir_hebridean_ties_modifier_desc:0 "The galley-lords of the Isles are bound to you by marriage."
  eir_tale_salmon_modifier:0 "Tale of the Salmon of Knowledge"
  eir_tale_salmon_modifier_desc:0 "Your court tells the story of the salmon, and learns from it."
  eir_tale_cuchulainn_modifier:0 "Tale of Cú Chulainn"
@@ -181,6 +177,14 @@
  eir_irish_sea_trade_modifier_desc:0 "Your captains know every harbour from Chester to Bordeaux, and your name is known there too."
  eir_thalassocracy_modifier:0 "Sea-King of the West"
  eir_thalassocracy_modifier_desc:0 "Every harbour on the Irish Sea pays you in one coin or another."
+ eir_honour_restored_modifier:0 "Honour Restored"
+ eir_honour_restored_modifier_desc:0 "You paid what you owed, and more. The poets now say you are a man who settles his debts."
+ eir_fair_lord_modifier:0 "A Fair Lord"
+ eir_fair_lord_modifier_desc:0 "You gave up what the law allowed you, and your people remember it fondly."
+ eir_peace_with_church_modifier:0 "Peace with the Church"
+ eir_peace_with_church_modifier_desc:0 "The monks and the reformers sit at one table because you paid for the meal."
+ eir_hebridean_ties_modifier:0 "Hebridean Kinship"
+ eir_hebridean_ties_modifier_desc:0 "The galley-lords of the Isles are bound to you by marriage."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"
@@ -396,6 +400,8 @@
  eir_gwynedd_friend_opinion:0 "Friend of Gwynedd"
  eir_breton_refuge_opinion:0 "Sheltered my family"
  eir_hebridean_kin_opinion:0 "Married into the Isles"
+ eir_celebrates_crown_opinion:0 "Celebrates your great deed"
+ eir_resents_crown_opinion:0 "Resents your great deed"
 
  # ---------- culture traditions ----------
  tradition_eir_tanistic_fragmentation_name:0 "Tanistic Fragmentation"

@@ -42,6 +42,7 @@ eir_stage2_trigger = {
 	eir_is_irish_ruler_trigger = yes
 	eir_realm_size_trigger = { N = 10 }
 	highest_held_title_tier >= tier_duchy
+	prestige_level >= 2
 }
 
 # Stage 3: a king.
@@ -49,12 +50,14 @@ eir_stage3_trigger = {
 	eir_is_irish_ruler_trigger = yes
 	eir_realm_size_trigger = { N = 20 }
 	highest_held_title_tier >= tier_kingdom
+	prestige_level >= 3
 }
 
 # Stage 4: the High King of Ireland.
 eir_stage4_trigger = {
 	eir_is_irish_ruler_trigger = yes
 	has_title = title:k_ireland
+	prestige_level >= 4
 }
 
 # Shown (not necessarily usable) once the ruler is on the path to a stage.

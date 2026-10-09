@@ -34,6 +34,23 @@ eir.0080 = {
 		add_character_modifier = { modifier = eir_synod_reform_modifier years = 8 }
 		ai_chance = { base = 10 }
 	}
+
+	option = {
+		name = eir.0080.d
+		random_list = {
+			60 = {
+				desc = eir.out.g80w
+				add_piety = 300
+				add_prestige = 100
+			}
+			40 = {
+				desc = eir.out.g80l
+				add_piety = -100
+				add_prestige = -50
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0081 = {

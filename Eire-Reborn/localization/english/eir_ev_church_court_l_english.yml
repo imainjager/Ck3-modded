@@ -32,6 +32,7 @@
  eir.0045.a:0 "Feed him, house him, and ask about the vision."
  eir.0045.b:0 "Have the prophecy announced to the whole court."
  eir.0045.c:0 "Send the hermit back to his cave and tell no one."
+ eir.0045.d:0 "Ask the hermit when you will die."
  eir.0046.t:0 "A Scholar from the Great Monasteries"
  eir.0046.desc:0 "#bold A learned monk from one of the great monasteries asks for your patronage.#!\n\nHe has read every book in his abbey's library, and several that were supposed to be lost. He is travelling from court to court, looking for a lord who will give him a quiet room and a steady supply of vellum.\n\nIn exchange, he promises to teach every child in your household."
  eir.0046.a:0 "Give him a place in your household."

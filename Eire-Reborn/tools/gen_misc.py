@@ -28,6 +28,28 @@ def build():
                     ("cross_of_cong", "The Processional Cross", "An oak cross covered in bronze and silver, with a crystal at its heart.")):
         L.add("eir_%s_name" % k, n)
         L.add("eir_%s_desc" % k, d)
+    # nicknames earned from the great decisions (flavor guide: every major decision leaves a memory)
+    nicks = [
+        ("nick_eir_convener", "the Convener", "Called the great assembly of the Gael, and every king came.", False),
+        ("nick_eir_tara_builder", "the Builder of Tara", "Raised the Hall of Tara on the hill of the kings.", False),
+        ("nick_eir_poet_king", "the Poet-King", "Gave the Filí their charter and made poetry a pillar of the state.", False),
+        ("nick_eir_cow_lord", "the Cow-Lord", "Counted every herd in the kingdom and made the cattle the basis of a state.", False),
+        ("nick_eir_abbot_king", "the Abbot-King", "Raised the monastic cities and ruled as friend of the saints.", False),
+        ("nick_eir_sea_king", "the Sea-King", "Claimed the Irish Sea for the Gael.", False),
+        ("nick_eir_sea_master", "Master of the Western Sea", "Holds every harbour from Dublin to the Hebrides.", False),
+        ("nick_eir_gael_father", "Father of the Gael", "Presided over the golden age of the Gaelic peoples.", False),
+        ("nick_eir_unifier", "the Unifier", "Ended the age of broken kingdoms and made the high kingship a throne.", False),
+        ("nick_eir_celtic_brother", "Brother of the Celtic Peoples", "Called the Welsh, the Cornish, the Bretons and the Gaels of Alba brothers.", False),
+        ("nick_eir_high_king", "Ard Rí", "Crowned High King at Tara.", False),
+        ("nick_eir_the_crowned", "the Crowned", "Took a crown that Ireland had never seen.", False),
+        ("nick_eir_emperor_gael", "Emperor of the Gael", "Raised a throne over every Gaelic land.", False),
+        ("nick_eir_norse_bane", "Norse-Bane", "Refused the Danegeld and sent the longships home.", False),
+    ]
+    body = "# Eire Reborn - nicknames\n\n" + "".join("%s = %s\n" % (k, "{ is_bad = yes }" if bad else "{}") for k, _, _, bad in nicks)
+    write("common/nicknames/eir_nicknames.txt", body)
+    for k, name, desc, _ in nicks:
+        L.add(k, name)
+        L.add(k + "_desc", desc)
     L.write()
     print("misc loc written")
 

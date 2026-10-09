@@ -4,3 +4,6 @@
 - Unlock progress lives in GLOBAL variables so it survives succession. Saved scopes do not survive delayed events.
 - Design rules (from the user): bold one-line summary on each event, 3-6 options, trait/skill-gated options, readable outcome labels on random_lists, stress <= ~20 (minor/miniscule only), consequences reach the world, ~40% negative with a remedy.
 - Hot reload only works for already-loaded files; new files need a restart.
+
+## Flavor rules (read first)
+See `../docs/FLAVOR_GUIDE.md`. Unique decisions once per game; prestige-led costs for tribal rulers; every negative has a remedy that can beat it; ceremony + reaction + memory on every major decision.

@@ -9,3 +9,6 @@ Quick reminders:
 - Verify every script name against `C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game` before using it.
 - After the owner tests, read the game's `error.log` (OneDrive Documents path).
 - Commit and push after each working change. The remote is `imainjager/Ck3-modded`.
+
+## Flavor rules (read first)
+Before creating or changing any decision, event, tradition, building or unit, read `docs/FLAVOR_GUIDE.md` and run its shipping checklist.

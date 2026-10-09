@@ -109,6 +109,30 @@ eir.0101 = {
 		set_global_variable = eir_hist_0870
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0101.d
+		trigger = {
+			intrigue >= 10
+		}
+		random_list = {
+			50 = {
+				desc = eir.out.g101w
+				modifier = {
+					add = 10
+					intrigue >= 14
+				}
+				add_gold = medium_gold_value
+				add_prestige = 75
+			}
+			50 = {
+				desc = eir.out.g101l
+				add_prestige = -100
+				eir_vassal_opinion_effect = { MODIFIER = eir_claim_revoked_opinion OPINION = -5 }
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0102 = {
@@ -275,6 +299,29 @@ eir.0104 = {
 		set_global_variable = eir_hist_0976
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0104.d
+		trigger = {
+			prowess >= 10
+		}
+		random_list = {
+			40 = {
+				desc = eir.out.g104w
+				modifier = {
+					add = 15
+					prowess >= 14
+				}
+				add_prestige = 300
+			}
+			60 = {
+				desc = eir.out.g104l
+				add_prestige = -100
+				increase_wounds_effect = { REASON = duel }
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0105 = {
@@ -391,6 +438,22 @@ eir.0106 = {
 		add_character_modifier = { modifier = eir_lean_years_modifier years = 3 }
 		set_global_variable = eir_hist_1015
 		ai_chance = { base = 20 }
+	}
+
+	option = {
+		name = eir.0106.d
+		random_list = {
+			50 = {
+				desc = eir.out.g106w
+				add_gold = major_gold_value
+			}
+			50 = {
+				desc = eir.out.g106l
+				add_piety = -150
+				add_prestige = -50
+			}
+		}
+		ai_chance = { base = 15 }
 	}
 }
 

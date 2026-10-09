@@ -99,11 +99,6 @@ C("eir_armorica_voyage_modifier", "prestige_positive", {"monthly_prestige": 0.2}
   "Voyage to Armorica", "A ship returned from Brittany, with news and silver.")
 C("eir_gaulish_heritage_modifier", "prestige_positive", {"monthly_prestige": 0.15, "diplomacy": 1},
   "Gaulish Heritage", "The Celts once ruled from the Danube to the Atlantic.")
-C("eir_britannia_modifier", "prestige_positive", {"monthly_prestige": 0.5, "vassal_opinion": 5},
-  "Britannia Restored", "The whole of the Celtic west is within your reach.")
-C("eir_hebridean_ties_modifier", "family_positive", {"general_opinion": 3, "levy_size": 0.05},
-  "Hebridean Kinship", "The galley-lords of the Isles are bound to you by marriage.")
-
 # ---------------------------------------------------------------- tales & misc
 C("eir_tale_salmon_modifier", "learning_positive", {"learning": 2},
   "Tale of the Salmon of Knowledge", "Your court tells the story of the salmon, and learns from it.")
@@ -232,3 +227,16 @@ C("eir_thalassocracy_modifier", "prestige_positive",
   "Sea-King of the West", "Every harbour on the Irish Sea pays you in one coin or another.")
 K("eir_cattle_rich_county_modifier", "county_modifier_development_positive", {"tax_mult": 0.08, "levy_size": 0.05},
   "Bó-aire Country", "The cow-freemen of this county keep large herds and larger grudges.")
+
+# ---------------------------------------------------------------- v0.6 additions
+OPINIONS["eir_celebrates_crown_opinion"] = "Celebrates your great deed"
+OPINIONS["eir_resents_crown_opinion"] = "Resents your great deed"
+C("eir_honour_restored_modifier", "prestige_positive", {"monthly_prestige": 0.3, "general_opinion": 5, "stress_gain_mult": -0.05},
+  "Honour Restored", "You paid what you owed, and more. The poets now say you are a man who settles his debts.")
+C("eir_fair_lord_modifier", "family_positive", {"vassal_opinion": 6, "monthly_income": 1, "monthly_prestige": 0.1},
+  "A Fair Lord", "You gave up what the law allowed you, and your people remember it fondly.")
+C("eir_peace_with_church_modifier", "piety_positive", {"clergy_opinion": 8, "monthly_piety": 0.3, "monthly_prestige": 0.1},
+  "Peace with the Church", "The monks and the reformers sit at one table because you paid for the meal.")
+
+C("eir_hebridean_ties_modifier", "family_positive", {"general_opinion": 3, "levy_size": 0.05},
+  "Hebridean Kinship", "The galley-lords of the Isles are bound to you by marriage.")

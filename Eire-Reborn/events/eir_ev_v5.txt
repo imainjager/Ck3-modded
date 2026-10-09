@@ -126,6 +126,13 @@ eir.0190 = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_norse_defied_opinion OPINION = 5 }
 		ai_chance = { base = 10 }
 	}
+
+	option = {
+		name = eir.0190.f
+		give_nickname = nick_eir_sea_king
+		add_prestige = 100
+		ai_chance = { base = 25 }
+	}
 }
 
 eir.0191 = {

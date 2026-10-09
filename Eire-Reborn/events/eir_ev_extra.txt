@@ -243,6 +243,23 @@ eir.0153 = {
 		primary_heir ?= { add_opinion = { target = root modifier = eir_hospitality_opinion opinion = 15 } }
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0153.d
+		random_list = {
+			60 = {
+				desc = eir.out.g153w
+				add_piety = 100
+				add_prestige = 50
+			}
+			40 = {
+				desc = eir.out.g153l
+				add_piety = -75
+				add_prestige = -25
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0154 = {
@@ -410,6 +427,22 @@ eir.0156 = {
 		name = eir.0156.c
 		add_prestige = 5
 		ai_chance = { base = 20 }
+	}
+
+	option = {
+		name = eir.0156.d
+		random_list = {
+			50 = {
+				desc = eir.out.g156w
+				eir_defender_levy_effect = yes
+				add_prestige = 100
+			}
+			50 = {
+				desc = eir.out.g156l
+				add_prestige = -75
+			}
+		}
+		ai_chance = { base = 15 }
 	}
 }
 
@@ -842,6 +875,25 @@ eir.0167 = {
 		add_piety = 50
 		eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 3 }
 		ai_chance = { base = 20 }
+	}
+
+	option = {
+		name = eir.0167.d
+		trigger = {
+			prowess >= 8
+		}
+		random_list = {
+			50 = {
+				desc = eir.out.g167w
+				add_prestige = 200
+			}
+			50 = {
+				desc = eir.out.g167l
+				add_prestige = -100
+				increase_wounds_effect = { REASON = battle }
+			}
+		}
+		ai_chance = { base = 15 }
 	}
 }
 

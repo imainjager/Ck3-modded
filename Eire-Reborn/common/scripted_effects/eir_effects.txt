@@ -333,3 +333,29 @@ eir_upgrade_tradition_effect = {
 		}
 	}
 }
+
+# The world answers a great deed: Gaelic and Brythonic rulers in range cheer, everyone else bristles.
+eir_world_reacts_effect = {
+	every_ruler = {
+		limit = {
+			is_ai = yes
+			is_independent_ruler = yes
+			NOT = { this = root }
+			is_within_diplo_range = { CHARACTER = root }
+		}
+		if = {
+			limit = {
+				culture ?= {
+					OR = {
+						has_cultural_pillar = heritage_goidelic
+						has_cultural_pillar = heritage_brythonic
+					}
+				}
+			}
+			add_opinion = { target = root modifier = eir_celebrates_crown_opinion opinion = 20 }
+		}
+		else = {
+			add_opinion = { target = root modifier = eir_resents_crown_opinion opinion = -20 }
+		}
+	}
+}

@@ -167,6 +167,22 @@ eir.0122 = {
 		scope:eir_resist_county = { add_county_modifier = { modifier = eir_loyal_county_modifier years = 8 } }
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0122.d
+		random_list = {
+			55 = {
+				desc = eir.out.g122w
+				add_piety = 100
+				eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 4 }
+			}
+			45 = {
+				desc = eir.out.g122l
+				add_prestige = -50
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0123 = {
@@ -211,6 +227,22 @@ eir.0123 = {
 		add_character_modifier = { modifier = eir_foster_ties_modifier years = 10 }
 		scope:eir_resist_county = { add_county_modifier = { modifier = eir_loyal_county_modifier years = 10 } }
 		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = eir.0123.d
+		random_list = {
+			40 = {
+				desc = eir.out.g123w
+				add_character_modifier = { modifier = eir_hostages_modifier years = 8 }
+				add_prestige = 75
+			}
+			60 = {
+				desc = eir.out.g123l
+				add_prestige = -75
+			}
+		}
+		ai_chance = { base = 15 }
 	}
 }
 

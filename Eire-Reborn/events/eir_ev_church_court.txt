@@ -385,6 +385,23 @@ eir.0045 = {
 		add_piety = 25
 		ai_chance = { base = 30 }
 	}
+
+	option = {
+		name = eir.0045.d
+		random_list = {
+			50 = {
+				desc = eir.out.g45w
+				add_stress = -20
+				add_piety = 75
+			}
+			50 = {
+				desc = eir.out.g45l
+				add_stress = 25
+				eir_trait_effect = { TRAIT = depressed_1 OPPOSITE = content CHANCE = 20 }
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0046 = {

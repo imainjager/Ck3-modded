@@ -138,3 +138,15 @@ eir_hebridean_kin_opinion = {
 	stacking = yes
 }
 
+eir_celebrates_crown_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_resents_crown_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+

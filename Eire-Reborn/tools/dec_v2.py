@@ -858,10 +858,10 @@ D("eir_honour_saints_decision", "Honour the Saints of Ireland",
 # E. KINGDOMS (each needs its own accomplishment)
 # =============================================================================
 def kingdom_decision(key, kingdom, duchy, name, desc, tip, unlock, accomplishment, extra=""):
-    D(key, name, desc, tip, IRISH + "\n" + VIS,
+    D(key, name, desc, tip, IRISH + "\n" + VIS + "\nhas_title = title:%s" % duchy,
       "eir_create_title_effect = { TITLE = %s }\nset_global_variable = %s\ndynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 30 } }\n"
       "add_prestige = 600\neir_legend_title_effect = { TITLE = title:%s }\ntrigger_event = { id = eir.0110 days = 7 }\n%s" % (kingdom, unlock, kingdom, extra),
-      valid=req("eir_can_create_provincial_kingdom_trigger = { DUCHY = %s }" % duchy, "eir_realm_size_trigger = { N = 15 }", blds(2), OENACH, accomplishment,
+      valid=req("eir_can_create_provincial_kingdom_trigger = { DUCHY = %s }" % duchy, "prestige_level >= 3", "eir_realm_size_trigger = { N = 15 }", blds(2), OENACH, accomplishment,
                 "NOT = { exists = title:%s.holder }" % kingdom),
       cost=cost(gold=1500, prestige=1200), cd=36500, major=True, pic="decision_found_kingdom")
 
@@ -1028,3 +1028,4 @@ trigger_event = { id = eir.0112 days = 7 }""",
   valid=req(S4, BROTHER, "has_global_variable = eir_done_renaissance", "eir_realm_size_trigger = { N = 30 }", "eir_can_create_gaeldom_trigger = yes",
             "NOT = { exists = title:e_eir_gaeldom.holder }"),
   cost=cost(gold=3000, prestige=4000), cd=36500, major=True, pic="decision_found_kingdom")
+import dec_finalize  # noqa: F401,E402  (flavor-guide post-processing)

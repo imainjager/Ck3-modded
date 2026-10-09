@@ -149,6 +149,23 @@ eir.0072 = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_tribute_resentment_opinion OPINION = -4 }
 		ai_chance = { base = 20 }
 	}
+
+	option = {
+		name = eir.0072.d
+		random_list = {
+			50 = {
+				desc = eir.out.g72w
+				add_prestige = 200
+				add_character_modifier = { modifier = eir_celtic_brotherhood_modifier years = 6 }
+			}
+			50 = {
+				desc = eir.out.g72l
+				remove_short_term_gold = medium_gold_value
+				add_prestige = -50
+			}
+		}
+		ai_chance = { base = 15 }
+	}
 }
 
 eir.0073 = {

@@ -51,6 +51,13 @@ eir.0110 = {
 		trigger_event = { id = eir.0111 years = 2 }
 		ai_chance = { base = 10 }
 	}
+
+	option = {
+		name = eir.0110.e
+		give_nickname = nick_eir_the_crowned
+		add_prestige = 100
+		ai_chance = { base = 30 }
+	}
 }
 
 eir.0111 = {
@@ -135,6 +142,13 @@ eir.0112 = {
 		eir_defender_levy_effect = yes
 		add_character_modifier = { modifier = eir_norse_scourge_modifier years = 10 }
 		ai_chance = { base = 20 }
+	}
+
+	option = {
+		name = eir.0112.d
+		give_nickname = nick_eir_emperor_gael
+		add_prestige = 200
+		ai_chance = { base = 30 }
 	}
 }
 

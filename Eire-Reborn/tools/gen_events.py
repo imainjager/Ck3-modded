@@ -52,7 +52,7 @@ def render(ev, L):
 
 def load_groups():
     groups = {}
-    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5"):
+    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5", "ev_v6"):
         try:
             m = importlib.import_module(mod)
         except ModuleNotFoundError as e:
@@ -60,6 +60,16 @@ def load_groups():
                 continue
             raise
         groups[mod] = m.EVENTS
+    # risky extra options for events that had no downside (defined in ev_v6.PATCH)
+    try:
+        import ev_v6
+        for evs in groups.values():
+            for ev in evs:
+                for opt in ev_v6.PATCH.get(ev.num, []):
+                    if opt not in ev.options:
+                        ev.options.append(opt)
+    except ModuleNotFoundError:
+        pass
     return groups
 
 

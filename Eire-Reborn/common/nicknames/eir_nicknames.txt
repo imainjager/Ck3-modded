@@ -1,0 +1,16 @@
+﻿# Eire Reborn - nicknames
+
+nick_eir_convener = {}
+nick_eir_tara_builder = {}
+nick_eir_poet_king = {}
+nick_eir_cow_lord = {}
+nick_eir_abbot_king = {}
+nick_eir_sea_king = {}
+nick_eir_sea_master = {}
+nick_eir_gael_father = {}
+nick_eir_unifier = {}
+nick_eir_celtic_brother = {}
+nick_eir_high_king = {}
+nick_eir_the_crowned = {}
+nick_eir_emperor_gael = {}
+nick_eir_norse_bane = {}
