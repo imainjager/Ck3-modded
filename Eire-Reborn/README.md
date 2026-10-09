@@ -44,3 +44,10 @@ python validate.py
 - Interconnections: decisions fire existing events (Brigid, Salmon, Fairy Mound, Bog Treasure, Wolfhound, Feast, Saint's Bell, Hermit's Prophecy, Bardic Contest); Dublin garrison -> duel; scriptorium patronage -> Little Gospel after 3 years; Tara Hall -> Feis; hostages -> release -> fosterling.
 - Fixed a latent bug: `eir_grant_claims_non_celtic_effect` now uses `title:` correctly.
 - Skipped on purpose: custom casus belli (cattle raid), naval levy modifier, character memories.
+
+## Added in v0.4: buildings that cost prestige
+`tools/gen_buildings2.py` -> `common/buildings/eir_more_buildings.txt`.
+- **12 regular buildings** (Dun, Booley Pastures, Fosterage Hall, Bruidhean, Aonach Fair, Smithy of Goibniu, Hobby Stables, Holy Well, Monastic School, Hermitage, Pilgrim Hospice, Ogham Pillar Field). Open to any Gaelic ruler, cheap in gold, 30-90 prestige.
+- **10 duchy-capital buildings**: a generic Righteach plus unique ones for Munster, Meath, Ulster, Connacht, Leinster, Albany, the Isles, Gwynedd and Cornwall (300-500 prestige). They bless every county of the duchy.
+- **19 special buildings** tied to real baronies (Tara, Armagh, Rathcroghan, Slemish, Uisneach, Kildare, Emly, Kincora, Dublin, Waterford, Cork, Limerick, Derry, Downpatrick, Bangor, Trim, Kilkenny, Tuam, Ferns). 350-1000 prestige. Several need earlier decisions (Hall of Tara, Armagh primacy, Oenach, Dublin, Cashel, Filí).
+- Risk notes: no custom 3D assets (the game uses fallbacks), and vanilla's `GetSpecialBuildingNameFromProvince` custom-loc has no entries for these, so a few UI spots may show a blank name.
