@@ -1,6 +1,6 @@
 # CK3 FLAVOR GUIDE (read before creating ANY decision, event, tradition, building or unit)
 
-Reusable across every mod in this repo (Interactive Events, Eire Reborn, and whatever comes next).
+Reusable across every mod in this repo and every future regional expansion pack. Wherever it says "the region" or "the pack", read the area and period of the mod you are building.
 Written from the user's feedback and from reading vanilla CK3. The user may edit it; the user's edits win.
 
 ## 0. The one test
@@ -8,7 +8,7 @@ Before anything ships ask: **what must the player DO to earn this, what does it 
 If the answer is "click a button, get a modifier", it does not ship.
 
 ## 1. Rules the user has set (do not relax these)
-1. **Unique decisions: Claude decides how many times each can happen, per decision.** If a decision is truly unique (founding something, a one-time restoration, a first-ever event) it happens **once per game**; track it with a global variable (vanilla uses the global list `unavailable_unique_decisions`). Anything that is a recurring act (a feast, a circuit, a festival) gets a cooldown instead. A decision the mod's own rules keep undoing (for Eire Reborn: being crowned High King while the tanistic collapse is active) stays repeatable until that rule is lifted. State the choice in the decision's tooltip.
+1. **Unique decisions: Claude decides how many times each can happen, per decision.** If a decision is truly unique (founding something, a one-time restoration, a first-ever event) it happens **once per game**; track it with a global variable (vanilla uses the global list `unavailable_unique_decisions`). Anything that is a recurring act (a feast, a circuit, a festival) gets a cooldown instead. A decision whose result the pack's own rules keep undoing (for example a crown that a custom succession rule destroys on every death) stays repeatable until that rule is lifted. State the choice in the decision's tooltip.
 2. **Build for the region, not for one government.** This rule set will drive regional expansion packs, some feudal, some tribal, some clan or other. Before writing a pack, look at the region's start dates and governments, then set income/prestige scales, building access and costs to fit **that** region. Every building, unit and decision must be reachable by the governments the region actually uses (for example, tribal holdings need `tribal_holding` checked explicitly). Use **explicit numbers** for costs; scaled values like `*_gold_value` follow income and misbehave at low income.
 3. **Every negative has a way out, and the way out can beat the original loss.** A remedy decision or event must exist for every penalty; the best remedies leave the player *better* than before (a new modifier, trait, opinion, nickname) if they pay the price and do the work.
 4. **Flavor must be dynamic, not one note.** A reward touches at least three of: ruler, realm, other characters, map, culture, religion, future decisions.
@@ -34,7 +34,7 @@ If the answer is "click a button, get a modifier", it does not ship.
 | Found Kingdom | prestige_level >= 3, top liege, 3 duchies or 30 counties | 300 gold, 750 prestige, 200 piety | choice step (which duchies), cost differs by government |
 | Found Empire | prestige_level >= 4, 3 kingdoms or large realm | 1200 gold, 2500 prestige, 600 piety | same |
 | Restore Dumnonia | culture/dynasty, hold the duchy, very high prestige, local support, once per game | 300 gold | ceremony event with a choice (nickname vs prestige), reaction event to other players worded by culture |
-| Reclaim Britannia | whole region controlled, at most 1 powerful foreign-culture vassal | none | county modifiers for 10 years, capital culture change, nickname (Pendragon / the Tuatha De Danann), heroic legend seed, other players notified |
+| Reclaim Britannia | whole region controlled, at most 1 powerful foreign-culture vassal | none | county modifiers for 10 years, capital culture change, a legendary-hero nickname, heroic legend seed, other players notified |
 | Negotiate the Danelaw | tribal era only, 2 duchies, valid opponent | none | other side can reject; unique; time-limited |
 Patterns: specific gates, several currencies at once, unique tracking, preview tooltip then a ceremony event, a choice inside the ceremony, reaction events, multi-part rewards, a nickname and a legend.
 
@@ -48,7 +48,7 @@ Patterns: specific gates, several currencies at once, unique tracking, preview t
 | prestige levels | low 1, medium 2, high 3, very high 4 |
 * `minor/medium/major_gold_value` scale with the character's income (about 3, 6 and 12 months). A tribal chief has a few gold a month, so these are tiny. **Use explicit numbers for costs; use scaled values only for rewards.**
 * Vanilla events mostly give medium prestige (150) or minor (75), medium piety (100). Major (350) and massive (750) are rare and reserved for decisions.
-* Build a stage ladder for each pack from the region's real rulers. Example (Eire Reborn, tribal start): Stage 1 = 4 counties; Stage 2 = 10 counties + duchy + prestige level 2; Stage 3 = 20 counties + kingdom + prestige level 3; Stage 4 = holds the top kingdom + prestige level 4.
+* Build a stage ladder for each pack from the region's real rulers. Example (a pack with a tribal start): Stage 1 = 4 counties; Stage 2 = 10 counties + duchy + prestige level 2; Stage 3 = 20 counties + kingdom + prestige level 3; Stage 4 = holds the top kingdom + prestige level 4.
 * Cost tiers are a starting point, to be rescaled per region: Stage 1: 150-300 prestige, 100-200 gold. Stage 2: 400-900 prestige, 200-400 gold, 100-300 piety. Stage 3: 1000-1500 prestige, 300-600 gold, 200-400 piety. Stage 4: 2500-4000 prestige, 800-1200 gold, 500-600 piety. For a rich feudal region raise gold; for a poor tribal region lean on prestige and piety.
 * A decision may cost nothing if its gate is a genuine achievement (control a whole region, hold several named titles, finish a chain of earlier decisions).
 
@@ -100,7 +100,7 @@ Measured from the game files (8,921 events with options, 22,639 options). Vanill
 ## 9. What vanilla does well (copy these)
 1. **Options are tied to personality, skill and perk.** 52% of events gate at least one option by trait or skill, and 5,251 events give the AI an `ai_chance` that shifts with traits. Options read as *who the character is*, not as menu items.
 2. **Stress follows character.** 45% of events use `stress_impact`: acting in line with your personality gives relief (for example `zealous = minor_stress_impact_loss`), acting against it costs stress (`cynical = minor_stress_impact_gain`). Never a flat stress number when a trait-based one exists.
-3. **Text changes with the reader.** 3,243 events use conditional text (`triggered_desc`, `first_valid`) so a callous ruler, a Norse ruler and a Brythonic ruler read different lines. Do the same for culture, government, faith and key traits.
+3. **Text changes with the reader.** 3,243 events use conditional text (`triggered_desc`, `first_valid`) so a callous ruler, a ruler of one culture and a ruler of another read different lines. Do the same for culture, government, faith and key traits.
 4. **Rewards come in several kinds at once.** An option usually mixes a small prestige/piety/gold change, an opinion change on a *named character*, a temporary modifier, and lifestyle XP. Opinion is the most common reward of all (5,161 options).
 5. **Lifestyle XP and trait XP, not instant traits.** Vanilla grants `add_<skill>_lifestyle_xp` (minor 50, medium 100, major 300, massive 500; minor and medium are 8 of every 10 uses) and `add_trait_xp` (513 uses) far more often than `add_trait` outright. Good outcomes push the character toward a lifestyle (hunter, poet, mystic, reveler, blademaster, herbalist, physician, traveler, gardener).
 6. **Temporary modifiers with a headline stat.** Event modifiers average 3 fields: one headline stat, one side effect, sometimes a multiplier (for example Emaciated: health -0.5, prowess -5, 3 years; Soothed Child: general opinion +10, stress gain x0.9, 5 years). Durations cluster at **5 years (738 uses) and 10 years (836)**, with 3 and 15 next. Never permanent.
@@ -246,7 +246,7 @@ Reading the table: in vanilla only 23% of options do three or more things, and a
 ---
 
 # PART IV: BUILDINGS (how vanilla builds them, and how ours must be balanced)
-Sources: `docs/VANILLA_BUILDING_CATALOG.md` (every building family in the base game and DLC, with costs and effects) and `docs/BUILDING_BALANCE_MODEL.md` (the scaling rules and an Irish target for each planned building). 956 building entries were scanned: 396 regular, 47 duchy-capital, 264 special, 215 resource mines, the rest tribal, temple-citadel, nomad and other.
+Sources: `docs/VANILLA_BUILDING_CATALOG.md` (every building family in the base game and DLC, with costs and effects) and `docs/BUILDING_BALANCE_MODEL.md` (the scaling rules and a regional target for each planned building). 956 building entries were scanned: 396 regular, 47 duchy-capital, 264 special, 215 resource mines, the rest tribal, temple-citadel, nomad and other.
 
 ## 19. What vanilla buildings do (share of buildings with each effect)
 **Regular buildings (396):** monthly income 66%; bonuses to stationed men-at-arms 49%; levies 35%; county development growth 32%; travel danger 26%; supply limit 23%; tax 17%; defender holding advantage 17%; garrison 13%; fort level 11%; hostile raid time 11%; county control growth 10%; build speed 10%; piety 9%; knight effectiveness 9%; epidemic resistance 9%; county opinion 6%; prestige 5%.
@@ -281,7 +281,7 @@ Special buildings (median): county development growth +20%, income +2.0 per mont
 **R21. Price and benefit sit on the vanilla line.** For a given tier, our cost per unit of benefit must be within about 25% of the vanilla line. A building that costs more than its vanilla analogue must give more, and one that gives more must cost at least the same.
 **R22. New (regional) buildings are stronger than the vanilla analogue, by about 30% on the headline stats.** The number is a starting point (the user's rough suggestion), set per pack and stated in the pack's design notes. Integer stats (fort level, knight limit) stay as they are and gain a second effect instead. Cost follows the vanilla curve; the extra strength is paid for by the building being tied to the region's story, not by a discount.
 **R23. Several effects.** Each regular building follows the target distribution in section 19: normally 4-6 distinct effects, one headline and the rest on different axes.
-**R24. Regionally relevant.** A building must be a recognisable institution of the region (for Ireland: dún, crannóg, booley pastures, fosterage hall, bruidhean, aonach, brehon court, bardic school, monastic school, round tower, high cross, holy well) with exactly one flavor effect that has no vanilla analogue (legend spread, fosterage opinion, hospitality, poet prestige, cattle levy), and with a short description that says what it is and does.
+**R24. Regionally relevant.** A building must be a recognisable institution of the region (the pack's design notes list them, drawn from the region's real history: its forts and strongholds, markets and fairs, courts of law, schools, monasteries or temples, harbours, herding or farming institutions, hostels and halls). Each has exactly one flavor effect that has no vanilla analogue (for example legend spread, a fosterage- or hospitality-style opinion effect, prestige for the region's poets or artisans, a levy bonus tied to the region's main livelihood), and a short description that says what it is and does.
 **R25. Every government the region uses.** Provide a tribal version built on vanilla's tribal pattern (`building_requirement_tribal = yes`, `has_building_or_higher = tribe_01`, tribal costs) and a castle/city/church version with `building_requirement_tribal = no`. Check both appear in the build menu.
 **R26. Localization.** Each building needs `building_type_<key>` and `building_type_<key>_desc` (header and description) as well as `building_<key>` for the level name. A building showing a raw key is a bug.
 **R27. Chains.** Use levels like vanilla: regular buildings four to eight levels, tribal two to four, duchy buildings three; each level adds about a fifth to a half of the first level's effect (see section 20).
@@ -292,3 +292,16 @@ Special buildings (median): county development growth +20%, income +2.0 per mont
 28. Does it do four or more different things, matching the target distribution?
 29. Is it a recognisable regional institution with one flavor effect and a real description?
 30. Does it appear for tribal and for feudal holders, and are its name and description keys present?
+
+---
+
+# PART V: STARTING A NEW REGIONAL PACK (checklist)
+Use this when applying the guide to a new area and period.
+1. **Region and period:** pick the area, start dates and the governments that exist there (tribal, feudal, clan, republic, administrative...). Look at who really rules the region at each start date.
+2. **Stage ladder:** write four stages from the smallest ruler to the top title of the region (realm size, title tier, prestige level), then scale costs per section 4 and the region's income.
+3. **Regional institutions:** list the buildings, offices, festivals, laws and faiths the region really had, and map each building to a vanilla analogue (see `docs/BUILDING_BALANCE_MODEL.md` for the method). Decide the strength factor over the analogue (a starting suggestion is +30%) and write it in the pack's design notes.
+4. **Regional voice:** nicknames, artifacts, legends, named places, local figures and a few conditional lines of text per culture, so the pack does not read like the base game.
+5. **Systems to touch:** choose which of the 28 features (section 15) the pack will emphasise, and make sure the underused ones appear at least a few times.
+6. **Early game:** give the smallest ruler of each start date events and decisions from the first year, not only the higher stages.
+7. **Safety:** read the validator and the game's `error.log` after every test; replace every count-style or unlabelled requirement with plain text.
+8. **Count and report:** compare the finished pack with the "things at once" and building targets and report the result.
