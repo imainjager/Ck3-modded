@@ -164,3 +164,81 @@ Measured from the game files (8,921 events with options, 22,639 options). Vanill
 18. Does the chain widen with each step, and end in a visible mark?
 19. Does text vary by culture/government/trait?
 20. Is there a cooldown, a gate and the global flavor guard so it cannot spam?
+
+---
+
+# PART III: THE FULL MENU (everything vanilla lets events and decisions do), AND HOW MUCH SHOULD HAPPEN AT ONCE
+Sources: `docs/VANILLA_EFFECT_INDEX.md` (every effect used by vanilla, with usage percentages, plus an inventory of the systems they touch) and `docs/VANILLA_REWARD_CATALOG.md`.
+Percentages are rough: the share of vanilla events (8,921 with options) or decisions (462) that use the feature at least once.
+
+## 15. The feature menu
+"Our target" is vanilla's share raised by about half (capped), because our content should do more per event than vanilla does. It is a goal for a pack taken as a whole, not a rule for every single event.
+
+| # | Feature (what can happen) | Typical vanilla effects | Events | Decisions | Our target (events / decisions) |
+|---|---|---|---|---|---|
+| 1 | **Opinion changes** on other characters | add_opinion, reverse_add_opinion | 36% | 13% | 54% / 20% |
+| 2 | **Relationships, hooks, secrets, schemes** | add_hook, set_relation_friend/rival/lover, add_secret, add_scheme_progress, reveal_to | 35% | 12% | 52% / 18% |
+| 3 | **Prestige** | add_prestige, add_dynasty_prestige, add_prestige_level | 21% | 18% | 32% / 27% |
+| 4 | **Titles, land, vassals** | create_title_and_vassal_change, change_title_holder, set_de_jure_liege_title, change_county_control, add_building | 20% | 42% | 30% / 60% |
+| 5 | **Marriage, family, court membership** | add_courtier, add_companion, marry, divorce, adopt, make_pregnant | 19% | 9% | 28% / 14% |
+| 6 | **Temporary character modifier** | add_character_modifier (5 or 10 years is the norm) | 19% | 20% | 28% / 30% |
+| 7 | **Claims, casus belli, war, alliance, truce** | add_pressed_claim, add_unpressed_claim, start_war, add_truce_both_ways | 17% | 24% | 26% / 36% |
+| 8 | **New or moved characters, travel** | create_character, move_to_pool, start_travel_plan, add_visiting_courtier | 16% | 10% | 24% / 15% |
+| 9 | **Gold** | add_gold, remove_short_term_gold, pay_short_term_gold, add_treasury_or_gold | 15% | 5% | 22% / 8% |
+| 10 | **Court positions, councillors, task contracts** | appoint, court position holders, complete_task_contract, change_influence | 13% | 5% | 20% / 8% |
+| 11 | **Activity effects** (feast, hunt, tournament, pilgrimage, wedding...) | add_activity_log_entry, activity success changes | 12% | 1% | 18% / 2% |
+| 12 | **Trait gained or lost** | add_trait, remove_trait, add_trait_force_tooltip | 12% | 10% | 18% / 15% |
+| 13 | **Piety** | add_piety, add_piety_level, spiritual fulfilment change (about 2%) | 12% | 8% | 18% / 12% |
+| 14 | **Skill, perk or education** | add_<skill>_skill, add_<skill>_lifestyle_perk_points, add_perk | 11% | 2% | 17% / 3% |
+| 15 | **Injury, illness, health, fertility, death** | increase_wounds_effect, health changes, death, fertility | 10% | 2% | 15% / 3% |
+| 16 | **Stress (direct)** | add_stress | 9% | 3% | 14% / 5% |
+| 17 | **Lifestyle XP / trait XP** | add_<skill>_lifestyle_xp (25-500), add_trait_xp | 8% | 1% | 12% / 2% |
+| 18 | **Dread, tyranny, legitimacy, unity** | add_dread, add_tyranny, add_legitimacy, add_realm_unity | 7% | 7% | 11% / 11% |
+| 19 | **County, province or title modifier** | add_county_modifier, add_province_modifier | 7% | 10% | 11% / 15% |
+| 20 | **Legend, nickname, memory** | create_legend_seed, give_nickname, create_character_memory | 6% | 16% | 9% / 24% |
+| 21 | **Stories, situations, struggles** | create_story, end_story, situation effects | 6% | 11% | 9% / 17% |
+| 22 | **Artifacts** | create_artifact, set_owner, add_artifact_modifier, add_durability | 5% | 2% | 8% / 3% |
+| 23 | **Culture, faith, religion, tradition** | set_county_culture, change_faith, add_culture_tradition, add_doctrine, change_cultural_acceptance | 5% | 21% | 8% / 32% |
+| 24 | **Imprison, capture, exile, release** | imprison, release_from_prison | 5% | 0% | 8% / 1% |
+| 25 | **Faction, unrest, revolt, control** | add_faction_discontent, county control | 3% | 2% | 5% / 3% |
+| 26 | **Armies, men-at-arms, troops** | spawn_army, add_maa, levy effects | 3% | 3% | 5% / 5% |
+| 27 | **Laws, government, succession** | add_realm_law, add_title_law, change_government | 1% | 10% | 2% / 15% |
+| 28 | **Dynasty or house modifier/perk/aspiration** | add_dynasty_modifier, add_house_modifier, dynasty perks | 1% | 8% | 2% / 12% |
+
+**Machinery vanilla also uses (not "things" but how they are delivered):**
+trait-based stress or fulfilment impact on options 49% of events; conditional text by character 36%; "do this to other people" iterators (random_courtier, every_vassal, random_relation, ordered_...) 46%; flags and variables 43%; follow-up events 20%; cooldowns 28%; labelled random outcomes 12%; one-option ceremonies 31%.
+
+**Systems these effects can touch** (counts of definitions in the game files; the names are in the index): 23 activities, 79 scheme types, 72 council tasks, 81 court positions, 12 factions, 126 casus belli types, 558 character interactions, 201 laws, 20 governments, 6 lifestyles with 162 perks, 66 artifact types, 38 legend seeds with 33 chronicles, 52 story cycles, 2 struggles, 12 situations, 12 inspirations, 7 epidemics, 111 men-at-arms types, 24 great projects, 31 accolade types, 17 diarchies, 48 hook types, 19 secret types, 394 memory types, 64 subject contracts, 159 task contracts, 7 vassal stances, 29 travel options, 110 dynasty perks, 22 dynasty legacies, 29 house aspirations, 162 culture pillars, 198 traditions, 108 innovations, 729 nicknames, 1,623 opinion modifiers, 306 traits, 989 building entries, 501 decision entries. About **340 distinct action effects** appear in vanilla events and decisions (100 add_*, 79 set_*, 49 remove_*, 35 move/pay/spawn-type, 33 change_*, 18 start/end-type, 13 create_*, and a handful of trigger/give/save tools), plus about **215 "pick one / affect all / pick the best" iterator forms** (120 random_*, 68 every_*, 29 ordered_*). Only effects used in at least 3 events are counted.
+
+**Features that vanilla underuses but that suit our packs:** nicknames and legends (6% of events), artifacts (5%), culture and faith change (5%), dynasty/house effects (1% of events), laws (1%), factions and unrest (3%), armies (3%), stories and situations (6%). Use these on purpose: they are what makes a region feel different from the base game.
+
+## 16. How much should happen at once ("things" per option, event and decision)
+A **thing** is one feature from the table above (so +50 piety and +50 learning XP and a spiritual-fulfilment gain is three things, and an opinion change is a fourth). Trait-based stress and AI preferences do not count as things.
+
+| Things | Per option: vanilla | target | Per event (all options and setup): vanilla | target | Per decision: vanilla | target |
+|---|---|---|---|---|---|---|
+| 0 | 24.8% | 3% | 9.9% | 0% | 17.7% | 0% |
+| 1 | 31.4% | 30% | 18.9% | 5% | 20.8% | 12% |
+| 2 | 20.4% | 32% | 16.1% | 12% | 13.2% | 16% |
+| 3 | 13.0% | 19.5% | 14.8% | 22% | 13.0% | 19.5% |
+| 4 | 5.9% | 9% | 11.5% | 17% | 16.0% | 24% |
+| 5 | 2.7% | 4% | 9.4% | 14% | 8.0% | 12% |
+| 6 | 1.2% | 2% | 7.2% | 11% | 3.0% | 4.5% |
+| 7+ | 0.5% | 0.6% | 12.3% | 18.5% | 8.2% | 12.3% |
+How the targets were made: every bucket of 3 or more things is vanilla's share times 1.5 (for example 13.0% to 19.5%), the "nothing happens" bucket is cut almost to zero, and the 1-2 thing buckets absorb the rest.
+Reading the table: in vanilla only 23% of options do three or more things, and a quarter do none. In our packs, about **35% of options should do three or more things, 67% two or more, and almost none should do nothing**. At event level, **83% of events should show three or more different kinds of change** somewhere in their options and setup. For decisions, **72% should do three or more things** (vanilla's big title decisions already do 6-11).
+
+## 17. Rules that come with the menu
+**R15. The multi-thing rule.** An ordinary option does at least two things: the headline and a different-axis side effect. The deliberately small, safe option may do one. Nothing does zero.
+**R16. A reward set.** Build the thing list on purpose: a *self* thing (prestige, piety, gold, XP, a trait, stress), a *world* thing (an opinion, a county modifier, a claim, a title, a relationship), and a *mark* thing (a nickname, memory, artifact, legend, modifier, flag) wherever the outcome is meaningful.
+**R17. Use the whole menu across a pack.** Over a whole pack, events and decisions together should use at least 20 of the 28 features in the table, and each of the underused features at least a few times.
+**R18. Amounts stay on vanilla's scale.** More *kinds* of things, not bigger numbers. A three-thing option still uses minor or medium amounts for each (prestige 75-150, piety 50-100, XP 50-100) so that the totals stay in line with the base game.
+**R19. Be honest in the tooltip.** The preview must show every thing the option does, including the side effects and the marks, so the player can choose with open eyes.
+**R20. Count them.** When a pack is finished, count the things per option, per event and per decision, compare with the target table above, and report the result with the pack.
+
+## 18. Part III checklist (in addition to sections 8 and 14)
+21. Does each ordinary option do at least two different kinds of thing, and none do nothing?
+22. Is there a self thing, a world thing and (for meaningful outcomes) a mark thing?
+23. Are the numbers on vanilla's scale and the tooltip complete?
+24. Across the pack, are at least 20 of the 28 features in use, including the underused ones (nicknames, legends, artifacts, culture or faith, laws, dynasty or house, factions, armies, stories)?
+25. After counting, is the pack close to the per-option, per-event and per-decision targets in section 16?
