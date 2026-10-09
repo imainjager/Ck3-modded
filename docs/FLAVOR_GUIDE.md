@@ -242,3 +242,53 @@ Reading the table: in vanilla only 23% of options do three or more things, and a
 23. Are the numbers on vanilla's scale and the tooltip complete?
 24. Across the pack, are at least 20 of the 28 features in use, including the underused ones (nicknames, legends, artifacts, culture or faith, laws, dynasty or house, factions, armies, stories)?
 25. After counting, is the pack close to the per-option, per-event and per-decision targets in section 16?
+
+---
+
+# PART IV: BUILDINGS (how vanilla builds them, and how ours must be balanced)
+Sources: `docs/VANILLA_BUILDING_CATALOG.md` (every building family in the base game and DLC, with costs and effects) and `docs/BUILDING_BALANCE_MODEL.md` (the scaling rules and an Irish target for each planned building). 956 building entries were scanned: 396 regular, 47 duchy-capital, 264 special, 215 resource mines, the rest tribal, temple-citadel, nomad and other.
+
+## 19. What vanilla buildings do (share of buildings with each effect)
+**Regular buildings (396):** monthly income 66%; bonuses to stationed men-at-arms 49%; levies 35%; county development growth 32%; travel danger 26%; supply limit 23%; tax 17%; defender holding advantage 17%; garrison 13%; fort level 11%; hostile raid time 11%; county control growth 10%; build speed 10%; piety 9%; knight effectiveness 9%; epidemic resistance 9%; county opinion 6%; prestige 5%.
+**Duchy-capital buildings (47):** county opinion across the duchy 30%; income 28%; development growth 21%; court grandeur 19%; men-at-arms upkeep 19%; piety 17%; legitimacy 15%; stress 13%; fort level 13%.
+**Special buildings (264):** county development growth 72%; income 58%; county tax 57%; dynasty prestige 39%; piety 31%; travel danger 25%; fort level 20%; county opinion 18%.
+
+**How many things at once:** a regular building does 1 thing 4% of the time, 2 things 9%, 3 things 13%, 4 things 23%, 5 things 19%, 6 things 13%, 7 things 10% and 8 or more 9%. Duchy buildings do 2-3 things 38% of the time and 8 or more 15%. Special buildings do 8 or more things 41% of the time. **A building is never a one-effect item.**
+Target for our regular buildings (vanilla's buckets of five or more effects raised by half): 1 effect 0%, 2 effects 2%, 3 effects 4.5%, 4 effects 17%, 5 effects 28.5%, 6 effects 19.5%, 7 effects 15%, 8 or more 13.5%.
+
+## 20. Vanilla building numbers (use these as the scale)
+| | I | II | III | IV | V | VIII |
+|---|---|---|---|---|---|---|
+| Gold cost, economy / military / temple chains | 150 | 250 | 340 | 500 | 750 | 2240 |
+| Gold cost, fortification chains | 100 | 150 | 195 | 275 | 400 | 1145 |
+| Gold cost, tribal chains (also 200 prestige at I, 350 at II) | 75 | 100 | 125 | 150 | | |
+| Gold cost, duchy-capital chains | 485 | 725 | 1100 | | | |
+| Special buildings | mostly 1000 gold; small ones 300-800; wonders 2000-3000 | | | | | |
+| Monthly income | 0.35 | 0.55 | 0.75 | 0.95 | 1.15 | 1.75 |
+| County development growth (factor) | 0.045 | 0.09 | 0.12 | 0.155 | 0.2 | |
+| Defender holding advantage | 2 | 4 | 6 | 8 | 10 | 16 |
+| Fort level | 1 | 2 | 3 | 4 | 5 | 8 |
+| Travel danger | -1 | -2 | -3 | -4 | -5 | -8 |
+| Piety per month | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.8 |
+| County control growth per month | 0.1 | 0.2 | 0.3 | 0.4 | | |
+| Knight effectiveness | +2% | +4% | +6% | +8% | | |
+| Levies | 100 | 175 | 175 | 225 | 275 | 425 |
+| Maximum garrison | 150 | 300 | 450 | 800 | 750 | 1200 |
+Duchy-capital chains (three levels): development growth across the duchy +10% / +20% / +30%, or tax +15% / +20% / +30%; county opinion +5 / +10 / +15; court grandeur +4 / +8 / +12.
+Special buildings (median): county development growth +20%, income +2.0 per month, county tax +20%, piety +0.25 to +1.0, about 8 effects.
+
+## 21. Rules for buildings
+**R21. Price and benefit sit on the vanilla line.** For a given tier, our cost per unit of benefit must be within about 25% of the vanilla line. A building that costs more than its vanilla analogue must give more, and one that gives more must cost at least the same.
+**R22. New (regional) buildings are stronger than the vanilla analogue, by about 30% on the headline stats.** The number is a starting point (the user's rough suggestion), set per pack and stated in the pack's design notes. Integer stats (fort level, knight limit) stay as they are and gain a second effect instead. Cost follows the vanilla curve; the extra strength is paid for by the building being tied to the region's story, not by a discount.
+**R23. Several effects.** Each regular building follows the target distribution in section 19: normally 4-6 distinct effects, one headline and the rest on different axes.
+**R24. Regionally relevant.** A building must be a recognisable institution of the region (for Ireland: dún, crannóg, booley pastures, fosterage hall, bruidhean, aonach, brehon court, bardic school, monastic school, round tower, high cross, holy well) with exactly one flavor effect that has no vanilla analogue (legend spread, fosterage opinion, hospitality, poet prestige, cattle levy), and with a short description that says what it is and does.
+**R25. Every government the region uses.** Provide a tribal version built on vanilla's tribal pattern (`building_requirement_tribal = yes`, `has_building_or_higher = tribe_01`, tribal costs) and a castle/city/church version with `building_requirement_tribal = no`. Check both appear in the build menu.
+**R26. Localization.** Each building needs `building_type_<key>` and `building_type_<key>_desc` (header and description) as well as `building_<key>` for the level name. A building showing a raw key is a bug.
+**R27. Chains.** Use levels like vanilla: regular buildings four to eight levels, tribal two to four, duchy buildings three; each level adds about a fifth to a half of the first level's effect (see section 20).
+
+## 22. Part IV checklist
+26. Is the cost per unit of benefit within about 25% of the vanilla line for the tier?
+27. If it is a regional building, is the headline stat about 30% above its vanilla analogue, and is that stated?
+28. Does it do four or more different things, matching the target distribution?
+29. Is it a recognisable regional institution with one flavor effect and a real description?
+30. Does it appear for tribal and for feudal holders, and are its name and description keys present?
