@@ -91,3 +91,76 @@ Other recurring vanilla rewards: artifacts, legend seeds, hooks, memories, opini
 9. Does it work for every government the region uses?
 10. Is its repeat rule right (once per game if truly unique, otherwise a cooldown; Rule 1)?
 11. Validator clean; `error.log` clean after testing.
+
+---
+
+# PART II: HOW VANILLA BUILDS EVENTS, AND HOW WE BUILD THEM BETTER
+Measured from the game files (8,921 events with options, 22,639 options). Vanilla's **diversity** is the thing to keep. Its **one-note and spammy events** are the thing to avoid. Everything below uses vanilla's own scales unless stated.
+
+## 9. What vanilla does well (copy these)
+1. **Options are tied to personality, skill and perk.** 52% of events gate at least one option by trait or skill, and 5,251 events give the AI an `ai_chance` that shifts with traits. Options read as *who the character is*, not as menu items.
+2. **Stress follows character.** 45% of events use `stress_impact`: acting in line with your personality gives relief (for example `zealous = minor_stress_impact_loss`), acting against it costs stress (`cynical = minor_stress_impact_gain`). Never a flat stress number when a trait-based one exists.
+3. **Text changes with the reader.** 3,243 events use conditional text (`triggered_desc`, `first_valid`) so a callous ruler, a Norse ruler and a Brythonic ruler read different lines. Do the same for culture, government, faith and key traits.
+4. **Rewards come in several kinds at once.** An option usually mixes a small prestige/piety/gold change, an opinion change on a *named character*, a temporary modifier, and lifestyle XP. Opinion is the most common reward of all (5,161 options).
+5. **Lifestyle XP and trait XP, not instant traits.** Vanilla grants `add_<skill>_lifestyle_xp` (minor 50, medium 100, major 300, massive 500; minor and medium are 8 of every 10 uses) and `add_trait_xp` (513 uses) far more often than `add_trait` outright. Good outcomes push the character toward a lifestyle (hunter, poet, mystic, reveler, blademaster, herbalist, physician, traveler, gardener).
+6. **Temporary modifiers with a headline stat.** Event modifiers average 3 fields: one headline stat, one side effect, sometimes a multiplier (for example Emaciated: health -0.5, prowess -5, 3 years; Soothed Child: general opinion +10, stress gain x0.9, 5 years). Durations cluster at **5 years (738 uses) and 10 years (836)**, with 3 and 15 next. Never permanent.
+7. **Downsides are real and varied.** 37% of events have an option with a cost: opinion loss (2,478), prestige loss (1,035), stress (790), injury or a bad trait (730), gold (671), death (402), imprisonment (365), piety loss (328). Prestige goes down about as often as it goes up.
+8. **Randomness is labelled by consequence and personality.** 12% of events use `random_list`, typically with a trait that shifts the odds.
+9. **Cooldowns and gates.** 28% of events carry a cooldown (10 years most common, then 5 years, 1 year, 20 years); the rest are gated behind a trigger that only fits some characters.
+10. **Chains exist and use short delays.** Of delayed follow-ups, 1,812 use days, 134 months, 106 years. About 70% of chains are two events long, 19% three, 10% four or more; the longest (activities, coronation, pilgrimage, harrying) reach 6-8 events.
+11. **Ceremonies are short, reactions are worded for the reader.** The founding event is one or two options; the notification to other players changes text by culture.
+
+## 10. What vanilla does badly (never copy these)
+1. **Events where nothing changes.** 11% (995 of 8,921) of vanilla events change nothing at all: no effect in any option, the immediate block or the after block. Another 28% of individual options have no effect of their own.
+2. **Click-OK notifications.** 31% of events are single-option; over half of those do nothing. A single-option event is acceptable only when it reveals something the player needs (a letter, a death, a ceremony), never as filler.
+3. **Dead ends.** 70% of chains stop after one follow-up. The story never widens to new people, places, titles or consequences.
+4. **Spam** (observed in play, not measured). Many repeatable events share the same trigger and fire in clumps because there is no global flavor limit.
+5. **Flat repeated choices** (qualitative). The same "pay gold / lose prestige / do nothing" menu across hundreds of events.
+6. **Rewards with no memory** (qualitative). Most events leave nothing the player will see again.
+
+## 11. Our rules for events (vanilla scale plus the improvements)
+**R1. Every event changes something visible.** At least one option (and preferably every option) must change a number, a relationship, a trait, a modifier, a title, a claim or a future event. A "do nothing" option is allowed only as the safe choice in a multi-option event, and it must still carry a small consequence (a minor stress, a missed chance flagged in a variable, a rival's opinion).
+**R2. Single-option events are only for ceremonies and reveals,** and they must come with a choice earlier or later in the same chain.
+**R3. Option anatomy.** 3 to 5 options (6 for key moments). Each option has: (a) a fit (a trait, skill or perk that makes it natural, or the safe default), (b) a primary effect, (c) one side effect on a *different axis* (for example prestige up, an opinion down), (d) `stress_impact` that rewards acting in character and punishes acting against it, (e) `ai_chance` shaped by traits, (f) an honest tooltip.
+**R4. Rewards follow vanilla's scale.** Use the named values: prestige miniscule/minor/medium/major/massive; piety the same; stress 10/20/40/60; lifestyle XP 25/50/100/300/500; dread 10/20/30; legitimacy 50/100. Most events use minor or medium. Major is for decisions and rare peaks. Massive almost never.
+**R5. Teach the character something.** Good outcomes grant lifestyle XP or a trait chance in the right lifestyle (poetry and learning events: lifestyle_poet; hunts and beasts: lifestyle_hunter; saints, wells, visions: lifestyle_mystic; feasts: lifestyle_reveler; duels and training: lifestyle_blademaster; healing: lifestyle_herbalist or lifestyle_physician; voyages and pilgrimages: lifestyle_traveler). Personality traits (brave, compassionate, shrewd, zealous, just, generous, patient, honest, forgiving, calm, loyal, devoted) are earned by the option that embodies them and usually come with a chance, not a certainty.
+**R6. Bad outcomes mark the character.** Failures can add injuries (wounded, scarred, one-eyed, one-legged, blind, disfigured), mental marks (depressed, lunatic, possessed) or vices (drunkard, profligate, comfort_eater, inappetetic, flagellant) with a chance, and the recovery path exists (a decision, a physician, a pilgrimage). Prefer temporary modifiers (1-5 years) for minor failures.
+**R7. Modifiers are temporary and focused.** 2 to 4 fields, one headline, 3/5/10/15 years. Permanent changes only through titles, traditions, buildings and artifacts.
+**R8. The world answers.** If another character is involved, the option must change opinion, a relationship, a hook, a secret or a scheme with that character. Rulers outside the event react through opinions, claims, factions or follow-up events.
+**R9. Expand outward.** A chain's next event must add a new axis: a new character, a new place, a new title, a rival's response, a vassal's demand, an artifact, a legend. Never repeat the same menu. The chain ends in a visible mark (nickname, artifact, legend, modifier on a county, new building, changed relationship).
+**R10. Echo earlier choices.** Store the choice in a variable or flag and let later events (even years later) mention it in their text and change their options. Vanilla rarely does this; it is the cheapest way to make a story feel alive.
+**R11. Vary the text.** Conditional text by culture, government, faith and two or three key traits (callous/compassionate, brave/craven, zealous/cynical). Same event, different voice.
+**R12. Anti-spam.**
+- Every repeatable event has a cooldown (5-10 years is the vanilla norm) and at least one gate that only some characters meet.
+- Add a **global flavor guard**: after any flavor event fires for a ruler, set a flag for 1-2 years that blocks further random flavor events for them (history, invasion and ceremony events are exempt).
+- Random pulses stay small (a low chance per year) and are split by theme so one theme never floods.
+- Do not fire an event that cannot change anything for the current character.
+**R13. Delays.** Follow-ups mostly use days (vanilla 1,812 of 2,052); use months for personal consequences and years for consequences of a decision. Saved scopes do not survive delays: store people and places in variables.
+**R14. Randomness is earned.** Use `random_list` for gambles and label the outcomes. A trait, skill or perk should shift the odds. Never an unmarked coin flip.
+
+## 12. A little more than vanilla (the improvements, built on vanilla's scale)
+1. **Consequence ledger:** every option leaves at least one mark the player can see later (modifier, opinion, flag, variable, trait XP). The event doc lists the mark.
+2. **Two-step payoff:** a risky choice produces a second result 1-5 years later (good or bad), using the same labelled-random method.
+3. **Personality ladder:** in a chain, the player's earlier personality choices unlock better or worse options later.
+4. **Reaction beat:** major events fire a short reaction from a named neighbour, vassal or churchman (an opinion change plus a line of text), not only a number.
+5. **Regional voice:** each expansion pack defines its own nicknames, lifestyle flavors, artifacts and local figures so events in different regions do not share the same cast.
+6. **Remedy built in:** for every real loss, at least one option, decision or later event offers a way to recover, and the best path ends with a gain.
+
+## 13. Event recipe (use this skeleton)
+1. **Trigger:** culture/region, a state of the character (a trait, a title, a building, a recent decision), a cooldown, and the global flavor guard.
+2. **Immediate:** save the cast (a person, a county), apply any invisible setup.
+3. **Description:** bold one-line summary, then 2-4 sentences, with conditional lines for culture/government/trait.
+4. **Options (3-5):** one in-character-by-trait, one by skill/perk, one safe default, one risky/random (labelled), optionally one that starts a follow-up. Each with stress_impact, ai_chance, a side effect, a mark.
+5. **After / follow-up:** schedule the next beat (days/months/years) with a new axis, store choices in variables.
+6. **Check:** run Part II checklist below.
+
+## 14. Part II checklist (in addition to section 8)
+12. Does at least one option (preferably every option) change something the player can see?
+13. If single-option, is it a ceremony or a reveal with a reason to exist?
+14. Does each option have a personality or skill fit, trait-based stress, and trait-shaped AI chance?
+15. Does it use vanilla's reward scale (minor/medium for events, major rarely)?
+16. Does a good outcome teach a lifestyle or personality trait, and a bad one mark the character, with a recovery path?
+17. Does the world (a named character or realm) respond?
+18. Does the chain widen with each step, and end in a visible mark?
+19. Does text vary by culture/government/trait?
+20. Is there a cooldown, a gate and the global flavor guard so it cannot spam?
