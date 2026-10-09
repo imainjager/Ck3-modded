@@ -13,4 +13,6 @@ nick_eir_celtic_brother = {}
 nick_eir_high_king = {}
 nick_eir_the_crowned = {}
 nick_eir_emperor_gael = {}
+nick_eir_tongue_giver = {}
+nick_eir_britain_restorer = {}
 nick_eir_norse_bane = {}

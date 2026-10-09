@@ -240,3 +240,5 @@ C("eir_peace_with_church_modifier", "piety_positive", {"clergy_opinion": 8, "mon
 
 C("eir_hebridean_ties_modifier", "family_positive", {"general_opinion": 3, "levy_size": 0.05},
   "Hebridean Kinship", "The galley-lords of the Isles are bound to you by marriage.")
+
+import v7_world  # noqa: E402,F401  (v0.7 content pack)

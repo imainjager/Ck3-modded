@@ -150,3 +150,33 @@ eir_resents_crown_opinion = {
 	stacking = yes
 }
 
+eir_saxon_grievance_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_two_peoples_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_poet_gift_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_rescued_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_cousin_blinded_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+

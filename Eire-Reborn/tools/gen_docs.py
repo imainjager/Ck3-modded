@@ -3,6 +3,7 @@ import io, os, re
 from eir_lib import ROOT
 import gen_decisions as g
 import dec_v2  # noqa: F401
+import dec_v7  # noqa: F401
 
 
 def clean(valid):

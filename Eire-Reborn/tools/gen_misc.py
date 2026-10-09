@@ -18,7 +18,10 @@ def build():
     L.add("eir_torc_of_tara_desc", "A great twisted gold collar, older than any king of Ireland.")
     L.add("eir_caladbolg_name", "Caladbolg")
     L.add("eir_caladbolg_desc", "A sword the poets say struck three hills flat.")
-    for k, n, d in (("dimma", "The Little Gospel", "A pocket gospel book that can be carried in a satchel."),
+    for k, n, d in (("iona_reliquary", "The Reliquary of Iona", "A bronze and silver box holding a scrap of Colmcille's cloak."),
+                    ("poets_chain", "The High Poet's Chain", "A silver chain with small bells, given by the chief poet to a king he judged worthy."),
+                    ("moot_horn", "The Moot Horn", "A carved drinking horn blown to call the thanes to their open-air moot."),
+                    ("dimma", "The Little Gospel", "A pocket gospel book that can be carried in a satchel."),
                     ("bell_shrine", "The Bell Shrine", "A bronze and silver shrine for the iron bell of a saint."),
                     ("lunula", "The Gold Lunula", "A crescent of beaten gold, older than any king."),
                     ("ogham_blade", "The Ogham Blade", "A sword with a line of ogham letters along the spine."),
@@ -43,6 +46,8 @@ def build():
         ("nick_eir_high_king", "Ard Rí", "Crowned High King at Tara.", False),
         ("nick_eir_the_crowned", "the Crowned", "Took a crown that Ireland had never seen.", False),
         ("nick_eir_emperor_gael", "Emperor of the Gael", "Raised a throne over every Gaelic land.", False),
+        ("nick_eir_tongue_giver", "the Tongue-Giver", "Gave the old speech back to the children of a conquered county.", False),
+        ("nick_eir_britain_restorer", "Restorer of Britain", "Stood at the centre when the old island spoke its old languages again.", False),
         ("nick_eir_norse_bane", "Norse-Bane", "Refused the Danegeld and sent the longships home.", False),
     ]
     body = "# Eire Reborn - nicknames\n\n" + "".join("%s = %s\n" % (k, "{ is_bad = yes }" if bad else "{}") for k, _, _, bad in nicks)

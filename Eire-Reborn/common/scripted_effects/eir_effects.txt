@@ -359,3 +359,40 @@ eir_world_reacts_effect = {
 		}
 	}
 }
+
+# ----------------------------------------------------------------------------
+# Re-Celticisation bookkeeping (character variables; the resentment itself lives on the counties)
+# ----------------------------------------------------------------------------
+eir_recelt_bump_effect = {
+	if = {
+		limit = { has_variable = eir_recelt }
+		change_variable = { name = eir_recelt add = 1 }
+	}
+	else = {
+		set_variable = { name = eir_recelt value = 1 }
+	}
+	if = {
+		limit = { has_variable = eir_resent }
+		change_variable = { name = eir_resent add = 1 }
+	}
+	else = {
+		set_variable = { name = eir_resent value = 1 }
+	}
+}
+
+# Ease the Saxon (and other foreign) resentment: a full reset, with the county modifiers removed.
+eir_resent_clear_effect = {
+	set_variable = { name = eir_resent value = 0 }
+	every_sub_realm_county = {
+		limit = { has_county_modifier = eir_cultural_resentment_modifier }
+		remove_county_modifier = eir_cultural_resentment_modifier
+	}
+}
+
+# Pick a foreign-culture county in Britain and keep it for the rest of the event.
+eir_pick_unrest_county_effect = {
+	random_sub_realm_county = {
+		limit = { eir_foreign_britain_county_trigger = yes }
+		save_scope_as = eir_unrest_county
+	}
+}

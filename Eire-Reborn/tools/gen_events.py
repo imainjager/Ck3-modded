@@ -21,7 +21,16 @@ def render(ev, L):
     if ev.hidden:
         out.append("\ttype = character_event\n\thidden = yes\n")
     else:
-        out.append("\ttype = %s\n\ttitle = %s.t\n\tdesc = %s.desc\n\ttheme = %s\n" % (ev.ev_type, key, key, ev.theme))
+        variants = getattr(ev, "variants", None) or []
+        if variants:
+            # vanilla-style conditional text: the first matching variant wins, the plain text is the fallback
+            d = "\tdesc = {\n\t\tfirst_valid = {\n"
+            for i, (trig, _txt) in enumerate(variants, 1):
+                d += "\t\t\ttriggered_desc = {\n\t\t\t\ttrigger = {\n%s\t\t\t\t}\n\t\t\t\tdesc = %s.v%d\n\t\t\t}\n" % (ind(trig, 5), key, i)
+            d += "\t\t\tdesc = %s.desc\n\t\t}\n\t}\n" % key
+            out.append("\ttype = %s\n\ttitle = %s.t\n%s\ttheme = %s\n" % (ev.ev_type, key, d, ev.theme))
+        else:
+            out.append("\ttype = %s\n\ttitle = %s.t\n\tdesc = %s.desc\n\ttheme = %s\n" % (ev.ev_type, key, key, ev.theme))
     if ev.cooldown:
         out.append("\tcooldown = { years = %d }\n" % ev.cooldown)
     if ev.portraits and not ev.hidden:
@@ -33,6 +42,8 @@ def render(ev, L):
     if not ev.hidden:
         L.add(key + ".t", ev.title)
         L.add(key + ".desc", "#bold %s#!\n\n%s" % (ev.summary, ev.body) if ev.body else "#bold %s#!" % ev.summary)
+        for i, (_trig, txt) in enumerate(getattr(ev, "variants", None) or [], 1):
+            L.add("%s.v%d" % (key, i), "#bold %s#!\n\n%s" % (ev.summary, txt))
         for i, o in enumerate(ev.options):
             letter = "abcdefghij"[i]
             out.append("\n\toption = {\n\t\tname = %s.%s\n" % (key, letter))
@@ -43,7 +54,12 @@ def render(ev, L):
             if o.effect:
                 out.append(ind(o.effect, 2))
             if o.ai is not None:
-                out.append("\t\tai_chance = { base = %d }\n" % o.ai)
+                mods = getattr(o, "ai_mod", None) or []
+                if mods:
+                    body = "".join("\t\t\tmodifier = {\n\t\t\t\tadd = %d\n\t\t\t\thas_trait = %s\n\t\t\t}\n" % (a, t) for t, a in mods)
+                    out.append("\t\tai_chance = {\n\t\t\tbase = %d\n%s\t\t}\n" % (o.ai, body))
+                else:
+                    out.append("\t\tai_chance = { base = %d }\n" % o.ai)
             out.append("\t}\n")
             L.add("%s.%s" % (key, letter), o.text)
     out.append("}\n\n")
@@ -52,7 +68,7 @@ def render(ev, L):
 
 def load_groups():
     groups = {}
-    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5", "ev_v6"):
+    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5", "ev_v6", "ev_v7a", "ev_v7b", "ev_v7c", "ev_v7d"):
         try:
             m = importlib.import_module(mod)
         except ModuleNotFoundError as e:

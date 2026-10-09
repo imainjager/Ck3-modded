@@ -58,3 +58,15 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 - 0.2 native resistance, 867-1066 history, coronation chains, legends, artifacts.
 - 0.3 100-ideas pack. 0.4 prestige-cost buildings.
 - 0.5 bug-fix release from the first real error.log (localization newlines, vanilla on_action conflicts, trait icons, duplicate keys) and a full progression rewrite of decisions, traditions and buildings.
+
+## v0.7: the long-look flavor pack
+44 new events, 14 new decisions, 2 nicknames, 3 artifacts and about 45 modifiers, all built to `docs/FLAVOR_GUIDE.md` (Parts I-III). List: `docs/FLAVOR_v0.7.md`.
+* **Re-Celticisation**: the decision *Reclaim the Tongue* turns a foreign-culture county in Britain to your culture; each conversion raises resentment, escalating through *The Saxons Mutter*, *A Thane Calls the Moot* and *Fire in the Marches*. The remedy *Grant the Saxon Moot* can leave you *Lord of Two Peoples*. Five conversions with peace unlock the unique *The Britons Return*.
+* **Politics of the kindred**: the Derbfine assembles; a blinded cousin; the foster-brother; an improved pedigree; an oath-breaker.
+* **The sea**: Norse settlers, rescued captives, a Norse-Gael bride, a storm.
+* **The Church**: a relic from Iona, a monk who disagreed about Easter, pilgrims; decisions for the Hospice of Brigid and the Peregrini to Alba.
+* **Cattle, law and seasons**: distraint by fasting, the murrain (remedy: buy Welsh cattle), the great cattle drive, summer pastures, the unpaid harper.
+* **War**: the war-poet, the gallowglass captain's demand, the hostage exchange, the champion at the ford.
+* **Celtic neighbours**: Welsh princes, Cornish tinners, Breton exiles, a Pictish stone, Galloway; decisions for Welsh archers and the College of Bangor.
+* **Court and legend**: a prodigy at the harp, the Isles wedding, a ghost at Samhain, a comet, the Táin retold; a Bardic House and its High Poet's Chain; the Moot Horn.
+* Flavor guard: a ruler gets at most one random flavor event a year (flag `eir_flavor_cd`).

@@ -4207,3 +4207,755 @@ eir_proclaim_gaeldom_decision = {
 	}
 }
 
+eir_reclaim_tongue_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_reclaim_tongue_decision_desc
+	selection_tooltip = eir_reclaim_tongue_decision_tooltip
+	confirm_text = eir_reclaim_tongue_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_has_foreign_britain_counties_trigger = yes
+		has_global_variable = eir_done_brotherhood
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		prestige = 400
+		piety = 100
+	}
+
+	effect = {
+		random_sub_realm_county = {
+			limit = { eir_foreign_britain_county_trigger = yes }
+			save_scope_as = eir_conv_county
+			set_county_culture = root.culture
+			add_county_modifier = { modifier = eir_hedge_schools_modifier years = 15 }
+		}
+		eir_recelt_bump_effect = yes
+		every_sub_realm_county = {
+			limit = {
+				eir_foreign_britain_county_trigger = yes
+				NOT = { this = scope:eir_conv_county }
+			}
+			add_county_modifier = { modifier = eir_cultural_resentment_modifier years = 8 }
+		}
+		add_prestige = medium_prestige_gain
+		add_piety = minor_piety_gain
+		trigger_event = eir.0300
+		trigger_event = { id = eir.0303 years = 2 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_grant_saxon_moot_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_grant_saxon_moot_decision_desc
+	selection_tooltip = eir_grant_saxon_moot_decision_tooltip
+	confirm_text = eir_grant_saxon_moot_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_variable = eir_resent
+		var:eir_resent >= 1
+	}
+
+	is_valid = {
+		eir_has_foreign_britain_counties_trigger = yes
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 100
+	}
+
+	effect = {
+		eir_resent_clear_effect = yes
+		every_sub_realm_county = {
+			limit = { eir_foreign_britain_county_trigger = yes }
+			add_county_modifier = { modifier = eir_saxon_moot_modifier years = 15 }
+		}
+		add_character_modifier = { modifier = eir_two_peoples_modifier years = 12 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_two_peoples_opinion OPINION = 5 }
+		add_prestige = minor_prestige_gain
+		eir_trait_effect = { TRAIT = just OPPOSITE = arbitrary CHANCE = 20 }
+		trigger_event = { id = eir.0337 days = 20 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_restore_old_names_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_restore_old_names_decision_desc
+	selection_tooltip = eir_restore_old_names_decision_tooltip
+	confirm_text = eir_restore_old_names_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_variable = eir_recelt
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_fili
+		var:eir_recelt >= 2
+		NOT = { has_character_modifier = eir_tongue_restorer_modifier }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tongue_restorer_modifier years = 15 }
+		eir_legend_title_effect = { TITLE = primary_title }
+		add_trait_xp = { trait = lifestyle_poet value = 40 }
+		add_prestige = medium_prestige_gain
+		if = {
+			limit = {
+				var:eir_recelt >= 3
+				NOT = { has_any_nickname = yes }
+			}
+			give_nickname = nick_eir_tongue_giver
+		}
+		eir_world_reacts_effect = yes
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_britons_return_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_britons_return_decision_desc
+	selection_tooltip = eir_britons_return_decision_tooltip
+	confirm_text = eir_britons_return_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_variable = eir_recelt
+		has_global_variable = eir_done_brotherhood
+		NOT = { has_global_variable = eir_unique_britons_return }
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		var:eir_recelt >= 5
+		has_variable = eir_resent
+		var:eir_resent <= 1
+		eir_has_celtic_britain_counties_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 600
+		piety = 250
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_britain_restored_modifier years = 30 }
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 50 } }
+		eir_grant_claims_non_celtic_effect = { TITLE = k_england }
+		eir_legend_title_effect = { TITLE = primary_title }
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		set_global_variable = eir_unique_britons_return
+		trigger_event = eir.0307
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_call_derbfine_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_call_derbfine_decision_desc
+	selection_tooltip = eir_call_derbfine_decision_tooltip
+	confirm_text = eir_call_derbfine_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_collapse_active_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage1_trigger = yes
+		is_at_war = no
+		exists = primary_heir
+		any_vassal = { count >= 2 }
+		NOT = { has_character_modifier = eir_derbfine_counsel_modifier }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		prestige = 150
+	}
+
+	effect = {
+		if = {
+			limit = { has_character_modifier = eir_throne_turmoil_modifier }
+			remove_character_modifier = eir_throne_turmoil_modifier
+		}
+		add_character_modifier = { modifier = eir_derbfine_counsel_modifier years = 10 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 8 }
+		add_legitimacy = medium_legitimacy_gain
+		add_prestige = minor_prestige_gain
+		eir_trait_effect = { TRAIT = eir_peacemaker_of_tara OPPOSITE = wrathful CHANCE = 20 }
+		primary_heir ?= { add_opinion = { target = root modifier = eir_oath_sworn_opinion opinion = 15 } }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_bardic_house_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_bardic_house_decision_desc
+	selection_tooltip = eir_found_bardic_house_decision_tooltip
+	confirm_text = eir_found_bardic_house_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		NOT = { has_global_variable = eir_unique_bardic_house }
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_fili
+		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		has_character_modifier = eir_royal_ollamh_modifier
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 500
+	}
+
+	effect = {
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_bardic_house_modifier years = 60 } }
+		add_character_modifier = { modifier = eir_fili_patron_modifier years = 10 }
+		add_trait_xp = { trait = lifestyle_poet value = 40 }
+		add_prestige = medium_prestige_gain
+		set_global_variable = eir_unique_bardic_house
+		trigger_event = { id = eir.0336 years = 2 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_winter_court_of_tales_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_winter_court_of_tales_decision_desc
+	selection_tooltip = eir_winter_court_of_tales_decision_tooltip
+	confirm_text = eir_winter_court_of_tales_decision_confirm
+
+	cooldown = { days = 5475 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_fili
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		NOT = { has_character_modifier = eir_tain_retold_modifier }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 200
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tain_retold_modifier years = 8 }
+		add_trait_xp = { trait = lifestyle_poet value = 40 }
+		eir_legend_title_effect = { TITLE = primary_title }
+		add_prestige = medium_prestige_gain
+		eir_court_opinion_effect = { MODIFIER = eir_poet_praise_opinion OPINION = 6 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_hospice_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_hospice_decision_desc
+	selection_tooltip = eir_found_hospice_decision_tooltip
+	confirm_text = eir_found_hospice_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_monastery
+		NOT = { has_global_variable = eir_unique_hospice }
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		piety >= 300
+		any_held_title = { tier = tier_county }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+		piety = 200
+	}
+
+	effect = {
+		random_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = { modifier = eir_hospice_modifier years = 20 }
+		}
+		add_trait_xp = { trait = lifestyle_physician value = 30 }
+		eir_trait_effect = { TRAIT = compassionate OPPOSITE = callous CHANCE = 25 }
+		add_piety = medium_piety_gain
+		add_prestige = minor_prestige_gain
+		set_global_variable = eir_unique_hospice
+		trigger_event = { id = eir.0333 years = 1 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_send_missionaries_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_send_missionaries_decision_desc
+	selection_tooltip = eir_send_missionaries_decision_tooltip
+	confirm_text = eir_send_missionaries_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		has_global_variable = eir_done_monastery
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		piety >= 250
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		piety = 250
+	}
+
+	effect = {
+		add_piety = minor_piety_gain
+		add_character_modifier = { modifier = eir_missionary_glory_modifier years = 4 }
+		add_trait_xp = { trait = lifestyle_mystic value = 20 }
+		trigger_event = { id = eir.0334 years = { 2 3 } }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_buy_welsh_cattle_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_buy_welsh_cattle_decision_desc
+	selection_tooltip = eir_buy_welsh_cattle_decision_tooltip
+	confirm_text = eir_buy_welsh_cattle_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		any_sub_realm_county = { has_county_modifier = eir_murrain_modifier }
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	effect = {
+		every_sub_realm_county = {
+			limit = { has_county_modifier = eir_murrain_modifier }
+			remove_county_modifier = eir_murrain_modifier
+			add_county_modifier = { modifier = eir_cattle_drive_modifier years = 6 }
+		}
+		add_character_modifier = { modifier = eir_fair_lord_modifier years = 8 }
+		add_character_modifier = { modifier = eir_celtic_brotherhood_modifier years = 4 }
+		add_prestige = minor_prestige_gain
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_summer_booleying_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_pet_dog.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_summer_booleying_decision_desc
+	selection_tooltip = eir_summer_booleying_decision_tooltip
+	confirm_text = eir_summer_booleying_decision_confirm
+
+	cooldown = { days = 365 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_unlock_cattle_enclosure
+	}
+
+	is_valid = {
+		eir_stage1_trigger = yes
+		is_at_war = no
+		current_month >= 5
+		current_month <= 8
+		NOT = { has_character_modifier = eir_booley_modifier }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 60
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_booley_modifier years = 3 }
+		random_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = { modifier = eir_booley_county_modifier years = 10 }
+		}
+		add_stress = medium_stress_loss
+		add_prestige = miniscule_prestige_gain
+		trigger_event = { id = eir.0343 days = { 20 60 } }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_charter_port_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_charter_port_decision_desc
+	selection_tooltip = eir_charter_port_decision_tooltip
+	confirm_text = eir_charter_port_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_unlock_sea_trade
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		eir_ports_trigger = { N = 1 }
+		any_held_title = {
+			tier = tier_county
+			is_coastal_county = yes
+			NOT = { has_county_modifier = eir_chartered_town_modifier }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 150
+	}
+
+	effect = {
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				is_coastal_county = yes
+				NOT = { has_county_modifier = eir_chartered_town_modifier }
+			}
+			add_county_modifier = { modifier = eir_chartered_town_modifier years = 25 }
+		}
+		add_character_modifier = { modifier = eir_port_charter_modifier years = 15 }
+		add_prestige = minor_prestige_gain
+		add_trait_xp = { trait = lifestyle_traveler track = travel value = 10 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_hospitality_opinion OPINION = 3 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_hire_welsh_archers_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_hire_welsh_archers_decision_desc
+	selection_tooltip = eir_hire_welsh_archers_decision_tooltip
+	confirm_text = eir_hire_welsh_archers_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 350
+		prestige = 50
+	}
+
+	effect = {
+		spawn_army = {
+			levies = 0
+			men_at_arms = {
+				type = bowmen
+				stacks = 3
+			}
+			location = capital_province
+			origin = capital_province
+			inheritable = no
+			name = eir_mercenary_company_name
+		}
+		add_character_modifier = { modifier = eir_welsh_archers_modifier years = 8 }
+		every_ruler = {
+			limit = {
+				is_ai = yes
+				is_independent_ruler = yes
+				culture ?= { has_cultural_pillar = heritage_brythonic }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			add_opinion = { target = root modifier = eir_gwynedd_friend_opinion opinion = 8 }
+		}
+		add_prestige = miniscule_prestige_gain
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_college_bangor_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_college_bangor_decision_desc
+	selection_tooltip = eir_found_college_bangor_decision_tooltip
+	confirm_text = eir_found_college_bangor_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_fili
+		NOT = { has_global_variable = eir_unique_college_bangor }
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_monastery
+		has_global_variable = eir_unlock_scriptorium
+		learning >= 12
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 800
+		piety = 300
+	}
+
+	effect = {
+		random_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = { modifier = eir_college_county_modifier years = 40 }
+		}
+		add_character_modifier = { modifier = eir_college_of_bangor_modifier years = 30 }
+		add_trait_xp = { trait = lifestyle_poet value = 40 }
+		add_prestige = major_prestige_gain
+		add_piety = medium_piety_gain
+		if = {
+			limit = { NOT = { has_any_nickname = yes } }
+			give_nickname = nick_the_scholar
+		}
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_unique_college_bangor
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+

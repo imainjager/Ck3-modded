@@ -45,7 +45,7 @@ eir_yearly_global = {
 
 # Flavour pulse: one chance per year for each playable Irish ruler to see something happen.
 random_yearly_playable_pulse = {
-	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse }
+	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse eir_flavor_pulse_v7 eir_recelt_pulse }
 }
 
 eir_flavor_pulse = {
@@ -238,5 +238,68 @@ eir_war_won_defender = {
 				remove_variable = eir_viking_target
 			}
 		}
+	}
+}
+
+# v0.7 flavor: one theme pool, one chance a year, and the event guard flag keeps it from flooding.
+eir_flavor_pulse_v7 = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		NOT = { has_character_flag = eir_flavor_cd }
+	}
+	random_events = {
+		chance_to_happen = 40
+		40 = 0
+		3 = eir.0310
+		2 = eir.0311
+		3 = eir.0312
+		2 = eir.0313
+		3 = eir.0314
+		3 = eir.0320
+		3 = eir.0321
+		2 = eir.0322
+		3 = eir.0323
+		3 = eir.0330
+		3 = eir.0331
+		3 = eir.0332
+		3 = eir.0340
+		3 = eir.0341
+		3 = eir.0342
+		3 = eir.0344
+		3 = eir.0350
+		3 = eir.0351
+		2 = eir.0352
+		2 = eir.0353
+		3 = eir.0360
+		3 = eir.0361
+		3 = eir.0362
+		2 = eir.0363
+		3 = eir.0364
+		3 = eir.0370
+		3 = eir.0371
+		3 = eir.0372
+		2 = eir.0373
+		3 = eir.0374
+		3 = eir.0375
+	}
+}
+
+# Re-Celticisation fallout only fires for rulers who have started it.
+eir_recelt_pulse = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		has_variable = eir_recelt
+		NOT = { has_character_flag = eir_flavor_cd }
+	}
+	random_events = {
+		chance_to_happen = 45
+		30 = 0
+		10 = eir.0301
+		8 = eir.0302
+		6 = eir.0304
+		6 = eir.0305
+		5 = eir.0306
 	}
 }

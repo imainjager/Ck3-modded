@@ -65,3 +65,34 @@ eir_visible_stage1_trigger = {
 	eir_is_irish_ruler_trigger = yes
 	eir_realm_size_trigger = { N = 2 }
 }
+
+# County scope: a county in Britain whose people are neither Gaelic nor Brythonic.
+eir_foreign_britain_county_trigger = {
+	title_province ?= { geographical_region = world_europe_west_britannia }
+	culture ?= {
+		NOR = {
+			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_brythonic
+		}
+	}
+}
+
+# Character scope: the realm holds at least one such county.
+eir_has_foreign_britain_counties_trigger = {
+	any_sub_realm_county = {
+		eir_foreign_britain_county_trigger = yes
+	}
+}
+
+# Character scope: the realm holds a county in Britain that is already Celtic (a place to send teachers, poets, missions).
+eir_has_celtic_britain_counties_trigger = {
+	any_sub_realm_county = {
+		title_province ?= { geographical_region = world_europe_west_britannia }
+		culture ?= {
+			OR = {
+				has_cultural_pillar = heritage_goidelic
+				has_cultural_pillar = heritage_brythonic
+			}
+		}
+	}
+}
