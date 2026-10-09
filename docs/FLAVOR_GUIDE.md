@@ -8,21 +8,19 @@ Before anything ships ask: **what must the player DO to earn this, what does it 
 If the answer is "click a button, get a modifier", it does not ship.
 
 ## 1. Rules the user has set (do not relax these)
-1. **Unique decisions happen once per game.** Track them with a global variable (vanilla uses the global list `unavailable_unique_decisions`).
-   Exception: anything the mod's own core rule keeps destroying (for Eire Reborn: being crowned High King while the tanistic collapse is active) stays repeatable until the rule is lifted.
-2. **Tribal rulers come first.** Early start dates are tribal: low income, low gold. Lean costs on **prestige and piety**, keep gold smaller, and gate by land/buildings/titles.
-   Every building, unit and decision must be reachable by a tribal holder, not only castle/city/church ones.
+1. **Unique decisions: Claude decides how many times each can happen, per decision.** If a decision is truly unique (founding something, a one-time restoration, a first-ever event) it happens **once per game**; track it with a global variable (vanilla uses the global list `unavailable_unique_decisions`). Anything that is a recurring act (a feast, a circuit, a festival) gets a cooldown instead. A decision the mod's own rules keep undoing (for Eire Reborn: being crowned High King while the tanistic collapse is active) stays repeatable until that rule is lifted. State the choice in the decision's tooltip.
+2. **Build for the region, not for one government.** This rule set will drive regional expansion packs, some feudal, some tribal, some clan or other. Before writing a pack, look at the region's start dates and governments, then set income/prestige scales, building access and costs to fit **that** region. Every building, unit and decision must be reachable by the governments the region actually uses (for example, tribal holdings need `tribal_holding` checked explicitly). Use **explicit numbers** for costs; scaled values like `*_gold_value` follow income and misbehave at low income.
 3. **Every negative has a way out, and the way out can beat the original loss.** A remedy decision or event must exist for every penalty; the best remedies leave the player *better* than before (a new modifier, trait, opinion, nickname) if they pay the price and do the work.
 4. **Flavor must be dynamic, not one note.** A reward touches at least three of: ruler, realm, other characters, map, culture, religion, future decisions.
 5. **Nothing is clickable at game start.** Progression gates are earned: land, titles, buildings built, earlier accomplishments, traits/skills, prestige level.
-6. **Traditions are upgraded, never piled on.** Replace a tradition the culture already has (`remove_culture_tradition` + `add_culture_tradition`, as vanilla does for Bushido) and keep every parameter of the old one.
+6. **Traditions: upgrade or add, at Claude's discretion, but a tradition must earn its place.** Upgrading (replacing a tradition the culture already has with `remove_culture_tradition` + `add_culture_tradition`, as vanilla does for Bushido, keeping every parameter of the old one) is the default. A brand-new tradition is allowed only when it is relevant to the region, has real flavor (distinct modifiers, an unlock, an event or decision tied to it) and passes the checklist in section 8. No filler traditions.
 7. **Events are chains**, in the spirit of "Theft at Court": bold one-line summary, 3-6 options, trait/skill/perk-gated options, readable labels on random outcomes, consequences that reach other characters and the map, roughly 40% negative outcomes, stress at most ~20 per event (miniscule/minor), repeated across story types.
 8. Always read the game's `error.log` after the user tests (OneDrive Documents\Paradox Interactive\Crusader Kings III\logs\error.log) and fix every `eir_`/mod line.
 
 ## 2. The flavor loop (every major decision follows it)
 1. **Hook** - shown once the player is close, so they know what to aim for.
 2. **Gate** - `is_valid` lists several concrete things (see lever menu). Show failures with tooltips.
-3. **Commitment** - a real cost in two or three currencies.
+3. **Commitment** - a real cost in two or three currencies, **or no cost at all when the gate is itself the challenge** (vanilla Reclaim Britannia costs nothing because controlling a whole region is the price). A free decision is allowed only if its gate is hard, specific and not something everyone can meet.
 4. **Ceremony** - an event for the founder with 3-6 options (take a nickname OR more prestige, hold a feast OR be anointed OR crown quietly...).
 5. **Reaction** - other rulers respond, worded by their culture/government/relationship (vanilla fires a second event to other players; for AI use opinions, claims, hooks, factions, calls to arms).
 6. **Reward** - three or more kinds, at least one that changes the world.
@@ -50,8 +48,9 @@ Patterns: specific gates, several currencies at once, unique tracking, preview t
 | prestige levels | low 1, medium 2, high 3, very high 4 |
 * `minor/medium/major_gold_value` scale with the character's income (about 3, 6 and 12 months). A tribal chief has a few gold a month, so these are tiny. **Use explicit numbers for costs; use scaled values only for rewards.**
 * Vanilla events mostly give medium prestige (150) or minor (75), medium piety (100). Major (350) and massive (750) are rare and reserved for decisions.
-* Eire stage ladder: Stage 1 = 4 counties; Stage 2 = 10 counties + duchy + prestige level 2; Stage 3 = 20 counties + kingdom + prestige level 3; Stage 4 = holds the top kingdom + prestige level 4.
-* Cost tiers for a tribal-friendly mod (prestige-led): Stage 1: 150-300 prestige, 100-200 gold. Stage 2: 400-900 prestige, 200-400 gold, 100-300 piety. Stage 3: 1000-1500 prestige, 300-600 gold, 200-400 piety. Stage 4: 2500-4000 prestige, 800-1200 gold, 500-600 piety.
+* Build a stage ladder for each pack from the region's real rulers. Example (Eire Reborn, tribal start): Stage 1 = 4 counties; Stage 2 = 10 counties + duchy + prestige level 2; Stage 3 = 20 counties + kingdom + prestige level 3; Stage 4 = holds the top kingdom + prestige level 4.
+* Cost tiers are a starting point, to be rescaled per region: Stage 1: 150-300 prestige, 100-200 gold. Stage 2: 400-900 prestige, 200-400 gold, 100-300 piety. Stage 3: 1000-1500 prestige, 300-600 gold, 200-400 piety. Stage 4: 2500-4000 prestige, 800-1200 gold, 500-600 piety. For a rich feudal region raise gold; for a poor tribal region lean on prestige and piety.
+* A decision may cost nothing if its gate is a genuine achievement (control a whole region, hold several named titles, finish a chain of earlier decisions).
 
 ## 5. What vanilla events give out (palette to draw from)
 Most-used traits added by vanilla events: loyal, devoted, zealous, shrewd, brave, compassionate, arrogant, vengeful, athletic, strong, irritable, lustful, disloyal, rakish, profligate, eccentric, reclusive, journaller, confider; lifestyle traits (lifestyle_poet, _hunter, _mystic, _traveler, _blademaster, _herbalist, _physician, _reveler); injuries/health (wounded_1, scarred, one_eyed, one_legged, blind, disfigured, depressed_1, drunkard, comfort_eater, inappetetic, flagellant).
@@ -81,14 +80,14 @@ Other recurring vanilla rewards: artifacts, legend seeds, hooks, memories, opini
 * Run the validator before every commit and read `error.log` after the user tests.
 
 ## 8. Shipping checklist (all must be yes)
-1. Did the player need to do at least three separate things to reach this?
-2. Is the cost in line with the nearest vanilla equivalent and tribal-friendly (prestige-led)?
+1. Did the player have to endure a challenge or do something in the world to reach this?
+2. Is the cost (or the absence of cost) in line with the nearest vanilla equivalent and with the region's economy and governments?
 3. Does the reward touch at least three categories, one of them outside the ruler?
 4. Is there a ceremony event with 3+ real options, gated by traits/skills?
 5. Does someone else react (opinion, claim, event, faction)?
 6. Is there a downside, and a remedy that can beat the downside?
 7. Does it leave a memory (nickname, legend, artifact, modifier, landmark)?
 8. Does it unlock or lead to something else?
-9. Does it work for tribal and feudal rulers?
-10. Is it unique-once-per-game when it should be (Rule 1)?
+9. Does it work for every government the region uses?
+10. Is its repeat rule right (once per game if truly unique, otherwise a cooldown; Rule 1)?
 11. Validator clean; `error.log` clean after testing.
