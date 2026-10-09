@@ -1,0 +1,177 @@
+##########################################################################
+# Eire Reborn - invasions
+# Called with root = the Irish ruler being invaded.
+##########################################################################
+
+# Picks a Norse-heritage AI ruler as the aggressor (scope:eir_norse_lord) and a coastal county as the
+# target (scope:eir_target_county).
+eir_pick_norse_invasion_effect = {
+	random_ruler = {
+		limit = {
+			is_ai = yes
+			is_ruler = yes
+			highest_held_title_tier >= tier_county
+			culture ?= { has_cultural_pillar = heritage_north_germanic }
+			is_at_war = no
+			NOT = { has_truce = root }
+			NOT = { this = root }
+		}
+		save_scope_as = eir_norse_lord
+	}
+	if = {
+		limit = {
+			any_realm_county = { is_coastal_county = yes }
+		}
+		random_realm_county = {
+			limit = { is_coastal_county = yes }
+			save_scope_as = eir_target_county
+		}
+	}
+	else = {
+		capital_county ?= { save_scope_as = eir_target_county }
+	}
+}
+
+# Picks a foreign (English, French or Norman) AI ruler as the aggressor (scope:eir_foreign_lord).
+eir_pick_foreign_invasion_effect = {
+	random_ruler = {
+		limit = {
+			is_ai = yes
+			is_ruler = yes
+			highest_held_title_tier >= tier_county
+			culture ?= {
+				OR = {
+					has_cultural_pillar = heritage_west_germanic
+					has_cultural_pillar = heritage_frankish
+				}
+			}
+			is_at_war = no
+			NOT = { has_truce = root }
+			NOT = { this = root }
+		}
+		save_scope_as = eir_foreign_lord
+	}
+	if = {
+		limit = {
+			any_realm_county = { is_coastal_county = yes }
+		}
+		random_realm_county = {
+			limit = { is_coastal_county = yes }
+			save_scope_as = eir_target_county
+		}
+	}
+	else = {
+		capital_county ?= { save_scope_as = eir_target_county }
+	}
+}
+
+# The Norse lord lands an army and goes to war over the target county.
+eir_viking_invasion_effect = {
+	if = {
+		limit = {
+			exists = scope:eir_norse_lord
+			exists = scope:eir_target_county
+			exists = scope:eir_target_county.holder
+		}
+		scope:eir_norse_lord = {
+			set_variable = {
+				name = eir_viking_raider
+				value = 1
+			}
+			set_variable = {
+				name = eir_viking_target
+				value = scope:eir_target_county
+			}
+			add_pressed_claim = scope:eir_target_county
+			spawn_army = {
+				levies = 1500
+				men_at_arms = {
+					type = light_footmen
+					stacks = 3
+				}
+				men_at_arms = {
+					type = armored_footmen
+					stacks = 2
+				}
+				location = scope:eir_target_county.title_province
+				origin = scope:eir_norse_lord.capital_province
+				inheritable = no
+				uses_supply = no
+				name = eir_viking_fleet_name
+			}
+			add_character_flag = temp_no_claim_war_cost
+			start_war = {
+				cb = claim_cb
+				target = scope:eir_target_county.holder
+				claimant = scope:eir_norse_lord
+				target_title = scope:eir_target_county
+			}
+			remove_character_flag = temp_no_claim_war_cost
+		}
+	}
+}
+
+# The foreign lord lands an army and goes to war over the target county.
+eir_foreign_invasion_effect = {
+	if = {
+		limit = {
+			exists = scope:eir_foreign_lord
+			exists = scope:eir_target_county
+			exists = scope:eir_target_county.holder
+		}
+		scope:eir_foreign_lord = {
+			set_variable = {
+				name = eir_foreign_raider
+				value = 1
+			}
+			set_variable = {
+				name = eir_viking_target
+				value = scope:eir_target_county
+			}
+			add_pressed_claim = scope:eir_target_county
+			spawn_army = {
+				levies = 1200
+				men_at_arms = {
+					type = armored_footmen
+					stacks = 3
+				}
+				men_at_arms = {
+					type = armored_horsemen
+					stacks = 2
+				}
+				men_at_arms = {
+					type = bowmen
+					stacks = 2
+				}
+				location = scope:eir_target_county.title_province
+				origin = scope:eir_foreign_lord.capital_province
+				inheritable = no
+				uses_supply = no
+				name = eir_foreign_host_name
+			}
+			add_character_flag = temp_no_claim_war_cost
+			start_war = {
+				cb = claim_cb
+				target = scope:eir_target_county.holder
+				claimant = scope:eir_foreign_lord
+				target_title = scope:eir_target_county
+			}
+			remove_character_flag = temp_no_claim_war_cost
+		}
+	}
+}
+
+# A free defensive army for the Irish ruler.
+eir_defender_levy_effect = {
+	spawn_army = {
+		levies = 800
+		men_at_arms = {
+			type = light_footmen
+			stacks = 2
+		}
+		location = capital_province
+		origin = capital_province
+		inheritable = no
+		name = eir_clan_muster_name
+	}
+}

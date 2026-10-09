@@ -1,0 +1,113 @@
+﻿# Eire Reborn - fame traits
+
+eir_ard_ri = {
+	category = fame
+	monthly_prestige = 0.5
+	vassal_opinion = 5
+	legitimacy_gain_mult = 0.1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/just.dds"
+		}
+	}
+}
+
+eir_ollamh = {
+	category = fame
+	learning = 2
+	diplomacy = 1
+	owned_legend_spread_mult = 0.1
+	general_opinion = 3
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/shrewd.dds"
+		}
+	}
+}
+
+eir_fennid = {
+	category = fame
+	prowess = 4
+	martial = 1
+	knight_effectiveness_mult = 0.1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/brave.dds"
+		}
+	}
+}
+
+eir_brehon = {
+	category = fame
+	learning = 1
+	diplomacy = 1
+	courtier_opinion = 5
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/just.dds"
+		}
+	}
+}
+
+eir_viking_slayer = {
+	category = fame
+	prowess = 2
+	martial = 1
+	monthly_prestige = 0.2
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/brave.dds"
+		}
+	}
+}
+
+eir_foster_brother = {
+	category = fame
+	general_opinion = 5
+	diplomacy = 1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/honest.dds"
+		}
+	}
+}
+
+eir_banshee_marked = {
+	category = fame
+	health = -0.2
+	intrigue = 1
+	stress_gain_mult = 0.1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/compassionate.dds"
+		}
+	}
+}
+
+eir_cattle_lord = {
+	category = fame
+	stewardship = 1
+	domain_tax_mult = 0.05
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/diligent.dds"
+		}
+	}
+}
+

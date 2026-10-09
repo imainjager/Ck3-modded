@@ -1,0 +1,86 @@
+﻿# Eire Reborn - opinion modifiers
+
+eir_ard_ri_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_kinslayer_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_fostered_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_tribute_resentment_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_tanist_rival_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_poet_praise_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_satire_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_gael_pride_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_hospitality_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_norse_defied_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_oenach_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_exile_aid_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_trusts_justice_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_saved_by_ruler_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+

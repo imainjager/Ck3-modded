@@ -1,0 +1,321 @@
+﻿##########################################################################
+# Eire Reborn - scripted effects
+##########################################################################
+
+# Chance for the current character to gain a trait, unless they have it or its opposite.
+eir_trait_effect = {
+	random = {
+		chance = $CHANCE$
+		if = {
+			limit = {
+				NOT = {
+					has_trait = $TRAIT$
+					has_trait = $OPPOSITE$
+				}
+			}
+			add_trait = $TRAIT$
+		}
+	}
+}
+
+# THE CORE RULE: when an Irish ruler dies, their highest title (duchy or above) is destroyed.
+# Called from on_death in the scope of the dying character.
+eir_collapse_top_title_effect = {
+	save_scope_as = eir_dead_king
+	primary_heir ?= { save_scope_as = eir_collapse_heir }
+	primary_title = { save_scope_as = eir_collapsing_title }
+	destroy_title = scope:eir_collapsing_title
+	scope:eir_collapse_heir ?= {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = eir.0001
+		}
+	}
+}
+
+# Gives up to three pressed claims on counties of $TITLE$ that are held by non-Celtic rulers.
+eir_grant_claims_non_celtic_effect = {
+	$TITLE$ = {
+		random_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+				holder ?= {
+					NOT = { this = root }
+					culture ?= {
+						NOR = {
+							has_cultural_pillar = heritage_goidelic
+							has_cultural_pillar = heritage_brythonic
+						}
+					}
+				}
+				NOT = { root = { has_claim_on = prev } }
+			}
+			root = { add_pressed_claim = prev }
+		}
+		random_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+				holder ?= {
+					NOT = { this = root }
+					culture ?= {
+						NOR = {
+							has_cultural_pillar = heritage_goidelic
+							has_cultural_pillar = heritage_brythonic
+						}
+					}
+				}
+				NOT = { root = { has_claim_on = prev } }
+			}
+			root = { add_pressed_claim = prev }
+		}
+		random_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+				holder ?= {
+					NOT = { this = root }
+					culture ?= {
+						NOR = {
+							has_cultural_pillar = heritage_goidelic
+							has_cultural_pillar = heritage_brythonic
+						}
+					}
+				}
+				NOT = { root = { has_claim_on = prev } }
+			}
+			root = { add_pressed_claim = prev }
+		}
+	}
+}
+
+# Pressed claims on up to three Irish counties held by Norse-heritage rulers.
+eir_grant_claims_norse_effect = {
+	title:k_ireland = {
+		random_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+				holder ?= {
+					NOT = { this = root }
+					culture ?= { has_cultural_pillar = heritage_north_germanic }
+				}
+				NOT = { root = { has_claim_on = prev } }
+			}
+			root = { add_pressed_claim = prev }
+		}
+		random_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+				holder ?= {
+					NOT = { this = root }
+					culture ?= { has_cultural_pillar = heritage_north_germanic }
+				}
+				NOT = { root = { has_claim_on = prev } }
+			}
+			root = { add_pressed_claim = prev }
+		}
+		random_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+				holder ?= {
+					NOT = { this = root }
+					culture ?= { has_cultural_pillar = heritage_north_germanic }
+				}
+				NOT = { root = { has_claim_on = prev } }
+			}
+			root = { add_pressed_claim = prev }
+		}
+	}
+}
+
+# Makes the current character the holder of a title that nobody holds.
+eir_create_title_effect = {
+	if = {
+		limit = {
+			NOT = { exists = title:$TITLE$.holder }
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = eir_title_change
+			add_claim_on_loss = no
+		}
+		title:$TITLE$ = {
+			change_title_holder = {
+				holder = root
+				change = scope:eir_title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:eir_title_change
+	}
+}
+
+# Adds a culture tradition to the current character's culture if it does not have it yet.
+eir_add_tradition_effect = {
+	culture ?= {
+		if = {
+			limit = {
+				NOT = { has_cultural_tradition = $TRADITION$ }
+			}
+			add_culture_tradition = $TRADITION$
+		}
+	}
+}
+
+# Global scope: makes sure the Irish have the tanistic tradition unless it was abolished.
+eir_ensure_tanistic_tradition_effect = {
+	if = {
+		limit = {
+			NOT = { has_global_variable = eir_collapse_abolished }
+		}
+		culture:irish ?= {
+			if = {
+				limit = {
+					NOT = { has_cultural_tradition = tradition_eir_tanistic_fragmentation }
+				}
+				add_culture_tradition = tradition_eir_tanistic_fragmentation
+			}
+		}
+	}
+}
+
+# Every vassal's opinion of the current character changes.
+eir_vassal_opinion_effect = {
+	every_vassal = {
+		add_opinion = {
+			target = root
+			modifier = $MODIFIER$
+			opinion = $OPINION$
+		}
+	}
+}
+
+# Every adult courtier's opinion of the current character changes.
+eir_court_opinion_effect = {
+	every_courtier = {
+		limit = { is_adult = yes }
+		add_opinion = {
+			target = root
+			modifier = $MODIFIER$
+			opinion = $OPINION$
+		}
+	}
+}
+
+# Apply a county modifier to the capital county of a duchy or kingdom title.
+eir_capital_county_modifier_effect = {
+	title:$TITLE$ ?= {
+		title_capital_county ?= {
+			add_county_modifier = {
+				modifier = $MODIFIER$
+				years = $YEARS$
+			}
+		}
+	}
+}
+
+# Apply a county modifier to up to $N$ random counties you hold directly (written for 1, 2 or 3).
+eir_held_county_modifier_effect = {
+	random_held_title = {
+		limit = { tier = tier_county }
+		add_county_modifier = {
+			modifier = $MODIFIER$
+			years = $YEARS$
+		}
+	}
+}
+
+# A raid on the realm leaves a mark on a random county of the realm.
+eir_raid_county_effect = {
+	random_realm_county = {
+		add_county_modifier = {
+			modifier = eir_raided_county_modifier
+			years = 8
+		}
+	}
+}
+
+# ----------------------------------------------------------------------------
+# Native resistance: occupied Celtic counties get a modifier that is refreshed every year.
+# ----------------------------------------------------------------------------
+eir_resistance_region_effect = {
+	title:$KINGDOM$ = {
+		every_in_de_jure_hierarchy = {
+			limit = { tier = tier_county }
+			if = {
+				limit = { eir_county_occupied_trigger = yes }
+				add_county_modifier = {
+					modifier = $MODIFIER$
+					years = 2
+				}
+			}
+			else_if = {
+				limit = { has_county_modifier = $MODIFIER$ }
+				remove_county_modifier = $MODIFIER$
+			}
+		}
+	}
+}
+
+eir_resistance_pulse_effect = {
+	eir_resistance_region_effect = { KINGDOM = k_ireland MODIFIER = eir_native_resistance_modifier }
+	eir_resistance_region_effect = { KINGDOM = k_wales MODIFIER = eir_native_resistance_lite_modifier }
+	eir_resistance_region_effect = { KINGDOM = k_scotland MODIFIER = eir_native_resistance_lite_modifier }
+	eir_resistance_region_effect = { KINGDOM = k_cornwall MODIFIER = eir_native_resistance_lite_modifier }
+	eir_resistance_region_effect = { KINGDOM = k_brittany MODIFIER = eir_native_resistance_lite_modifier }
+	eir_resistance_region_effect = { KINGDOM = k_mann_the_isles MODIFIER = eir_native_resistance_lite_modifier }
+}
+
+# ----------------------------------------------------------------------------
+# Unique artifacts (same call shape as the vanilla historical artifacts).
+# ----------------------------------------------------------------------------
+eir_make_artifact_effect = {
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = $NAME$
+		description = $DESC$
+		type = $TYPE$
+		visuals = $VISUALS$
+		wealth = scope:wealth
+		quality = scope:quality
+		template = general_unique_template
+		modifier = $MODIFIER$
+		save_scope_as = eir_new_artifact
+	}
+	scope:eir_new_artifact = {
+		get_artifact_feature_references_effect = yes
+	}
+}
+
+# ----------------------------------------------------------------------------
+# Legends (only if the legends feature is active in this game).
+# ----------------------------------------------------------------------------
+eir_legend_title_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = great_deed_title
+			properties = {
+				title = $TITLE$
+				founder = root
+			}
+		}
+	}
+}
+
+eir_legend_defence_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+			exists = scope:eir_norse_lord
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = valiant_defense
+			properties = {
+				attacker = scope:eir_norse_lord
+				defender = root
+			}
+		}
+	}
+}

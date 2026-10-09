@@ -1,0 +1,37 @@
+﻿l_english:
+ eir.0080.t:0 "The Gospel Is Finished"
+ eir.0080.desc:0 "#bold The monks of your scriptorium have completed a gospel book of astonishing beauty.#!
+
+Five years of work went into it: calfskin vellum, pigments from three continents, and ornamental pages so intricate that the artists went blind in their old age. It is a book that is more than a book.
+
+The abbot has brought it to you himself, and he does not look like he wants to hand it over."
+ eir.0080.a:0 "Keep it in your own chapel."
+ eir.0080.b:0 "Give it back to the abbey and ask only that pilgrims may see it."
+ eir.0080.c:0 "Present it to the Pope as a gift of the Irish Church."
+ eir.0081.t:0 "A Silver Chalice in a Potato Field"
+ eir.0081.desc:0 "#bold A boy digging in a field has found a silver chalice, buried with a hoard.#!
+
+It is a magnificent piece of silver and gold, ornamented with interlace patterns and set with amber and glass. It is also, by the law of the land, the property of whoever owns the field, which is you.
+
+The boy is looking at you hopefully."
+ eir.0081.a:0 "Reward the boy and place the chalice on the altar of your chapel."
+ eir.0081.b:0 "Give it to the Church."
+ eir.0081.c:0 "Melt it down."
+ eir.0082.t:0 "The Torc from the Bog"
+ eir.0082.desc:0 "#bold Among the hoard dug from the bog is a great gold torc, older than any king of Ireland.#!
+
+It is a heavy twisted collar of gold, finely made, with terminals shaped like beasts. It is the kind of thing a king of Tara would have worn, long before the Church, long before the Norse, long before anything the chroniclers remember.
+
+A man who wore it might feel the weight of every king before him."
+ eir.0082.a:0 "Wear it at your coronation, and at every great feast."
+ eir.0082.b:0 "Place it with the royal regalia, to be worn only by the High King."
+ eir.0082.c:0 "Melt it into coin."
+ eir.0083.t:0 "A Sword for the Champion"
+ eir.0083.desc:0 "#bold A smith presents you with a sword the poets say belonged to a hero of the Red Branch.#!
+
+He swears it was found in a cairn in Ulster, buried with its owner, and that it still has the edge. The poets say it is Caladbolg, the sword that struck three hills flat. The smith would settle for a suitable reward.
+
+It is certainly an extraordinary blade."
+ eir.0083.a:0 "Reward the smith and wear the sword yourself."
+ eir.0083.b:0 "Present the sword to your champion."
+ eir.0083.c:0 "Hang it in the hall as a token of Ulster's heritage."

@@ -1,0 +1,142 @@
+﻿##########################################################################
+# Eire Reborn - scripted triggers
+##########################################################################
+
+# An Irish-culture ruler (the main audience of this mod).
+eir_is_irish_ruler_trigger = {
+	is_ruler = yes
+	culture = culture:irish
+}
+
+# Any ruler of a Goidelic (Irish or Gaelic) culture.
+eir_is_gael_ruler_trigger = {
+	is_ruler = yes
+	culture ?= { has_cultural_pillar = heritage_goidelic }
+}
+
+# The tanistic collapse is switched off once the high kingship has been stabilised.
+eir_collapse_active_trigger = {
+	NOT = { has_global_variable = eir_collapse_abolished }
+}
+
+# Holds at least $COUNT$ of the five Irish duchies.
+eir_holds_irish_duchies_trigger = {
+	any_held_title = {
+		tier = tier_duchy
+		count >= $COUNT$
+		OR = {
+			this = title:d_meath
+			this = title:d_ulster
+			this = title:d_connacht
+			this = title:d_leinster
+			this = title:d_munster
+		}
+	}
+}
+
+# Holds (directly or through vassals) at least $COUNT$ counties of de jure Ireland.
+eir_holds_irish_counties_trigger = {
+	any_realm_county = {
+		count >= $COUNT$
+		kingdom = title:k_ireland
+	}
+}
+
+# A Norse-heritage ruler holds at least one county of de jure Ireland.
+eir_norse_holds_irish_county_trigger = {
+	title:k_ireland = {
+		any_in_de_jure_hierarchy = {
+			tier = tier_county
+			holder ?= {
+				culture ?= { has_cultural_pillar = heritage_north_germanic }
+			}
+		}
+	}
+}
+
+# Is this ruler a Celtic (Goidelic or Brythonic) one.
+eir_is_celtic_ruler_trigger = {
+	culture ?= {
+		OR = {
+			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_brythonic
+		}
+	}
+}
+
+# Creation rules for the five provincial kingdoms.
+eir_can_create_provincial_kingdom_trigger = {
+	culture = { has_cultural_pillar = heritage_goidelic }
+	is_independent_ruler = yes
+	has_title = title:$DUCHY$
+}
+
+# Creation rule for the Kingdom of Dál Riata: three counties in western Scotland.
+eir_can_create_dal_riata_trigger = {
+	culture = { has_cultural_pillar = heritage_goidelic }
+	is_independent_ruler = yes
+	any_realm_county = {
+		count >= 3
+		OR = {
+			duchy = title:d_albany
+			duchy = title:d_the_isles
+			duchy = title:d_western_isles
+		}
+	}
+}
+
+# Creation rule for the Empire of Gaeldom: Ireland plus another kingdom.
+eir_can_create_gaeldom_trigger = {
+	culture = { has_cultural_pillar = heritage_goidelic }
+	is_independent_ruler = yes
+	has_title = title:k_ireland
+	any_held_title = {
+		tier = tier_kingdom
+		count >= 2
+	}
+}
+
+# This ruler's capital county is on the coast (used for Norse landings).
+eir_has_coast_trigger = {
+	capital_county ?= {
+		is_coastal_county = yes
+	}
+}
+
+# Viking-age window: raids become rarer after the high Middle Ages.
+eir_viking_age_trigger = {
+	current_year < 1180
+}
+
+# County scope: a Gaelic or Brythonic county ruled by a foreign-culture holder.
+eir_county_occupied_trigger = {
+	culture ?= {
+		OR = {
+			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_brythonic
+		}
+	}
+	holder ?= {
+		culture ?= {
+			NOR = {
+				has_cultural_pillar = heritage_goidelic
+				has_cultural_pillar = heritage_brythonic
+			}
+		}
+	}
+	NOT = { has_county_modifier = eir_pacified_modifier }
+}
+
+# Character scope: a non-Celtic ruler who holds at least one occupied county.
+eir_rules_occupied_land_trigger = {
+	is_ruler = yes
+	culture ?= {
+		NOR = {
+			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_brythonic
+		}
+	}
+	any_sub_realm_county = {
+		eir_county_occupied_trigger = yes
+	}
+}

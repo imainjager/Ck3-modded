@@ -1,0 +1,29 @@
+﻿l_english:
+ eir.0001.t:0 "The Kingdom Unravels"
+ eir.0001.desc:0 "#bold [eir_dead_king.GetShortUIName] is dead, and the title of [eir_collapsing_title.GetName] died with [eir_dead_king.GetHerHim].#!
+
+In Ireland a kingdom was a man, and the man is gone. The title that held it together is broken, and every kinsman who ever dreamed of a crown is already counting spearmen.
+
+What you do in the next few weeks will decide whether you inherit a realm or only a quarrel."
+ eir.0001.a:0 "Gather the kin at Tara before anyone else does."
+ eir.0001.b:0 "Buy the loyalty of your uncles with cattle and gold."
+ eir.0001.c:0 "Let them squabble. The strongest will rule."
+ eir.0002.t:0 "The Tanist's Challenge"
+ eir.0002.desc:0 "#bold [eir_rival.GetShortUIName] says the throne should have been [eir_rival.GetHerHis].#!
+
+Under the old law any man of the royal kin could be chosen, and your kinsman has never accepted that it was you. [eir_rival.GetSheHe|U] has friends, spears, and a poet who sings of [eir_rival.GetHerHis] claim.
+
+If you let this fester, it will become a feud. If you crush it badly, it will become a legend."
+ eir.0002.a:0 "Give [eir_rival.GetShortUIName] a share of the realm."
+ eir.0002.b:0 "Meet the challenge on the field of honour."
+ eir.0002.c:0 "Have [eir_rival.GetShortUIName] quietly removed."
+ eir.0002.d:0 "Send [eir_rival.GetShortUIName] to a monastery for the good of [eir_rival.GetHerHis] soul."
+ eir.0003.t:0 "A Poet's Lament"
+ eir.0003.desc:0 "#bold A poet stands up in your hall to sing the lament of the fallen kingship.#!
+
+The old kingship is in pieces, and the poet is not shy about saying why. Every line is a little too accurate. Every pause is a little too long.
+
+The court is watching to see what you do about it."
+ eir.0003.a:0 "Pay the poet handsomely and ask for a second verse about yourself."
+ eir.0003.b:0 "Have the poet thrown out of the hall."
+ eir.0003.c:0 "Answer with a verse of your own."

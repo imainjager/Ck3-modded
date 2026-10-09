@@ -1,0 +1,286 @@
+﻿# Eire Reborn - unique Irish buildings. Each needs a character flag set by a decision or event.
+
+eir_ringfort_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_ringfort
+	}
+
+	can_construct_potential = {
+		has_holding_type = castle_holding
+		has_global_variable = eir_unlock_ringfort
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		defender_holding_advantage = 5
+		monthly_income = 0.2
+	}
+	county_modifier = {
+		levy_size = 0.05
+	}
+	character_modifier = {
+		knight_effectiveness_mult = 0.02
+	}
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_crannog_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_crannog
+	}
+
+	can_construct_potential = {
+		has_holding_type = castle_holding
+		has_global_variable = eir_unlock_crannog
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		defender_holding_advantage = 10
+		supply_limit_mult = 0.1
+	}
+	county_modifier = {
+		monthly_county_control_growth_add = 0.2
+	}
+
+	type_icon = "icon_building_palisades.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_round_tower_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_round_tower
+	}
+
+	can_construct_potential = {
+		has_holding_type = church_holding
+		has_global_variable = eir_unlock_round_tower
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		defender_holding_advantage = 5
+		monthly_income = 0.2
+	}
+	county_modifier = {
+		county_opinion_add = 3
+	}
+	character_modifier = {
+		monthly_piety = 0.1
+	}
+
+	type_icon = "icon_building_watchtowers.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_high_cross_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_high_cross
+	}
+
+	can_construct_potential = {
+		has_holding_type = church_holding
+		has_global_variable = eir_unlock_high_cross
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		monthly_income = 0.2
+	}
+	county_modifier = {
+		county_opinion_add = 5
+		development_growth_factor = 0.02
+	}
+	character_modifier = {
+		monthly_piety = 0.15
+	}
+
+	type_icon = "icon_building_graveyard.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_scriptorium_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_scriptorium
+	}
+
+	can_construct_potential = {
+		has_holding_type = church_holding
+		has_global_variable = eir_unlock_scriptorium
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		monthly_income = 0.3
+	}
+	county_modifier = {
+		development_growth_factor = 0.04
+	}
+	character_modifier = {
+		monthly_piety = 0.1
+		learning = 1
+	}
+
+	type_icon = "icon_building_library.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_brehon_court_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_brehon_court
+	}
+
+	can_construct_potential = {
+		has_holding_type = city_holding
+		has_global_variable = eir_unlock_brehon_court
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		monthly_income = 0.3
+	}
+	county_modifier = {
+		county_opinion_add = 4
+		monthly_county_control_growth_add = 0.2
+	}
+	character_modifier = {
+		legitimacy_gain_mult = 0.01
+	}
+
+	type_icon = "icon_building_tax_assessor.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_bardic_school_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_bardic_school
+	}
+
+	can_construct_potential = {
+		has_holding_type = city_holding
+		has_global_variable = eir_unlock_bardic_school
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		monthly_income = 0.2
+	}
+	county_modifier = {
+		county_opinion_add = 3
+	}
+	character_modifier = {
+		monthly_prestige = 0.1
+		owned_legend_spread_mult = 0.02
+	}
+
+	type_icon = "icon_building_monastic_schools.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+
+eir_cattle_enclosure_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		has_global_variable = eir_unlock_cattle_enclosure
+	}
+
+	can_construct_potential = {
+		has_holding_type = castle_holding
+		has_global_variable = eir_unlock_cattle_enclosure
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_1_cost
+
+	province_modifier = {
+		monthly_income = 0.5
+	}
+	county_modifier = {
+		tax_mult = 0.03
+	}
+	character_modifier = {
+		domain_tax_mult = 0.01
+	}
+
+	type_icon = "icon_building_hillside_grazing.dds"
+
+	ai_value = {
+		base = 5
+	}
+}
+

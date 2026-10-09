@@ -1,0 +1,79 @@
+﻿# Eire Reborn - new titles (de jure empty; created by their holders)
+
+k_eir_munster = {
+	color = { 210 150 20 }
+	capital = c_ormond
+
+	can_create = {
+		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_munster }
+	}
+
+	can_be_named_after_dynasty = no
+}
+
+k_eir_ulster = {
+	color = { 160 20 20 }
+	capital = c_ulster
+
+	can_create = {
+		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_ulster }
+	}
+
+	can_be_named_after_dynasty = no
+}
+
+k_eir_leinster = {
+	color = { 30 120 60 }
+	capital = c_leinster
+
+	can_create = {
+		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_leinster }
+	}
+
+	can_be_named_after_dynasty = no
+}
+
+k_eir_connacht = {
+	color = { 40 90 160 }
+	capital = c_connacht
+
+	can_create = {
+		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_connacht }
+	}
+
+	can_be_named_after_dynasty = no
+}
+
+k_eir_meath = {
+	color = { 110 60 130 }
+	capital = c_dublin
+
+	can_create = {
+		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_meath }
+	}
+
+	can_be_named_after_dynasty = no
+}
+
+k_eir_dal_riata = {
+	color = { 30 150 140 }
+	capital = c_ailech
+
+	can_create = {
+		eir_can_create_dal_riata_trigger = yes
+	}
+
+	can_be_named_after_dynasty = no
+}
+
+e_eir_gaeldom = {
+	color = { 10 110 40 }
+	capital = c_dublin
+
+	can_create = {
+		eir_can_create_gaeldom_trigger = yes
+	}
+
+	can_be_named_after_dynasty = no
+}
+

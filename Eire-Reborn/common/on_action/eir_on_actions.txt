@@ -1,0 +1,213 @@
+﻿##########################################################################
+# Eire Reborn - on_actions (all additive to the vanilla ones)
+##########################################################################
+
+# THE CORE RULE: an Irish ruler's top title (duchy and above) is destroyed when they die.
+on_death = {
+	effect = {
+		if = {
+			limit = {
+				eir_is_irish_ruler_trigger = yes
+				eir_collapse_active_trigger = yes
+				exists = primary_title
+				primary_title = { tier >= tier_duchy }
+			}
+			eir_collapse_top_title_effect = yes
+		}
+	}
+}
+
+# Make sure the Irish keep the tanistry tradition until the player abolishes it.
+on_game_start = {
+	effect = {
+		eir_ensure_tanistic_tradition_effect = yes
+	}
+}
+
+yearly_global_pulse = {
+	effect = {
+		eir_ensure_tanistic_tradition_effect = yes
+		eir_resistance_pulse_effect = yes
+	}
+}
+
+# Flavour pulse: one chance per year for each playable Irish ruler to see something happen.
+random_yearly_playable_pulse = {
+	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse }
+}
+
+eir_flavor_pulse = {
+	trigger = {
+		eir_is_irish_ruler_trigger = yes
+		is_ai = no
+	}
+	random_events = {
+		chance_to_happen = 45
+		50 = 0
+		10 = eir.0030
+		10 = eir.0031
+		10 = eir.0032
+		10 = eir.0033
+		5 = eir.0034
+		5 = eir.0035
+		5 = eir.0036
+		5 = eir.0037
+		5 = eir.0038
+		5 = eir.0040
+		5 = eir.0041
+		5 = eir.0042
+		5 = eir.0043
+		5 = eir.0044
+		5 = eir.0045
+		5 = eir.0046
+		5 = eir.0050
+		5 = eir.0051
+		5 = eir.0052
+		5 = eir.0053
+		5 = eir.0054
+		5 = eir.0055
+		5 = eir.0056
+		5 = eir.0003
+		5 = eir.0070
+		5 = eir.0071
+		5 = eir.0072
+		5 = eir.0073
+		5 = eir.0074
+		5 = eir.0075
+		5 = eir.0076
+		5 = eir.0077
+		5 = eir.0078
+		5 = eir.0079
+		5 = eir.0130
+		5 = eir.0131
+		5 = eir.0132
+		5 = eir.0133
+		3 = eir.0081
+		3 = eir.0084
+		3 = eir.0085
+		3 = eir.0086
+		3 = eir.0083
+	}
+}
+
+# Invasions are rarer and hit harder.
+eir_invasion_pulse = {
+	trigger = {
+		eir_is_irish_ruler_trigger = yes
+		is_ai = no
+	}
+	random_events = {
+		chance_to_happen = 20
+		10 = eir.0010
+		10 = eir.0011
+		10 = eir.0012
+		10 = eir.0013
+		10 = eir.0020
+	}
+}
+
+# Historical events fire the first time their year is reached and their conditions hold.
+eir_history_pulse = {
+	trigger = {
+		eir_is_irish_ruler_trigger = yes
+		is_ai = no
+	}
+	first_valid = {
+		eir.0100
+		eir.0101
+		eir.0102
+		eir.0103
+		eir.0104
+		eir.0105
+		eir.0106
+		eir.0107
+		eir.0060
+		eir.0061
+		eir.0062
+		eir.0063
+		eir.0064
+		eir.0065
+	}
+}
+
+# Native-resistance flavour for foreign rulers holding Celtic land.
+eir_resistance_pulse = {
+	trigger = {
+		is_ai = no
+		eir_rules_occupied_land_trigger = yes
+	}
+	random_events = {
+		chance_to_happen = 30
+		10 = eir.0120
+		10 = eir.0121
+		10 = eir.0122
+		10 = eir.0123
+	}
+}
+
+# Invasions: report the result to the defender.
+on_war_won_attacker = {
+	effect = {
+		scope:attacker = {
+			if = {
+				limit = { has_variable = eir_viking_raider }
+				scope:defender = {
+					if = {
+						limit = { is_ai = no }
+						scope:attacker = { save_scope_as = eir_norse_lord }
+						scope:attacker.var:eir_viking_target ?= { save_scope_as = eir_target_county }
+						trigger_event = eir.0016
+					}
+				}
+				remove_variable = eir_viking_raider
+				remove_variable = eir_viking_target
+			}
+			else_if = {
+				limit = { has_variable = eir_foreign_raider }
+				scope:defender = {
+					if = {
+						limit = { is_ai = no }
+						scope:attacker = { save_scope_as = eir_foreign_lord }
+						scope:attacker.var:eir_viking_target ?= { save_scope_as = eir_target_county }
+						trigger_event = eir.0021
+					}
+				}
+				remove_variable = eir_foreign_raider
+				remove_variable = eir_viking_target
+			}
+		}
+	}
+}
+
+on_war_won_defender = {
+	effect = {
+		scope:attacker = {
+			if = {
+				limit = { has_variable = eir_viking_raider }
+				scope:defender = {
+					if = {
+						limit = { is_ai = no }
+						scope:attacker = { save_scope_as = eir_norse_lord }
+						scope:attacker.var:eir_viking_target ?= { save_scope_as = eir_target_county }
+						trigger_event = eir.0015
+					}
+				}
+				remove_variable = eir_viking_raider
+				remove_variable = eir_viking_target
+			}
+			else_if = {
+				limit = { has_variable = eir_foreign_raider }
+				scope:defender = {
+					if = {
+						limit = { is_ai = no }
+						scope:attacker = { save_scope_as = eir_foreign_lord }
+						scope:attacker.var:eir_viking_target ?= { save_scope_as = eir_target_county }
+						trigger_event = eir.0022
+					}
+				}
+				remove_variable = eir_foreign_raider
+				remove_variable = eir_viking_target
+			}
+		}
+	}
+}

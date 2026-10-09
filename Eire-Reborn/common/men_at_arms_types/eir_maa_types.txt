@@ -1,0 +1,156 @@
+﻿# Eire Reborn - men-at-arms
+
+eir_gallowglass = {
+	type = heavy_infantry
+
+	damage = 44
+	toughness = 30
+	pursuit = 0
+	screen = 20
+
+	terrain_bonus = {
+		hills = { damage = 8 toughness = 4 }
+		forest = { damage = 6 }
+		wetlands = { damage = -5 }
+	}
+
+	counters = {
+		pikemen = 1
+		archers = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_unlock_gallowglass }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_gallowglass
+			}
+		}
+	}
+
+	buy_cost = { gold = huscarls_recruitment_cost }
+	low_maintenance_cost = { gold = huscarls_low_maint_cost }
+	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = 7
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = danish_huskarls
+}
+
+eir_fianna_warband = {
+	type = skirmishers
+
+	damage = 18
+	toughness = 18
+	pursuit = 20
+	screen = 20
+
+	terrain_bonus = {
+		forest = { damage = 8 toughness = 6 }
+		hills = { damage = 6 toughness = 4 }
+		mountains = { damage = 4 toughness = 4 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+		archers = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_unlock_fianna }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_fianna
+			}
+		}
+	}
+
+	buy_cost = { gold = skirmisher_recruitment_cost }
+	low_maintenance_cost = { gold = skirmisher_low_maint_cost }
+	high_maintenance_cost = { gold = skirmisher_high_maint_cost }
+	provision_cost = 3
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = mountaineer
+}
+
+eir_kern_javelineers = {
+	type = skirmishers
+
+	damage = 14
+	toughness = 12
+	pursuit = 16
+	screen = 12
+
+	terrain_bonus = {
+		forest = { damage = 6 }
+		hills = { damage = 4 }
+		wetlands = { damage = 4 }
+	}
+
+	counters = {
+		heavy_cavalry = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_unlock_fianna }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_kern
+			}
+		}
+	}
+
+	buy_cost = { gold = skirmisher_recruitment_cost }
+	low_maintenance_cost = { gold = skirmisher_low_maint_cost }
+	high_maintenance_cost = { gold = skirmisher_high_maint_cost }
+	provision_cost = 3
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = light_cavalry
+}
+
+eir_tara_guard = {
+	type = heavy_infantry
+
+	damage = 36
+	toughness = 34
+	pursuit = 0
+	screen = 26
+
+	terrain_bonus = {
+		plains = { damage = 6 }
+		hills = { toughness = 4 }
+	}
+
+	counters = {
+		light_cavalry = 1
+		pikemen = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_stable_kingship }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_tara_guard
+			}
+		}
+	}
+
+	buy_cost = { gold = huscarls_recruitment_cost }
+	low_maintenance_cost = { gold = huscarls_low_maint_cost }
+	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = 7
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = palace_guards
+}
+

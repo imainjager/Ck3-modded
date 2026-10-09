@@ -1,0 +1,414 @@
+﻿# Eire Reborn - culture traditions
+
+tradition_eir_tanistic_fragmentation = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = shield.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+	can_pick = {
+		always = no
+	}
+
+	parameters = {
+		eir_title_collapse_on_death = yes
+		eir_tanistic_culture = yes
+	}
+
+	character_modifier = {
+		levy_size = 0.1
+		monthly_prestige_gain_mult = 0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_high_kingship = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = western
+		4 = crown.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+	can_pick = {
+		always = no
+	}
+
+	parameters = {
+		eir_stable_kingship = yes
+	}
+
+	character_modifier = {
+		legitimacy_gain_mult = 0.15
+		vassal_opinion = 5
+		monthly_prestige = 0.2
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_bardic_schools = {
+	category = regional
+
+	layers = {
+		0 = learning
+		1 = western
+		4 = quill.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_bardic_schools = yes
+		poet_trait_gives_bonuses = yes
+		poet_trait_more_common = yes
+	}
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		monthly_prestige_gain_mult = 0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_brehon_law = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = western
+		4 = council.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_brehon_law = yes
+	}
+
+	character_modifier = {
+		legitimacy_gain_mult = 0.1
+		courtier_and_guest_opinion = 5
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_fosterage_bonds = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = western
+		4 = hostages.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_fosterage_bonds = yes
+	}
+
+	character_modifier = {
+		vassal_opinion = 5
+		direct_vassal_opinion = 5
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_cattle_wealth = {
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = farmland.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_cattle_wealth = yes
+	}
+
+	character_modifier = {
+		domain_tax_mult = 0.05
+		monthly_income = 1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_gallowglass_heritage = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = swords.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_unlock_gallowglass = yes
+	}
+
+	character_modifier = {
+		men_at_arms_maintenance = -0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_fianna_heritage = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = hunter.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_unlock_fianna = yes
+	}
+
+	character_modifier = {
+		knight_effectiveness_mult = 0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_culdee_christianity = {
+	category = regional
+
+	layers = {
+		0 = learning
+		1 = western
+		4 = temple.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_culdee_christianity = yes
+	}
+
+	character_modifier = {
+		monthly_piety_gain_mult = 0.1
+		clergy_opinion = 5
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_sea_kings = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = ship.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_sea_kings = yes
+	}
+
+	character_modifier = {
+		naval_movement_speed_mult = 0.25
+		embarkation_cost_mult = -0.25
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
