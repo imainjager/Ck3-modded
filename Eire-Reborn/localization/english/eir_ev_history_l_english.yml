@@ -1,55 +1,31 @@
 ﻿l_english:
  eir.0060.t:0 "Munster Reaches for the High Kingship"
- eir.0060.desc:0 "#bold Your poets say the time has come for a king of Munster to be High King of Ireland.#!
-
-Brian Boru did it a lifetime ago, and the bards of Cashel have not let anyone forget it. Now they say that the line of Brian has a living heir with an army, an ambition and a good claim.
-
-The other provinces have heard the poems too, and are sharpening their spears."
+ eir.0060.desc:0 "#bold Your poets say the time has come for a king of Munster to be High King of Ireland.#!\n\nBrian Boru did it a lifetime ago, and the bards of Cashel have not let anyone forget it. Now they say that the line of Brian has a living heir with an army, an ambition and a good claim.\n\nThe other provinces have heard the poems too, and are sharpening their spears."
  eir.0060.a:0 "Take the high kingship as Brian did."
  eir.0060.b:0 "Be content to rule Munster, and see what comes."
  eir.0060.c:0 "Offer the high kingship to Meath and become its kingmaker."
  eir.0061.t:0 "The Gift of Cashel"
- eir.0061.desc:0 "#bold Your bishops suggest a gift to the Church that will be remembered for centuries.#!
-
-The Rock of Cashel has been the seat of the kings of Munster for generations. It is also a magnificent site for a cathedral. The Church would love it, and so would the archives of history.
-
-Giving away your capital fortress is, however, an unusual form of generosity."
+ eir.0061.desc:0 "#bold Your bishops suggest a gift to the Church that will be remembered for centuries.#!\n\nThe Rock of Cashel has been the seat of the kings of Munster for generations. It is also a magnificent site for a cathedral. The Church would love it, and so would the archives of history.\n\nGiving away your capital fortress is, however, an unusual form of generosity."
  eir.0061.a:0 "Give the Rock of Cashel to the Church."
  eir.0061.b:0 "Offer a rich endowment instead of the fortress."
  eir.0061.c:0 "Politely decline."
  eir.0062.t:0 "The Synod of Ráth Breasail"
- eir.0062.desc:0 "#bold Bishops from across Ireland gather to divide the country into dioceses.#!
-
-For the first time in Irish history, the Church will have a clear structure: two archbishoprics, twenty-four dioceses, and a place for every abbot. The reformers are triumphant. The old monks are grim.
-
-The king's blessing would help the reforms along, and cost him some friends."
+ eir.0062.desc:0 "#bold Bishops from across Ireland gather to divide the country into dioceses.#!\n\nFor the first time in Irish history, the Church will have a clear structure: two archbishoprics, twenty-four dioceses, and a place for every abbot. The reformers are triumphant. The old monks are grim.\n\nThe king's blessing would help the reforms along, and cost him some friends."
  eir.0062.a:0 "Support the reforms, and take part in the synod."
  eir.0062.b:0 "Attend, but speak for the old monasteries."
  eir.0062.c:0 "Stay away. A king has no business in the Church's affairs."
  eir.0063.t:0 "The Synod of Kells"
- eir.0063.desc:0 "#bold A papal legate arrives with four palliums, one for each Irish archbishop.#!
-
-He speaks no Irish and has never seen a bog. He has come to confirm what the synods have been planning for forty years: Ireland divided into four archdioceses, answering to Rome.
-
-He wants the support of every king he can reach, and he is willing to say so in writing."
+ eir.0063.desc:0 "#bold A papal legate arrives with four palliums, one for each Irish archbishop.#!\n\nHe speaks no Irish and has never seen a bog. He has come to confirm what the synods have been planning for forty years: Ireland divided into four archdioceses, answering to Rome.\n\nHe wants the support of every king he can reach, and he is willing to say so in writing."
  eir.0063.a:0 "Receive the legate with full honours."
  eir.0063.b:0 "Receive him politely but remind him whose land this is."
  eir.0063.c:0 "Refuse to see him."
  eir.0064.t:0 "An Exile Comes Seeking Help"
- eir.0064.desc:0 "#bold A deposed Irish king has arrived at your court, asking for men and shelter.#!
-
-He was driven from his kingdom by a rival and the High King's army, and he has nothing left but a good name and a grievance. He is already talking about sailing to Britain to look for allies, and the allies he has in mind are not Irish.
-
-He is a clever and persuasive man, and he is going to be a problem whichever way you answer."
+ eir.0064.desc:0 "#bold A deposed Irish king has arrived at your court, asking for men and shelter.#!\n\nHe was driven from his kingdom by a rival and the High King's army, and he has nothing left but a good name and a grievance. He is already talking about sailing to Britain to look for allies, and the allies he has in mind are not Irish.\n\nHe is a clever and persuasive man, and he is going to be a problem whichever way you answer."
  eir.0064.a:0 "Shelter him, give him a hall, and a quiet word of advice."
  eir.0064.b:0 "Give him an army and send him home to win it back."
  eir.0064.c:0 "Send him away. Exiles bring trouble."
  eir.0065.t:0 "Foreign Knights Gather in Wales"
- eir.0065.desc:0 "#bold Traders report that mailed knights and archers are gathering at the Welsh ports, bound for Ireland.#!
-
-They are hungry younger sons with no land, led by a lord who has been promised a bride and a kingdom if he can win them. They carry stone-cutters' tools as well as swords.
-
-They will not stay long on the beach."
+ eir.0065.desc:0 "#bold Traders report that mailed knights and archers are gathering at the Welsh ports, bound for Ireland.#!\n\nThey are hungry younger sons with no land, led by a lord who has been promised a bride and a kingdom if he can win them. They carry stone-cutters' tools as well as swords.\n\nThey will not stay long on the beach."
  eir.0065.a:0 "Raise the levies and prepare to meet them. (A foreign invasion will follow.)"
  eir.0065.b:0 "Seek allies among the other Irish kings."
  eir.0065.c:0 "Hope it blows over."

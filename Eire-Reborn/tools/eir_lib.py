@@ -32,7 +32,7 @@ def num(v):
 
 def esc(s):
     """Escape text for a localization value."""
-    return s.replace('"', "'")
+    return s.replace('"', "'").replace("\r", "").replace("\n", "\\n")
 
 
 class Loc:

@@ -55,8 +55,6 @@ C("eir_bardic_circuit_modifier", "learning_positive", {"monthly_prestige": 0.2, 
   "Bardic Circuit", "Poets walk from hall to hall, carrying your name.")
 C("eir_harper_modifier", "learning_positive", {"diplomacy": 1, "courtier_opinion": 3},
   "A Harper at Court", "A master harper plays in your hall every evening.")
-C("eir_sidhe_hosting_modifier", "prestige_positive", {"monthly_prestige": 0.2, "stress_gain_mult": 0.05},
-  "Hosting of the Sidhe", "The old stories are told as if they were news.")
 C("eir_brigid_cult_modifier", "piety_positive", {"health": 0.1, "fertility": 0.1},
   "Flame of Brigid", "A perpetual flame burns for Brigid, goddess and saint.")
 C("eir_colmcille_cult_modifier", "learning_positive", {"learning": 1, "monthly_piety": 0.2},
@@ -65,8 +63,6 @@ C("eir_patrick_cult_modifier", "piety_positive", {"monthly_piety": 0.3, "clergy_
   "Patrick's Faithful", "The apostle of Ireland is honoured above every other saint.")
 C("eir_yew_bows_modifier", "dread_positive" if False else "prowess_positive", {"archers_damage_add": 2},
   "Yew Bows", "Your levies carry bows of Irish yew.")
-C("eir_wolfhound_kennels_modifier", "prowess_positive", {"prowess": 1, "monthly_prestige": 0.1},
-  "Wolfhound Kennels", "Great hounds run before your hunt.")
 C("eir_champions_portion_modifier", "prowess_positive", {"prowess": 2, "monthly_prestige": 0.1},
   "Champion's Portion", "The best cut of the meat goes to your champion, and his arm is the stronger for it.")
 C("eir_dun_drill_modifier", "prowess_positive", {"martial": 1, "knight_effectiveness_mult": 0.1},
@@ -121,8 +117,6 @@ C("eir_tale_lir_modifier", "family_positive", {"general_opinion": 3, "stress_gai
   "Tale of the Children of Lir", "A song of grief that makes people kinder.")
 C("eir_tale_brendan_modifier", "piety_positive", {"monthly_piety": 0.3, "monthly_prestige": 0.1},
   "Tale of Saint Brendan", "A voyage story that makes the western sea seem close.")
-C("eir_dimma_modifier", "learning_positive", {"learning": 1, "monthly_piety": 0.2},
-  "Pocket Gospel", "A small gospel book that can be carried anywhere.")
 C("eir_harp_of_brian_modifier", "prestige_positive", {"monthly_prestige": 0.3, "diplomacy": 1},
   "Harp of the High King", "A harp said to have belonged to Brian himself.")
 C("eir_crozier_modifier", "piety_positive", {"monthly_piety": 0.3, "clergy_opinion": 4},
@@ -131,8 +125,6 @@ C("eir_kingmaker_modifier", "prestige_positive", {"vassal_opinion": 5, "monthly_
   "Kingmaker", "You placed a king on a throne, and everyone remembers.")
 C("eir_exile_modifier", "prestige_negative", {"monthly_prestige": -0.2, "general_opinion": -3},
   "In Exile", "You lost a kingdom, and you remember it daily.")
-C("eir_hostage_burden_modifier", "stress_negative" if False else "prestige_negative", {"stress_gain_mult": 0.1, "monthly_prestige": -0.1},
-  "Hostage's Burden", "Years as someone's hostage left their mark.")
 C("eir_blinded_modifier", "prestige_negative", {"monthly_prestige": -0.1, "learning": -1},
   "Struck from the List", "A rival was blinded to bar him from the throne. The act is not forgiven.")
 C("eir_champion_victor_modifier", "prowess_positive", {"prowess": 2, "monthly_prestige": 0.25},
@@ -231,3 +223,12 @@ MAA["eir_ceithern"] = dict(
     cost=("huscarls_recruitment_cost", "huscarls_low_maint_cost", "huscarls_high_maint_cost"),
     name="Ceithern Retinue",
     flavor="The picked household troops of a king, who eat at his table and die at his door.")
+
+# ---------------------------------------------------------------- v0.5 additions
+C("eir_irish_sea_trade_modifier", "economy_positive", {"stewardship": 2, "monthly_income": 2, "diplomacy": 1},
+  "Master of the Sea Lanes", "Your captains know every harbour from Chester to Bordeaux, and your name is known there too.")
+C("eir_thalassocracy_modifier", "prestige_positive",
+  {"monthly_income": 5, "monthly_prestige": 0.6, "stewardship": 2, "naval_movement_speed_mult": 0.3, "knight_effectiveness_mult": 0.05, "vassal_opinion": 5},
+  "Sea-King of the West", "Every harbour on the Irish Sea pays you in one coin or another.")
+K("eir_cattle_rich_county_modifier", "county_modifier_development_positive", {"tax_mult": 0.08, "levy_size": 0.05},
+  "Bó-aire Country", "The cow-freemen of this county keep large herds and larger grudges.")

@@ -1,92 +1,52 @@
 ﻿l_english:
  eir.0110.t:0 "The Coronation"
- eir.0110.desc:0 "#bold You have a new crown, and now you must decide how the island will see it worn.#!
-
-The crown is on the table. The bishops, the poets and the kings of the neighbouring lands are all looking at you, and none of them is looking kindly.
-
-A coronation is part law, part theatre, and part a promise you will have to keep."
+ eir.0110.desc:0 "#bold You have a new crown, and now you must decide how the island will see it worn.#!\n\nThe crown is on the table. The bishops, the poets and the kings of the neighbouring lands are all looking at you, and none of them is looking kindly.\n\nA coronation is part law, part theatre, and part a promise you will have to keep."
  eir.0110.a:0 "Hold a lavish coronation feast."
  eir.0110.b:0 "Be anointed by the bishops."
  eir.0110.c:0 "Be crowned in the old way, with a poet to recite your line."
  eir.0110.d:0 "Take the crown quietly, and save the gold."
  eir.0111.t:0 "The Neighbours Take Notice"
- eir.0111.desc:0 "#bold Two years on, the other kings have decided what they think of your crown.#!
-
-Some of them send gifts. Some of them send spies. One of them has begun to talk about the proper order of kings, and which of them he thinks should wear the crown first.
-
-None of it is surprising, and all of it needs an answer."
+ eir.0111.desc:0 "#bold Two years on, the other kings have decided what they think of your crown.#!\n\nSome of them send gifts. Some of them send spies. One of them has begun to talk about the proper order of kings, and which of them he thinks should wear the crown first.\n\nNone of it is surprising, and all of it needs an answer."
  eir.0111.a:0 "Send gifts to the doubtful, and keep your army ready."
  eir.0111.b:0 "Boast of your lineage in front of the court."
  eir.0111.c:0 "Ask the other kings to a conference."
  eir.0112.t:0 "Emperor of the Gael"
- eir.0112.desc:0 "#bold No man has ever called himself Emperor of the Gael. The poets are writing the first verse.#!
-
-From Cork to Caithness, and across the sea to the Gaelic coasts, every Gael has heard the news. Some of them weep with joy. Some of them are already plotting.
-
-The Pope, the Emperor and the kings of England are among the others."
+ eir.0112.desc:0 "#bold No man has ever called himself Emperor of the Gael. The poets are writing the first verse.#!\n\nFrom Cork to Caithness, and across the sea to the Gaelic coasts, every Gael has heard the news. Some of them weep with joy. Some of them are already plotting.\n\nThe Pope, the Emperor and the kings of England are among the others."
  eir.0112.a:0 "Be crowned at Tara, with the Stone of Destiny beneath your feet."
  eir.0112.b:0 "Ask the Pope to confirm the title."
  eir.0112.c:0 "Declare it, and dare anyone to object."
  eir.0076.t:0 "A Crossroads of the Irish Sea"
- eir.0076.desc:0 "#bold The jarls of Man have realised that their island sits in the middle of everything.#!
-
-Ships from Dublin, Galloway, Wales and Norway cross at Man, and everyone who passes pays a toll. The jarls are rich, ambitious, and aware that you have the biggest army in the neighbourhood.
-
-They have sent a polite delegation with a very generous offer."
+ eir.0076.desc:0 "#bold The jarls of Man have realised that their island sits in the middle of everything.#!\n\nShips from Dublin, Galloway, Wales and Norway cross at Man, and everyone who passes pays a toll. The jarls are rich, ambitious, and aware that you have the biggest army in the neighbourhood.\n\nThey have sent a polite delegation with a very generous offer."
  eir.0076.a:0 "Accept their alliance and the trade that comes with it."
  eir.0076.b:0 "Ask them for ships rather than gold."
  eir.0076.c:0 "Demand their submission."
  eir.0077.t:0 "Tin from Cornwall"
- eir.0077.desc:0 "#bold Cornish traders arrive with ingots of tin, a rare metal, and a request for Irish gold.#!
-
-Their ancestors traded tin to the Phoenicians and to the Romans, and now they want to trade it to you. They claim Irish and Cornish folk are kin, and that kin should do business.
-
-The tin is good, and the price is fair."
+ eir.0077.desc:0 "#bold Cornish traders arrive with ingots of tin, a rare metal, and a request for Irish gold.#!\n\nTheir ancestors traded tin to the Phoenicians and to the Romans, and now they want to trade it to you. They claim Irish and Cornish folk are kin, and that kin should do business.\n\nThe tin is good, and the price is fair."
  eir.0077.a:0 "Buy the tin and set up a bronze foundry."
  eir.0077.b:0 "Offer a treaty of friendship with Cornwall."
  eir.0077.c:0 "Decline politely."
  eir.0078.t:0 "The Breton Revival"
- eir.0078.desc:0 "#bold Poets in Brittany have begun singing in a tongue that sounds more like Welsh every year.#!
-
-The Breton nobles are weary of Frankish overlords and have begun to talk of the old kingdom. Their bards trade with yours, their saints are your saints, and their ships have begun to arrive in Irish ports.
-
-They would like to know what you think."
+ eir.0078.desc:0 "#bold Poets in Brittany have begun singing in a tongue that sounds more like Welsh every year.#!\n\nThe Breton nobles are weary of Frankish overlords and have begun to talk of the old kingdom. Their bards trade with yours, their saints are your saints, and their ships have begun to arrive in Irish ports.\n\nThey would like to know what you think."
  eir.0078.a:0 "Send them an embassy and a gift of Irish gold."
  eir.0078.b:0 "Send them fighting men, quietly."
  eir.0078.c:0 "Stay out of it."
  eir.0079.t:0 "Marcher Troubles in Wales"
- eir.0079.desc:0 "#bold Anglo-Norman marcher lords are pushing deeper into Wales, and the Welsh kings are asking for help.#!
-
-Castles are going up in the river valleys. Welsh farmers are being turned off their land. The Welsh kings have sent an envoy across the sea to ask whether the Irish are willing to remember that their ancestors were kin.
-
-It is not a small request."
+ eir.0079.desc:0 "#bold Anglo-Norman marcher lords are pushing deeper into Wales, and the Welsh kings are asking for help.#!\n\nCastles are going up in the river valleys. Welsh farmers are being turned off their land. The Welsh kings have sent an envoy across the sea to ask whether the Irish are willing to remember that their ancestors were kin.\n\nIt is not a small request."
  eir.0079.a:0 "Send a company of Gallowglass."
  eir.0079.b:0 "Send gold and wise words."
  eir.0079.c:0 "Tell them Ireland has troubles of its own."
  eir.0084.t:0 "The Battle Psalter"
- eir.0084.desc:0 "#bold A psalter said to have been copied by a saint is offered to you as a talisman of victory.#!
-
-The monks say it was carried three times sunwise around the army before a great battle, and that the army won. The family that guards it is in debt, and would like to sell.
-
-It is either a priceless relic or a rather clever fraud."
+ eir.0084.desc:0 "#bold A psalter said to have been copied by a saint is offered to you as a talisman of victory.#!\n\nThe monks say it was carried three times sunwise around the army before a great battle, and that the army won. The family that guards it is in debt, and would like to sell.\n\nIt is either a priceless relic or a rather clever fraud."
  eir.0084.a:0 "Buy it, and carry it into battle."
  eir.0084.b:0 "Persuade the monks to keep it, with a donation."
  eir.0084.c:0 "Refuse. A book does not win battles."
  eir.0085.t:0 "The Great Brooch"
- eir.0085.desc:0 "#bold A goldsmith has made a brooch so large that it needs two hands to fasten.#!
-
-It is silver gilt, with gold filigree, amber and glass, and a pin the length of a man's forearm. It is utterly impractical, and every noble in Ireland will want one.
-
-The goldsmith has made only one, and he has offered it to you first."
+ eir.0085.desc:0 "#bold A goldsmith has made a brooch so large that it needs two hands to fasten.#!\n\nIt is silver gilt, with gold filigree, amber and glass, and a pin the length of a man's forearm. It is utterly impractical, and every noble in Ireland will want one.\n\nThe goldsmith has made only one, and he has offered it to you first."
  eir.0085.a:0 "Buy it and wear it at every feast."
  eir.0085.b:0 "Commission a second one for your heir."
  eir.0085.c:0 "Send him away. It is too much."
  eir.0086.t:0 "A Cross for the Kings"
- eir.0086.desc:0 "#bold The abbot of a great monastery has commissioned a processional cross, and he wants your seal on it.#!
-
-It will be made of oak, covered with bronze and silver, and set with a crystal in the centre. It will contain a fragment of the True Cross, according to the abbot.
-
-His request is for money and for your name at the foot of the inscription."
+ eir.0086.desc:0 "#bold The abbot of a great monastery has commissioned a processional cross, and he wants your seal on it.#!\n\nIt will be made of oak, covered with bronze and silver, and set with a crystal in the centre. It will contain a fragment of the True Cross, according to the abbot.\n\nHis request is for money and for your name at the foot of the inscription."
  eir.0086.a:0 "Fund it, and be named as its patron."
  eir.0086.b:0 "Give a smaller gift, without your name."
  eir.0086.c:0 "Decline politely."

@@ -175,9 +175,6 @@ eir.0103 = {
 
 	option = {
 		name = eir.0103.a
-		trigger = {
-			set_global_variable = eir_hist_0980
-		}
 		stress_impact = {
 			craven = minor_stress_impact_gain
 		}
@@ -204,6 +201,8 @@ eir.0103 = {
 				increase_wounds_effect = { REASON = battle }
 			}
 		}
+
+		set_global_variable = eir_hist_0980
 		ai_chance = { base = 50 }
 	}
 
@@ -295,9 +294,6 @@ eir.0105 = {
 
 	option = {
 		name = eir.0105.a
-		trigger = {
-			set_global_variable = eir_hist_1014
-		}
 		stress_impact = {
 			craven = minor_stress_impact_gain
 		}
@@ -324,6 +320,8 @@ eir.0105 = {
 				increase_wounds_effect = { REASON = battle }
 			}
 		}
+
+		set_global_variable = eir_hist_1014
 		ai_chance = { base = 50 }
 	}
 

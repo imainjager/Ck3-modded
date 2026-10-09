@@ -1,75 +1,43 @@
 ﻿l_english:
  eir.0120.t:0 "Rapparees in the Hills"
- eir.0120.desc:0 "#bold Armed men from the old families are raiding your tax-collectors in the hills.#!
-
-They wear no livery and answer to no lord you know. They strike at dusk, take the grain, and leave a poem nailed to the church door in a language your stewards cannot read.
-
-The local people feed them, hide them and lie about them."
+ eir.0120.desc:0 "#bold Armed men from the old families are raiding your tax-collectors in the hills.#!\n\nThey wear no livery and answer to no lord you know. They strike at dusk, take the grain, and leave a poem nailed to the church door in a language your stewards cannot read.\n\nThe local people feed them, hide them and lie about them."
  eir.0120.a:0 "Send soldiers to burn their hiding places."
  eir.0120.b:0 "Ask the local chieftain to call them off."
  eir.0120.c:0 "Declare a tax holiday for the county."
  eir.0120.d:0 "Leave them alone. They are a nuisance, not a war."
  eir.0121.t:0 "The Burned Hall"
- eir.0121.desc:0 "#bold The hall of your reeve has been burned to the ground, and the people say it was the sídhe.#!
-
-The reeve says it was arson, and he says it was the Irish. The villagers say there was a storm, and a spark from the fire, and that it was nobody's fault but the good folk's.
-
-It is, to be fair, the third hall burned this year."
+ eir.0121.desc:0 "#bold The hall of your reeve has been burned to the ground, and the people say it was the sídhe.#!\n\nThe reeve says it was arson, and he says it was the Irish. The villagers say there was a storm, and a spark from the fire, and that it was nobody's fault but the good folk's.\n\nIt is, to be fair, the third hall burned this year."
  eir.0121.a:0 "Fine the village until the culprit is found."
  eir.0121.b:0 "Hold an inquiry, and let the local elders judge."
  eir.0121.c:0 "Replace the reeve with a local man."
  eir.0122.t:0 "The Chieftain's Petition"
- eir.0122.desc:0 "#bold A chieftain of the old kindred comes to ask that you respect the laws of his forefathers.#!
-
-He does not ask for the land, only for the right to keep his own law-courts and his poets. He has brought forty men with him, all unarmed, which is the most dangerous thing he could have done.
-
-He does not look like a man who will take no for an answer."
+ eir.0122.desc:0 "#bold A chieftain of the old kindred comes to ask that you respect the laws of his forefathers.#!\n\nHe does not ask for the land, only for the right to keep his own law-courts and his poets. He has brought forty men with him, all unarmed, which is the most dangerous thing he could have done.\n\nHe does not look like a man who will take no for an answer."
  eir.0122.a:0 "Grant him his courts, under your seal."
  eir.0122.b:0 "Refuse. The law of the realm applies everywhere."
  eir.0122.c:0 "Take his son as a foster-child."
  eir.0123.t:0 "An Offer of Allegiance"
- eir.0123.desc:0 "#bold The Gaelic lords of your realm say they could be loyal subjects, if only you would try.#!
-
-They do not ask you to speak Irish. They would just like you to learn their names, and to pass one law that is not written in a foreign tongue.
-
-It is a small request, and it will not be repeated."
+ eir.0123.desc:0 "#bold The Gaelic lords of your realm say they could be loyal subjects, if only you would try.#!\n\nThey do not ask you to speak Irish. They would just like you to learn their names, and to pass one law that is not written in a foreign tongue.\n\nIt is a small request, and it will not be repeated."
  eir.0123.a:0 "Learn their names and their laws."
  eir.0123.b:0 "Keep your own ways. You rule by right of conquest."
  eir.0123.c:0 "Take a Gaelic spouse for your heir."
  eir.0130.t:0 "The Bardic Contest"
- eir.0130.desc:0 "#bold Two poets are competing for the chair of chief bard, and the whole court has bet on the outcome.#!
-
-One is old and learned. The other is young and cruel. Both have promised to write you a praise-poem, and both have promised to write your satire if they lose.
-
-The hall is full and the ale is flowing."
+ eir.0130.desc:0 "#bold Two poets are competing for the chair of chief bard, and the whole court has bet on the outcome.#!\n\nOne is old and learned. The other is young and cruel. Both have promised to write you a praise-poem, and both have promised to write your satire if they lose.\n\nThe hall is full and the ale is flowing."
  eir.0130.a:0 "Give the chair to the old master."
  eir.0130.b:0 "Give the chair to the young challenger."
  eir.0130.c:0 "Judge the contest yourself."
  eir.0130.d:0 "Let them both sing and give both a cow."
  eir.0131.t:0 "The Foster-Child Comes Home"
- eir.0131.desc:0 "#bold One of your children has come back after seven years in a vassal's hall.#!
-
-They left a child and returned with a different accent, a new set of friends, and a loyalty to the man who raised them. They also brought a gift: a cow, from the foster-father.
-
-The bond of fosterage is held to be stronger than blood."
+ eir.0131.desc:0 "#bold One of your children has come back after seven years in a vassal's hall.#!\n\nThey left a child and returned with a different accent, a new set of friends, and a loyalty to the man who raised them. They also brought a gift: a cow, from the foster-father.\n\nThe bond of fosterage is held to be stronger than blood."
  eir.0131.a:0 "Celebrate their return with a great feast."
  eir.0131.b:0 "Send a rich gift to the foster-father."
  eir.0131.c:0 "Test the child's loyalty with a hard question."
  eir.0132.t:0 "The Norse-Gael Merchant"
- eir.0132.desc:0 "#bold A merchant from the port towns speaks both Irish and Norse, and has something to sell.#!
-
-He has silver from the east, glass from the south, and slaves from everywhere. He offers a lot of everything, and each item will cost you an opinion.
-
-He is also a reliable source of news."
+ eir.0132.desc:0 "#bold A merchant from the port towns speaks both Irish and Norse, and has something to sell.#!\n\nHe has silver from the east, glass from the south, and slaves from everywhere. He offers a lot of everything, and each item will cost you an opinion.\n\nHe is also a reliable source of news."
  eir.0132.a:0 "Buy silver and glass for the hall."
  eir.0132.b:0 "Ask him what the Norse kings are planning."
  eir.0132.c:0 "Refuse to deal with a slaver."
  eir.0133.t:0 "A Pilgrim from Lough Derg"
- eir.0133.desc:0 "#bold A pilgrim returns from the cave on the island in Lough Derg, and swears he saw the next world.#!
-
-He fasted three days, prayed on his knees on the cold stones, and then descended into the cave. He will tell no one what he saw, only that he will never be afraid again.
-
-The local people are lining up for a blessing."
+ eir.0133.desc:0 "#bold A pilgrim returns from the cave on the island in Lough Derg, and swears he saw the next world.#!\n\nHe fasted three days, prayed on his knees on the cold stones, and then descended into the cave. He will tell no one what he saw, only that he will never be afraid again.\n\nThe local people are lining up for a blessing."
  eir.0133.a:0 "Ask him to bless your household."
  eir.0133.b:0 "Make the pilgrimage yourself."
  eir.0133.c:0 "Smile politely and send him home."

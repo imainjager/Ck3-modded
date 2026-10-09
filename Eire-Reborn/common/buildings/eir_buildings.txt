@@ -8,7 +8,10 @@ eir_ringfort_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		has_global_variable = eir_unlock_ringfort
 	}
 
@@ -44,7 +47,10 @@ eir_crannog_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		has_global_variable = eir_unlock_crannog
 	}
 
@@ -77,7 +83,10 @@ eir_round_tower_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		has_global_variable = eir_unlock_round_tower
 	}
 
@@ -113,7 +122,10 @@ eir_high_cross_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		has_global_variable = eir_unlock_high_cross
 	}
 
@@ -149,7 +161,10 @@ eir_scriptorium_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		has_global_variable = eir_unlock_scriptorium
 	}
 
@@ -185,7 +200,10 @@ eir_brehon_court_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = city_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = city_holding
+		}
 		has_global_variable = eir_unlock_brehon_court
 	}
 
@@ -221,7 +239,10 @@ eir_bardic_school_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = city_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = city_holding
+		}
 		has_global_variable = eir_unlock_bardic_school
 	}
 
@@ -257,7 +278,10 @@ eir_cattle_enclosure_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		has_global_variable = eir_unlock_cattle_enclosure
 	}
 

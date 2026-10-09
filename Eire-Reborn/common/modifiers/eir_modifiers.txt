@@ -224,12 +224,6 @@ eir_hearth_of_the_gael_modifier = {
 	same_culture_opinion = 5
 }
 
-eir_broken_hostage_modifier = {
-	icon = hostage_negative
-	vassal_opinion = -6
-	general_opinion = -5
-}
-
 eir_tara_vigil_modifier = {
 	icon = legend_positive
 	monthly_prestige = 0.3
@@ -332,12 +326,6 @@ eir_harper_modifier = {
 	courtier_opinion = 3
 }
 
-eir_sidhe_hosting_modifier = {
-	icon = prestige_positive
-	monthly_prestige = 0.2
-	stress_gain_mult = 0.05
-}
-
 eir_brigid_cult_modifier = {
 	icon = piety_positive
 	health = 0.1
@@ -359,12 +347,6 @@ eir_patrick_cult_modifier = {
 eir_yew_bows_modifier = {
 	icon = prowess_positive
 	archers_damage_add = 2
-}
-
-eir_wolfhound_kennels_modifier = {
-	icon = prowess_positive
-	prowess = 1
-	monthly_prestige = 0.1
 }
 
 eir_champions_portion_modifier = {
@@ -507,12 +489,6 @@ eir_tale_brendan_modifier = {
 	monthly_prestige = 0.1
 }
 
-eir_dimma_modifier = {
-	icon = learning_positive
-	learning = 1
-	monthly_piety = 0.2
-}
-
 eir_harp_of_brian_modifier = {
 	icon = prestige_positive
 	monthly_prestige = 0.3
@@ -537,12 +513,6 @@ eir_exile_modifier = {
 	general_opinion = -3
 }
 
-eir_hostage_burden_modifier = {
-	icon = prestige_negative
-	stress_gain_mult = 0.1
-	monthly_prestige = -0.1
-}
-
 eir_blinded_modifier = {
 	icon = prestige_negative
 	monthly_prestige = -0.1
@@ -553,6 +523,23 @@ eir_champion_victor_modifier = {
 	icon = prowess_positive
 	prowess = 2
 	monthly_prestige = 0.25
+}
+
+eir_irish_sea_trade_modifier = {
+	icon = economy_positive
+	stewardship = 2
+	monthly_income = 2
+	diplomacy = 1
+}
+
+eir_thalassocracy_modifier = {
+	icon = prestige_positive
+	monthly_income = 5
+	monthly_prestige = 0.6
+	stewardship = 2
+	naval_movement_speed_mult = 0.3
+	knight_effectiveness_mult = 0.05
+	vassal_opinion = 5
 }
 
 
@@ -713,12 +700,6 @@ eir_pacified_modifier = {
 	monthly_county_control_growth_add = 0.2
 }
 
-eir_reclaimed_land_modifier = {
-	icon = county_modifier_opinion_positive
-	county_opinion_add = 10
-	monthly_county_control_growth_add = 0.3
-}
-
 eir_ogham_stones_modifier = {
 	icon = county_modifier_opinion_positive
 	county_opinion_add = 5
@@ -826,6 +807,12 @@ eir_coast_watch_county_modifier = {
 	icon = county_modifier_control_positive
 	defender_holding_advantage = 3
 	county_opinion_add = 2
+}
+
+eir_cattle_rich_county_modifier = {
+	icon = county_modifier_development_positive
+	tax_mult = 0.08
+	levy_size = 0.05
 }
 
 

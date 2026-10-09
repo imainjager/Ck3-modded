@@ -1,149 +1,85 @@
 ﻿l_english:
  eir.0030.t:0 "Samhain Night"
- eir.0030.desc:0 "#bold On the last night of the year the veil between the worlds is thin.#!
-
-The fires are lit on every hill, the cattle are driven home, and the old people say the dead walk among the living until dawn. The priests say it is a pagan custom. The people do it anyway.
-
-What you do tonight will be remembered, one way or the other."
+ eir.0030.desc:0 "#bold On the last night of the year the veil between the worlds is thin.#!\n\nThe fires are lit on every hill, the cattle are driven home, and the old people say the dead walk among the living until dawn. The priests say it is a pagan custom. The people do it anyway.\n\nWhat you do tonight will be remembered, one way or the other."
  eir.0030.a:0 "Leave out milk and honey for the dead."
  eir.0030.b:0 "Light the great fire and drive the cattle between the flames."
  eir.0030.c:0 "Spend the night alone on a barrow-mound."
  eir.0030.d:0 "Bar the door and say a prayer."
  eir.0031.t:0 "Saint Brigid's Day"
- eir.0031.desc:0 "#bold The first day of spring is the feast of Saint Brigid, patroness of the dairy and the hearth.#!
-
-Rushes are woven into crosses, a sheaf is left for the saint's white cow, and every dairy in the land is blessed with a drop of holy water. The old goddess and the saint are, somehow, still the same woman.
-
-The people expect their king to join in."
+ eir.0031.desc:0 "#bold The first day of spring is the feast of Saint Brigid, patroness of the dairy and the hearth.#!\n\nRushes are woven into crosses, a sheaf is left for the saint's white cow, and every dairy in the land is blessed with a drop of holy water. The old goddess and the saint are, somehow, still the same woman.\n\nThe people expect their king to join in."
  eir.0031.a:0 "Join the procession and weave a cross with your own hands."
  eir.0031.b:0 "Bless the herds in the saint's name."
  eir.0031.c:0 "Send a rich gift to Kildare and stay home."
  eir.0032.t:0 "The Beltane Fires"
- eir.0032.desc:0 "#bold On the first day of summer, twin fires are lit on every hill, and the herds are driven between them for luck.#!
-
-Priests grumble. Poets sing. The young people leap the embers hand in hand and are not always seen again until morning.
-
-The festival is older than the Church and will outlast it, and a wise king knows better than to try to stop it."
+ eir.0032.desc:0 "#bold On the first day of summer, twin fires are lit on every hill, and the herds are driven between them for luck.#!\n\nPriests grumble. Poets sing. The young people leap the embers hand in hand and are not always seen again until morning.\n\nThe festival is older than the Church and will outlast it, and a wise king knows better than to try to stop it."
  eir.0032.a:0 "Light the royal fires and lead the dance."
  eir.0032.b:0 "Forbid the fires as a pagan survival."
  eir.0032.c:0 "Turn a blind eye and keep your own counsel."
  eir.0033.t:0 "The Fair at Lughnasa"
- eir.0033.desc:0 "#bold The harvest fair is held on the first day of August, with games, trading and matchmaking.#!
-
-Horse races, wrestling, harp contests and quarrels over cattle are all on the programme, and half the marriages in the country begin here.
-
-The fair is a chance to meet every important man in your realm in one place and see what he wants."
+ eir.0033.desc:0 "#bold The harvest fair is held on the first day of August, with games, trading and matchmaking.#!\n\nHorse races, wrestling, harp contests and quarrels over cattle are all on the programme, and half the marriages in the country begin here.\n\nThe fair is a chance to meet every important man in your realm in one place and see what he wants."
  eir.0033.a:0 "Host the fair on your own land and pay for the games."
  eir.0033.b:0 "Enter the wrestling yourself."
  eir.0033.c:0 "Spend the fair arranging marriages between your kin and your vassals'."
  eir.0034.t:0 "The Banshee's Wail"
- eir.0034.desc:0 "#bold In the dead of night, an unearthly keening is heard outside your window.#!
-
-The servants swear it was a woman in white, combing her long hair beside the well. The dogs would not enter the yard. The priest says there is no such thing.
-
-In Ireland the banshee only cries for those who are about to die, and the people have started to look at you strangely."
+ eir.0034.desc:0 "#bold In the dead of night, an unearthly keening is heard outside your window.#!\n\nThe servants swear it was a woman in white, combing her long hair beside the well. The dogs would not enter the yard. The priest says there is no such thing.\n\nIn Ireland the banshee only cries for those who are about to die, and the people have started to look at you strangely."
  eir.0034.a:0 "Make your peace with God and settle your affairs."
  eir.0034.b:0 "Laugh it off, and have a feast to prove it."
  eir.0034.c:0 "Summon the old woman who knows the signs."
  eir.0035.t:0 "The Stone Cried Out"
- eir.0035.desc:0 "#bold The Lia Fáil on the Hill of Tara roared when you passed.#!
-
-No one has heard it roar in living memory. The stone is said to cry out beneath a rightful king, and every priest, poet and peasant on the hill heard it.
-
-The poets are already writing it down, and the story will be told, whether you tell it or not."
+ eir.0035.desc:0 "#bold The Lia Fáil on the Hill of Tara roared when you passed.#!\n\nNo one has heard it roar in living memory. The stone is said to cry out beneath a rightful king, and every priest, poet and peasant on the hill heard it.\n\nThe poets are already writing it down, and the story will be told, whether you tell it or not."
  eir.0035.a:0 "Take it as a sign and proclaim your right to the high kingship."
  eir.0035.b:0 "Say little and let the poets spread the tale."
  eir.0035.c:0 "Have the priests explain it as thunder."
  eir.0036.t:0 "The Salmon of Knowledge"
- eir.0036.desc:0 "#bold A fisherman brings you a great salmon from the pool beneath the hazel tree.#!
-
-It is the biggest salmon he has ever seen, with spots like gold coins. The old story says that whoever eats the salmon of knowledge will know everything in the world.
-
-The fisherman does not look like he believes the old stories. He is, however, very pleased with himself."
+ eir.0036.desc:0 "#bold A fisherman brings you a great salmon from the pool beneath the hazel tree.#!\n\nIt is the biggest salmon he has ever seen, with spots like gold coins. The old story says that whoever eats the salmon of knowledge will know everything in the world.\n\nThe fisherman does not look like he believes the old stories. He is, however, very pleased with himself."
  eir.0036.a:0 "Roast it yourself, and eat the first bite."
  eir.0036.b:0 "Give it to your court poet."
  eir.0036.c:0 "Reward the fisherman and serve it at the feast."
  eir.0037.t:0 "The Fairy Mound"
- eir.0037.desc:0 "#bold A steward wants to plough under a green mound in [eir_mound_county.GetName] that the locals say is a fairy fort.#!
-
-The land beneath it is the best for miles, and the steward says the superstition is costing you money. The local people say the mound belongs to the good folk and will not be touched.
-
-The good folk, they say, have a long memory."
+ eir.0037.desc:0 "#bold A steward wants to plough under a green mound in [eir_mound_county.GetName] that the locals say is a fairy fort.#!\n\nThe land beneath it is the best for miles, and the steward says the superstition is costing you money. The local people say the mound belongs to the good folk and will not be touched.\n\nThe good folk, they say, have a long memory."
  eir.0037.a:0 "Leave the mound alone and leave an offering at its base."
  eir.0037.b:0 "Plough it under. Superstition costs gold."
  eir.0037.c:0 "Have the priest bless the mound and the field together."
  eir.0038.t:0 "Treasure in the Bog"
- eir.0038.desc:0 "#bold Peat-cutters in [eir_bog_county.GetName] have turned up something gold.#!
-
-It is a heavy twisted ring, the kind worn by kings before there was a Church, black with the peat and perfectly preserved. There may be more beneath it.
-
-The bog gives and the bog takes, but this time it gave."
+ eir.0038.desc:0 "#bold Peat-cutters in [eir_bog_county.GetName] have turned up something gold.#!\n\nIt is a heavy twisted ring, the kind worn by kings before there was a Church, black with the peat and perfectly preserved. There may be more beneath it.\n\nThe bog gives and the bog takes, but this time it gave."
  eir.0038.a:0 "Dig carefully and see what else the bog is hiding."
  eir.0038.b:0 "Give the ring to the Church as a gift."
  eir.0038.c:0 "Melt it down for coin."
  eir.0050.t:0 "A Wolfhound Puppy"
- eir.0050.desc:0 "#bold A vassal brings you a great Irish wolfhound puppy as a gift.#!
-
-The puppy is already the size of a calf, with a rough grey coat and eyes that follow everything. The old tales say the hounds of Ireland could kill a wolf and guard a king's sleep.
-
-It is a very good gift, and a very large dog."
+ eir.0050.desc:0 "#bold A vassal brings you a great Irish wolfhound puppy as a gift.#!\n\nThe puppy is already the size of a calf, with a rough grey coat and eyes that follow everything. The old tales say the hounds of Ireland could kill a wolf and guard a king's sleep.\n\nIt is a very good gift, and a very large dog."
  eir.0050.a:0 "Keep the puppy and train it yourself."
  eir.0050.b:0 "Give it to your champion as a mark of favour."
  eir.0050.c:0 "Send it to a foreign king as a diplomatic gift."
  eir.0051.t:0 "Feast at the Ringfort"
- eir.0051.desc:0 "#bold A feast has been laid in your hall, and every guest has a story to tell.#!
-
-Beef and pork, ale and mead, harpers and storytellers. The Irish hall is a place where honour is measured by what is poured, and every chieftain in the district has come to see how well you pour.
-
-Hospitality is the oldest of the Irish virtues, and the most expensive."
+ eir.0051.desc:0 "#bold A feast has been laid in your hall, and every guest has a story to tell.#!\n\nBeef and pork, ale and mead, harpers and storytellers. The Irish hall is a place where honour is measured by what is poured, and every chieftain in the district has come to see how well you pour.\n\nHospitality is the oldest of the Irish virtues, and the most expensive."
  eir.0051.a:0 "Spare nothing. Let them talk of this feast for a generation."
  eir.0051.b:0 "A decent meal, no more."
  eir.0051.c:0 "Let your steward serve the cheaper cuts and water the ale."
  eir.0052.t:0 "The Hunt of the Great Stag"
- eir.0052.desc:0 "#bold Your huntsmen report a stag of astonishing size in the forest.#!
-
-It is said to have twelve points on each antler and a coat so dark it looks black in the dusk. The old stories say that the Fianna hunted such beasts, and so did kings before them.
-
-Your huntsmen are begging you to lead the hunt."
+ eir.0052.desc:0 "#bold Your huntsmen report a stag of astonishing size in the forest.#!\n\nIt is said to have twelve points on each antler and a coat so dark it looks black in the dusk. The old stories say that the Fianna hunted such beasts, and so did kings before them.\n\nYour huntsmen are begging you to lead the hunt."
  eir.0052.a:0 "Lead the hunt yourself."
  eir.0052.b:0 "Send your huntsmen and wait for the result."
  eir.0052.c:0 "Spare the stag. A creature so fine should live."
  eir.0053.t:0 "A Bad Harvest"
- eir.0053.desc:0 "#bold The harvest has failed in [eir_famine_county.GetName].#!
-
-Rain in the hay-making and blight in the barley have done what no raider could. Granaries are half empty, and the poor are already eating next year's seed corn.
-
-The people are looking to their lord, the way people always do."
+ eir.0053.desc:0 "#bold The harvest has failed in [eir_famine_county.GetName].#!\n\nRain in the hay-making and blight in the barley have done what no raider could. Granaries are half empty, and the poor are already eating next year's seed corn.\n\nThe people are looking to their lord, the way people always do."
  eir.0053.a:0 "Open the granaries and feed the county from your own stores."
  eir.0053.b:0 "Do nothing. Famine is the will of God."
  eir.0053.c:0 "Raise the grain tax and sell the surplus elsewhere."
  eir.0053.d:0 "Lead a procession to the holy well."
  eir.0054.t:0 "Cattle Raiders at the Border"
- eir.0054.desc:0 "#bold Raiders from a neighbouring clan have driven off a herd from [eir_raid_county.GetName].#!
-
-It is the oldest crime in Ireland and the oldest sport. A hundred head of cattle were gone by morning, and the raiders' trail leads straight back to a neighbour's hall.
-
-Honour demands an answer, and Brehon law has a very precise price."
+ eir.0054.desc:0 "#bold Raiders from a neighbouring clan have driven off a herd from [eir_raid_county.GetName].#!\n\nIt is the oldest crime in Ireland and the oldest sport. A hundred head of cattle were gone by morning, and the raiders' trail leads straight back to a neighbour's hall.\n\nHonour demands an answer, and Brehon law has a very precise price."
  eir.0054.a:0 "Ride in pursuit and take the cattle back."
  eir.0054.b:0 "Demand the éraic through the Brehon courts."
  eir.0054.c:0 "Raid them back, and then some."
  eir.0054.d:0 "Let it go. A king has bigger concerns."
  eir.0055.t:0 "The Poet's Satire"
- eir.0055.desc:0 "#bold A poet you wronged has composed a satire, and it is spreading.#!
-
-The verses are devastating, vulgar and very good. In Ireland a satire can blister a king's face and wither his crops, and everyone knows that the greatest fear of any Irish lord is a poet with a grudge.
-
-The poet is waiting to see what you do."
+ eir.0055.desc:0 "#bold A poet you wronged has composed a satire, and it is spreading.#!\n\nThe verses are devastating, vulgar and very good. In Ireland a satire can blister a king's face and wither his crops, and everyone knows that the greatest fear of any Irish lord is a poet with a grudge.\n\nThe poet is waiting to see what you do."
  eir.0055.a:0 "Pay the poet a king's ransom to compose a second poem unsaying the first."
  eir.0055.b:0 "Compose a poem of your own in reply."
  eir.0055.c:0 "Have the poet silenced."
  eir.0055.d:0 "Let the poem run its course and endure the mockery."
  eir.0056.t:0 "A Foster-Brother Asks a Favour"
- eir.0056.desc:0 "#bold Your foster-brother has ridden three days to ask you for something.#!
-
-You were raised in the same hall, slept in the same bed and shared the same bread. He has never asked you for anything until today, and the thing he asks is not small.
-
-In Ireland, a foster-brother's request is nearly an order."
+ eir.0056.desc:0 "#bold Your foster-brother has ridden three days to ask you for something.#!\n\nYou were raised in the same hall, slept in the same bed and shared the same bread. He has never asked you for anything until today, and the thing he asks is not small.\n\nIn Ireland, a foster-brother's request is nearly an order."
  eir.0056.a:0 "Grant it without question."
  eir.0056.b:0 "Grant half of it and explain why."
  eir.0056.c:0 "Refuse, and risk the bond."

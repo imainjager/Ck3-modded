@@ -119,9 +119,6 @@ CHAR = {
     "eir_hearth_of_the_gael_modifier": ("family_positive",
         {"monthly_dynasty_prestige": 0.3, "same_culture_opinion": 5},
         "Hearth of the Gael", "Your hall is where the Irish come to be Irish."),
-    "eir_broken_hostage_modifier": ("hostage_negative",
-        {"vassal_opinion": -6, "general_opinion": -5},
-        "Hostage-Breaker", "You broke the sacred law of hostages, and no lord will give you one again without a fight."),
     "eir_tara_vigil_modifier": ("legend_positive",
         {"monthly_prestige": 0.3, "monthly_piety": 0.1},
         "Vigil at Tara", "You kept the old vigil on the Hill of Tara."),
@@ -203,9 +200,6 @@ COUNTY = {
     "eir_pacified_modifier": ("county_modifier_opinion_positive",
         {"county_opinion_add": 10, "monthly_county_control_growth_add": 0.2},
         "Pacified", "A hard-won peace holds here, for now."),
-    "eir_reclaimed_land_modifier": ("county_modifier_opinion_positive",
-        {"county_opinion_add": 10, "monthly_county_control_growth_add": 0.3},
-        "Reclaimed Land", "After long years, the land is back in Irish hands."),
 }
 
 PROVINCE = {
@@ -335,46 +329,34 @@ TRADITIONS = {
         {"legitimacy_gain_mult": 0.15, "vassal_opinion": 5, "monthly_prestige": 0.2},
         "Stable High Kingship",
         "The Irish have finally learned to keep a throne after the king who holds it is dead. The high kingship passes to the heir intact, and the lords of Ireland have grown used to bowing to it."),
+    # ---- UPGRADE traditions: each REPLACES a vanilla Irish tradition and keeps all of its parameters
     "tradition_eir_bardic_schools": ("learning", "quill.dds", None,
-        {"eir_bardic_schools": "yes", "poet_trait_gives_bonuses": "yes", "poet_trait_more_common": "yes"},
-        {"owned_legend_spread_mult": 0.1, "monthly_prestige_gain_mult": 0.05},
-        "Bardic Schools",
-        "Poets train for years in the schools of the Filí, learning genealogy, law and satire. A king without a poet is a king who will be forgotten, or mocked."),
-    "tradition_eir_brehon_law": ("diplo", "council.dds", None,
-        {"eir_brehon_law": "yes"},
-        {"legitimacy_gain_mult": 0.1, "courtier_and_guest_opinion": 5},
-        "Brehon Law",
-        "Disputes are settled by learned judges according to laws older than the Church, with honour-prices for every crime and kin responsible for kin."),
-    "tradition_eir_fosterage_bonds": ("diplo", "hostages.dds", None,
-        {"eir_fosterage_bonds": "yes"},
-        {"vassal_opinion": 5, "direct_vassal_opinion": 5},
-        "Bonds of Fosterage",
-        "Noble children are raised in other lords' halls, and the bond between foster-brothers is sometimes stronger than blood."),
+        {"poet_trait_gives_bonuses": "yes", "poet_trait_more_common": "yes", "characters_are_better_court_poets": "yes",
+         "better_court_poets": "yes", "eir_bardic_schools": "yes", "eir_unlock_fianna": "yes"},
+        {"owned_legend_spread_mult": 0.2, "monthly_prestige_gain_mult": 0.05, "learning": 1, "diplomacy": 1,
+         "courtier_and_guest_opinion": 5, "legitimacy_gain_mult": 0.05},
+        "Schools of the Filí",
+        "Poets train twelve years in the schools of the Filí, learning genealogy, law and satire, and the heroic tales give young nobles a pattern to follow. Replaces Poetry. Unlocks the Fianna warbands and Kern javelineers."),
     "tradition_eir_cattle_wealth": ("steward", "farmland.dds", None,
-        {"eir_cattle_wealth": "yes"},
-        {"domain_tax_mult": 0.05, "monthly_income": 1},
-        "Cattle Wealth",
-        "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars."),
-    "tradition_eir_gallowglass_heritage": ("martial", "swords.dds", None,
-        {"eir_unlock_gallowglass": "yes"},
-        {"men_at_arms_maintenance": -0.05},
-        "Gallowglass Heritage",
-        "Irish lords hire the hard axemen of the Hebrides and the Isles to serve as the core of their armies, and in time the warriors settle."),
-    "tradition_eir_fianna_heritage": ("martial", "hunter.dds", None,
-        {"eir_unlock_fianna": "yes"},
-        {"knight_effectiveness_mult": 0.1},
-        "Fianna Heritage",
-        "The tales of Fionn mac Cumhaill and his band of hunter-warriors shape how young nobles fight. A warband that lives by the hunt is hard to catch and hard to beat."),
+        {"pastures_building_bonuses": "yes", "farm_estates_pastures_unlock": "yes", "better_herders_pasturalists": "yes",
+         "eir_cattle_wealth": "yes"},
+        {"negate_health_penalty_add": 0.15, "prowess": 1, "stewardship": 1, "domain_tax_mult": 0.05, "monthly_income": 1},
+        "Bó-aire: The Cattle Lords",
+        "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars, and the lords who keep the biggest herds keep the biggest warbands. Replaces Pastoralists."),
     "tradition_eir_culdee_christianity": ("learning", "temple.dds", None,
-        {"eir_culdee_christianity": "yes"},
-        {"monthly_piety_gain_mult": 0.1, "clergy_opinion": 5},
-        "Celtic Christianity",
-        "Irish monasteries, scriptoria and wandering saints give the Christianity of this culture a flavour all its own."),
-    "tradition_eir_sea_kings": ("martial", "ship.dds", None,
-        {"eir_sea_kings": "yes"},
-        {"naval_movement_speed_mult": 0.25, "embarkation_cost_mult": -0.25},
+        {"temperate_trait_more_common": "yes", "temperate_trait_bonuses": "yes", "devoted_trait_bonuses": "yes",
+         "monastic_expectations": "yes", "next_level_monasteries": "yes", "monastic_monastery_learning_bonus": "yes",
+         "eir_culdee_christianity": "yes"},
+        {"monthly_piety_gain_mult": 0.1, "clergy_opinion": 5, "learning": 1, "monthly_piety": 0.1},
+        "Insular Monasticism",
+        "Irish monasteries, scriptoria and wandering saints give the Christianity of this culture a flavour all its own: the abbot is as powerful as the bishop, and the monastery is a city. Replaces Monastic Communities."),
+    "tradition_eir_sea_kings": ("diplo", "ship.dds", None,
+        {"next_level_trade_ports": "yes", "maritime_mercantilism_coastal_holdings": "yes", "maritime_mercantilism_avaricious_bonus": "yes",
+         "eir_sea_kings": "yes", "eir_unlock_gallowglass": "yes", "eir_unlock_sea_trade": "yes"},
+        {"sea_travel_danger": -10, "naval_movement_speed_mult": 0.25, "embarkation_cost_mult": -0.25, "stewardship": 1,
+         "diplomacy": 1, "monthly_prestige_gain_mult": 0.05},
         "Kings of the Irish Sea",
-        "The Irish Sea belongs to everyone who dares sail it, and Irish kings have decided it is time to dare."),
+        "The Irish Sea belongs to everyone who dares sail it. Irish ports trade with Chester, Bristol and Bordeaux, galleys carry gallowglass between Skye and Kerry, and merchant-kings grow rich. Replaces Maritime Mercantilism. Unlocks gallowglass, the Irish Sea Quay and the Longship Yard."),
 }
 
 # =============================================================================
@@ -401,7 +383,7 @@ MAA = {
         base="skirmishers", damage=14, toughness=12, pursuit=16, screen=12,
         terrain={"forest": "damage = 6", "hills": "damage = 4", "wetlands": "damage = 4"},
         counters="heavy_cavalry = 1", icon="light_cavalry", prov="infantry_cheap",
-        param="eir_unlock_fianna", flag="eir_unlock_kern",
+        param="eir_unlock_fianna", flag="eir_unlock_kern", open=True,
         cost=("skirmisher_recruitment_cost", "skirmisher_low_maint_cost", "skirmisher_high_maint_cost"),
         name="Kern Javelineers",
         flavor="Light-footed javelin throwers of the Irish hills, hard to pin down and quick to run."),
@@ -515,7 +497,7 @@ def build():
     for name, (icon, fields, disp, desc) in TRAITS.items():
         check_keys(name, fields)
         out.append("%s = {\n\tcategory = fame\n%s\n\tshown_in_ruler_designer = no\n" % (name, fields_block(fields)))
-        out.append('\ticon = {\n\t\tfirst_valid = {\n\t\t\tdesc = "gfx/interface/icons/traits/%s.dds"\n\t\t}\n\t}\n}\n\n' % icon)
+        out.append('\ticon = %s.dds\n}\n\n' % icon)
         L.add("trait_" + name, disp)
         L.add("trait_%s_desc" % name, desc)
         L.add("trait_%s_character_desc" % name, desc)
@@ -554,6 +536,12 @@ def build():
         b, l, h = d["cost"]
         terr = "".join("\t\t%s = { %s }\n" % (t, v) for t, v in d["terrain"].items())
         prov = {"infantry_cheap": 3, "infantry_moderate": 7}[d["prov"]]
+        if d.get("open"):
+            recruit = "\tcan_recruit = {\n\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t}\n"
+        else:
+            recruit = ("\tcan_recruit = {\n\t\tOR = {\n\t\t\tculture ?= { has_cultural_parameter = %s }\n\t\t\tAND = {\n"
+                       "\t\t\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t\t\t\thas_global_variable = %s\n\t\t\t}\n\t\t}\n\t}\n"
+                       % (d["param"], d["flag"]))
         out.append("""%(key)s = {
 	type = %(base)s
 
@@ -569,15 +557,7 @@ def build():
 		%(counters)s
 	}
 
-	can_recruit = {
-		OR = {
-			culture ?= { has_cultural_parameter = %(param)s }
-			AND = {
-				culture ?= { has_cultural_pillar = heritage_goidelic }
-				has_global_variable = %(flag)s
-			}
-		}
-	}
+%(recruit)s
 
 	buy_cost = { gold = %(b)s }
 	low_maintenance_cost = { gold = %(l)s }
@@ -591,7 +571,7 @@ def build():
 
 """ % dict(key=key, base=d["base"], damage=d["damage"], toughness=d["toughness"], pursuit=d["pursuit"],
            screen=d["screen"], terr=terr, counters=d["counters"], param=d["param"], flag=d["flag"],
-           b=b, l=l, h=h, prov=prov, icon=d["icon"]))
+           b=b, l=l, h=h, prov=prov, icon=d["icon"], recruit=recruit))
         L.add(key, d["name"])
         L.add(key + "_flavor", "#F " + d["flavor"] + "#!")
     write("common/men_at_arms_types/eir_maa_types.txt", "".join(out))
@@ -614,7 +594,10 @@ def build():
 	}
 
 	can_construct_potential = {
-		has_holding_type = %(hold)s
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = %(hold)s
+		}
 		has_global_variable = %(flag)s
 	}
 

@@ -4,6 +4,10 @@
 
 # THE CORE RULE: an Irish ruler's top title (duchy and above) is destroyed when they die.
 on_death = {
+	on_actions = { eir_on_death }
+}
+
+eir_on_death = {
 	effect = {
 		if = {
 			limit = {
@@ -19,12 +23,20 @@ on_death = {
 
 # Make sure the Irish keep the tanistry tradition until the player abolishes it.
 on_game_start = {
+	on_actions = { eir_on_game_start }
+}
+
+eir_on_game_start = {
 	effect = {
 		eir_ensure_tanistic_tradition_effect = yes
 	}
 }
 
 yearly_global_pulse = {
+	on_actions = { eir_yearly_global }
+}
+
+eir_yearly_global = {
 	effect = {
 		eir_ensure_tanistic_tradition_effect = yes
 		eir_resistance_pulse_effect = yes
@@ -156,6 +168,10 @@ eir_resistance_pulse = {
 
 # Invasions: report the result to the defender.
 on_war_won_attacker = {
+	on_actions = { eir_war_won_attacker }
+}
+
+eir_war_won_attacker = {
 	effect = {
 		scope:attacker = {
 			if = {
@@ -189,6 +205,10 @@ on_war_won_attacker = {
 }
 
 on_war_won_defender = {
+	on_actions = { eir_war_won_defender }
+}
+
+eir_war_won_defender = {
 	effect = {
 		scope:attacker = {
 			if = {

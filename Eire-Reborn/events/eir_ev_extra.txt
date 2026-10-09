@@ -31,7 +31,6 @@ eir.0150 = {
 	option = {
 		name = eir.0150.c
 		add_character_modifier = { modifier = eir_tale_finn_modifier years = 6 }
-		set_global_variable = eir_tale_finn
 		ai_chance = { base = 40 }
 	}
 

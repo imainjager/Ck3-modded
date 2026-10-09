@@ -1,55 +1,31 @@
 ﻿l_english:
  eir.0070.t:0 "A Welsh Prince Seeks Your Friendship"
- eir.0070.desc:0 "#bold A prince of Gwynedd has crossed the Irish Sea with a gift of Welsh gold.#!
-
-He says his people and yours share a past that the Saxons and the Normans would like to forget, and that the High King of Ireland is the only man who can give the Celts a fair hearing. He has brought a harp as a gift, and a request.
-
-The request is large."
+ eir.0070.desc:0 "#bold A prince of Gwynedd has crossed the Irish Sea with a gift of Welsh gold.#!\n\nHe says his people and yours share a past that the Saxons and the Normans would like to forget, and that the High King of Ireland is the only man who can give the Celts a fair hearing. He has brought a harp as a gift, and a request.\n\nThe request is large."
  eir.0070.a:0 "Offer him an alliance and a safe port on the Irish coast."
  eir.0070.b:0 "Send him home with gifts but no promises."
  eir.0070.c:0 "Ask for Welsh archers in return for Irish cattle."
  eir.0071.t:0 "A Breton Exile"
- eir.0071.desc:0 "#bold A Breton nobleman asks for refuge at your court.#!
-
-His family has held land in Brittany for ten generations, and now they hold none. He speaks a language that is nearly your own, and he tells you stories of the old kings of Armorica that sound like stories you already know.
-
-He wants a hall, and maybe someday an army."
+ eir.0071.desc:0 "#bold A Breton nobleman asks for refuge at your court.#!\n\nHis family has held land in Brittany for ten generations, and now they hold none. He speaks a language that is nearly your own, and he tells you stories of the old kings of Armorica that sound like stories you already know.\n\nHe wants a hall, and maybe someday an army."
  eir.0071.a:0 "Give him a hall and a place at the high table."
  eir.0071.b:0 "Help him plan to retake his lands."
  eir.0071.c:0 "Direct him to the Welsh instead."
  eir.0072.t:0 "Voices from the North"
- eir.0072.desc:0 "#bold Gaelic lords from Alba have sent word that they would welcome an Irish high king.#!
-
-The Gaels of the Scottish coast and the Hebrides never forgot their descent from Ireland. They are tired of Lowland and Norse overlords, and they would prefer a king they can understand.
-
-They ask for neither crown nor conquest, only your recognition."
+ eir.0072.desc:0 "#bold Gaelic lords from Alba have sent word that they would welcome an Irish high king.#!\n\nThe Gaels of the Scottish coast and the Hebrides never forgot their descent from Ireland. They are tired of Lowland and Norse overlords, and they would prefer a king they can understand.\n\nThey ask for neither crown nor conquest, only your recognition."
  eir.0072.a:0 "Recognise them as kin and promise protection."
  eir.0072.b:0 "Send a poet to bind the two peoples with verse."
  eir.0072.c:0 "Accept their homage and demand tribute in return."
  eir.0073.t:0 "Axemen from the Isles"
- eir.0073.desc:0 "#bold A fleet of galleys arrives from the Hebrides, full of hard men with long axes.#!
-
-They are the gallowglass, warrior-families of mixed Norse and Gaelic blood who sell their swords from Skye to Kerry. They have heard of a king who pays well and keeps his word, and they have come to ask for a place in his army.
-
-They are expensive, and they are terrifying."
+ eir.0073.desc:0 "#bold A fleet of galleys arrives from the Hebrides, full of hard men with long axes.#!\n\nThey are the gallowglass, warrior-families of mixed Norse and Gaelic blood who sell their swords from Skye to Kerry. They have heard of a king who pays well and keeps his word, and they have come to ask for a place in his army.\n\nThey are expensive, and they are terrifying."
  eir.0073.a:0 "Hire a full company."
  eir.0073.b:0 "Settle them on frontier land as a permanent garrison."
  eir.0073.c:0 "Thank them and turn them away."
  eir.0074.t:0 "A Cornish Bard Comes to Court"
- eir.0074.desc:0 "#bold A bard from Cornwall sings a song in a tongue you almost understand.#!
-
-He has walked the whole length of Britain with a harp on his back, singing songs about Arthur and the lost kingdoms of the west. His Cornish is cousin to Irish and Welsh, and every few verses he stops to ask if you follow.
-
-The court is spellbound."
+ eir.0074.desc:0 "#bold A bard from Cornwall sings a song in a tongue you almost understand.#!\n\nHe has walked the whole length of Britain with a harp on his back, singing songs about Arthur and the lost kingdoms of the west. His Cornish is cousin to Irish and Welsh, and every few verses he stops to ask if you follow.\n\nThe court is spellbound."
  eir.0074.a:0 "Reward him lavishly and ask for a second night."
  eir.0074.b:0 "Ask him to teach your own bards his songs."
  eir.0074.c:0 "Thank him and send him on his way."
  eir.0075.t:0 "The Celtic Congress"
- eir.0075.desc:0 "#bold Delegates from Wales, Cornwall, Brittany and Alba have come to Tara.#!
-
-No one has seen the Celtic peoples gathered under one roof since the time of the Romans. They argue about the Easter date and the proper way to shave a chin, and they agree on one thing: that a Celtic people with a High King at its head can no longer be ignored.
-
-It is a very Celtic congress."
+ eir.0075.desc:0 "#bold Delegates from Wales, Cornwall, Brittany and Alba have come to Tara.#!\n\nNo one has seen the Celtic peoples gathered under one roof since the time of the Romans. They argue about the Easter date and the proper way to shave a chin, and they agree on one thing: that a Celtic people with a High King at its head can no longer be ignored.\n\nIt is a very Celtic congress."
  eir.0075.a:0 "Declare a perpetual friendship among the Celtic peoples."
  eir.0075.b:0 "Propose a joint war against the Norman advance."
  eir.0075.c:0 "Take the opportunity to quarrel with the Welsh over Easter."

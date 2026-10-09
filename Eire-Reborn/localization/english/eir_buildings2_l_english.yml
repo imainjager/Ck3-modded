@@ -23,6 +23,10 @@
  building_eir_hermitage_01_desc:0 "A beehive cell on a lonely rock, where a holy man prays and the locals bring him food."
  building_eir_pilgrim_hospice_01:0 "Pilgrim Hospice"
  building_eir_pilgrim_hospice_01_desc:0 "A guest house at a holy place, where pilgrims rest and pay what they can."
+ building_eir_sea_quay_01:0 "Irish Sea Quay"
+ building_eir_sea_quay_01_desc:0 "A timber quay where Irish cattle, hides and slaves are sold to the merchants of Bristol, Chester and Dublin."
+ building_eir_shipyard_01:0 "Longship Yard"
+ building_eir_shipyard_01_desc:0 "A sheltered cove where sea-kings build and mend the long galleys."
  building_eir_ogham_stones_01:0 "Ogham Pillar Field"
  building_eir_ogham_stones_01_desc:0 "Standing stones cut with notches that name the dead and the lands they held."
 

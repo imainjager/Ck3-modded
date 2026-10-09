@@ -11,7 +11,10 @@ eir_dun_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -52,7 +55,10 @@ eir_booley_pastures_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -91,7 +97,10 @@ eir_fosterage_hall_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -133,7 +142,10 @@ eir_bruidhean_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = city_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = city_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -174,7 +186,10 @@ eir_aonach_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = city_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = city_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -211,7 +226,10 @@ eir_goibniu_smithy_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = city_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = city_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -251,7 +269,10 @@ eir_irish_stables_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -291,7 +312,10 @@ eir_holy_well_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -331,7 +355,10 @@ eir_monastic_school_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -372,7 +399,10 @@ eir_hermitage_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -413,7 +443,10 @@ eir_pilgrim_hospice_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = church_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = church_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -444,6 +477,108 @@ eir_pilgrim_hospice_01 = {
 	}
 }
 
+eir_sea_quay_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
+		is_coastal = yes
+		has_global_variable = eir_unlock_sea_trade
+	}
+
+	can_construct_potential = {
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+			has_holding_type = city_holding
+			has_holding_type = church_holding
+		}
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
+		is_coastal = yes
+		has_global_variable = eir_unlock_sea_trade
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_3_cost
+	cost_prestige = 150
+
+	province_modifier = {
+		monthly_income = 0.8
+	}
+	county_modifier = {
+		tax_mult = 0.05
+		development_growth_factor = 0.02
+	}
+	character_modifier = {
+		monthly_income = 0.3
+		stewardship = 1
+	}
+
+	type_icon = "icon_building_market_villages.dds"
+
+	ai_value = {
+		base = 4
+	}
+}
+
+eir_shipyard_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
+		is_coastal = yes
+		has_global_variable = eir_unlock_sea_trade
+	}
+
+	can_construct_potential = {
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+			has_holding_type = city_holding
+			has_holding_type = church_holding
+		}
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
+		is_coastal = yes
+		has_global_variable = eir_unlock_sea_trade
+	}
+
+	can_construct_showing_failures_only = {
+		scope:holder = { is_at_war = no }
+	}
+
+	cost_gold = normal_building_tier_3_cost
+	cost_prestige = 200
+
+	province_modifier = {
+		monthly_income = 0.4
+		supply_limit_mult = 0.1
+	}
+	county_modifier = {
+		levy_size = 0.04
+	}
+	character_modifier = {
+		knight_effectiveness_mult = 0.03
+		monthly_prestige = 0.05
+	}
+
+	type_icon = "icon_building_stables.dds"
+
+	ai_value = {
+		base = 4
+	}
+}
+
 eir_ogham_stones_01 = {
 	construction_time = slow_construction_time
 
@@ -454,7 +589,10 @@ eir_ogham_stones_01 = {
 	}
 
 	can_construct_potential = {
-		has_holding_type = castle_holding
+		OR = {
+			has_holding_type = tribal_holding
+			has_holding_type = castle_holding
+		}
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -875,6 +1013,12 @@ eir_hall_of_tara_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_tara
+	}
+
+	can_construct = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
 		has_global_variable = eir_done_tara_hall
 	}
 
@@ -918,6 +1062,12 @@ eir_armagh_cathedral_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_armagh
+	}
+
+	can_construct = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
 		has_global_variable = eir_done_armagh
 	}
 
@@ -960,6 +1110,9 @@ eir_rathcroghan_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_cruachu
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1003,6 +1156,9 @@ eir_slemish_shrine_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_slemish
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1046,6 +1202,12 @@ eir_uisneach_fires_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_uisneach
+	}
+
+	can_construct = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
 		has_global_variable = eir_done_oenach
 	}
 
@@ -1087,6 +1249,9 @@ eir_kildare_flame_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_kildare
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1130,6 +1295,9 @@ eir_emly_monastery_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_emly
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1173,6 +1341,9 @@ eir_kincora_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_kincora
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1216,6 +1387,12 @@ eir_black_pool_quays_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_dublin
+	}
+
+	can_construct = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
 		has_global_variable = eir_done_dublin
 	}
 
@@ -1257,6 +1434,9 @@ eir_waterford_harbour_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_waterford
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1299,6 +1479,9 @@ eir_cork_quays_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_cork
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1341,6 +1524,9 @@ eir_limerick_longphort_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_limerick
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1385,6 +1571,9 @@ eir_derry_oakgrove_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_derry
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1428,6 +1617,9 @@ eir_downpatrick_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_downpatrick
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1471,6 +1663,12 @@ eir_bangor_school_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_bangor
+	}
+
+	can_construct = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
 		has_global_variable = eir_done_fili
 	}
 
@@ -1512,6 +1710,9 @@ eir_trim_school_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_trim
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1555,6 +1756,9 @@ eir_kilkenny_monastery_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_kilkenny
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}
@@ -1598,6 +1802,12 @@ eir_tuam_cross_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_tuam
+	}
+
+	can_construct = {
+		scope:holder = {
+		culture = { has_cultural_pillar = heritage_goidelic }
+	}
 		has_global_variable = eir_done_cashel
 	}
 
@@ -1639,6 +1849,9 @@ eir_ferns_seat_01 = {
 
 	can_construct_potential = {
 		barony ?= title:b_ferns
+	}
+
+	can_construct = {
 		scope:holder = {
 		culture = { has_cultural_pillar = heritage_goidelic }
 	}

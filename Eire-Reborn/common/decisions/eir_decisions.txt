@@ -2,7 +2,7 @@
 
 eir_hold_oenach_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
@@ -10,14 +10,17 @@ eir_hold_oenach_decision = {
 	selection_tooltip = eir_hold_oenach_decision_tooltip
 	confirm_text = eir_hold_oenach_decision_confirm
 
-	cooldown = { days = 3650 }
+	cooldown = { days = 5475 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		highest_held_title_tier >= tier_duchy
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
+		eir_irish_buildings_trigger = { COUNT = 1 }
+		any_vassal = { count >= 3 }
 		NOT = { has_character_modifier = eir_oenach_afterglow_modifier }
 	}
 
@@ -27,21 +30,71 @@ eir_hold_oenach_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
-		prestige = 50
+		gold = 350
+		prestige = 350
 	}
 
 	effect = {
-		add_character_modifier = { modifier = eir_oenach_afterglow_modifier years = 5 }
-		eir_vassal_opinion_effect = { MODIFIER = eir_oenach_opinion OPINION = 10 }
-		capital_county ?= { add_county_modifier = { modifier = eir_oenach_ground_modifier years = 10 } }
+		add_character_modifier = { modifier = eir_oenach_afterglow_modifier years = 6 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_oenach_opinion OPINION = 12 }
+		capital_county ?= { add_county_modifier = { modifier = eir_oenach_ground_modifier years = 12 } }
 		if = {
 			limit = { has_character_modifier = eir_throne_turmoil_modifier }
 			remove_character_modifier = eir_throne_turmoil_modifier
 		}
-		add_prestige = 100
+		add_prestige = 300
+		add_piety = 50
 		set_global_variable = eir_done_oenach
-		eir_trait_effect = { TRAIT = gregarious OPPOSITE = shy CHANCE = 10 }
+		trigger_event = { id = eir.0051 days = 30 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_rebuild_tara_hall_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_rebuild_tara_hall_decision_desc
+	selection_tooltip = eir_rebuild_tara_hall_decision_tooltip
+	confirm_text = eir_rebuild_tara_hall_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
+		has_title = title:d_meath
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		NOT = { has_global_variable = eir_done_tara_hall }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 800
+		prestige = 700
+	}
+
+	effect = {
+		eir_capital_county_modifier_effect = { TITLE = d_meath MODIFIER = eir_tara_hall_modifier YEARS = 40 }
+		eir_capital_county_modifier_effect = { TITLE = d_meath MODIFIER = eir_tara_hill_modifier YEARS = 25 }
+		add_character_modifier = { modifier = eir_tara_vigil_modifier years = 12 }
+		add_prestige = 400
+		set_global_variable = eir_done_tara_hall
 	}
 
 	ai_will_do = {
@@ -64,10 +117,13 @@ eir_crowned_at_tara_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		eir_holds_irish_duchies_trigger = { COUNT = 2 }
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage3_trigger = yes
+		eir_holds_irish_duchies_trigger = { COUNT = 2 }
+		has_global_variable = eir_done_tara_hall
 		has_global_variable = eir_done_oenach
 		is_independent_ruler = yes
 		has_title = title:d_meath
@@ -83,8 +139,8 @@ eir_crowned_at_tara_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		prestige = 300
+		gold = 1500
+		prestige = 1500
 	}
 
 	effect = {
@@ -95,16 +151,12 @@ eir_crowned_at_tara_decision = {
 		}
 		add_character_modifier = { modifier = eir_ard_ri_modifier years = 25 }
 		add_character_modifier = { modifier = eir_lia_fail_blessing_modifier years = 10 }
-		eir_capital_county_modifier_effect = { TITLE = d_meath MODIFIER = eir_tara_hill_modifier YEARS = 25 }
 		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 40 } }
-		eir_vassal_opinion_effect = { MODIFIER = eir_ard_ri_opinion OPINION = 10 }
-		if = {
-			limit = { has_character_modifier = eir_throne_turmoil_modifier }
-			remove_character_modifier = eir_throne_turmoil_modifier
-		}
-		add_prestige = 500
+		add_prestige = 1000
 		add_piety = 100
 		set_global_variable = eir_done_crowned
+		eir_legend_title_effect = { TITLE = title:k_ireland }
+		trigger_event = { id = eir.0110 days = 7 }
 	}
 
 	ai_will_do = {
@@ -127,15 +179,17 @@ eir_end_fragmentation_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:k_ireland
+		eir_stage4_trigger = yes
 		has_global_variable = eir_done_crowned
 		eir_collapse_active_trigger = yes
 	}
 
 	is_valid = {
 		government_has_flag = government_is_feudal
-		eir_holds_irish_counties_trigger = { COUNT = 8 }
+		eir_holds_irish_counties_trigger = { COUNT = 25 }
 		is_independent_ruler = yes
+		has_global_variable = eir_done_circuit
+		has_global_variable = eir_done_oath
 	}
 
 	is_valid_showing_failures_only = {
@@ -144,8 +198,8 @@ eir_end_fragmentation_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		prestige = 500
+		gold = 2000
+		prestige = 3000
 	}
 
 	effect = {
@@ -161,10 +215,158 @@ eir_end_fragmentation_decision = {
 		}
 		set_global_variable = eir_collapse_abolished
 		set_global_variable = eir_unlock_tara_guard
-		add_character_modifier = { modifier = eir_peace_of_tara_modifier years = 20 }
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 60 } }
-		add_prestige = 500
-		add_legitimacy = 100
+		add_character_modifier = { modifier = eir_peace_of_tara_modifier years = 25 }
+		add_prestige = 1500
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 80 } }
+		trigger_event = { id = eir.0110 days = 7 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_circuit_of_ireland_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_circuit_of_ireland_decision_desc
+	selection_tooltip = eir_circuit_of_ireland_decision_tooltip
+	confirm_text = eir_circuit_of_ireland_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_oenach
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 300
+	}
+
+	effect = {
+		every_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = { modifier = eir_circuit_visit_modifier years = 6 }
+		}
+		add_character_modifier = { modifier = eir_royal_circuit_modifier years = 10 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_circuit_host_opinion OPINION = 10 }
+		eir_trait_effect = { TRAIT = eir_peacemaker_of_tara OPPOSITE = wrathful CHANCE = 25 }
+		add_prestige = 200
+		set_global_variable = eir_done_circuit
+		trigger_event = { id = eir.0160 days = 45 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_provincial_oath_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_provincial_oath_decision_desc
+	selection_tooltip = eir_provincial_oath_decision_tooltip
+	confirm_text = eir_provincial_oath_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_oenach
+		any_vassal = {
+			highest_held_title_tier >= tier_duchy
+			count >= 2
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 400
+	}
+
+	effect = {
+		every_vassal = {
+			limit = { highest_held_title_tier >= tier_duchy }
+			add_opinion = { target = root modifier = eir_oath_sworn_opinion opinion = 20 }
+		}
+		add_character_modifier = { modifier = eir_provincial_oath_modifier years = 15 }
+		add_prestige = 250
+		set_global_variable = eir_done_oath
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_feis_of_tara_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_feis_of_tara_decision_desc
+	selection_tooltip = eir_feis_of_tara_decision_tooltip
+	confirm_text = eir_feis_of_tara_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_stage4_trigger = yes
+	}
+
+	is_valid = {
+		has_global_variable = eir_done_tara_hall
+		has_global_variable = eir_done_circuit
+		has_global_variable = eir_done_oath
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1500
+		prestige = 1200
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_feis_modifier years = 12 }
+		add_prestige = 600
+		eir_vassal_opinion_effect = { MODIFIER = eir_oenach_opinion OPINION = 12 }
+		trigger_event = { id = eir.0051 days = 20 }
 	}
 
 	ai_will_do = {
@@ -186,7 +388,7 @@ eir_boramha_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_trait = eir_ard_ri
+		eir_stage4_trigger = yes
 	}
 
 	is_valid = {
@@ -201,7 +403,7 @@ eir_boramha_decision = {
 	effect = {
 		add_gold = major_gold_value
 		add_character_modifier = { modifier = eir_boramha_collected_modifier years = 8 }
-		eir_vassal_opinion_effect = { MODIFIER = eir_tribute_resentment_opinion OPINION = -10 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_tribute_resentment_opinion OPINION = -12 }
 		add_prestige = 50
 	}
 
@@ -233,13 +435,91 @@ eir_remit_tribute_decision = {
 	}
 
 	cost = {
-		prestige = 50
+		prestige = 100
 	}
 
 	effect = {
 		remove_character_modifier = eir_boramha_collected_modifier
 		eir_vassal_opinion_effect = { MODIFIER = eir_ard_ri_opinion OPINION = 15 }
-		add_prestige = 25
+		add_prestige = 50
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_take_hostages_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_prison.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_take_hostages_decision_desc
+	selection_tooltip = eir_take_hostages_decision_tooltip
+	confirm_text = eir_take_hostages_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
+		any_vassal = { count >= 3 }
+		NOT = { has_character_modifier = eir_hostages_modifier }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_hostages_modifier years = 12 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_hostage_taken_opinion OPINION = -12 }
+		add_prestige = 150
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_release_hostages_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_release_hostages_decision_desc
+	selection_tooltip = eir_release_hostages_decision_tooltip
+	confirm_text = eir_release_hostages_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_character_modifier = eir_hostages_modifier
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+	}
+
+	effect = {
+		remove_character_modifier = eir_hostages_modifier
+		eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 12 }
+		add_prestige = 50
+		trigger_event = { id = eir.0170 days = 30 }
 	}
 
 	ai_will_do = {
@@ -249,7 +529,7 @@ eir_remit_tribute_decision = {
 
 eir_foster_heir_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
@@ -265,6 +545,8 @@ eir_foster_heir_decision = {
 	}
 
 	is_valid = {
+		eir_stage1_trigger = yes
+		any_vassal = { count >= 3 }
 		NOT = { has_character_modifier = eir_foster_ties_modifier }
 	}
 
@@ -274,16 +556,275 @@ eir_foster_heir_decision = {
 	}
 
 	cost = {
-		gold = minor_gold_value
+		gold = 100
+		prestige = 150
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_foster_ties_modifier years = 15 }
-		eir_vassal_opinion_effect = { MODIFIER = eir_fostered_opinion OPINION = 12 }
+		add_character_modifier = { modifier = eir_naming_customs_modifier years = 15 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_fostered_opinion OPINION = 15 }
 		random_child = {
 			limit = { age >= 4 age < 15 is_alive = yes }
 			eir_trait_effect = { TRAIT = eir_foster_brother OPPOSITE = eir_foster_brother CHANCE = 60 }
 		}
+		add_prestige = 100
+		set_global_variable = eir_done_fosterage
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_name_tanaiste_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_name_tanaiste_decision_desc
+	selection_tooltip = eir_name_tanaiste_decision_tooltip
+	confirm_text = eir_name_tanaiste_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		exists = primary_heir
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		prestige = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tanaiste_modifier years = 15 }
+		primary_heir ?= { add_opinion = { target = root modifier = eir_oath_sworn_opinion opinion = 30 } }
+		eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 5 }
+		add_prestige = 100
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_strike_claim_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_prison.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_strike_claim_decision_desc
+	selection_tooltip = eir_strike_claim_decision_tooltip
+	confirm_text = eir_strike_claim_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage1_trigger = yes
+		any_vassal = { count >= 2 }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		random_vassal = {
+			add_opinion = { target = root modifier = eir_claim_revoked_opinion opinion = -30 }
+		}
+		add_character_modifier = { modifier = eir_tanistry_dispute_modifier years = 8 }
+		add_character_modifier = { modifier = eir_blinded_modifier years = 8 }
+		add_prestige = 75
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_cain_tribute_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_cain_tribute_decision_desc
+	selection_tooltip = eir_cain_tribute_decision_tooltip
+	confirm_text = eir_cain_tribute_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		NOT = { has_character_modifier = eir_cain_tribute_modifier }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_cain_tribute_modifier years = 8 }
+		add_gold = medium_gold_value
+		add_gold = medium_gold_value
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_waive_cain_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_waive_cain_decision_desc
+	selection_tooltip = eir_waive_cain_decision_tooltip
+	confirm_text = eir_waive_cain_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_character_modifier = eir_cain_tribute_modifier
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 75
+	}
+
+	effect = {
+		remove_character_modifier = eir_cain_tribute_modifier
+		eir_vassal_opinion_effect = { MODIFIER = eir_wergild_paid_opinion OPINION = 8 }
+		add_prestige = 50
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_name_ollamh_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_name_ollamh_decision_desc
+	selection_tooltip = eir_name_ollamh_decision_tooltip
+	confirm_text = eir_name_ollamh_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_fili
+		NOT = { has_character_modifier = eir_royal_ollamh_modifier }
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		OR = {
+			learning >= 12
+			any_courtier = { has_trait = eir_ollamh }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_royal_ollamh_modifier years = 20 }
+		add_character_modifier = { modifier = eir_harper_modifier years = 20 }
+		if = {
+			limit = { learning >= 12 }
+			eir_trait_effect = { TRAIT = eir_poet_prince OPPOSITE = lazy CHANCE = 35 }
+		}
+		add_prestige = 200
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_call_slogad_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_call_slogad_decision_desc
+	selection_tooltip = eir_call_slogad_decision_tooltip
+	confirm_text = eir_call_slogad_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 400
+	}
+
+	effect = {
+		eir_defender_levy_effect = yes
+		add_character_modifier = { modifier = eir_hosting_modifier years = 4 }
+		add_character_modifier = { modifier = eir_yew_bows_modifier years = 4 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_tribute_resentment_opinion OPINION = -5 }
+		add_prestige = 50
 	}
 
 	ai_will_do = {
@@ -293,7 +834,7 @@ eir_foster_heir_decision = {
 
 eir_patronise_fili_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
@@ -305,9 +846,15 @@ eir_patronise_fili_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage1_trigger = yes
+		OR = {
+			learning >= 8
+			any_courtier = { learning >= 10 }
+		}
 		NOT = { has_character_modifier = eir_fili_patron_modifier }
 	}
 
@@ -317,13 +864,13 @@ eir_patronise_fili_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
-		prestige = 50
+		gold = 150
+		prestige = 150
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_fili_patron_modifier years = 10 }
-		add_prestige = 100
+		add_prestige = 150
 		set_global_variable = eir_done_fili
 		random_courtier = {
 			limit = { is_adult = yes learning >= 8 NOT = { has_trait = eir_ollamh } }
@@ -340,6 +887,7 @@ eir_found_bardic_schools_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
 	}
+	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
 	desc = eir_found_bardic_schools_decision_desc
@@ -350,11 +898,18 @@ eir_found_bardic_schools_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		learning >= 8
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_fili
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		OR = {
+			learning >= 12
+			any_courtier = { has_trait = eir_ollamh }
+		}
+		culture = { has_cultural_tradition = tradition_poetry }
 	}
 
 	is_valid_showing_failures_only = {
@@ -363,14 +918,20 @@ eir_found_bardic_schools_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 600
+		prestige = 900
 	}
 
 	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_bardic_schools }
+		eir_upgrade_tradition_effect = { OLD = tradition_poetry NEW = tradition_eir_bardic_schools }
 		set_global_variable = eir_unlock_bardic_school
+		set_global_variable = eir_unlock_fianna
 		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_poets_modifier years = 40 } }
-		add_prestige = 150
+		add_character_modifier = { modifier = eir_tale_finn_modifier years = 10 }
+		add_character_modifier = { modifier = eir_bardic_circuit_modifier years = 10 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_gaelic_schooling_modifier YEARS = 25 }
+		add_prestige = 400
+		trigger_event = { id = eir.0130 days = 60 }
 	}
 
 	ai_will_do = {
@@ -392,12 +953,15 @@ eir_compile_brehon_laws_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
+		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		eir_irish_buildings_trigger = { COUNT = 4 }
 		OR = {
-			learning >= 10
+			learning >= 12
 			any_courtier = { has_trait = eir_ollamh }
 		}
 	}
@@ -408,19 +972,19 @@ eir_compile_brehon_laws_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		prestige = 100
+		gold = 500
+		prestige = 600
 	}
 
 	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_brehon_law }
 		set_global_variable = eir_unlock_brehon_court
 		add_character_modifier = { modifier = eir_brehon_laws_modifier years = 20 }
 		if = {
 			limit = { learning >= 12 NOT = { has_trait = eir_brehon } }
 			add_trait = eir_brehon
 		}
-		add_prestige = 100
+		add_prestige = 250
+		trigger_event = { id = eir.0040 days = 40 }
 	}
 
 	ai_will_do = {
@@ -442,10 +1006,17 @@ eir_revive_fianna_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		prestige >= 150
+		eir_stage2_trigger = yes
+		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		OR = {
+			prowess >= 12
+			martial >= 14
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -454,15 +1025,25 @@ eir_revive_fianna_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 500
+		prestige = 500
 	}
 
 	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_fianna_heritage }
-		set_global_variable = eir_unlock_fianna
-		set_global_variable = eir_unlock_kern
-		add_character_modifier = { modifier = eir_fianna_spirit_modifier years = 10 }
-		add_prestige = 100
+		add_character_modifier = { modifier = eir_fianna_spirit_modifier years = 12 }
+		add_character_modifier = { modifier = eir_champions_portion_modifier years = 12 }
+		add_prestige = 300
+		spawn_army = {
+			levies = 0
+			men_at_arms = {
+				type = eir_fianna_warband
+				stacks = 2
+			}
+			location = capital_province
+			origin = capital_province
+			inheritable = no
+			name = eir_clan_muster_name
+		}
 		if = {
 			limit = { prowess >= 12 NOT = { has_trait = eir_fennid } }
 			add_trait = eir_fennid
@@ -474,25 +1055,30 @@ eir_revive_fianna_decision = {
 	}
 }
 
-eir_found_scriptorium_decision = {
+eir_adopt_cattle_wealth_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
 	}
+	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_found_scriptorium_decision_desc
-	selection_tooltip = eir_found_scriptorium_decision_tooltip
-	confirm_text = eir_found_scriptorium_decision_confirm
+	desc = eir_adopt_cattle_wealth_decision_desc
+	selection_tooltip = eir_adopt_cattle_wealth_decision_tooltip
+	confirm_text = eir_adopt_cattle_wealth_decision_confirm
 
 	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		piety >= 100
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		piety >= 150
+		eir_stage2_trigger = yes
+		eir_realm_size_trigger = { N = 12 }
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		stewardship >= 10
+		culture = { has_cultural_tradition = tradition_pastoralists }
 	}
 
 	is_valid_showing_failures_only = {
@@ -501,15 +1087,23 @@ eir_found_scriptorium_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		piety = 100
+		gold = 500
+		prestige = 700
 	}
 
 	effect = {
-		set_global_variable = eir_unlock_scriptorium
-		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 10 }
-		add_piety = 100
-		trigger_event = { id = eir.0080 years = 5 }
+		eir_upgrade_tradition_effect = { OLD = tradition_pastoralists NEW = tradition_eir_cattle_wealth }
+		add_character_modifier = { modifier = eir_cattle_rich_modifier years = 20 }
+		set_global_variable = eir_unlock_cattle_enclosure
+		if = {
+			limit = { stewardship >= 10 NOT = { has_trait = eir_cattle_lord } }
+			add_trait = eir_cattle_lord
+		}
+		add_prestige = 300
+		every_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = { modifier = eir_cattle_rich_county_modifier years = 15 }
+		}
 	}
 
 	ai_will_do = {
@@ -517,21 +1111,30 @@ eir_found_scriptorium_decision = {
 	}
 }
 
-eir_raise_high_crosses_decision = {
+eir_adopt_culdee_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 	}
+	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_raise_high_crosses_decision_desc
-	selection_tooltip = eir_raise_high_crosses_decision_tooltip
-	confirm_text = eir_raise_high_crosses_decision_confirm
+	desc = eir_adopt_culdee_decision_desc
+	selection_tooltip = eir_adopt_culdee_decision_tooltip
+	confirm_text = eir_adopt_culdee_decision_confirm
 
-	cooldown = { days = 7300 }
+	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		piety >= 100
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		piety >= 700
+		has_global_variable = eir_done_monastery
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		culture = { has_cultural_tradition = tradition_monastic_communities }
 	}
 
 	is_valid_showing_failures_only = {
@@ -540,15 +1143,17 @@ eir_raise_high_crosses_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 500
+		prestige = 400
+		piety = 400
 	}
 
 	effect = {
-		set_global_variable = eir_unlock_high_cross
-		eir_held_county_modifier_effect = { MODIFIER = eir_high_cross_modifier YEARS = 25 }
-		eir_held_county_modifier_effect = { MODIFIER = eir_high_cross_modifier YEARS = 25 }
-		eir_held_county_modifier_effect = { MODIFIER = eir_high_cross_modifier YEARS = 25 }
-		add_piety = 100
+		eir_upgrade_tradition_effect = { OLD = tradition_monastic_communities NEW = tradition_eir_culdee_christianity }
+		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 15 }
+		add_piety = 400
+		add_prestige = 200
+		eir_held_county_modifier_effect = { MODIFIER = eir_monastic_city_modifier YEARS = 30 }
 	}
 
 	ai_will_do = {
@@ -556,21 +1161,35 @@ eir_raise_high_crosses_decision = {
 	}
 }
 
-eir_found_round_towers_decision = {
+eir_adopt_sea_kings_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
 	}
+	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_found_round_towers_decision_desc
-	selection_tooltip = eir_found_round_towers_decision_tooltip
-	confirm_text = eir_found_round_towers_decision_confirm
+	desc = eir_adopt_sea_kings_decision_desc
+	selection_tooltip = eir_adopt_sea_kings_decision_tooltip
+	confirm_text = eir_adopt_sea_kings_decision_confirm
 
-	cooldown = { days = 7300 }
+	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		piety >= 50
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		eir_ports_trigger = { N = 3 }
+		eir_irish_port_trigger = yes
+		prestige >= 1000
+		OR = {
+			gold >= 1000
+			stewardship >= 16
+			has_trait = shrewd
+		}
+		culture = { has_cultural_tradition = tradition_maritime_mercantilism }
 	}
 
 	is_valid_showing_failures_only = {
@@ -579,13 +1198,154 @@ eir_found_round_towers_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 700
+		prestige = 800
 	}
 
 	effect = {
-		set_global_variable = eir_unlock_round_tower
-		capital_province ?= { add_province_modifier = { modifier = eir_beacon_province_modifier years = 25 } }
-		add_piety = 50
+		eir_upgrade_tradition_effect = { OLD = tradition_maritime_mercantilism NEW = tradition_eir_sea_kings }
+		set_global_variable = eir_unlock_sea_trade
+		set_global_variable = eir_unlock_gallowglass
+		add_character_modifier = { modifier = eir_sea_king_modifier years = 20 }
+		add_character_modifier = { modifier = eir_irish_sea_trade_modifier years = 20 }
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				is_coastal_county = yes
+			}
+			add_county_modifier = { modifier = eir_wooden_harbour_modifier years = 25 }
+		}
+		spawn_army = {
+			levies = 0
+			men_at_arms = {
+				type = eir_gallowglass
+				stacks = 1
+			}
+			location = capital_province
+			origin = capital_province
+			inheritable = no
+			name = eir_gallowglass_company_name
+		}
+		add_prestige = 300
+		trigger_event = { id = eir.0190 days = 30 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_thalassocracy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_thalassocracy_decision_desc
+	selection_tooltip = eir_thalassocracy_decision_tooltip
+	confirm_text = eir_thalassocracy_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		culture = { has_cultural_tradition = tradition_eir_sea_kings }
+		eir_ports_trigger = { N = 6 }
+		any_sub_realm_county = { this = title:c_dublin }
+		any_sub_realm_county = {
+			count >= 2
+			any_county_province = { has_building = eir_sea_quay_01 }
+		}
+		NOT = { has_global_variable = eir_done_thalassocracy }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1500
+		prestige = 2000
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_thalassocracy_modifier years = 30 }
+		add_character_modifier = { modifier = eir_island_fleet_modifier years = 30 }
+		set_global_variable = eir_done_thalassocracy
+		set_global_variable = eir_unlock_tara_guard
+		eir_grant_claims_non_celtic_effect = { TITLE = k_mann_the_isles }
+		eir_grant_claims_norse_effect = yes
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				is_coastal_county = yes
+			}
+			add_county_modifier = { modifier = eir_wooden_harbour_modifier years = 30 }
+		}
+		add_prestige = 1000
+		eir_legend_title_effect = { TITLE = primary_title }
+		trigger_event = { id = eir.0191 days = 30 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_gaelic_revival_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_gaelic_revival_decision_desc
+	selection_tooltip = eir_gaelic_revival_decision_tooltip
+	confirm_text = eir_gaelic_revival_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		culture = { has_cultural_tradition = tradition_eir_cattle_wealth }
+		culture = { has_cultural_tradition = tradition_eir_culdee_christianity }
+		culture = { has_cultural_tradition = tradition_eir_sea_kings }
+		has_global_variable = eir_unlock_brehon_court
+		NOT = { has_global_variable = eir_done_renaissance }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1000
+		prestige = 2500
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_gaelic_revival_modifier years = 30 }
+		add_character_modifier = { modifier = eir_hearth_of_the_gael_modifier years = 30 }
+		add_character_modifier = { modifier = eir_gaelic_court_modifier years = 30 }
+		set_global_variable = eir_done_renaissance
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_poets_modifier years = 60 } }
+		add_prestige = 1500
+		add_piety = 300
+		eir_legend_title_effect = { TITLE = primary_title }
 	}
 
 	ai_will_do = {
@@ -603,14 +1363,16 @@ eir_hold_tailteann_decision = {
 	selection_tooltip = eir_hold_tailteann_decision_tooltip
 	confirm_text = eir_hold_tailteann_decision_confirm
 
-	cooldown = { days = 7300 }
+	cooldown = { days = 5475 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		highest_held_title_tier >= tier_duchy
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
 		NOT = { has_character_modifier = eir_tailteann_modifier }
 	}
 
@@ -620,14 +1382,16 @@ eir_hold_tailteann_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 400
+		prestige = 250
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_tailteann_modifier years = 8 }
-		capital_county ?= { add_county_modifier = { modifier = eir_tailteann_county_modifier years = 10 } }
+		capital_county ?= { add_county_modifier = { modifier = eir_tailteann_county_modifier years = 12 } }
+		eir_held_county_modifier_effect = { MODIFIER = eir_hurling_fields_modifier YEARS = 20 }
 		eir_vassal_opinion_effect = { MODIFIER = eir_oenach_opinion OPINION = 8 }
-		add_prestige = 150
+		add_prestige = 250
 	}
 
 	ai_will_do = {
@@ -635,65 +1399,29 @@ eir_hold_tailteann_decision = {
 	}
 }
 
-eir_gaelic_revival_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_gaelic_revival_decision_desc
-	selection_tooltip = eir_gaelic_revival_decision_tooltip
-	confirm_text = eir_gaelic_revival_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
-	}
-
-	is_valid = {
-		has_global_variable = eir_unlock_fianna
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 200
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_gaelic_revival_modifier years = 15 }
-		add_character_modifier = { modifier = eir_hearth_of_the_gael_modifier years = 15 }
-		add_prestige = 200
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_adopt_cattle_wealth_decision = {
+eir_ancient_sites_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_adopt_cattle_wealth_decision_desc
-	selection_tooltip = eir_adopt_cattle_wealth_decision_tooltip
-	confirm_text = eir_adopt_cattle_wealth_decision_confirm
+	desc = eir_ancient_sites_decision_desc
+	selection_tooltip = eir_ancient_sites_decision_tooltip
+	confirm_text = eir_ancient_sites_decision_confirm
 
 	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		prestige >= 100
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
+		eir_realm_size_trigger = { N = 15 }
+		eir_irish_buildings_trigger = { COUNT = 4 }
+		NOT = { has_global_variable = eir_done_sites }
 	}
 
 	is_valid_showing_failures_only = {
@@ -702,139 +1430,112 @@ eir_adopt_cattle_wealth_decision = {
 	}
 
 	cost = {
-		prestige = 150
+		gold = 700
+		prestige = 500
 	}
 
 	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_cattle_wealth }
-		add_character_modifier = { modifier = eir_cattle_rich_modifier years = 15 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_uisneach_modifier YEARS = 30 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_rathcroghan_modifier YEARS = 30 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_navan_fort_modifier YEARS = 30 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_newgrange_modifier YEARS = 30 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_ogham_stones_modifier YEARS = 30 }
+		capital_province ?= { add_province_modifier = { modifier = eir_standing_stone_province_modifier years = 30 } }
+		add_prestige = 400
+		set_global_variable = eir_done_sites
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_raise_ringforts_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_raise_ringforts_decision_desc
+	selection_tooltip = eir_raise_ringforts_decision_tooltip
+	confirm_text = eir_raise_ringforts_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage1_trigger = yes
+		NOT = { has_global_variable = eir_unlock_ringfort }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 200
+	}
+
+	effect = {
+		set_global_variable = eir_unlock_ringfort
+		set_global_variable = eir_unlock_crannog
 		set_global_variable = eir_unlock_cattle_enclosure
-		if = {
-			limit = { stewardship >= 10 NOT = { has_trait = eir_cattle_lord } }
-			add_trait = eir_cattle_lord
+		add_character_modifier = { modifier = eir_dun_builder_modifier years = 15 }
+		capital_province ?= { add_province_modifier = { modifier = eir_ringfort_province_modifier years = 30 } }
+		random_held_title = {
+			limit = { tier = tier_county }
+			title_province = { add_province_modifier = { modifier = eir_crannog_province_modifier years = 30 } }
 		}
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_adopt_fosterage_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_adopt_fosterage_decision_desc
-	selection_tooltip = eir_adopt_fosterage_decision_tooltip
-	confirm_text = eir_adopt_fosterage_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		prestige >= 100
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 150
-	}
-
-	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_fosterage_bonds }
-		add_character_modifier = { modifier = eir_foster_ties_modifier years = 15 }
-		add_prestige = 50
-		set_global_variable = eir_done_fosterage
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_adopt_culdee_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_adopt_culdee_decision_desc
-	selection_tooltip = eir_adopt_culdee_decision_tooltip
-	confirm_text = eir_adopt_culdee_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		piety >= 100
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 150
-	}
-
-	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_culdee_christianity }
-		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 10 }
-		add_piety = 150
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_adopt_sea_kings_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_adopt_sea_kings_decision_desc
-	selection_tooltip = eir_adopt_sea_kings_decision_tooltip
-	confirm_text = eir_adopt_sea_kings_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		eir_has_coast_trigger = yes
-	}
-
-	is_valid = {
-		prestige >= 100
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 150
-	}
-
-	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_sea_kings }
-		add_character_modifier = { modifier = eir_sea_king_modifier years = 15 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_ringfort_country_modifier YEARS = 25 }
+		add_character_modifier = { modifier = eir_dun_drill_modifier years = 8 }
 		add_prestige = 100
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_commission_tale_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_commission_tale_decision_desc
+	selection_tooltip = eir_commission_tale_decision_tooltip
+	confirm_text = eir_commission_tale_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_fili
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+		prestige = 200
+	}
+
+	effect = {
+		trigger_event = { id = eir.0150 days = 5 }
 	}
 
 	ai_will_do = {
@@ -844,7 +1545,7 @@ eir_adopt_sea_kings_decision = {
 
 eir_muster_the_gael_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
@@ -860,6 +1561,7 @@ eir_muster_the_gael_decision = {
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
 		is_at_war = no
 	}
 
@@ -869,13 +1571,15 @@ eir_muster_the_gael_decision = {
 	}
 
 	cost = {
-		prestige = 100
+		gold = 200
+		prestige = 500
 	}
 
 	effect = {
 		eir_grant_claims_norse_effect = yes
-		eir_vassal_opinion_effect = { MODIFIER = eir_norse_defied_opinion OPINION = 10 }
-		add_prestige = 50
+		eir_vassal_opinion_effect = { MODIFIER = eir_norse_defied_opinion OPINION = 12 }
+		eir_defender_levy_effect = yes
+		add_prestige = 100
 		set_global_variable = eir_done_muster
 	}
 
@@ -902,6 +1606,11 @@ eir_reclaim_dublin_decision = {
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
+		OR = {
+			prestige >= 800
+			has_character_flag = eir_oath_to_reclaim
+		}
 		is_at_war = no
 	}
 
@@ -911,12 +1620,13 @@ eir_reclaim_dublin_decision = {
 	}
 
 	cost = {
-		gold = minor_gold_value
+		gold = 300
+		prestige = 300
 	}
 
 	effect = {
 		add_pressed_claim = title:c_dublin
-		add_prestige = 50
+		add_prestige = 100
 		set_global_variable = eir_dublin_claimed
 	}
 
@@ -950,13 +1660,13 @@ eir_dublin_reclaimed_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 500
 	}
 
 	effect = {
 		title:c_dublin = { add_county_modifier = { modifier = eir_dublin_reclaimed_modifier years = 25 } }
 		add_character_modifier = { modifier = eir_norse_scourge_modifier years = 15 }
-		add_prestige = 300
+		add_prestige = 500
 		eir_trait_effect = { TRAIT = eir_viking_slayer OPPOSITE = eir_viking_slayer CHANCE = 60 }
 		set_global_variable = eir_done_dublin
 	}
@@ -966,24 +1676,25 @@ eir_dublin_reclaimed_decision = {
 	}
 }
 
-eir_hire_gallowglass_decision = {
+eir_dublin_garrison_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_hire_gallowglass_decision_desc
-	selection_tooltip = eir_hire_gallowglass_decision_tooltip
-	confirm_text = eir_hire_gallowglass_decision_confirm
+	desc = eir_dublin_garrison_decision_desc
+	selection_tooltip = eir_dublin_garrison_decision_tooltip
+	confirm_text = eir_dublin_garrison_decision_confirm
 
-	cooldown = { days = 36500 }
+	cooldown = { days = 7300 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_dublin
 	}
 
 	is_valid = {
-		prestige >= 100
+		eir_stage2_trigger = yes
 	}
 
 	is_valid_showing_failures_only = {
@@ -992,28 +1703,14 @@ eir_hire_gallowglass_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 500
+		prestige = 200
 	}
 
 	effect = {
-		eir_add_tradition_effect = { TRADITION = tradition_eir_gallowglass_heritage }
-		set_global_variable = eir_unlock_gallowglass
-		add_character_modifier = { modifier = eir_gallowglass_paymaster_modifier years = 10 }
-		spawn_army = {
-			levies = 0
-			men_at_arms = {
-				type = eir_gallowglass
-				stacks = 2
-			}
-			location = capital_province
-			origin = capital_province
-			inheritable = no
-			name = eir_gallowglass_company_name
-		}
-		random_held_title = {
-			limit = { tier = tier_county }
-			add_county_modifier = { modifier = eir_gallowglass_garrison_modifier years = 15 }
-		}
+		title:c_dublin ?= { add_county_modifier = { modifier = eir_gallowglass_garrison_modifier years = 20 } }
+		add_prestige = 100
+		trigger_event = { id = eir.0151 days = 90 }
 	}
 
 	ai_will_do = {
@@ -1039,6 +1736,7 @@ eir_pay_danegeld_decision = {
 	}
 
 	is_valid = {
+		eir_visible_stage1_trigger = yes
 		NOT = { has_character_flag = eir_paid_danegeld }
 	}
 
@@ -1048,13 +1746,13 @@ eir_pay_danegeld_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 300
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_danegeld_modifier years = 8 }
 		add_character_flag = { flag = eir_paid_danegeld years = 8 }
-		add_prestige = -50
+		add_prestige = -100
 	}
 
 	ai_will_do = {
@@ -1079,15 +1777,23 @@ eir_end_danegeld_decision = {
 		has_character_modifier = eir_danegeld_modifier
 	}
 
+	is_valid = {
+		prestige >= 600
+	}
+
 	is_valid_showing_failures_only = {
 		is_available_adult = yes
 		is_imprisoned = no
 	}
 
+	cost = {
+		prestige = 200
+	}
+
 	effect = {
 		remove_character_modifier = eir_danegeld_modifier
 		remove_character_flag = eir_paid_danegeld
-		add_prestige = 100
+		add_prestige = 150
 		eir_trait_effect = { TRAIT = brave OPPOSITE = craven CHANCE = 20 }
 		trigger_event = { id = eir.0010 days = 30 }
 	}
@@ -1111,10 +1817,14 @@ eir_cattle_raid_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		any_neighboring_and_across_water_top_liege_realm_owner = { culture = culture:irish NOT = { this = root } }
+		any_neighboring_and_across_water_top_liege_realm_owner = {
+			culture = culture:irish
+			NOT = { this = root }
+		}
 	}
 
 	is_valid = {
+		eir_visible_stage1_trigger = yes
 		NOT = { has_character_modifier = eir_raider_infamy_modifier }
 		is_at_war = no
 	}
@@ -1126,15 +1836,18 @@ eir_cattle_raid_decision = {
 
 	effect = {
 		random_neighboring_and_across_water_top_liege_realm_owner = {
-			limit = { culture = culture:irish NOT = { this = root } }
-			add_opinion = { target = root modifier = eir_satire_opinion opinion = -25 }
+			limit = {
+				culture = culture:irish
+				NOT = { this = root }
+			}
+			add_opinion = { target = root modifier = eir_satire_opinion opinion = -30 }
 			random_realm_county = {
 				add_county_modifier = { modifier = eir_cattle_raided_modifier years = 5 }
 			}
 		}
 		add_gold = major_gold_value
-		add_character_modifier = { modifier = eir_raider_infamy_modifier years = 10 }
-		add_prestige = 75
+		add_prestige = 100
+		add_character_modifier = { modifier = eir_raider_infamy_modifier years = 8 }
 	}
 
 	ai_will_do = {
@@ -1165,12 +1878,12 @@ eir_pay_eraic_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 200
 	}
 
 	effect = {
 		remove_character_modifier = eir_raider_infamy_modifier
-		add_prestige = 25
+		add_prestige = 50
 	}
 
 	ai_will_do = {
@@ -1201,12 +1914,298 @@ eir_appease_satirists_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 150
 	}
 
 	effect = {
 		remove_character_modifier = eir_satirised_modifier
-		add_prestige = 25
+		add_prestige = 50
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_wergild_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_wergild_decision_desc
+	selection_tooltip = eir_wergild_decision_tooltip
+	confirm_text = eir_wergild_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		OR = {
+			has_character_modifier = eir_kin_strife_modifier
+			has_character_modifier = eir_raider_infamy_modifier
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	effect = {
+		if = {
+			limit = { has_character_modifier = eir_kin_strife_modifier }
+			remove_character_modifier = eir_kin_strife_modifier
+		}
+		if = {
+			limit = { has_character_modifier = eir_raider_infamy_modifier }
+			remove_character_modifier = eir_raider_infamy_modifier
+		}
+		add_character_modifier = { modifier = eir_wergild_peace_modifier years = 8 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_wergild_paid_opinion OPINION = 8 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_norse_captain_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_norse_captain_decision_desc
+	selection_tooltip = eir_norse_captain_decision_tooltip
+	confirm_text = eir_norse_captain_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		eir_has_coast_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 600
+	}
+
+	effect = {
+		spawn_army = {
+			levies = 600
+			men_at_arms = {
+				type = light_footmen
+				stacks = 2
+			}
+			men_at_arms = {
+				type = armored_footmen
+				stacks = 1
+			}
+			location = capital_province
+			origin = capital_province
+			inheritable = no
+			name = eir_viking_fleet_name
+		}
+		add_character_modifier = { modifier = eir_foreign_lords_modifier years = 4 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_four_provinces_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_four_provinces_decision_desc
+	selection_tooltip = eir_four_provinces_decision_tooltip
+	confirm_text = eir_four_provinces_decision_confirm
+
+	cooldown = { days = 14600 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_muster
+		has_global_variable = eir_done_oenach
+		eir_holds_irish_duchies_trigger = { COUNT = 2 }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1200
+		prestige = 800
+	}
+
+	effect = {
+		eir_defender_levy_effect = yes
+		eir_defender_levy_effect = yes
+		add_character_modifier = { modifier = eir_hosting_modifier years = 6 }
+		add_prestige = 500
+		eir_legend_title_effect = { TITLE = primary_title }
+		trigger_event = { id = eir.0172 days = 60 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_single_combat_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_single_combat_decision_desc
+	selection_tooltip = eir_single_combat_decision_tooltip
+	confirm_text = eir_single_combat_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage1_trigger = yes
+		prowess >= 10
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 150
+	}
+
+	effect = {
+		trigger_event = { id = eir.0151 days = 5 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_coastal_watch_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_coastal_watch_decision_desc
+	selection_tooltip = eir_coastal_watch_decision_tooltip
+	confirm_text = eir_coastal_watch_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage1_trigger = yes
+		eir_ports_trigger = { N = 3 }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 150
+	}
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				is_coastal_county = yes
+			}
+			add_county_modifier = { modifier = eir_coast_watch_county_modifier years = 25 }
+			title_province = { add_province_modifier = { modifier = eir_beacon_province_modifier years = 25 } }
+		}
+		add_character_modifier = { modifier = eir_watchtowers_modifier years = 15 }
+		add_prestige = 100
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_ceithern_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_ceithern_decision_desc
+	selection_tooltip = eir_ceithern_decision_tooltip
+	confirm_text = eir_ceithern_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_oath
+		eir_irish_buildings_trigger = { COUNT = 4 }
+		NOT = { has_global_variable = eir_unlock_ceithern }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 800
+		prestige = 600
+	}
+
+	effect = {
+		set_global_variable = eir_unlock_ceithern
+		add_prestige = 250
 	}
 
 	ai_will_do = {
@@ -1237,7 +2236,7 @@ eir_pacify_natives_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 600
 	}
 
 	effect = {
@@ -1245,7 +2244,7 @@ eir_pacify_natives_decision = {
 			limit = { eir_county_occupied_trigger = yes }
 			add_county_modifier = { modifier = eir_pacified_modifier years = 10 }
 		}
-		add_prestige = 25
+		add_prestige = 50
 	}
 
 	ai_will_do = {
@@ -1253,15 +2252,15 @@ eir_pacify_natives_decision = {
 	}
 }
 
-eir_harsh_pacification_decision = {
+eir_burn_the_hills_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_harsh_pacification_decision_desc
-	selection_tooltip = eir_harsh_pacification_decision_tooltip
-	confirm_text = eir_harsh_pacification_decision_confirm
+	desc = eir_burn_the_hills_decision_desc
+	selection_tooltip = eir_burn_the_hills_decision_tooltip
+	confirm_text = eir_burn_the_hills_decision_confirm
 
 	cooldown = { days = 1825 }
 
@@ -1289,70 +2288,28 @@ eir_harsh_pacification_decision = {
 	}
 }
 
-eir_celtic_brotherhood_decision = {
+eir_found_monastery_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 	}
-	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_celtic_brotherhood_decision_desc
-	selection_tooltip = eir_celtic_brotherhood_decision_tooltip
-	confirm_text = eir_celtic_brotherhood_decision_confirm
+	desc = eir_found_monastery_decision_desc
+	selection_tooltip = eir_found_monastery_decision_tooltip
+	confirm_text = eir_found_monastery_decision_confirm
 
 	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 150
-	}
-
-	effect = {
-		every_ruler = {
-			limit = {
-				is_ai = yes
-				culture ?= { has_cultural_pillar = heritage_brythonic }
-			}
-			add_opinion = { target = root modifier = eir_gael_pride_opinion opinion = 25 }
-		}
-		add_character_modifier = { modifier = eir_celtic_brotherhood_modifier years = 15 }
-		add_prestige = 150
-		set_global_variable = eir_done_brotherhood
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_reclaim_dal_riata_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_reclaim_dal_riata_decision_desc
-	selection_tooltip = eir_reclaim_dal_riata_decision_tooltip
-	confirm_text = eir_reclaim_dal_riata_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		is_at_war = no
+		eir_stage1_trigger = yes
+		piety >= 200
+		any_held_title = { tier = tier_county }
+		NOT = { has_global_variable = eir_done_monastery }
 	}
 
 	is_valid_showing_failures_only = {
@@ -1361,15 +2318,16 @@ eir_reclaim_dal_riata_decision = {
 	}
 
 	cost = {
-		prestige = 200
+		gold = 300
+		piety = 200
 	}
 
 	effect = {
-		eir_grant_claims_non_celtic_effect = { TITLE = d_albany }
-		eir_grant_claims_non_celtic_effect = { TITLE = d_the_isles }
-		eir_grant_claims_non_celtic_effect = { TITLE = d_western_isles }
-		add_prestige = 50
-		set_global_variable = eir_done_dalriata
+		eir_held_county_modifier_effect = { MODIFIER = eir_monastery_county_modifier YEARS = 40 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_salmon_fisheries_modifier YEARS = 30 }
+		add_character_modifier = { modifier = eir_monastery_founder_modifier years = 15 }
+		add_piety = 250
+		set_global_variable = eir_done_monastery
 	}
 
 	ai_will_do = {
@@ -1377,230 +2335,28 @@ eir_reclaim_dal_riata_decision = {
 	}
 }
 
-eir_reclaim_man_isles_decision = {
+eir_found_scriptorium_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_reclaim_man_isles_decision_desc
-	selection_tooltip = eir_reclaim_man_isles_decision_tooltip
-	confirm_text = eir_reclaim_man_isles_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 150
-	}
-
-	effect = {
-		eir_grant_claims_non_celtic_effect = { TITLE = k_mann_the_isles }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_reclaim_cornwall_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_reclaim_cornwall_decision_desc
-	selection_tooltip = eir_reclaim_cornwall_decision_tooltip
-	confirm_text = eir_reclaim_cornwall_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_brotherhood
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 150
-	}
-
-	effect = {
-		eir_grant_claims_non_celtic_effect = { TITLE = d_cornwall }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_reclaim_armorica_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_reclaim_armorica_decision_desc
-	selection_tooltip = eir_reclaim_armorica_decision_tooltip
-	confirm_text = eir_reclaim_armorica_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_brotherhood
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 200
-	}
-
-	effect = {
-		eir_grant_claims_non_celtic_effect = { TITLE = d_brittany }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_reclaim_old_north_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_reclaim_old_north_decision_desc
-	selection_tooltip = eir_reclaim_old_north_decision_tooltip
-	confirm_text = eir_reclaim_old_north_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_brotherhood
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 250
-	}
-
-	effect = {
-		eir_grant_claims_non_celtic_effect = { TITLE = d_northumberland }
-		eir_grant_claims_non_celtic_effect = { TITLE = d_lothian }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_stand_with_wales_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_stand_with_wales_decision_desc
-	selection_tooltip = eir_stand_with_wales_decision_tooltip
-	confirm_text = eir_stand_with_wales_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_brotherhood
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 200
-	}
-
-	effect = {
-		eir_grant_claims_non_celtic_effect = { TITLE = d_powys }
-		eir_grant_claims_non_celtic_effect = { TITLE = d_deheubarth }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_proclaim_gaeldom_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
-	}
-	decision_group_type = major
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_proclaim_gaeldom_decision_desc
-	selection_tooltip = eir_proclaim_gaeldom_decision_tooltip
-	confirm_text = eir_proclaim_gaeldom_decision_confirm
+	desc = eir_found_scriptorium_decision_desc
+	selection_tooltip = eir_found_scriptorium_decision_tooltip
+	confirm_text = eir_found_scriptorium_decision_confirm
 
 	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:k_ireland
-		has_global_variable = eir_done_brotherhood
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		eir_can_create_gaeldom_trigger = yes
-		NOT = { exists = title:e_eir_gaeldom.holder }
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_monastery
+		piety >= 400
+		NOT = { has_global_variable = eir_unlock_scriptorium }
 	}
 
 	is_valid_showing_failures_only = {
@@ -1609,18 +2365,151 @@ eir_proclaim_gaeldom_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		prestige = 500
+		gold = 600
+		piety = 300
 	}
 
 	effect = {
-		eir_create_title_effect = { TITLE = e_eir_gaeldom }
-		add_character_modifier = { modifier = eir_gaeldom_emperor_modifier years = 30 }
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 60 } }
-		add_prestige = 1000
+		set_global_variable = eir_unlock_scriptorium
+		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 12 }
+		add_piety = 250
+		trigger_event = { id = eir.0080 years = 5 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_raise_high_crosses_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_raise_high_crosses_decision_desc
+	selection_tooltip = eir_raise_high_crosses_decision_tooltip
+	confirm_text = eir_raise_high_crosses_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_monastery
+		NOT = { has_global_variable = eir_unlock_high_cross }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 600
+		piety = 150
+	}
+
+	effect = {
+		set_global_variable = eir_unlock_high_cross
+		eir_held_county_modifier_effect = { MODIFIER = eir_high_cross_modifier YEARS = 25 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_high_cross_modifier YEARS = 25 }
+		eir_held_county_modifier_effect = { MODIFIER = eir_high_cross_modifier YEARS = 25 }
 		add_piety = 200
-		eir_legend_title_effect = { TITLE = title:e_eir_gaeldom }
-		trigger_event = { id = eir.0112 days = 7 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_round_towers_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_round_towers_decision_desc
+	selection_tooltip = eir_found_round_towers_decision_tooltip
+	confirm_text = eir_found_round_towers_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_monastery
+		NOT = { has_global_variable = eir_unlock_round_tower }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 500
+		piety = 100
+	}
+
+	effect = {
+		set_global_variable = eir_unlock_round_tower
+		capital_province ?= { add_province_modifier = { modifier = eir_beacon_province_modifier years = 25 } }
+		random_held_title = {
+			limit = { tier = tier_county }
+			title_province = { add_province_modifier = { modifier = eir_round_tower_province_modifier years = 30 } }
+		}
+		add_piety = 100
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_scriptorium_patron_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_scriptorium_patron_decision_desc
+	selection_tooltip = eir_scriptorium_patron_decision_tooltip
+	confirm_text = eir_scriptorium_patron_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_unlock_scriptorium
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		piety = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_scriptorium_patron_modifier years = 8 }
+		add_piety = 100
+		trigger_event = { id = eir.0153 years = 3 }
 	}
 
 	ai_will_do = {
@@ -1642,10 +2531,14 @@ eir_endow_cashel_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_munster
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
+		has_title = title:d_munster
+		has_global_variable = eir_done_monastery
+		piety >= 400
 		NOT = { has_global_variable = eir_done_cashel }
 	}
 
@@ -1655,14 +2548,14 @@ eir_endow_cashel_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		piety = 100
+		gold = 700
+		piety = 300
 	}
 
 	effect = {
 		eir_capital_county_modifier_effect = { TITLE = d_munster MODIFIER = eir_cashel_rock_modifier YEARS = 30 }
-		add_piety = 200
-		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 10 }
+		add_piety = 350
+		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 12 }
 		set_global_variable = eir_done_cashel
 	}
 
@@ -1673,7 +2566,7 @@ eir_endow_cashel_decision = {
 
 eir_synod_rath_breasail_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 	}
 	decision_group_type = major
 	ai_check_interval = 0
@@ -1686,10 +2579,13 @@ eir_synod_rath_breasail_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		piety >= 200
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_cashel
+		piety >= 800
 		NOT = { has_global_variable = eir_done_synod }
 	}
 
@@ -1699,13 +2595,13 @@ eir_synod_rath_breasail_decision = {
 	}
 
 	cost = {
-		piety = 200
+		piety = 500
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_synod_reform_modifier years = 15 }
 		add_character_modifier = { modifier = eir_culdee_strife_modifier years = 8 }
-		add_piety = 200
+		add_piety = 400
 		set_global_variable = eir_done_synod
 	}
 
@@ -1716,7 +2612,7 @@ eir_synod_rath_breasail_decision = {
 
 eir_reconcile_culdees_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
@@ -1737,12 +2633,13 @@ eir_reconcile_culdees_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 250
+		piety = 100
 	}
 
 	effect = {
 		remove_character_modifier = eir_culdee_strife_modifier
-		add_piety = 100
+		add_piety = 150
 	}
 
 	ai_will_do = {
@@ -1764,10 +2661,13 @@ eir_pilgrimage_skellig_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		piety >= 50
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage1_trigger = yes
+		piety >= 200
+		eir_has_coast_trigger = yes
 		NOT = { has_character_modifier = eir_pilgrim_modifier }
 	}
 
@@ -1777,12 +2677,13 @@ eir_pilgrimage_skellig_decision = {
 	}
 
 	cost = {
-		gold = minor_gold_value
+		gold = 200
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_pilgrim_modifier years = 8 }
-		add_piety = 150
+		add_character_modifier = { modifier = eir_hermit_blessing_modifier years = 8 }
+		add_piety = 350
 	}
 
 	ai_will_do = {
@@ -1804,10 +2705,14 @@ eir_armagh_primacy_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_ulster
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
+		eir_stage2_trigger = yes
+		has_title = title:d_ulster
+		has_global_variable = eir_done_cashel
+		piety >= 500
 		NOT = { has_global_variable = eir_done_armagh }
 	}
 
@@ -1817,13 +2722,14 @@ eir_armagh_primacy_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
-		piety = 100
+		gold = 800
+		piety = 400
 	}
 
 	effect = {
 		eir_capital_county_modifier_effect = { TITLE = d_ulster MODIFIER = eir_armagh_see_modifier YEARS = 30 }
-		add_piety = 150
+		eir_held_county_modifier_effect = { MODIFIER = eir_armagh_library_modifier YEARS = 30 }
+		add_piety = 300
 		set_global_variable = eir_done_armagh
 	}
 
@@ -1846,7 +2752,14 @@ eir_patronise_glendalough_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
 		has_title = title:d_leinster
+		has_global_variable = eir_done_cashel
+		NOT = { has_global_variable = eir_done_glendalough }
 	}
 
 	is_valid_showing_failures_only = {
@@ -1855,12 +2768,14 @@ eir_patronise_glendalough_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 600
+		piety = 250
 	}
 
 	effect = {
 		eir_capital_county_modifier_effect = { TITLE = d_leinster MODIFIER = eir_glendalough_modifier YEARS = 30 }
-		add_piety = 100
+		add_piety = 250
+		set_global_variable = eir_done_glendalough
 	}
 
 	ai_will_do = {
@@ -1882,7 +2797,14 @@ eir_restore_clonmacnoise_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
 		has_title = title:d_connacht
+		has_global_variable = eir_done_cashel
+		NOT = { has_global_variable = eir_done_clonmacnoise }
 	}
 
 	is_valid_showing_failures_only = {
@@ -1891,12 +2813,228 @@ eir_restore_clonmacnoise_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 600
+		piety = 250
 	}
 
 	effect = {
 		eir_capital_county_modifier_effect = { TITLE = d_connacht MODIFIER = eir_monastic_city_modifier YEARS = 30 }
-		add_piety = 100
+		add_piety = 250
+		set_global_variable = eir_done_clonmacnoise
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_cain_law_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_cain_law_decision_desc
+	selection_tooltip = eir_cain_law_decision_tooltip
+	confirm_text = eir_cain_law_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_cashel
+		piety >= 600
+		NOT = { has_global_variable = eir_done_cain }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		piety = 400
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_cain_law_modifier years = 20 }
+		add_character_modifier = { modifier = eir_sanctuary_modifier years = 20 }
+		add_piety = 400
+		set_global_variable = eir_done_cain
+		trigger_event = { id = eir.0171 days = 90 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_relic_procession_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_relic_procession_decision_desc
+	selection_tooltip = eir_relic_procession_decision_tooltip
+	confirm_text = eir_relic_procession_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_cashel
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		piety = 250
+	}
+
+	effect = {
+		every_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = { modifier = eir_relic_procession_county_modifier years = 5 }
+		}
+		add_character_modifier = { modifier = eir_relic_procession_modifier years = 8 }
+		add_piety = 200
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_penance_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_penance_decision_desc
+	selection_tooltip = eir_penance_decision_tooltip
+	confirm_text = eir_penance_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		stress >= 50
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		add_stress = -80
+		add_character_modifier = { modifier = eir_penance_done_modifier years = 6 }
+		add_prestige = -100
+		add_piety = 150
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_rome_pilgrimage_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_rome_pilgrimage_decision_desc
+	selection_tooltip = eir_rome_pilgrimage_decision_tooltip
+	confirm_text = eir_rome_pilgrimage_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		piety >= 800
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 800
+	}
+
+	effect = {
+		trigger_event = { id = eir.0152 days = 30 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_honour_saints_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_honour_saints_decision_desc
+	selection_tooltip = eir_honour_saints_decision_tooltip
+	confirm_text = eir_honour_saints_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		has_global_variable = eir_done_monastery
+		piety >= 400
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		piety = 300
+	}
+
+	effect = {
+		trigger_event = { id = eir.0180 days = 5 }
 	}
 
 	ai_will_do = {
@@ -1919,11 +3057,15 @@ eir_crown_king_of_munster_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_munster
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
 		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_munster }
+		eir_realm_size_trigger = { N = 15 }
+		eir_irish_buildings_trigger = { COUNT = 2 }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_cashel
 		NOT = { exists = title:k_eir_munster.holder }
 	}
 
@@ -1933,14 +3075,15 @@ eir_crown_king_of_munster_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 1500
+		prestige = 1200
 	}
 
 	effect = {
 		eir_create_title_effect = { TITLE = k_eir_munster }
 		set_global_variable = eir_unlock_ringfort
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 25 } }
-		add_prestige = 200
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 30 } }
+		add_prestige = 600
 		eir_legend_title_effect = { TITLE = title:k_eir_munster }
 		trigger_event = { id = eir.0110 days = 7 }
 	}
@@ -1965,11 +3108,15 @@ eir_crown_king_of_ulster_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_ulster
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
 		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_ulster }
+		eir_realm_size_trigger = { N = 15 }
+		eir_irish_buildings_trigger = { COUNT = 2 }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_armagh
 		NOT = { exists = title:k_eir_ulster.holder }
 	}
 
@@ -1979,14 +3126,15 @@ eir_crown_king_of_ulster_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 1500
+		prestige = 1200
 	}
 
 	effect = {
 		eir_create_title_effect = { TITLE = k_eir_ulster }
 		set_global_variable = eir_unlock_crannog
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 25 } }
-		add_prestige = 200
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 30 } }
+		add_prestige = 600
 		eir_legend_title_effect = { TITLE = title:k_eir_ulster }
 		trigger_event = { id = eir.0110 days = 7 }
 	}
@@ -2011,11 +3159,15 @@ eir_crown_king_of_leinster_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_leinster
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
 		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_leinster }
+		eir_realm_size_trigger = { N = 15 }
+		eir_irish_buildings_trigger = { COUNT = 2 }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_glendalough
 		NOT = { exists = title:k_eir_leinster.holder }
 	}
 
@@ -2025,14 +3177,15 @@ eir_crown_king_of_leinster_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 1500
+		prestige = 1200
 	}
 
 	effect = {
 		eir_create_title_effect = { TITLE = k_eir_leinster }
 		set_global_variable = eir_unlock_cattle_enclosure
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 25 } }
-		add_prestige = 200
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 30 } }
+		add_prestige = 600
 		eir_legend_title_effect = { TITLE = title:k_eir_leinster }
 		trigger_event = { id = eir.0110 days = 7 }
 	}
@@ -2057,11 +3210,15 @@ eir_crown_king_of_connacht_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_connacht
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
 		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_connacht }
+		eir_realm_size_trigger = { N = 15 }
+		eir_irish_buildings_trigger = { COUNT = 2 }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_clonmacnoise
 		NOT = { exists = title:k_eir_connacht.holder }
 	}
 
@@ -2071,14 +3228,15 @@ eir_crown_king_of_connacht_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 1500
+		prestige = 1200
 	}
 
 	effect = {
 		eir_create_title_effect = { TITLE = k_eir_connacht }
 		set_global_variable = eir_unlock_high_cross
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 25 } }
-		add_prestige = 200
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 30 } }
+		add_prestige = 600
 		eir_legend_title_effect = { TITLE = title:k_eir_connacht }
 		trigger_event = { id = eir.0110 days = 7 }
 	}
@@ -2103,11 +3261,15 @@ eir_crown_king_of_meath_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_meath
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
 		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_meath }
+		eir_realm_size_trigger = { N = 15 }
+		eir_irish_buildings_trigger = { COUNT = 2 }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_tara_hall
 		NOT = { exists = title:k_eir_meath.holder }
 	}
 
@@ -2117,14 +3279,15 @@ eir_crown_king_of_meath_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 1500
+		prestige = 1200
 	}
 
 	effect = {
 		eir_create_title_effect = { TITLE = k_eir_meath }
 		set_global_variable = eir_unlock_brehon_court
-		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 25 } }
-		add_prestige = 200
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 30 } }
+		add_prestige = 600
 		eir_legend_title_effect = { TITLE = title:k_eir_meath }
 		trigger_event = { id = eir.0110 days = 7 }
 		eir_capital_county_modifier_effect = { TITLE = d_meath MODIFIER = eir_tara_hill_modifier YEARS = 25 }
@@ -2155,6 +3318,7 @@ eir_crown_king_of_dal_riata_decision = {
 
 	is_valid = {
 		eir_can_create_dal_riata_trigger = yes
+		eir_realm_size_trigger = { N = 12 }
 		NOT = { exists = title:k_eir_dal_riata.holder }
 	}
 
@@ -2164,1382 +3328,15 @@ eir_crown_king_of_dal_riata_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 1200
+		prestige = 1000
 	}
 
 	effect = {
 		eir_create_title_effect = { TITLE = k_eir_dal_riata }
-		add_prestige = 250
-		set_global_variable = eir_done_dalriata_crown
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_raise_ringforts_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_raise_ringforts_decision_desc
-	selection_tooltip = eir_raise_ringforts_decision_tooltip
-	confirm_text = eir_raise_ringforts_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = major_gold_value
-	}
-
-	effect = {
-		set_global_variable = eir_unlock_ringfort
-		set_global_variable = eir_unlock_crannog
-		set_global_variable = eir_unlock_cattle_enclosure
-		add_character_modifier = { modifier = eir_dun_builder_modifier years = 15 }
-		capital_province ?= { add_province_modifier = { modifier = eir_ringfort_province_modifier years = 30 } }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_claim_tara_hill_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_claim_tara_hill_decision_desc
-	selection_tooltip = eir_claim_tara_hill_decision_tooltip
-	confirm_text = eir_claim_tara_hill_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_title = title:d_meath
-	}
-
-	is_valid = {
-		NOT = { has_global_variable = eir_done_tara_vigil }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 100
-	}
-
-	effect = {
-		eir_capital_county_modifier_effect = { TITLE = d_meath MODIFIER = eir_tara_hill_modifier YEARS = 25 }
-		add_character_modifier = { modifier = eir_tara_vigil_modifier years = 10 }
-		add_prestige = 100
-		set_global_variable = eir_done_tara_vigil
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_circuit_of_ireland_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_circuit_of_ireland_decision_desc
-	selection_tooltip = eir_circuit_of_ireland_decision_tooltip
-	confirm_text = eir_circuit_of_ireland_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		every_held_title = {
-			limit = { tier = tier_county }
-			add_county_modifier = { modifier = eir_circuit_visit_modifier years = 5 }
-		}
-		add_character_modifier = { modifier = eir_royal_circuit_modifier years = 8 }
-		eir_vassal_opinion_effect = { MODIFIER = eir_circuit_host_opinion OPINION = 8 }
-		eir_trait_effect = { TRAIT = eir_peacemaker_of_tara OPPOSITE = wrathful CHANCE = 20 }
-		set_global_variable = eir_done_circuit
-		trigger_event = { id = eir.0160 days = 45 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_take_hostages_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_prison.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_take_hostages_decision_desc
-	selection_tooltip = eir_take_hostages_decision_tooltip
-	confirm_text = eir_take_hostages_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-		NOT = { has_character_modifier = eir_hostages_modifier }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_hostages_modifier years = 12 }
-		eir_vassal_opinion_effect = { MODIFIER = eir_hostage_taken_opinion OPINION = -10 }
-		add_prestige = 100
-		set_global_variable = eir_done_hostages
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_release_hostages_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_release_hostages_decision_desc
-	selection_tooltip = eir_release_hostages_decision_tooltip
-	confirm_text = eir_release_hostages_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_character_modifier = eir_hostages_modifier
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		remove_character_modifier = eir_hostages_modifier
-		eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 10 }
-		add_prestige = 25
-		trigger_event = { id = eir.0170 days = 30 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_cain_law_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_cain_law_decision_desc
-	selection_tooltip = eir_cain_law_decision_tooltip
-	confirm_text = eir_cain_law_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_cashel
-		NOT = { has_global_variable = eir_done_cain }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		piety = 150
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_cain_law_modifier years = 20 }
-		add_piety = 200
-		set_global_variable = eir_done_cain
-		trigger_event = { id = eir.0171 days = 90 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_provincial_oath_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_provincial_oath_decision_desc
-	selection_tooltip = eir_provincial_oath_decision_tooltip
-	confirm_text = eir_provincial_oath_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		every_vassal = {
-			limit = { highest_held_title_tier >= tier_duchy }
-			add_opinion = { target = root modifier = eir_oath_sworn_opinion opinion = 15 }
-		}
-		add_character_modifier = { modifier = eir_provincial_oath_modifier years = 12 }
-		add_prestige = 100
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_feis_of_tara_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
-	}
-	decision_group_type = major
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_feis_of_tara_decision_desc
-	selection_tooltip = eir_feis_of_tara_decision_tooltip
-	confirm_text = eir_feis_of_tara_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-		has_global_variable = eir_done_tara_hall
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = major_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_feis_modifier years = 10 }
-		add_prestige = 250
-		eir_vassal_opinion_effect = { MODIFIER = eir_oenach_opinion OPINION = 8 }
-		trigger_event = { id = eir.0051 days = 20 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_rebuild_tara_hall_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
-	}
-	decision_group_type = major
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_rebuild_tara_hall_decision_desc
-	selection_tooltip = eir_rebuild_tara_hall_decision_tooltip
-	confirm_text = eir_rebuild_tara_hall_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-		has_title = title:d_meath
-		NOT = { has_global_variable = eir_done_tara_hall }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = major_gold_value
-	}
-
-	effect = {
-		eir_capital_county_modifier_effect = { TITLE = d_meath MODIFIER = eir_tara_hall_modifier YEARS = 40 }
-		add_prestige = 150
-		set_global_variable = eir_done_tara_hall
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_name_tanaiste_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_name_tanaiste_decision_desc
-	selection_tooltip = eir_name_tanaiste_decision_tooltip
-	confirm_text = eir_name_tanaiste_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		exists = primary_heir
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 50
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_tanaiste_modifier years = 15 }
-		primary_heir ?= { add_opinion = { target = root modifier = eir_oath_sworn_opinion opinion = 25 } }
-		add_prestige = 25
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_strike_claim_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_prison.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_strike_claim_decision_desc
-	selection_tooltip = eir_strike_claim_decision_tooltip
-	confirm_text = eir_strike_claim_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		any_vassal = { count >= 1 }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		random_vassal = {
-			add_opinion = { target = root modifier = eir_claim_revoked_opinion opinion = -25 }
-		}
-		add_character_modifier = { modifier = eir_tanistry_dispute_modifier years = 8 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_cain_tribute_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_cain_tribute_decision_desc
-	selection_tooltip = eir_cain_tribute_decision_tooltip
-	confirm_text = eir_cain_tribute_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-		NOT = { has_character_modifier = eir_cain_tribute_modifier }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_cain_tribute_modifier years = 8 }
-		add_gold = medium_gold_value
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_waive_cain_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_waive_cain_decision_desc
-	selection_tooltip = eir_waive_cain_decision_tooltip
-	confirm_text = eir_waive_cain_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_character_modifier = eir_cain_tribute_modifier
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		remove_character_modifier = eir_cain_tribute_modifier
-		eir_vassal_opinion_effect = { MODIFIER = eir_wergild_paid_opinion OPINION = 6 }
-		add_prestige = 25
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_wergild_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_wergild_decision_desc
-	selection_tooltip = eir_wergild_decision_tooltip
-	confirm_text = eir_wergild_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		OR = {
-		has_character_modifier = eir_kin_strife_modifier
-		has_character_modifier = eir_raider_infamy_modifier
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		if = {
-			limit = { has_character_modifier = eir_kin_strife_modifier }
-			remove_character_modifier = eir_kin_strife_modifier
-		}
-		if = {
-			limit = { has_character_modifier = eir_raider_infamy_modifier }
-			remove_character_modifier = eir_raider_infamy_modifier
-		}
-		add_character_modifier = { modifier = eir_wergild_peace_modifier years = 8 }
-		eir_vassal_opinion_effect = { MODIFIER = eir_wergild_paid_opinion OPINION = 6 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_gaelic_court_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_gaelic_court_decision_desc
-	selection_tooltip = eir_gaelic_court_decision_tooltip
-	confirm_text = eir_gaelic_court_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_gaelic_court_modifier years = 10 }
-		add_prestige = 50
-		eir_court_opinion_effect = { MODIFIER = eir_poet_praise_opinion OPINION = 8 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_name_ollamh_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_name_ollamh_decision_desc
-	selection_tooltip = eir_name_ollamh_decision_tooltip
-	confirm_text = eir_name_ollamh_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
-		NOT = { has_character_modifier = eir_royal_ollamh_modifier }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_royal_ollamh_modifier years = 20 }
-		if = {
-			limit = { learning >= 12 }
-			eir_trait_effect = { TRAIT = eir_poet_prince OPPOSITE = lazy CHANCE = 30 }
-		}
-		add_prestige = 75
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_call_slogad_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_call_slogad_decision_desc
-	selection_tooltip = eir_call_slogad_decision_tooltip
-	confirm_text = eir_call_slogad_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 75
-	}
-
-	effect = {
-		eir_defender_levy_effect = yes
-		add_character_modifier = { modifier = eir_hosting_modifier years = 4 }
-		add_prestige = 25
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_sanctuary_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_sanctuary_decision_desc
-	selection_tooltip = eir_sanctuary_decision_tooltip
-	confirm_text = eir_sanctuary_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_cain
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_sanctuary_modifier years = 15 }
-		add_piety = 100
-		eir_vassal_opinion_effect = { MODIFIER = eir_claim_revoked_opinion OPINION = -3 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_naming_customs_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_naming_customs_decision_desc
-	selection_tooltip = eir_naming_customs_decision_tooltip
-	confirm_text = eir_naming_customs_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		prestige = 50
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_naming_customs_modifier years = 20 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_bardic_circuit_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_bardic_circuit_decision_desc
-	selection_tooltip = eir_bardic_circuit_decision_tooltip
-	confirm_text = eir_bardic_circuit_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_bardic_circuit_modifier years = 10 }
-		add_prestige = 100
-		trigger_event = { id = eir.0130 days = 60 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_harper_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_harper_decision_desc
-	selection_tooltip = eir_harper_decision_tooltip
-	confirm_text = eir_harper_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_harper_modifier years = 15 }
-		add_prestige = 25
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_teach_gaelic_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_teach_gaelic_decision_desc
-	selection_tooltip = eir_teach_gaelic_decision_tooltip
-	confirm_text = eir_teach_gaelic_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_gaelic_schooling_modifier YEARS = 20 }
-		add_piety = 25
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_sidhe_hosting_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_sidhe_hosting_decision_desc
-	selection_tooltip = eir_sidhe_hosting_decision_tooltip
-	confirm_text = eir_sidhe_hosting_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_sidhe_hosting_modifier years = 6 }
-		add_prestige = 25
-		trigger_event = { id = eir.0037 days = 30 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_cult_brigid_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_cult_brigid_decision_desc
-	selection_tooltip = eir_cult_brigid_decision_tooltip
-	confirm_text = eir_cult_brigid_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_brigid_cult_modifier years = 15 }
-		eir_held_county_modifier_effect = { MODIFIER = eir_kildare_flame_modifier YEARS = 25 }
-		add_piety = 75
-		trigger_event = { id = eir.0031 days = 30 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_cult_colmcille_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_cult_colmcille_decision_desc
-	selection_tooltip = eir_cult_colmcille_decision_tooltip
-	confirm_text = eir_cult_colmcille_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_unlock_scriptorium
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		piety = 50
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_colmcille_cult_modifier years = 15 }
-		add_piety = 100
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_cult_patrick_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_cult_patrick_decision_desc
-	selection_tooltip = eir_cult_patrick_decision_tooltip
-	confirm_text = eir_cult_patrick_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_armagh
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		piety = 50
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_patrick_cult_modifier years = 15 }
-		add_piety = 100
-		trigger_event = { id = eir.0043 days = 60 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_salmon_fisheries_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_salmon_fisheries_decision_desc
-	selection_tooltip = eir_salmon_fisheries_decision_tooltip
-	confirm_text = eir_salmon_fisheries_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_salmon_fisheries_modifier YEARS = 30 }
-		add_prestige = 25
-		trigger_event = { id = eir.0036 days = 45 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_yew_bows_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_smith.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_yew_bows_decision_desc
-	selection_tooltip = eir_yew_bows_decision_tooltip
-	confirm_text = eir_yew_bows_decision_confirm
-
-	cooldown = { days = 5475 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_yew_bows_modifier years = 15 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_hurling_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_hurling_decision_desc
-	selection_tooltip = eir_hurling_decision_tooltip
-	confirm_text = eir_hurling_decision_confirm
-
-	cooldown = { days = 5475 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_hurling_fields_modifier YEARS = 20 }
-		add_prestige = 25
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_peat_rights_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_peat_rights_decision_desc
-	selection_tooltip = eir_peat_rights_decision_tooltip
-	confirm_text = eir_peat_rights_decision_confirm
-
-	cooldown = { days = 5475 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_peat_wealth_modifier YEARS = 25 }
-		trigger_event = { id = eir.0038 days = 40 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_wolfhound_kennels_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_pet_dog.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_wolfhound_kennels_decision_desc
-	selection_tooltip = eir_wolfhound_kennels_decision_tooltip
-	confirm_text = eir_wolfhound_kennels_decision_confirm
-
-	cooldown = { days = 5475 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_wolfhound_kennels_modifier years = 15 }
-		add_prestige = 25
-		trigger_event = { id = eir.0050 days = 20 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_uisneach_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_uisneach_decision_desc
-	selection_tooltip = eir_uisneach_decision_tooltip
-	confirm_text = eir_uisneach_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_uisneach_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_newgrange_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_newgrange_decision_desc
-	selection_tooltip = eir_newgrange_decision_tooltip
-	confirm_text = eir_newgrange_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_newgrange_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_rathcroghan_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_rathcroghan_decision_desc
-	selection_tooltip = eir_rathcroghan_decision_tooltip
-	confirm_text = eir_rathcroghan_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_rathcroghan_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_navan_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_navan_decision_desc
-	selection_tooltip = eir_navan_decision_tooltip
-	confirm_text = eir_navan_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_navan_fort_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_dunadd_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_dunadd_decision_desc
-	selection_tooltip = eir_dunadd_decision_tooltip
-	confirm_text = eir_dunadd_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_dalriata
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
+		add_prestige = 700
+		add_character_modifier = { modifier = eir_pictish_memory_modifier years = 15 }
 		eir_held_county_modifier_effect = { MODIFIER = eir_dunadd_modifier YEARS = 30 }
-		add_prestige = 50
 	}
 
 	ai_will_do = {
@@ -3547,260 +3344,29 @@ eir_dunadd_decision = {
 	}
 }
 
-eir_monasterboice_decision = {
+eir_celtic_brotherhood_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
 	}
+	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_monasterboice_decision_desc
-	selection_tooltip = eir_monasterboice_decision_tooltip
-	confirm_text = eir_monasterboice_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_unlock_high_cross
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_monasterboice_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_armagh_library_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_armagh_library_decision_desc
-	selection_tooltip = eir_armagh_library_decision_tooltip
-	confirm_text = eir_armagh_library_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_armagh
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_armagh_library_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_wooden_harbours_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_wooden_harbours_decision_desc
-	selection_tooltip = eir_wooden_harbours_decision_tooltip
-	confirm_text = eir_wooden_harbours_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		eir_has_coast_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_wooden_harbour_modifier YEARS = 30 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_ceithern_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_ceithern_decision_desc
-	selection_tooltip = eir_ceithern_decision_tooltip
-	confirm_text = eir_ceithern_decision_confirm
+	desc = eir_celtic_brotherhood_decision_desc
+	selection_tooltip = eir_celtic_brotherhood_decision_tooltip
+	confirm_text = eir_celtic_brotherhood_decision_confirm
 
 	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-		NOT = { has_global_variable = eir_unlock_ceithern }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		set_global_variable = eir_unlock_ceithern
-		add_prestige = 100
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_coastal_watch_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_coastal_watch_decision_desc
-	selection_tooltip = eir_coastal_watch_decision_tooltip
-	confirm_text = eir_coastal_watch_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		eir_has_coast_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		every_held_title = {
-			limit = {
-				tier = tier_county
-				is_coastal_county = yes
-			}
-			add_county_modifier = { modifier = eir_coast_watch_county_modifier years = 25 }
-			title_province = { add_province_modifier = { modifier = eir_beacon_province_modifier years = 25 } }
-		}
-		add_character_modifier = { modifier = eir_watchtowers_modifier years = 15 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_border_muster_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_border_muster_decision_desc
-	selection_tooltip = eir_border_muster_decision_tooltip
-	confirm_text = eir_border_muster_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		eir_defender_levy_effect = yes
-		add_prestige = 10
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_hillfort_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_hillfort_decision_desc
-	selection_tooltip = eir_hillfort_decision_tooltip
-	confirm_text = eir_hillfort_decision_confirm
-
-	cooldown = { days = 5475 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		any_held_title = { tier = tier_county }
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_oath
+		eir_ports_trigger = { N = 3 }
+		NOT = { has_global_variable = eir_done_brotherhood }
 	}
 
 	is_valid_showing_failures_only = {
@@ -3809,15 +3375,21 @@ eir_hillfort_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 800
+		prestige = 1200
 	}
 
 	effect = {
-		random_held_title = {
-			limit = { tier = tier_county }
-			title_province = { add_province_modifier = { modifier = eir_ringfort_province_modifier years = 40 } }
+		every_ruler = {
+			limit = {
+				is_ai = yes
+				culture ?= { has_cultural_pillar = heritage_brythonic }
+			}
+			add_opinion = { target = root modifier = eir_gael_pride_opinion opinion = 30 }
 		}
-		add_prestige = 25
+		add_character_modifier = { modifier = eir_celtic_brotherhood_modifier years = 15 }
+		add_prestige = 500
+		set_global_variable = eir_done_brotherhood
 	}
 
 	ai_will_do = {
@@ -3825,21 +3397,28 @@ eir_hillfort_decision = {
 	}
 }
 
-eir_dublin_garrison_decision = {
+eir_reclaim_dal_riata_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_dublin_garrison_decision_desc
-	selection_tooltip = eir_dublin_garrison_decision_tooltip
-	confirm_text = eir_dublin_garrison_decision_confirm
+	desc = eir_reclaim_dal_riata_decision_desc
+	selection_tooltip = eir_reclaim_dal_riata_decision_tooltip
+	confirm_text = eir_reclaim_dal_riata_decision_confirm
 
 	cooldown = { days = 7300 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_dublin
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		is_at_war = no
+		eir_ports_trigger = { N = 2 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -3848,13 +3427,16 @@ eir_dublin_garrison_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 600
+		prestige = 900
 	}
 
 	effect = {
-		title:c_dublin ?= { add_county_modifier = { modifier = eir_gallowglass_garrison_modifier years = 20 } }
-		add_prestige = 50
-		trigger_event = { id = eir.0151 days = 90 }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_albany }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_the_isles }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_western_isles }
+		set_global_variable = eir_done_dalriata
+		add_prestige = 150
 	}
 
 	ai_will_do = {
@@ -3862,21 +3444,28 @@ eir_dublin_garrison_decision = {
 	}
 }
 
-eir_norse_captain_decision = {
+eir_reclaim_man_isles_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_norse_captain_decision_desc
-	selection_tooltip = eir_norse_captain_decision_tooltip
-	confirm_text = eir_norse_captain_decision_confirm
+	desc = eir_reclaim_man_isles_decision_desc
+	selection_tooltip = eir_reclaim_man_isles_decision_tooltip
+	confirm_text = eir_reclaim_man_isles_decision_confirm
 
-	cooldown = { days = 3650 }
+	cooldown = { days = 7300 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		eir_has_coast_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		is_at_war = no
+		eir_ports_trigger = { N = 2 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -3885,26 +3474,13 @@ eir_norse_captain_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 500
+		prestige = 700
 	}
 
 	effect = {
-		spawn_army = {
-			levies = 600
-			men_at_arms = {
-				type = light_footmen
-				stacks = 2
-			}
-			men_at_arms = {
-				type = armored_footmen
-				stacks = 1
-			}
-			location = capital_province
-			origin = capital_province
-			inheritable = no
-			name = eir_viking_fleet_name
-		}
-		add_character_modifier = { modifier = eir_foreign_lords_modifier years = 4 }
+		eir_grant_claims_non_celtic_effect = { TITLE = k_mann_the_isles }
+		add_prestige = 150
 	}
 
 	ai_will_do = {
@@ -3912,20 +3488,28 @@ eir_norse_captain_decision = {
 	}
 }
 
-eir_champions_portion_decision = {
+eir_reclaim_cornwall_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_smith.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_champions_portion_decision_desc
-	selection_tooltip = eir_champions_portion_decision_tooltip
-	confirm_text = eir_champions_portion_decision_confirm
+	desc = eir_reclaim_cornwall_decision_desc
+	selection_tooltip = eir_reclaim_cornwall_decision_tooltip
+	confirm_text = eir_reclaim_cornwall_decision_confirm
 
-	cooldown = { days = 3650 }
+	cooldown = { days = 7300 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		is_at_war = no
+		eir_ports_trigger = { N = 2 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -3934,11 +3518,13 @@ eir_champions_portion_decision = {
 	}
 
 	cost = {
-		gold = minor_gold_value
+		gold = 500
+		prestige = 700
 	}
 
 	effect = {
-		add_character_modifier = { modifier = eir_champions_portion_modifier years = 8 }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_cornwall }
+		add_prestige = 150
 	}
 
 	ai_will_do = {
@@ -3946,20 +3532,28 @@ eir_champions_portion_decision = {
 	}
 }
 
-eir_dun_drill_decision = {
+eir_reclaim_armorica_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_dun_drill_decision_desc
-	selection_tooltip = eir_dun_drill_decision_tooltip
-	confirm_text = eir_dun_drill_decision_confirm
+	desc = eir_reclaim_armorica_decision_desc
+	selection_tooltip = eir_reclaim_armorica_decision_tooltip
+	confirm_text = eir_reclaim_armorica_decision_confirm
 
-	cooldown = { days = 2190 }
+	cooldown = { days = 7300 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		is_at_war = no
+		eir_ports_trigger = { N = 2 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -3968,11 +3562,13 @@ eir_dun_drill_decision = {
 	}
 
 	cost = {
-		gold = minor_gold_value
+		gold = 600
+		prestige = 900
 	}
 
 	effect = {
-		add_character_modifier = { modifier = eir_dun_drill_modifier years = 6 }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_brittany }
+		add_prestige = 150
 	}
 
 	ai_will_do = {
@@ -3980,24 +3576,117 @@ eir_dun_drill_decision = {
 	}
 }
 
-eir_four_provinces_decision = {
+eir_reclaim_old_north_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
 	}
-	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_four_provinces_decision_desc
-	selection_tooltip = eir_four_provinces_decision_tooltip
-	confirm_text = eir_four_provinces_decision_confirm
+	desc = eir_reclaim_old_north_decision_desc
+	selection_tooltip = eir_reclaim_old_north_decision_tooltip
+	confirm_text = eir_reclaim_old_north_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		is_at_war = no
+		eir_ports_trigger = { N = 2 }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 700
+		prestige = 1000
+	}
+
+	effect = {
+		eir_grant_claims_non_celtic_effect = { TITLE = d_northumberland }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_lothian }
+		add_prestige = 150
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_stand_with_wales_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_stand_with_wales_decision_desc
+	selection_tooltip = eir_stand_with_wales_decision_tooltip
+	confirm_text = eir_stand_with_wales_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		is_at_war = no
+		eir_ports_trigger = { N = 2 }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 500
+		prestige = 800
+	}
+
+	effect = {
+		eir_grant_claims_non_celtic_effect = { TITLE = d_powys }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_deheubarth }
+		add_prestige = 150
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_pictish_memory_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_pictish_memory_decision_desc
+	selection_tooltip = eir_pictish_memory_decision_tooltip
+	confirm_text = eir_pictish_memory_decision_confirm
 
 	cooldown = { days = 14600 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_crowned
-		has_global_variable = eir_done_muster
-		has_global_variable = eir_done_oenach
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		has_global_variable = eir_done_dalriata
 	}
 
 	is_valid_showing_failures_only = {
@@ -4006,16 +3695,14 @@ eir_four_provinces_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 600
+		prestige = 900
 	}
 
 	effect = {
-		eir_defender_levy_effect = yes
-		eir_defender_levy_effect = yes
-		add_character_modifier = { modifier = eir_hosting_modifier years = 6 }
+		add_character_modifier = { modifier = eir_pictish_memory_modifier years = 15 }
+		eir_grant_claims_non_celtic_effect = { TITLE = k_scotland }
 		add_prestige = 250
-		eir_legend_title_effect = { TITLE = primary_title }
-		trigger_event = { id = eir.0172 days = 60 }
 	}
 
 	ai_will_do = {
@@ -4023,25 +3710,27 @@ eir_four_provinces_decision = {
 	}
 }
 
-eir_single_combat_decision = {
+eir_gaulish_heritage_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_single_combat_decision_desc
-	selection_tooltip = eir_single_combat_decision_tooltip
-	confirm_text = eir_single_combat_decision_confirm
+	desc = eir_gaulish_heritage_decision_desc
+	selection_tooltip = eir_gaulish_heritage_decision_tooltip
+	confirm_text = eir_gaulish_heritage_decision_confirm
 
-	cooldown = { days = 3650 }
+	cooldown = { days = 14600 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		prowess >= 10
+		eir_visible_stage1_trigger = yes
 	}
 
 	is_valid = {
-		is_at_war = no
+		eir_stage3_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		eir_ports_trigger = { N = 3 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4050,238 +3739,14 @@ eir_single_combat_decision = {
 	}
 
 	cost = {
-		prestige = 50
+		gold = 700
+		prestige = 1000
 	}
 
 	effect = {
-		trigger_event = { id = eir.0151 days = 5 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_found_monastery_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_found_monastery_decision_desc
-	selection_tooltip = eir_found_monastery_decision_tooltip
-	confirm_text = eir_found_monastery_decision_confirm
-
-	cooldown = { days = 7300 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid = {
-		any_held_title = { tier = tier_county }
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = major_gold_value
-	}
-
-	effect = {
-		eir_held_county_modifier_effect = { MODIFIER = eir_monastery_county_modifier YEARS = 40 }
-		add_character_modifier = { modifier = eir_monastery_founder_modifier years = 15 }
-		add_piety = 200
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_scriptorium_patron_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_scriptorium_patron_decision_desc
-	selection_tooltip = eir_scriptorium_patron_decision_tooltip
-	confirm_text = eir_scriptorium_patron_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_unlock_scriptorium
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_scriptorium_patron_modifier years = 8 }
-		add_piety = 50
-		trigger_event = { id = eir.0153 years = 3 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_hermit_cell_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_hermit_cell_decision_desc
-	selection_tooltip = eir_hermit_cell_decision_tooltip
-	confirm_text = eir_hermit_cell_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = minor_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_hermit_blessing_modifier years = 5 }
-		add_piety = 75
-		trigger_event = { id = eir.0045 days = 120 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_relic_procession_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_relic_procession_decision_desc
-	selection_tooltip = eir_relic_procession_decision_tooltip
-	confirm_text = eir_relic_procession_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_cashel
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		piety = 75
-	}
-
-	effect = {
-		every_held_title = {
-			limit = { tier = tier_county }
-			add_county_modifier = { modifier = eir_relic_procession_county_modifier years = 5 }
-		}
-		add_character_modifier = { modifier = eir_relic_procession_modifier years = 8 }
-		add_piety = 100
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_penance_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_penance_decision_desc
-	selection_tooltip = eir_penance_decision_tooltip
-	confirm_text = eir_penance_decision_confirm
-
-	cooldown = { days = 1825 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		stress >= 50
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	effect = {
-		add_stress = -80
-		add_character_modifier = { modifier = eir_penance_done_modifier years = 6 }
-		add_prestige = -75
-		add_piety = 100
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_rome_pilgrimage_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-	}
-	decision_group_type = major
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_rome_pilgrimage_decision_desc
-	selection_tooltip = eir_rome_pilgrimage_decision_tooltip
-	confirm_text = eir_rome_pilgrimage_decision_confirm
-
-	cooldown = { days = 36500 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		piety >= 200
-	}
-
-	is_valid = {
-		is_at_war = no
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = major_gold_value
-	}
-
-	effect = {
-		trigger_event = { id = eir.0152 days = 30 }
+		add_character_modifier = { modifier = eir_gaulish_heritage_modifier years = 15 }
+		eir_grant_claims_non_celtic_effect = { TITLE = d_anjou }
+		add_prestige = 250
 	}
 
 	ai_will_do = {
@@ -4303,7 +3768,13 @@ eir_embassy_gwynedd_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
 		has_global_variable = eir_done_brotherhood
+		eir_ports_trigger = { N = 1 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4312,11 +3783,12 @@ eir_embassy_gwynedd_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 300
+		prestige = 200
 	}
 
 	effect = {
-		add_prestige = 25
+		add_prestige = 50
 		trigger_event = { id = eir.0154 days = 60 }
 	}
 
@@ -4339,7 +3811,13 @@ eir_embassy_strathclyde_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
 		has_global_variable = eir_done_brotherhood
+		eir_ports_trigger = { N = 1 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4348,49 +3826,13 @@ eir_embassy_strathclyde_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 300
+		prestige = 200
 	}
 
 	effect = {
-		add_prestige = 25
+		add_prestige = 50
 		trigger_event = { id = eir.0155 days = 60 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_pictish_memory_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_pictish_memory_decision_desc
-	selection_tooltip = eir_pictish_memory_decision_tooltip
-	confirm_text = eir_pictish_memory_decision_confirm
-
-	cooldown = { days = 14600 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_brotherhood
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		add_character_modifier = { modifier = eir_pictish_memory_modifier years = 15 }
-		eir_grant_claims_non_celtic_effect = { TITLE = k_scotland }
-		add_prestige = 100
 	}
 
 	ai_will_do = {
@@ -4412,7 +3854,13 @@ eir_breton_refuge_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
 		has_global_variable = eir_done_brotherhood
+		eir_ports_trigger = { N = 1 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4421,12 +3869,13 @@ eir_breton_refuge_decision = {
 	}
 
 	cost = {
-		gold = minor_gold_value
+		gold = 250
+		prestige = 150
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_breton_refuge_modifier years = 10 }
-		add_prestige = 75
+		add_prestige = 100
 		trigger_event = { id = eir.0158 years = 1 }
 	}
 
@@ -4449,8 +3898,13 @@ eir_armorica_voyage_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
 		has_global_variable = eir_done_brotherhood
-		eir_has_coast_trigger = yes
+		eir_ports_trigger = { N = 2 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4459,11 +3913,12 @@ eir_armorica_voyage_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 400
+		prestige = 100
 	}
 
 	effect = {
-		add_prestige = 10
+		add_prestige = 25
 		trigger_event = { id = eir.0157 days = 40 }
 	}
 
@@ -4472,21 +3927,26 @@ eir_armorica_voyage_decision = {
 	}
 }
 
-eir_gaulish_heritage_decision = {
+eir_hebridean_marriage_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
 	}
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_gaulish_heritage_decision_desc
-	selection_tooltip = eir_gaulish_heritage_decision_tooltip
-	confirm_text = eir_gaulish_heritage_decision_confirm
+	desc = eir_hebridean_marriage_decision_desc
+	selection_tooltip = eir_hebridean_marriage_decision_tooltip
+	confirm_text = eir_hebridean_marriage_decision_confirm
 
-	cooldown = { days = 14600 }
+	cooldown = { days = 3650 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage2_trigger = yes
+		eir_ports_trigger = { N = 1 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4495,13 +3955,13 @@ eir_gaulish_heritage_decision = {
 	}
 
 	cost = {
-		gold = medium_gold_value
+		gold = 300
+		prestige = 150
 	}
 
 	effect = {
-		add_character_modifier = { modifier = eir_gaulish_heritage_modifier years = 15 }
-		eir_grant_claims_non_celtic_effect = { TITLE = d_anjou }
-		add_prestige = 100
+		add_prestige = 25
+		trigger_event = { id = eir.0156 days = 45 }
 	}
 
 	ai_will_do = {
@@ -4524,9 +3984,14 @@ eir_britannia_restored_decision = {
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage4_trigger = yes
 		has_global_variable = eir_done_brotherhood
 		has_global_variable = eir_done_dalriata
-		has_global_variable = eir_done_crowned
+		NOT = { has_character_modifier = eir_britannia_modifier }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4535,15 +4000,15 @@ eir_britannia_restored_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
-		prestige = 300
+		gold = 2500
+		prestige = 3000
 	}
 
 	effect = {
 		add_character_modifier = { modifier = eir_britannia_modifier years = 25 }
 		eir_grant_claims_non_celtic_effect = { TITLE = k_england }
 		eir_legend_title_effect = { TITLE = primary_title }
-		add_prestige = 500
+		add_prestige = 1000
 	}
 
 	ai_will_do = {
@@ -4551,21 +4016,31 @@ eir_britannia_restored_decision = {
 	}
 }
 
-eir_isles_fleet_decision = {
+eir_proclaim_gaeldom_decision = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
 	}
+	decision_group_type = major
 	ai_check_interval = 0
 	sort_order = 40
-	desc = eir_isles_fleet_decision_desc
-	selection_tooltip = eir_isles_fleet_decision_tooltip
-	confirm_text = eir_isles_fleet_decision_confirm
+	desc = eir_proclaim_gaeldom_decision_desc
+	selection_tooltip = eir_proclaim_gaeldom_decision_tooltip
+	confirm_text = eir_proclaim_gaeldom_decision_confirm
 
-	cooldown = { days = 7300 }
+	cooldown = { days = 36500 }
 
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
-		eir_has_coast_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		eir_stage4_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		has_global_variable = eir_done_renaissance
+		eir_realm_size_trigger = { N = 30 }
+		eir_can_create_gaeldom_trigger = yes
+		NOT = { exists = title:e_eir_gaeldom.holder }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4574,82 +4049,18 @@ eir_isles_fleet_decision = {
 	}
 
 	cost = {
-		gold = major_gold_value
+		gold = 3000
+		prestige = 4000
 	}
 
 	effect = {
-		add_character_modifier = { modifier = eir_island_fleet_modifier years = 15 }
-		add_prestige = 50
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_hebridean_marriage_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_hebridean_marriage_decision_desc
-	selection_tooltip = eir_hebridean_marriage_decision_tooltip
-	confirm_text = eir_hebridean_marriage_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		eir_has_coast_trigger = yes
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		trigger_event = { id = eir.0156 days = 45 }
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-eir_commission_tale_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
-	}
-	ai_check_interval = 0
-	sort_order = 40
-	desc = eir_commission_tale_decision_desc
-	selection_tooltip = eir_commission_tale_decision_tooltip
-	confirm_text = eir_commission_tale_decision_confirm
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		eir_is_irish_ruler_trigger = yes
-		has_global_variable = eir_done_fili
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_imprisoned = no
-	}
-
-	cost = {
-		gold = medium_gold_value
-	}
-
-	effect = {
-		trigger_event = { id = eir.0150 days = 5 }
+		eir_create_title_effect = { TITLE = e_eir_gaeldom }
+		add_character_modifier = { modifier = eir_gaeldom_emperor_modifier years = 30 }
+		dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 60 } }
+		add_prestige = 2000
+		add_piety = 300
+		eir_legend_title_effect = { TITLE = title:e_eir_gaeldom }
+		trigger_event = { id = eir.0112 days = 7 }
 	}
 
 	ai_will_do = {

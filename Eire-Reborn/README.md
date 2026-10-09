@@ -29,25 +29,32 @@ python build_all.py
 python validate.py
 ```
 
-## Added in v0.2
-- **Native resistance**: every Gaelic/Brythonic county held by a foreign-culture ruler gets a yearly-refreshed modifier (Irish counties strongest; Wales, Alba, Cornwall, Brittany, Man weaker): lower county opinion and slower control, so revolts are more likely. Conquerors can still win wars; they just pay for the peace. Decisions: *Make Peace with the Natives* / *Burn the Hills*.
-- **867 start**: 8 dated events 867-1066 (Dublin longphort, Cerball of Osraige, return of the Norse, Tara 980, Brian Boru, Clontarf, aftermath, Diarmait of Leinster). Foreign (Norman) invasions begin 1090.
-- Coronation chains behind every kingdom/empire decision (events 0110-0112) and **legend seeds** (great-deed legends, only if the Legends feature is on).
-- 3 more artifacts (Cathach, Great Brooch, Cross of Cong) via the vanilla-style creation call.
-- Resistance, court and Celtic-world events (Man, Cornwall, Brittany, Wales).
-- Deliberately NOT done (crash risk): custom court type/positions, custom legend types, holy orders, accolades, struggles, hegemony.
+## How progression works (v0.5 rewrite)
+Nothing is clickable at game start. Every decision sits behind a stage (see `common/scripted_triggers/eir_triggers2.txt`):
+1. **Chieftain**: 4+ counties. 2. **Duke**: 10+ counties and a duchy. 3. **King**: 20+ counties and a kingdom title. 4. **High King**: holds the Kingdom of Ireland.
+On top of the stage, each decision asks for specific things: Irish buildings built (`eir_irish_buildings_trigger`), ports, named titles, earlier decisions, piety/prestige thresholds and traits. Costs are explicit gold, prestige and piety (the game's `*_gold_value` scales with income and is tiny for a tribal chief).
 
-## Added in v0.3 (100-ideas pack)
-- ~63 new decisions: Circuit of Ireland, Hostages of Tara (+ release), Cain Law, Tara Hall (-> Feis), Tanaiste, Wergild, Ollamh Righ, Slogad, sacred sites (Uisneach, Newgrange, Rathcroghan, Emain Macha, Dunadd, Monasterboice, Armagh library, harbours), saints' cults (Brigid, Colmcille, Patrick), military (Ceithern retinue, coastal watch, hill-forts, Norse sea-king, Four Provinces hosting), faith (monastery, penance, Rome pilgrimage, hermit, relic procession), Celtic world (Gwynedd, Strathclyde, Picts, Breton refuge, Armorica voyage, Gaulish heritage, Restore Britannia, Isles fleet, Hebridean marriage), Commission a Tale.
-- 22 new events (0150-0172): tales, single combat, Rome pilgrimage, Celtic alliances, circuit quarrel, kingmaking, exile king, 5 more artifacts, bog butter, hostage return, Cain test, Four Provinces dispute.
-- 8 new fame traits, ~45 new modifiers, 1 new men-at-arms (Ceithern Retinue).
-- Interconnections: decisions fire existing events (Brigid, Salmon, Fairy Mound, Bog Treasure, Wolfhound, Feast, Saint's Bell, Hermit's Prophecy, Bardic Contest); Dublin garrison -> duel; scriptorium patronage -> Little Gospel after 3 years; Tara Hall -> Feis; hostages -> release -> fosterling.
-- Fixed a latent bug: `eir_grant_claims_non_celtic_effect` now uses `title:` correctly.
-- Skipped on purpose: custom casus belli (cattle raid), naval levy modifier, character memories.
+### Traditions are upgrades, not additions
+Four Irish traditions are REPLACED (the vanilla one is removed and the Eire one, which keeps every vanilla parameter and adds more, is added):
+| Decision | Replaces | Gives |
+|---|---|---|
+| Charter the Schools of the Fili | Poetry | Schools of the Fili: Fianna warbands, bardic school building, more legend spread, learning |
+| Codify the Bo-aire | Pastoralists | Bo-aire: the Cattle Lords: cattle enclosure, income, stewardship |
+| Endow the Monastic Cities | Monastic Communities | Insular Monasticism: piety, clergy opinion, monastic cities |
+| Claim the Irish Sea | Maritime Mercantilism | Kings of the Irish Sea: gallowglass, Irish Sea Quay and Longship Yard, stewardship |
+Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentation`, `tradition_eir_high_kingship`).
 
-## Added in v0.4: buildings that cost prestige
-`tools/gen_buildings2.py` -> `common/buildings/eir_more_buildings.txt`.
-- **12 regular buildings** (Dun, Booley Pastures, Fosterage Hall, Bruidhean, Aonach Fair, Smithy of Goibniu, Hobby Stables, Holy Well, Monastic School, Hermitage, Pilgrim Hospice, Ogham Pillar Field). Open to any Gaelic ruler, cheap in gold, 30-90 prestige.
-- **10 duchy-capital buildings**: a generic Righteach plus unique ones for Munster, Meath, Ulster, Connacht, Leinster, Albany, the Isles, Gwynedd and Cornwall (300-500 prestige). They bless every county of the duchy.
-- **19 special buildings** tied to real baronies (Tara, Armagh, Rathcroghan, Slemish, Uisneach, Kildare, Emly, Kincora, Dublin, Waterford, Cork, Limerick, Derry, Downpatrick, Bangor, Trim, Kilkenny, Tuam, Ferns). 350-1000 prestige. Several need earlier decisions (Hall of Tara, Armagh primacy, Oenach, Dublin, Cashel, Filí).
-- Risk notes: no custom 3D assets (the game uses fallbacks), and vanilla's `GetSpecialBuildingNameFromProvince` custom-loc has no entries for these, so a few UI spots may show a blank name.
+### How the top-title rule works
+`on_death` (via `eir_on_death`) checks: the dying ruler is Irish culture, the global variable `eir_collapse_abolished` is NOT set, and their primary title is a duchy or higher. It then destroys that title and fires the heir event. The decision "End the Tanistic Fragmentation" sets the global variable and swaps the hidden tradition for Stable High Kingship. So it is a global switch, not a trait on the kingdom.
+
+### Buildings
+`tools/gen_buildings2.py`: 14 regular buildings (tribal-friendly), 10 duchy-capital buildings, 19 special buildings tied to real baronies. Special buildings now show in their barony from the start and list their requirements in the build tooltip.
+
+### Tools
+`python tools/build_all.py` then `python tools/validate.py` (checks braces, traits, modifiers, events, effects, triggers, variables, localization format, BOMs, unused modifiers and variables, effects inside trigger blocks).
+
+## Version history
+- 0.1 tanistry, Viking and Norman invasions, folklore, church events, traditions, buildings.
+- 0.2 native resistance, 867-1066 history, coronation chains, legends, artifacts.
+- 0.3 100-ideas pack. 0.4 prestige-cost buildings.
+- 0.5 bug-fix release from the first real error.log (localization newlines, vanilla on_action conflicts, trait icons, duplicate keys) and a full progression rewrite of decisions, traditions and buildings.

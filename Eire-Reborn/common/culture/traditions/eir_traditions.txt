@@ -101,96 +101,21 @@ tradition_eir_bardic_schools = {
 	}
 
 	parameters = {
-		eir_bardic_schools = yes
 		poet_trait_gives_bonuses = yes
 		poet_trait_more_common = yes
+		characters_are_better_court_poets = yes
+		better_court_poets = yes
+		eir_bardic_schools = yes
+		eir_unlock_fianna = yes
 	}
 
 	character_modifier = {
-		owned_legend_spread_mult = 0.1
+		owned_legend_spread_mult = 0.2
 		monthly_prestige_gain_mult = 0.05
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-			multiply = tradition_replacement_cost_if_relevant
-		}
-	}
-
-	ai_will_do = {
-		value = 20
-	}
-}
-
-tradition_eir_brehon_law = {
-	category = regional
-
-	layers = {
-		0 = diplo
-		1 = western
-		4 = council.dds
-	}
-
-	is_shown = {
-		has_cultural_pillar = heritage_goidelic
-	}
-	can_pick = {
-		has_cultural_pillar = heritage_goidelic
-	}
-
-	parameters = {
-		eir_brehon_law = yes
-	}
-
-	character_modifier = {
-		legitimacy_gain_mult = 0.1
+		learning = 1
+		diplomacy = 1
 		courtier_and_guest_opinion = 5
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-			multiply = tradition_replacement_cost_if_relevant
-		}
-	}
-
-	ai_will_do = {
-		value = 20
-	}
-}
-
-tradition_eir_fosterage_bonds = {
-	category = regional
-
-	layers = {
-		0 = diplo
-		1 = western
-		4 = hostages.dds
-	}
-
-	is_shown = {
-		has_cultural_pillar = heritage_goidelic
-	}
-	can_pick = {
-		has_cultural_pillar = heritage_goidelic
-	}
-
-	parameters = {
-		eir_fosterage_bonds = yes
-	}
-
-	character_modifier = {
-		vassal_opinion = 5
-		direct_vassal_opinion = 5
+		legitimacy_gain_mult = 0.05
 	}
 
 	cost = {
@@ -226,92 +151,18 @@ tradition_eir_cattle_wealth = {
 	}
 
 	parameters = {
+		pastures_building_bonuses = yes
+		farm_estates_pastures_unlock = yes
+		better_herders_pasturalists = yes
 		eir_cattle_wealth = yes
 	}
 
 	character_modifier = {
+		negate_health_penalty_add = 0.15
+		prowess = 1
+		stewardship = 1
 		domain_tax_mult = 0.05
 		monthly_income = 1
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-			multiply = tradition_replacement_cost_if_relevant
-		}
-	}
-
-	ai_will_do = {
-		value = 20
-	}
-}
-
-tradition_eir_gallowglass_heritage = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = western
-		4 = swords.dds
-	}
-
-	is_shown = {
-		has_cultural_pillar = heritage_goidelic
-	}
-	can_pick = {
-		has_cultural_pillar = heritage_goidelic
-	}
-
-	parameters = {
-		eir_unlock_gallowglass = yes
-	}
-
-	character_modifier = {
-		men_at_arms_maintenance = -0.05
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-			multiply = tradition_replacement_cost_if_relevant
-		}
-	}
-
-	ai_will_do = {
-		value = 20
-	}
-}
-
-tradition_eir_fianna_heritage = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = western
-		4 = hunter.dds
-	}
-
-	is_shown = {
-		has_cultural_pillar = heritage_goidelic
-	}
-	can_pick = {
-		has_cultural_pillar = heritage_goidelic
-	}
-
-	parameters = {
-		eir_unlock_fianna = yes
-	}
-
-	character_modifier = {
-		knight_effectiveness_mult = 0.1
 	}
 
 	cost = {
@@ -347,12 +198,20 @@ tradition_eir_culdee_christianity = {
 	}
 
 	parameters = {
+		temperate_trait_more_common = yes
+		temperate_trait_bonuses = yes
+		devoted_trait_bonuses = yes
+		monastic_expectations = yes
+		next_level_monasteries = yes
+		monastic_monastery_learning_bonus = yes
 		eir_culdee_christianity = yes
 	}
 
 	character_modifier = {
 		monthly_piety_gain_mult = 0.1
 		clergy_opinion = 5
+		learning = 1
+		monthly_piety = 0.1
 	}
 
 	cost = {
@@ -375,7 +234,7 @@ tradition_eir_sea_kings = {
 	category = regional
 
 	layers = {
-		0 = martial
+		0 = diplo
 		1 = western
 		4 = ship.dds
 	}
@@ -388,12 +247,21 @@ tradition_eir_sea_kings = {
 	}
 
 	parameters = {
+		next_level_trade_ports = yes
+		maritime_mercantilism_coastal_holdings = yes
+		maritime_mercantilism_avaricious_bonus = yes
 		eir_sea_kings = yes
+		eir_unlock_gallowglass = yes
+		eir_unlock_sea_trade = yes
 	}
 
 	character_modifier = {
+		sea_travel_danger = -10
 		naval_movement_speed_mult = 0.25
 		embarkation_cost_mult = -0.25
+		stewardship = 1
+		diplomacy = 1
+		monthly_prestige_gain_mult = 0.05
 	}
 
 	cost = {

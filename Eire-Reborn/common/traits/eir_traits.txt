@@ -7,11 +7,7 @@ eir_ard_ri = {
 	legitimacy_gain_mult = 0.1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/just.dds"
-		}
-	}
+	icon = just.dds
 }
 
 eir_ollamh = {
@@ -22,11 +18,7 @@ eir_ollamh = {
 	general_opinion = 3
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/shrewd.dds"
-		}
-	}
+	icon = shrewd.dds
 }
 
 eir_fennid = {
@@ -36,11 +28,7 @@ eir_fennid = {
 	knight_effectiveness_mult = 0.1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/brave.dds"
-		}
-	}
+	icon = brave.dds
 }
 
 eir_brehon = {
@@ -50,11 +38,7 @@ eir_brehon = {
 	courtier_opinion = 5
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/just.dds"
-		}
-	}
+	icon = just.dds
 }
 
 eir_viking_slayer = {
@@ -64,11 +48,7 @@ eir_viking_slayer = {
 	monthly_prestige = 0.2
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/brave.dds"
-		}
-	}
+	icon = brave.dds
 }
 
 eir_foster_brother = {
@@ -77,11 +57,7 @@ eir_foster_brother = {
 	diplomacy = 1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/honest.dds"
-		}
-	}
+	icon = honest.dds
 }
 
 eir_banshee_marked = {
@@ -91,11 +67,7 @@ eir_banshee_marked = {
 	stress_gain_mult = 0.1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/compassionate.dds"
-		}
-	}
+	icon = compassionate.dds
 }
 
 eir_cattle_lord = {
@@ -104,11 +76,7 @@ eir_cattle_lord = {
 	domain_tax_mult = 0.05
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/diligent.dds"
-		}
-	}
+	icon = diligent.dds
 }
 
 eir_champion_of_ulster = {
@@ -118,11 +86,7 @@ eir_champion_of_ulster = {
 	knight_effectiveness_mult = 0.1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/brave.dds"
-		}
-	}
+	icon = brave.dds
 }
 
 eir_poet_prince = {
@@ -132,11 +96,7 @@ eir_poet_prince = {
 	owned_legend_spread_mult = 0.1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/poet.dds"
-		}
-	}
+	icon = poet.dds
 }
 
 eir_saint_king = {
@@ -146,11 +106,7 @@ eir_saint_king = {
 	stress_gain_mult = -0.05
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/zealous.dds"
-		}
-	}
+	icon = zealous.dds
 }
 
 eir_fosterling = {
@@ -159,11 +115,7 @@ eir_fosterling = {
 	diplomacy = 1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/honest.dds"
-		}
-	}
+	icon = honest.dds
 }
 
 eir_exile_king = {
@@ -172,11 +124,7 @@ eir_exile_king = {
 	intrigue = 1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/craven.dds"
-		}
-	}
+	icon = craven.dds
 }
 
 eir_kingmaker = {
@@ -185,11 +133,7 @@ eir_kingmaker = {
 	vassal_opinion = 4
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/shrewd.dds"
-		}
-	}
+	icon = shrewd.dds
 }
 
 eir_peacemaker_of_tara = {
@@ -199,11 +143,7 @@ eir_peacemaker_of_tara = {
 	monthly_prestige = 0.15
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/just.dds"
-		}
-	}
+	icon = just.dds
 }
 
 eir_hostage_scarred = {
@@ -212,10 +152,6 @@ eir_hostage_scarred = {
 	intrigue = 1
 
 	shown_in_ruler_designer = no
-	icon = {
-		first_valid = {
-			desc = "gfx/interface/icons/traits/paranoid.dds"
-		}
-	}
+	icon = paranoid.dds
 }
 

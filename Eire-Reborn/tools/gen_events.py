@@ -52,7 +52,7 @@ def render(ev, L):
 
 def load_groups():
     groups = {}
-    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra"):
+    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5"):
         try:
             m = importlib.import_module(mod)
         except ModuleNotFoundError as e:

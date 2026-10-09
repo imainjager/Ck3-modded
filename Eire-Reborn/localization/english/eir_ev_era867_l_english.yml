@@ -1,74 +1,42 @@
 ﻿l_english:
  eir.0100.t:0 "The Longphort at Duiblinn"
- eir.0100.desc:0 "#bold The Norse have built a fortified ship-camp at the Black Pool, and they are not leaving.#!
-
-It began as a place to beach longships and winter. Now there are palisades, a slave market and a smith's yard, and the Norse trade with anyone who will deal with them.
-
-The local lords are uncertain whether to burn it or to sell it cattle."
+ eir.0100.desc:0 "#bold The Norse have built a fortified ship-camp at the Black Pool, and they are not leaving.#!\n\nIt began as a place to beach longships and winter. Now there are palisades, a slave market and a smith's yard, and the Norse trade with anyone who will deal with them.\n\nThe local lords are uncertain whether to burn it or to sell it cattle."
  eir.0100.a:0 "Burn the camp before it grows. (Raise a muster and add a Norse enemy.)"
  eir.0100.b:0 "Trade with them. Their silver is as good as anyone's."
  eir.0100.c:0 "Hire Norse axemen to fight your rivals."
  eir.0100.d:0 "Ignore them. There are enough enemies nearer home."
  eir.0101.t:0 "The Cunning King of Osraige"
- eir.0101.desc:0 "#bold A king of Osraige plays the Norse against the Irish, and wins both ways.#!
-
-He takes Norse silver one season and sends Irish spears against them the next. His rivals are furious. His treasury is full.
-
-He has sent you a messenger with a rather elegant offer."
+ eir.0101.desc:0 "#bold A king of Osraige plays the Norse against the Irish, and wins both ways.#!\n\nHe takes Norse silver one season and sends Irish spears against them the next. His rivals are furious. His treasury is full.\n\nHe has sent you a messenger with a rather elegant offer."
  eir.0101.a:0 "Take his offer, and learn his trick."
  eir.0101.b:0 "Take his silver, and refuse his politics."
  eir.0101.c:0 "Denounce him to the other Irish kings."
  eir.0102.t:0 "The Return of the Longships"
- eir.0102.desc:0 "#bold The Norse were driven out of Dublin, and now their ships are back in the bay.#!
-
-For fifteen years the Irish had the Black Pool to themselves. The Norse have spent that time in exile, hiring ships and nursing a grudge.
-
-The new fleet is bigger than the old one, and its leaders are not the same men."
+ eir.0102.desc:0 "#bold The Norse were driven out of Dublin, and now their ships are back in the bay.#!\n\nFor fifteen years the Irish had the Black Pool to themselves. The Norse have spent that time in exile, hiring ships and nursing a grudge.\n\nThe new fleet is bigger than the old one, and its leaders are not the same men."
  eir.0102.a:0 "Raise the host and meet them on the beach."
  eir.0102.b:0 "Pay them to leave. (They will come back.)"
  eir.0102.c:0 "Invite their lords to a feast and make them oaths."
  eir.0103.t:0 "The Battle of Tara"
- eir.0103.desc:0 "#bold A High King of Tara is about to fight the Norse of Dublin on the old royal hill.#!
-
-Máel Sechnaill of Meath is calling his allies. The Norse of Dublin and the Isles have brought a fleet, a lot of axes and a greater confidence than they deserve.
-
-Every king who has ever knelt at Tara has a reason to be there."
+ eir.0103.desc:0 "#bold A High King of Tara is about to fight the Norse of Dublin on the old royal hill.#!\n\nMáel Sechnaill of Meath is calling his allies. The Norse of Dublin and the Isles have brought a fleet, a lot of axes and a greater confidence than they deserve.\n\nEvery king who has ever knelt at Tara has a reason to be there."
  eir.0103.a:0 "March to Tara and fight beside the High King."
  eir.0103.b:0 "Send men and gold, and stay at home."
  eir.0103.c:0 "Offer the Norse an alliance against the High King."
  eir.0104.t:0 "A Brother from Dál gCais"
- eir.0104.desc:0 "#bold A younger son of a minor Munster house has taken the kingship of Munster and wants more.#!
-
-His brother was murdered, so he avenged him. Then he took Cashel, then he took Limerick from the Norse. He is not a man with limits.
-
-He has sent you a message, and it asks for your submission."
+ eir.0104.desc:0 "#bold A younger son of a minor Munster house has taken the kingship of Munster and wants more.#!\n\nHis brother was murdered, so he avenged him. Then he took Cashel, then he took Limerick from the Norse. He is not a man with limits.\n\nHe has sent you a message, and it asks for your submission."
  eir.0104.a:0 "Submit, and take a share of his triumph."
  eir.0104.b:0 "Refuse, and rally the other kings against him."
  eir.0104.c:0 "Offer a daughter in marriage and a fosterage."
  eir.0105.t:0 "Good Friday at Clontarf"
- eir.0105.desc:0 "#bold The High King is marching on Dublin, and the Norse are bringing every ally they can.#!
-
-The Norse of Dublin, the Isles and Orkney will fight beside the men of Leinster. The High King will fight with Munster, Meath and Connacht.
-
-There is a battle coming, on the shore at Clontarf, and every Irish ruler is expected to pick a side."
+ eir.0105.desc:0 "#bold The High King is marching on Dublin, and the Norse are bringing every ally they can.#!\n\nThe Norse of Dublin, the Isles and Orkney will fight beside the men of Leinster. The High King will fight with Munster, Meath and Connacht.\n\nThere is a battle coming, on the shore at Clontarf, and every Irish ruler is expected to pick a side."
  eir.0105.a:0 "March with the High King."
  eir.0105.b:0 "Fight for Leinster and the Norse."
  eir.0105.c:0 "Stay at home and keep your army whole."
  eir.0106.t:0 "The Morning After Clontarf"
- eir.0106.desc:0 "#bold The High King is dead, and no one is strong enough to replace him.#!
-
-The old man and his son died on the same day, and half the kings of Munster died with them. The Norse of Dublin are still in Dublin.
-
-All of Ireland is now asking the same question: who is next?"
+ eir.0106.desc:0 "#bold The High King is dead, and no one is strong enough to replace him.#!\n\nThe old man and his son died on the same day, and half the kings of Munster died with them. The Norse of Dublin are still in Dublin.\n\nAll of Ireland is now asking the same question: who is next?"
  eir.0106.a:0 "Put yourself forward as the next High King."
  eir.0106.b:0 "Support Máel Sechnaill, who has taken the high kingship back."
  eir.0106.c:0 "Carve out your own little kingdom while the great ones fight."
  eir.0107.t:0 "The Kingmaker of Leinster"
- eir.0107.desc:0 "#bold The king of Leinster has taken Dublin and wants to be a High King himself.#!
-
-He is a strong king, and the Norse of Dublin are his vassals. He has taken the Isle of Man too, and he lacks only the title.
-
-He has asked for your support, with a hint of what happens to people who say no."
+ eir.0107.desc:0 "#bold The king of Leinster has taken Dublin and wants to be a High King himself.#!\n\nHe is a strong king, and the Norse of Dublin are his vassals. He has taken the Isle of Man too, and he lacks only the title.\n\nHe has asked for your support, with a hint of what happens to people who say no."
  eir.0107.a:0 "Back his claim to the high kingship."
  eir.0107.b:0 "Refuse him, and prepare for his revenge."
  eir.0107.c:0 "Offer a marriage alliance instead."

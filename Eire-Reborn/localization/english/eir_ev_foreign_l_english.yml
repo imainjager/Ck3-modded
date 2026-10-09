@@ -1,29 +1,17 @@
 ﻿l_english:
  eir.0020.t:0 "Foreign Sails"
- eir.0020.desc:0 "#bold [eir_foreign_lord.GetShortUIName] has landed a foreign host in [eir_target_county.GetName], at the invitation of one of your own rivals.#!
-
-A quarrelling Irish lord has done what Irish lords have always done: offered land and a daughter to the first strong foreigner who would fight for him. The foreigner has arrived with mailed horsemen and archers, and a letter that says he has come to bring order.
-
-The Irish will have order, whether they want it or not."
+ eir.0020.desc:0 "#bold [eir_foreign_lord.GetShortUIName] has landed a foreign host in [eir_target_county.GetName], at the invitation of one of your own rivals.#!\n\nA quarrelling Irish lord has done what Irish lords have always done: offered land and a daughter to the first strong foreigner who would fight for him. The foreigner has arrived with mailed horsemen and archers, and a letter that says he has come to bring order.\n\nThe Irish will have order, whether they want it or not."
  eir.0020.a:0 "Gather the clans and meet them in the field."
  eir.0020.b:0 "Call on the Celtic brotherhood for axes and archers."
  eir.0020.c:0 "Appeal to the Church to condemn the invaders."
  eir.0020.d:0 "Buy the foreign lord's loyalty with land and a title."
  eir.0021.t:0 "Foreign Lords in Ireland"
- eir.0021.desc:0 "#bold [eir_foreign_lord.GetShortUIName] has won, and [eir_target_county.GetName] now has a castle of stone.#!
-
-The foreign knights rode over the Irish levies like wheat, and their archers did the rest. A stone keep is going up on the hill, built by men who do not speak Irish and do not want to learn.
-
-The castle is the first of many, if you let it be."
+ eir.0021.desc:0 "#bold [eir_foreign_lord.GetShortUIName] has won, and [eir_target_county.GetName] now has a castle of stone.#!\n\nThe foreign knights rode over the Irish levies like wheat, and their archers did the rest. A stone keep is going up on the hill, built by men who do not speak Irish and do not want to learn.\n\nThe castle is the first of many, if you let it be."
  eir.0021.a:0 "Swear to drive them out. (Unlocks a decision.)"
  eir.0021.b:0 "Do homage to the foreign lord for the county."
  eir.0021.c:0 "Raise a hundred clans and burn the castle before it is finished."
  eir.0022.t:0 "The Foreign Host Is Broken"
- eir.0022.desc:0 "#bold The foreign host has been broken, and [eir_foreign_lord.GetShortUIName] has fled.#!
-
-The mailed horsemen floundered in the bog, the archers ran out of arrows, and the Irish did what the Irish have always done to armies that come into their hills and woods.
-
-The foreign lord is in flight, and every poet in the country is composing a victory song."
+ eir.0022.desc:0 "#bold The foreign host has been broken, and [eir_foreign_lord.GetShortUIName] has fled.#!\n\nThe mailed horsemen floundered in the bog, the archers ran out of arrows, and the Irish did what the Irish have always done to armies that come into their hills and woods.\n\nThe foreign lord is in flight, and every poet in the country is composing a victory song."
  eir.0022.a:0 "Give thanks and ride home in triumph."
  eir.0022.b:0 "Pursue the foreign lord and make an example of him."
  eir.0022.c:0 "Offer the foreign lord peace in exchange for a rich ransom."

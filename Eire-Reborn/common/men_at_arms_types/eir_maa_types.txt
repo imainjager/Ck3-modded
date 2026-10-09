@@ -29,6 +29,7 @@ eir_gallowglass = {
 		}
 	}
 
+
 	buy_cost = { gold = huscarls_recruitment_cost }
 	low_maintenance_cost = { gold = huscarls_low_maint_cost }
 	high_maintenance_cost = { gold = huscarls_high_maint_cost }
@@ -68,6 +69,7 @@ eir_fianna_warband = {
 		}
 	}
 
+
 	buy_cost = { gold = skirmisher_recruitment_cost }
 	low_maintenance_cost = { gold = skirmisher_low_maint_cost }
 	high_maintenance_cost = { gold = skirmisher_high_maint_cost }
@@ -97,14 +99,9 @@ eir_kern_javelineers = {
 	}
 
 	can_recruit = {
-		OR = {
-			culture ?= { has_cultural_parameter = eir_unlock_fianna }
-			AND = {
-				culture ?= { has_cultural_pillar = heritage_goidelic }
-				has_global_variable = eir_unlock_kern
-			}
-		}
+		culture ?= { has_cultural_pillar = heritage_goidelic }
 	}
+
 
 	buy_cost = { gold = skirmisher_recruitment_cost }
 	low_maintenance_cost = { gold = skirmisher_low_maint_cost }
@@ -144,6 +141,7 @@ eir_tara_guard = {
 		}
 	}
 
+
 	buy_cost = { gold = huscarls_recruitment_cost }
 	low_maintenance_cost = { gold = huscarls_low_maint_cost }
 	high_maintenance_cost = { gold = huscarls_high_maint_cost }
@@ -180,6 +178,7 @@ eir_ceithern = {
 			}
 		}
 	}
+
 
 	buy_cost = { gold = huscarls_recruitment_cost }
 	low_maintenance_cost = { gold = huscarls_low_maint_cost }

@@ -319,3 +319,17 @@ eir_legend_defence_effect = {
 		}
 	}
 }
+
+# Replace a vanilla tradition of the character's culture with an Eire upgrade (never adds a net tradition).
+eir_upgrade_tradition_effect = {
+	culture ?= {
+		if = {
+			limit = { has_cultural_tradition = $OLD$ }
+			remove_culture_tradition = $OLD$
+		}
+		if = {
+			limit = { NOT = { has_cultural_tradition = $NEW$ } }
+			add_culture_tradition = $NEW$
+		}
+	}
+}

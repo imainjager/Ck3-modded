@@ -1,67 +1,39 @@
 ﻿l_english:
  eir.0040.t:0 "The Brehon's Judgement"
- eir.0040.desc:0 "#bold Two of your subjects have come to court to settle a dispute over a stolen bull.#!
-
-The Brehon law has a rule for everything: a price for a stolen bull, a different price for a bull stolen at night, and a third price for a bull that is stolen and then eaten. The learned judge you appointed is out of town, so the case falls to you.
-
-Both parties are listening carefully, because a king's judgement becomes the next precedent."
+ eir.0040.desc:0 "#bold Two of your subjects have come to court to settle a dispute over a stolen bull.#!\n\nThe Brehon law has a rule for everything: a price for a stolen bull, a different price for a bull stolen at night, and a third price for a bull that is stolen and then eaten. The learned judge you appointed is out of town, so the case falls to you.\n\nBoth parties are listening carefully, because a king's judgement becomes the next precedent."
  eir.0040.a:0 "Judge by the letter of the old laws."
  eir.0040.b:0 "Decide by your own sense of fairness."
  eir.0040.c:0 "Take a gift from the wealthier party and rule for him."
  eir.0040.d:0 "Send the case to a famous Brehon in another kingdom."
  eir.0041.t:0 "The Honour-Price Dispute"
- eir.0041.desc:0 "#bold Two vassals have come to blows over the honour-price of a murdered kinsman.#!
-
-[eir_dispute_a.GetShortUIName] killed the cousin of [eir_dispute_b.GetShortUIName] in a quarrel over a field boundary. The killer is willing to pay the éraic. The family says no price is high enough.
-
-If you do not settle it, they will."
+ eir.0041.desc:0 "#bold Two vassals have come to blows over the honour-price of a murdered kinsman.#!\n\n[eir_dispute_a.GetShortUIName] killed the cousin of [eir_dispute_b.GetShortUIName] in a quarrel over a field boundary. The killer is willing to pay the éraic. The family says no price is high enough.\n\nIf you do not settle it, they will."
  eir.0041.a:0 "Fix an honour-price you know both will accept."
  eir.0041.b:0 "Side with the stronger family."
  eir.0041.c:0 "Let them fight it out. The survivor will respect the law."
  eir.0041.d:0 "Pay the honour-price from your own treasury."
  eir.0042.t:0 "The Healing Well"
- eir.0042.desc:0 "#bold A well in [eir_well_county.GetName] is said to have cured a blind child.#!
-
-The story is that a girl who had been blind from birth washed her face in the spring and saw her mother for the first time. Within a week there were two hundred pilgrims, and within a fortnight there was a stall selling bottles.
-
-The local priest is not sure what to make of it. The local innkeeper is sure it is a miracle."
+ eir.0042.desc:0 "#bold A well in [eir_well_county.GetName] is said to have cured a blind child.#!\n\nThe story is that a girl who had been blind from birth washed her face in the spring and saw her mother for the first time. Within a week there were two hundred pilgrims, and within a fortnight there was a stall selling bottles.\n\nThe local priest is not sure what to make of it. The local innkeeper is sure it is a miracle."
  eir.0042.a:0 "Build a chapel and make it a place of pilgrimage."
  eir.0042.b:0 "Send a learned priest to investigate before you commit."
  eir.0042.c:0 "Tax the pilgrims and say nothing about miracles."
  eir.0043.t:0 "The Saint's Bell"
- eir.0043.desc:0 "#bold A ploughman has found an iron bell in a field, and the monks say it is Saint Patrick's.#!
-
-It is a small square bell of beaten iron, rusted but sound, and it rings with a dull clang that the old monks say is the voice of the saint. Relics of Saint Patrick are among the most valuable in Ireland.
-
-Everyone wants it, and the ploughman wants to be paid."
+ eir.0043.desc:0 "#bold A ploughman has found an iron bell in a field, and the monks say it is Saint Patrick's.#!\n\nIt is a small square bell of beaten iron, rusted but sound, and it rings with a dull clang that the old monks say is the voice of the saint. Relics of Saint Patrick are among the most valuable in Ireland.\n\nEveryone wants it, and the ploughman wants to be paid."
  eir.0043.a:0 "Keep it in your own chapel and set a shrine around it."
  eir.0043.b:0 "Give it to the Church of Armagh."
  eir.0043.c:0 "Sell it to the highest bidder."
  eir.0043.d:0 "Carry it in procession before your army."
  eir.0044.t:0 "Culdee versus Roman"
- eir.0044.desc:0 "#bold The old Irish monks and the Roman reformers are at each other's throats.#!
-
-The Culdees keep the old Irish customs: the tonsure, the Easter date, a church run by abbots instead of bishops. The reformers call it laxity and heresy. Each side has a good claim on holiness, and neither likes the other.
-
-A ruler who wants peace in the Church has to choose between them, or find a way to make them both listen."
+ eir.0044.desc:0 "#bold The old Irish monks and the Roman reformers are at each other's throats.#!\n\nThe Culdees keep the old Irish customs: the tonsure, the Easter date, a church run by abbots instead of bishops. The reformers call it laxity and heresy. Each side has a good claim on holiness, and neither likes the other.\n\nA ruler who wants peace in the Church has to choose between them, or find a way to make them both listen."
  eir.0044.a:0 "Back the old Irish customs."
  eir.0044.b:0 "Back the reformers and the authority of Rome."
  eir.0044.c:0 "Call a synod and make both sides argue it out before the bishops."
  eir.0045.t:0 "A Hermit's Prophecy"
- eir.0045.desc:0 "#bold A hermit comes down from his cave to tell you what he has seen.#!
-
-He is as thin as a rake, he smells like a bog and he has not spoken to another human in ten years. He says that in a vision he saw Ireland united under one king, and then broken again, and then united again.
-
-He does not say whether the king was you."
+ eir.0045.desc:0 "#bold A hermit comes down from his cave to tell you what he has seen.#!\n\nHe is as thin as a rake, he smells like a bog and he has not spoken to another human in ten years. He says that in a vision he saw Ireland united under one king, and then broken again, and then united again.\n\nHe does not say whether the king was you."
  eir.0045.a:0 "Feed him, house him, and ask about the vision."
  eir.0045.b:0 "Have the prophecy announced to the whole court."
  eir.0045.c:0 "Send the hermit back to his cave and tell no one."
  eir.0046.t:0 "A Scholar from the Great Monasteries"
- eir.0046.desc:0 "#bold A learned monk from one of the great monasteries asks for your patronage.#!
-
-He has read every book in his abbey's library, and several that were supposed to be lost. He is travelling from court to court, looking for a lord who will give him a quiet room and a steady supply of vellum.
-
-In exchange, he promises to teach every child in your household."
+ eir.0046.desc:0 "#bold A learned monk from one of the great monasteries asks for your patronage.#!\n\nHe has read every book in his abbey's library, and several that were supposed to be lost. He is travelling from court to court, looking for a lord who will give him a quiet room and a steady supply of vellum.\n\nIn exchange, he promises to teach every child in your household."
  eir.0046.a:0 "Give him a place in your household."
  eir.0046.b:0 "Ask him to tutor your heir."
  eir.0046.c:0 "Send him away. Learning is a monk's business."

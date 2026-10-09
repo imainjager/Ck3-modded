@@ -1,0 +1,64 @@
+﻿##########################################################################
+# Eire Reborn - progression triggers (v0.5)
+# Every decision is gated by a stage so nothing is clickable at game start.
+##########################################################################
+
+# Realm (own domain + vassals) holds at least $N$ counties.
+eir_realm_size_trigger = {
+	any_sub_realm_county = {
+		count >= $N$
+	}
+}
+
+# At least $N$ coastal counties in the realm.
+eir_ports_trigger = {
+	any_sub_realm_county = {
+		count >= $N$
+		is_coastal_county = yes
+	}
+}
+
+# The realm holds one of the great Irish harbour counties (Dublin, Waterford/Ormond, Cork/Desmond, Limerick/Thomond, Mayo).
+eir_irish_port_trigger = {
+	any_sub_realm_county = {
+		OR = {
+			this = title:c_dublin
+			this = title:c_ormond
+			this = title:c_desmond
+			this = title:c_thomond
+			this = title:c_mayo
+		}
+	}
+}
+
+# Stage 1: a real chieftain, not a nobody.
+eir_stage1_trigger = {
+	eir_is_irish_ruler_trigger = yes
+	eir_realm_size_trigger = { N = 4 }
+}
+
+# Stage 2: a duke-level ruler with a proper realm.
+eir_stage2_trigger = {
+	eir_is_irish_ruler_trigger = yes
+	eir_realm_size_trigger = { N = 10 }
+	highest_held_title_tier >= tier_duchy
+}
+
+# Stage 3: a king.
+eir_stage3_trigger = {
+	eir_is_irish_ruler_trigger = yes
+	eir_realm_size_trigger = { N = 20 }
+	highest_held_title_tier >= tier_kingdom
+}
+
+# Stage 4: the High King of Ireland.
+eir_stage4_trigger = {
+	eir_is_irish_ruler_trigger = yes
+	has_title = title:k_ireland
+}
+
+# Shown (not necessarily usable) once the ruler is on the path to a stage.
+eir_visible_stage1_trigger = {
+	eir_is_irish_ruler_trigger = yes
+	eir_realm_size_trigger = { N = 2 }
+}
