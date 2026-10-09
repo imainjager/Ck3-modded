@@ -34,6 +34,7 @@ ie_theft.0041 = {
 	}
 
 	immediate = {
+		ie_theft_note_effect = { NOTE = note_usurper }
 		ie_theft_load_scopes_effect = yes
 		scope:story = { remove_variable = pending_usurper }
 		# Prefer the county his brigands already ruined
@@ -84,6 +85,7 @@ ie_theft.0041 = {
 	# Recognise him as Count
 	option = {
 		name = ie_theft.0041.a
+		scope:usurped_county = { add_county_modifier = { modifier = ie_counts_gratitude_modifier years = 15 } }
 		scope:thief = {
 			add_opinion = {
 				target = root
@@ -118,6 +120,7 @@ ie_theft.0041 = {
 	# Strip him of the county and throw him in the dungeon
 	option = {
 		name = ie_theft.0041.b
+		scope:usurped_county = { add_county_modifier = { modifier = ie_scarred_county_modifier years = 15 } }
 		create_title_and_vassal_change = {
 			type = revoked
 			save_scope_as = change_back
@@ -229,6 +232,7 @@ ie_theft.0042 = {
 	}
 
 	immediate = {
+		ie_theft_note_effect = { NOTE = note_sanctuary }
 		ie_theft_load_scopes_effect = yes
 		scope:story = {
 			set_variable = {
@@ -241,6 +245,8 @@ ie_theft.0042 = {
 	# Respect the sanctuary and wait him out
 	option = {
 		name = ie_theft.0042.a
+		add_character_modifier = { modifier = ie_pious_patron_modifier years = 10 }
+		random_realm_county = { add_county_modifier = { modifier = ie_pilgrim_shrine_modifier years = 20 } }
 		add_piety = 50
 		stress_impact = {
 			impatient = minor_stress_impact_gain
@@ -266,6 +272,7 @@ ie_theft.0042 = {
 	# Drag him out by force
 	option = {
 		name = ie_theft.0042.b
+		add_character_modifier = { modifier = ie_sacrilege_modifier years = 10 }
 		add_piety = -100
 		ie_theft_rep_effect = {
 			VAR = ie_fear
@@ -399,6 +406,7 @@ ie_theft.0050 = {
 	# Pay them to drop it
 	option = {
 		name = ie_theft.0050.b
+		dynasty ?= { add_dynasty_modifier = { modifier = ie_dynasty_laughed_modifier years = 10 } }
 		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.5 }
 		add_prestige = -50
 		ie_theft_rep_effect = {

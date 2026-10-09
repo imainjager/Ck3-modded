@@ -1,0 +1,131 @@
+﻿##########################################################################
+# Theft at Court - bookkeeping and wider-world helpers
+# Written to be reusable by other Interactive Events stories.
+##########################################################################
+
+# Remember something that happened, so the ending can reflect it.
+ie_theft_note_effect = {
+	scope:story = {
+		set_variable = {
+			name = $NOTE$
+			value = 1
+		}
+	}
+}
+
+# The people of a county are pushed to the edge. A few months later an event lets
+# the ruler respond; if nothing is done the unrest lasts about two years, which is
+# long enough for the game's own peasant mechanics to take over.
+ie_theft_unrest_effect = {
+	ie_theft_note_effect = { NOTE = note_unrest }
+	scope:story = {
+		set_variable = {
+			name = pending_unrest
+			value = 1
+		}
+	}
+	trigger_event = {
+		id = ie_theft.0044
+		months = { 2 5 }
+	}
+}
+
+# A vassal who defied you may start an independence faction.
+ie_theft_vassal_revolt_effect = {
+	random = {
+		chance = 40
+		if = {
+			limit = { exists = scope:harbor_vassal }
+			scope:story = {
+				set_variable = {
+					name = pending_revolt
+					value = 1
+				}
+			}
+			trigger_event = {
+				id = ie_theft.0043
+				months = { 3 9 }
+			}
+		}
+	}
+}
+
+# The wrongly accused courtier is marked by it, and so is their house.
+ie_theft_wronged_effect = {
+	if = {
+		limit = { exists = scope:scapegoat }
+		scope:scapegoat = {
+			if = {
+				limit = { NOT = { has_trait = ie_wrongly_accused } }
+				add_trait = ie_wrongly_accused
+			}
+			house ?= {
+				add_house_modifier = {
+					modifier = ie_house_avenging_modifier
+					years = 10
+				}
+			}
+		}
+	}
+}
+
+# The thief's name and house are dragged through the mud.
+ie_theft_disgrace_effect = {
+	if = {
+		limit = { exists = scope:thief }
+		scope:thief = {
+			if = {
+				limit = { NOT = { has_trait = ie_notorious_thief } }
+				add_trait = ie_notorious_thief
+			}
+			house ?= {
+				add_house_modifier = {
+					modifier = ie_house_disgraced_modifier
+					years = 12
+				}
+			}
+		}
+	}
+}
+
+# Apply a county modifier to every county of your capital duchy.
+ie_theft_duchy_modifier_effect = {
+	capital_county.duchy ?= {
+		every_in_de_jure_hierarchy = {
+			limit = { tier = tier_county }
+			add_county_modifier = {
+				modifier = $MODIFIER$
+				years = $YEARS$
+			}
+		}
+	}
+}
+
+# Apply a county modifier to every county of your capital kingdom.
+ie_theft_kingdom_modifier_effect = {
+	capital_county.kingdom ?= {
+		every_in_de_jure_hierarchy = {
+			limit = { tier = tier_county }
+			add_county_modifier = {
+				modifier = $MODIFIER$
+				years = $YEARS$
+			}
+		}
+	}
+}
+
+# Clear the reputation counters once an ending has been chosen.
+ie_theft_clear_rep_effect = {
+	if = {
+		limit = { has_variable = ie_fear }
+		remove_variable = ie_fear
+	}
+	if = {
+		limit = { has_variable = ie_loyalty }
+		remove_variable = ie_loyalty
+	}
+	if = {
+		limit = { has_variable = ie_mockery }
+		remove_variable = ie_mockery
+	}
+}

@@ -1,0 +1,440 @@
+﻿# Theft at Court - decisions unlocked by how the story ended
+
+ie_watch_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_watch_decision_desc
+	selection_tooltip = ie_watch_decision_tooltip
+	confirm_text = ie_watch_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_watch
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_watch
+		every_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = {
+				modifier = ie_county_watch_modifier
+				years = 20
+			}
+		}
+		add_character_modifier = {
+			modifier = ie_vigilant_court_modifier
+			years = 15
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_amnesty_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_amnesty_decision_desc
+	selection_tooltip = ie_amnesty_decision_tooltip
+	confirm_text = ie_amnesty_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_amnesty
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		prestige = 100
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_amnesty
+		every_courtier = {
+			limit = { is_adult = yes }
+			add_opinion = {
+				target = root
+				modifier = ie_saved_by_ruler_opinion
+				opinion = 15
+			}
+		}
+		every_vassal = {
+			add_opinion = {
+				target = root
+				modifier = ie_trusts_justice_opinion
+				opinion = 8
+			}
+		}
+		every_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = {
+				modifier = ie_amnesty_county_modifier
+				years = 5
+			}
+		}
+		add_character_modifier = {
+			modifier = ie_lenient_judge_modifier
+			years = 10
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_restore_name_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_restore_name_decision_desc
+	selection_tooltip = ie_restore_name_decision_tooltip
+	confirm_text = ie_restore_name_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_restore_name
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = major_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_restore_name
+		if = {
+			limit = { has_character_modifier = ie_laughingstock_modifier }
+			remove_character_modifier = ie_laughingstock_modifier
+		}
+		dynasty = {
+			if = {
+				limit = { has_dynasty_modifier = ie_dynasty_laughed_modifier }
+				remove_dynasty_modifier = ie_dynasty_laughed_modifier
+			}
+		}
+		add_prestige = 150
+		add_character_modifier = {
+			modifier = ie_generous_patron_modifier
+			years = 8
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_assizes_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_assizes_decision_desc
+	selection_tooltip = ie_assizes_decision_tooltip
+	confirm_text = ie_assizes_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		has_character_flag = ie_decision_assizes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = major_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_assizes
+		add_character_modifier = {
+			modifier = ie_court_of_law_modifier
+			years = 25
+		}
+		dynasty = {
+			add_dynasty_modifier = {
+				modifier = ie_dynasty_lawgivers_modifier
+				years = 40
+			}
+		}
+		if = {
+			limit = { NOT = { has_trait = ie_lawgiver } }
+			add_trait = ie_lawgiver
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_claim_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_claim_decision_desc
+	selection_tooltip = ie_claim_decision_tooltip
+	confirm_text = ie_claim_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_claim
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+		custom_description = {
+			text = ie_claim_decision_missing_target
+			exists = var:ie_claim_target
+		}
+	}
+
+	cost = {
+		gold = minor_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_claim
+		if = {
+			limit = { exists = var:ie_claim_target }
+			add_pressed_claim = var:ie_claim_target
+			remove_variable = ie_claim_target
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_marches_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_marches_decision_desc
+	selection_tooltip = ie_marches_decision_tooltip
+	confirm_text = ie_marches_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_marches
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_marches
+		every_held_title = {
+			limit = { tier = tier_county }
+			if = {
+				limit = { has_county_modifier = ie_scarred_county_modifier }
+				remove_county_modifier = ie_scarred_county_modifier
+				add_county_modifier = {
+					modifier = ie_rebuilt_marches_modifier
+					years = 15
+				}
+			}
+			if = {
+				limit = { has_county_modifier = ie_bandit_haven_modifier }
+				remove_county_modifier = ie_bandit_haven_modifier
+				add_county_modifier = {
+					modifier = ie_safe_roads_modifier
+					years = 15
+				}
+			}
+		}
+		if = {
+			limit = { has_character_modifier = ie_scar_on_realm_modifier }
+			remove_character_modifier = ie_scar_on_realm_modifier
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_abbey_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_abbey_decision_desc
+	selection_tooltip = ie_abbey_decision_tooltip
+	confirm_text = ie_abbey_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_abbey
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_abbey
+		add_piety = 150
+		add_character_modifier = {
+			modifier = ie_pious_patron_modifier
+			years = 15
+		}
+		random_held_title = {
+			limit = { tier = tier_county }
+			add_county_modifier = {
+				modifier = ie_pilgrim_shrine_modifier
+				years = 25
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_ballad_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_ballad_decision_desc
+	selection_tooltip = ie_ballad_decision_tooltip
+	confirm_text = ie_ballad_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_ballad
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_ballad
+		add_prestige = 100
+		add_character_modifier = {
+			modifier = ie_legend_modifier
+			years = 15
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+ie_pardon_house_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	sort_order = 50
+
+	desc = ie_pardon_house_decision_desc
+	selection_tooltip = ie_pardon_house_decision_tooltip
+	confirm_text = ie_pardon_house_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		has_character_flag = ie_decision_pardon_house
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	cost = {
+		gold = medium_gold_value
+	}
+
+	effect = {
+		remove_character_flag = ie_decision_pardon_house
+		if = {
+			limit = { has_character_modifier = ie_innocent_blood_modifier }
+			remove_character_modifier = ie_innocent_blood_modifier
+		}
+		every_courtier = {
+			limit = { has_trait = ie_wrongly_accused }
+			remove_trait = ie_wrongly_accused
+			add_opinion = {
+				target = root
+				modifier = ie_saved_by_ruler_opinion
+				opinion = 40
+			}
+		}
+		add_character_modifier = {
+			modifier = ie_humbled_before_court_modifier
+			years = 8
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+

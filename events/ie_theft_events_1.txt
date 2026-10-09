@@ -277,6 +277,7 @@ ie_theft.0001 = {
 	# Paranoid: trust nobody and lock the court down
 	option = {
 		name = ie_theft.0001.e
+		add_character_modifier = { modifier = ie_distrustful_court_modifier years = 5 }
 		ie_theft_court_trait_effect = { TRAIT = paranoid OPPOSITE = trusting CHANCE = 20 }
 		# Only one personality option is shown at a time: cruel > paranoid > merciful > open-handed
 		trigger = {
@@ -319,6 +320,7 @@ ie_theft.0001 = {
 	# Cruel: take the likeliest suspect to the cellars
 	option = {
 		name = ie_theft.0001.f
+		add_character_modifier = { modifier = ie_harsh_hand_modifier years = 8 }
 		ie_theft_trait_effect = { TRAIT = callous OPPOSITE = compassionate CHANCE = 25 }
 		ie_theft_court_trait_effect = { TRAIT = craven OPPOSITE = brave CHANCE = 15 }
 		trigger = {
@@ -367,6 +369,7 @@ ie_theft.0001 = {
 	# Open-handed: offer a reward for information
 	option = {
 		name = ie_theft.0001.g
+		add_character_modifier = { modifier = ie_open_hand_modifier years = 5 }
 		trigger = {
 			OR = {
 				has_trait = generous
@@ -410,6 +413,7 @@ ie_theft.0001 = {
 	# Merciful: offer amnesty to whoever returns the gold
 	option = {
 		name = ie_theft.0001.h
+		add_character_modifier = { modifier = ie_lenient_judge_modifier years = 5 }
 		ie_theft_trait_effect = { TRAIT = forgiving OPPOSITE = vengeful CHANCE = 20 }
 		trigger = {
 			OR = {
@@ -884,6 +888,7 @@ ie_theft.0013 = {
 	# Keep your word
 	option = {
 		name = ie_theft.0013.a
+		add_character_modifier = { modifier = ie_mans_word_modifier years = 10 }
 		ie_theft_trait_effect = { TRAIT = honest OPPOSITE = deceitful CHANCE = 20 }
 		add_gold = ie_theft_loot_value
 		scope:thief = {
@@ -913,6 +918,9 @@ ie_theft.0013 = {
 	# Break your promise and punish them anyway
 	option = {
 		name = ie_theft.0013.b
+		add_character_modifier = { modifier = ie_oathbreaker_modifier years = 8 }
+		scope:thief = { add_opinion = { target = root modifier = ie_betrayed_promise_opinion opinion = -40 } }
+		ie_theft_disgrace_effect = yes
 		ie_theft_trait_effect = { TRAIT = deceitful OPPOSITE = honest CHANCE = 30 }
 		add_gold = ie_theft_loot_value
 		imprison = {
@@ -1169,6 +1177,10 @@ ie_theft.0002 = {
 	# Steward: prosecute under the law and reform the treasury
 	option = {
 		name = ie_theft.0002.g
+		add_character_modifier = { modifier = ie_court_of_law_modifier years = 10 }
+		add_character_modifier = { modifier = ie_honest_ledgers_modifier years = 10 }
+		ie_theft_note_effect = { NOTE = note_audit }
+		ie_theft_disgrace_effect = yes
 		scope:steward = { ie_theft_trait_effect = { TRAIT = diligent OPPOSITE = lazy CHANCE = 30 } }
 		ie_theft_trait_effect = { TRAIT = just OPPOSITE = arbitrary CHANCE = 20 }
 		trigger = {
@@ -1208,6 +1220,8 @@ ie_theft.0002 = {
 	# Spymaster: turn them into your informant
 	option = {
 		name = ie_theft.0002.h
+		add_character_modifier = { modifier = ie_spymasters_favour_modifier years = 10 }
+		ie_theft_note_effect = { NOTE = note_reformed }
 		ie_theft_trait_effect = { TRAIT = deceitful OPPOSITE = honest CHANCE = 20 }
 		trigger = {
 			scope:story = { var:investigator ?= 3 }
@@ -1249,6 +1263,7 @@ ie_theft.0002 = {
 	# Desperate thief: pay for the cure and forgive
 	option = {
 		name = ie_theft.0002.j
+		ie_theft_note_effect = { NOTE = note_reformed }
 		ie_theft_trait_effect = { TRAIT = compassionate OPPOSITE = callous CHANCE = 25 }
 		trigger = {
 			scope:story = { var:motive ?= 2 }
@@ -1264,7 +1279,7 @@ ie_theft.0002 = {
 		scope:thief = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = ie_saved_by_ruler_opinion
 				opinion = 40
 			}
 		}
@@ -1355,13 +1370,14 @@ ie_theft.0003 = {
 	# Imprison the accused
 	option = {
 		name = ie_theft.0003.a
+		ie_theft_wronged_effect = yes
 		ie_theft_trait_effect = { TRAIT = arbitrary OPPOSITE = just CHANCE = 25 }
 		scope:scapegoat = { ie_theft_trait_effect = { TRAIT = cynical OPPOSITE = zealous CHANCE = 40 } }
 		ie_theft_wronged_memory_effect = yes
 		scope:scapegoat = {
 			add_opinion = {
 				target = root
-				modifier = insulted_opinion
+				modifier = ie_wronged_opinion
 				opinion = -40
 			}
 		}
@@ -1621,6 +1637,9 @@ ie_theft.0005 = {
 	# Free and compensate publicly
 	option = {
 		name = ie_theft.0005.a
+		add_character_modifier = { modifier = ie_humbled_before_court_modifier years = 10 }
+		ie_theft_note_effect = { NOTE = note_scapegoat_freed }
+		scope:scapegoat = { if = { limit = { has_trait = ie_wrongly_accused } remove_trait = ie_wrongly_accused } }
 		ie_theft_trait_effect = { TRAIT = humble OPPOSITE = arrogant CHANCE = 30 }
 		if = { limit = { exists = scope:scapegoat } create_character_memory = { type = ie_memory_admitted_error participants = { wronged = scope:scapegoat } } }
 		scope:scapegoat = {
@@ -1657,6 +1676,7 @@ ie_theft.0005 = {
 	# Blame whoever gathered the evidence
 	option = {
 		name = ie_theft.0005.c
+		ie_theft_note_effect = { NOTE = note_scapegoat_freed }
 		ie_theft_trait_effect = { TRAIT = deceitful OPPOSITE = honest CHANCE = 25 }
 		scope:inv_char = { ie_theft_trait_effect = { TRAIT = vengeful OPPOSITE = forgiving CHANCE = 30 } }
 		trigger = { exists = scope:inv_char }
@@ -1688,6 +1708,8 @@ ie_theft.0005 = {
 	# Double down
 	option = {
 		name = ie_theft.0005.d
+		add_character_modifier = { modifier = ie_stubborn_pride_modifier years = 8 }
+		ie_theft_wronged_effect = yes
 		ie_theft_trait_effect = { TRAIT = stubborn OPPOSITE = fickle CHANCE = 30 }
 		scope:scapegoat = { ie_theft_trait_effect = { TRAIT = vengeful OPPOSITE = forgiving CHANCE = 60 } }
 		ie_theft_wronged_memory_effect = yes

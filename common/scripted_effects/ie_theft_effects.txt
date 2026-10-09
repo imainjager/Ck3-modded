@@ -161,6 +161,8 @@ ie_theft_end_story_effect = {
 					exists = var:pending_habit
 					exists = var:pending_claim
 					exists = var:pending_usurper
+					exists = var:pending_unrest
+					exists = var:pending_revolt
 				}
 			}
 		}
@@ -416,11 +418,23 @@ ie_theft_fate_execute_effect = {
 	ie_theft_trait_effect = { TRAIT = callous OPPOSITE = compassionate CHANCE = 25 }
 	ie_theft_court_trait_effect = { TRAIT = craven OPPOSITE = brave CHANCE = 15 }
 	ie_theft_memory_effect = { TYPE = ie_memory_thief_executed }
+	ie_theft_note_effect = { NOTE = note_executed }
+	add_character_modifier = {
+		modifier = ie_hanging_judge_modifier
+		years = 8
+	}
+	capital_province ?= {
+		add_province_modifier = {
+			modifier = ie_hanging_tree_province_modifier
+			years = 15
+		}
+	}
+	ie_theft_disgrace_effect = yes
 	every_courtier = {
 		limit = { is_close_family_of = scope:thief }
 		add_opinion = {
 			target = root
-			modifier = insulted_opinion
+			modifier = ie_kin_executed_opinion
 			opinion = -25
 		}
 	}
@@ -446,6 +460,8 @@ ie_theft_fate_imprison_effect = {
 		target = scope:thief
 		type = dungeon
 	}
+	ie_theft_note_effect = { NOTE = note_jailed }
+	ie_theft_disgrace_effect = yes
 	add_prestige = 25
 	ie_theft_rep_effect = {
 		VAR = ie_fear
@@ -459,7 +475,7 @@ ie_theft_fate_imprison_effect = {
 		limit = { is_close_family_of = scope:thief }
 		add_opinion = {
 			target = root
-			modifier = insulted_opinion
+			modifier = ie_kin_executed_opinion
 			opinion = -15
 		}
 	}
@@ -476,6 +492,7 @@ ie_theft_fate_debt_effect = {
 		target = scope:thief
 		type = strong_indebted_hook
 	}
+	ie_theft_note_effect = { NOTE = note_reformed }
 	scope:thief = {
 		add_opinion = {
 			target = root
@@ -507,6 +524,8 @@ ie_theft_fate_exile_effect = {
 		multiply = $RECOVER$
 	}
 	remove_courtier_or_guest = scope:thief
+	ie_theft_note_effect = { NOTE = note_exiled }
+	ie_theft_disgrace_effect = yes
 	scope:thief = {
 		add_opinion = {
 			target = root
@@ -523,10 +542,11 @@ ie_theft_fate_mercy_effect = {
 	scope:thief = {
 		add_opinion = {
 			target = root
-			modifier = grateful_opinion
+			modifier = ie_saved_by_ruler_opinion
 			opinion = 30
 		}
 	}
+	ie_theft_note_effect = { NOTE = note_pardoned }
 	ie_theft_rep_effect = {
 		VAR = ie_loyalty
 		AMOUNT = 1

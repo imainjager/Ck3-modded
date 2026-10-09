@@ -1,4 +1,5 @@
-﻿# County hurt by bandits funded with stolen treasury gold
+﻿# Theft at Court - modifiers. Generated; field names are checked against vanilla.
+# County hurt by bandits funded with stolen treasury gold
 ie_bandit_haven_modifier = {
 	icon = county_modifier_development_negative
 	county_opinion_add = -10
@@ -32,7 +33,6 @@ ie_laughingstock_modifier = {
 	monthly_income_mult = -0.03
 }
 
-# Rewards of specific choices
 ie_audited_treasury_modifier = {
 	icon = economy_positive
 	monthly_income_mult = 0.05
@@ -42,3 +42,307 @@ ie_court_informant_modifier = {
 	icon = intrigue_positive
 	owned_hostile_scheme_success_chance_add = 10
 }
+
+##### character modifiers #####
+ie_vigilant_court_modifier = {
+	icon = intrigue_positive
+	enemy_hostile_scheme_success_chance_add = -10
+	courtier_and_guest_opinion = -3
+}
+
+ie_open_hand_modifier = {
+	icon = love_positive
+	courtier_and_guest_opinion = 8
+	monthly_income_mult = -0.02
+}
+
+ie_harsh_hand_modifier = {
+	icon = dread_mixed
+	tyranny_gain_mult = 0.25
+	dread_gain_mult = 0.15
+	vassal_opinion = -3
+}
+
+ie_mans_word_modifier = {
+	icon = legitimacy_positive
+	general_opinion = 5
+	legitimacy_gain_mult = 0.1
+}
+
+ie_oathbreaker_modifier = {
+	icon = legitimacy_negative
+	general_opinion = -10
+	courtier_and_guest_opinion = -10
+	monthly_prestige = -0.2
+}
+
+ie_distrustful_court_modifier = {
+	icon = intrigue_mixed
+	enemy_hostile_scheme_success_chance_add = -15
+	courtier_and_guest_opinion = -10
+	stress_gain_mult = 0.1
+}
+
+ie_spymasters_favour_modifier = {
+	icon = intrigue_positive
+	owned_hostile_scheme_success_chance_add = 10
+	intrigue = 1
+}
+
+ie_lenient_judge_modifier = {
+	icon = diplomacy_positive
+	general_opinion = 3
+	dread_gain_mult = -0.2
+}
+
+ie_thief_takers_fame_modifier = {
+	icon = martial_positive
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.1
+}
+
+ie_humbled_before_court_modifier = {
+	icon = piety_positive
+	monthly_prestige = -0.1
+	courtier_and_guest_opinion = 10
+	monthly_piety = 0.2
+}
+
+ie_stubborn_pride_modifier = {
+	icon = prestige_mixed
+	monthly_prestige = 0.1
+	courtier_and_guest_opinion = -8
+	stress_gain_mult = 0.05
+}
+
+ie_pious_patron_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.5
+	clergy_opinion = 10
+}
+
+ie_sacrilege_modifier = {
+	icon = piety_negative
+	clergy_opinion = -20
+	monthly_piety = -0.3
+	zealot_opinion = -10
+}
+
+ie_tyrant_of_the_marches_modifier = {
+	icon = prison_negative
+	vassal_opinion = -8
+	powerful_vassal_opinion = -8
+}
+
+ie_peoples_champion_modifier = {
+	icon = social_positive
+	general_opinion = 4
+	monthly_prestige = 0.1
+}
+
+ie_court_of_law_modifier = {
+	icon = legitimacy_positive
+	legitimacy_gain_mult = 0.1
+	courtier_and_guest_opinion = 5
+}
+
+ie_honest_ledgers_modifier = {
+	icon = economy_positive
+	domain_tax_mult = 0.05
+}
+
+ie_foreign_reckoning_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.3
+	independent_ruler_opinion = -5
+}
+
+ie_scar_on_realm_modifier = {
+	icon = stewardship_negative
+	domain_tax_mult = -0.05
+	vassal_opinion = -3
+}
+
+ie_innocent_blood_modifier = {
+	icon = family_negative
+	courtier_and_guest_opinion = -8
+	stress_gain_mult = 0.1
+}
+
+ie_reformed_court_modifier = {
+	icon = stewardship_positive
+	legitimacy_gain_mult = 0.05
+	monthly_income_mult = 0.03
+}
+
+ie_legend_modifier = {
+	icon = legend_positive
+	monthly_prestige_gain_mult = 0.1
+	monthly_prestige = 0.2
+}
+
+ie_reformed_thief_modifier = {
+	icon = social_positive
+	courtier_and_guest_opinion = 5
+	intrigue = 1
+}
+
+ie_hanging_judge_modifier = {
+	icon = dread_positive
+	dread_gain_mult = 0.1
+	dread_decay_mult = -0.2
+}
+
+ie_generous_patron_modifier = {
+	icon = love_positive
+	monthly_prestige_gain_mult = 0.05
+	courtier_and_guest_opinion = 5
+}
+
+
+##### county modifiers #####
+ie_peasant_unrest_modifier = {
+	icon = county_modifier_opinion_negative
+	county_opinion_add = -40
+	monthly_county_control_growth_add = -0.5
+	tax_mult = -0.2
+}
+
+ie_county_watch_modifier = {
+	icon = county_modifier_control_positive
+	monthly_county_control_growth_add = 0.3
+	travel_danger = -10
+	levy_size = 0.05
+}
+
+ie_watchtowers_county_modifier = {
+	icon = county_modifier_control_positive
+	travel_danger = -10
+	defender_holding_advantage = 5
+	garrison_size = 0.1
+}
+
+ie_reformed_county_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.1
+	tax_mult = 0.05
+}
+
+ie_scarred_county_modifier = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.15
+	county_opinion_add = -10
+	monthly_county_control_growth_add = -0.2
+}
+
+ie_loyal_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 10
+	monthly_county_control_growth_add = 0.3
+}
+
+ie_thieves_market_modifier = {
+	icon = county_modifier_corruption_negative
+	tax_mult = 0.1
+	county_opinion_add = -5
+	monthly_county_control_growth_add = -0.3
+	travel_danger = 5
+}
+
+ie_pilgrim_shrine_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	tax_mult = 0.1
+	development_growth_factor = 0.05
+}
+
+ie_frontier_garrison_modifier = {
+	icon = county_modifier_control_positive
+	garrison_size = 0.25
+	levy_size = 0.1
+	defender_holding_advantage = 5
+}
+
+ie_safe_roads_modifier = {
+	icon = county_modifier_control_positive
+	travel_danger = -10
+	tax_mult = 0.05
+}
+
+ie_punitive_levy_modifier = {
+	icon = county_modifier_opinion_negative
+	tax_mult = 0.2
+	county_opinion_add = -20
+}
+
+ie_amnesty_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 15
+	tax_mult = -0.05
+}
+
+ie_rebuilt_marches_modifier = {
+	icon = county_modifier_development_positive
+	build_speed = -0.2
+	build_gold_cost = -0.1
+	development_growth_factor = 0.1
+}
+
+ie_counts_gratitude_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 10
+	monthly_county_control_growth_add = 0.2
+}
+
+ie_famous_trial_modifier = {
+	icon = county_modifier_development_positive
+	county_opinion_add = 5
+	development_growth_factor = 0.05
+}
+
+
+##### province modifiers #####
+ie_watchtower_province_modifier = {
+	icon = county_modifier_control_positive
+	fort_level = 1
+	defender_holding_advantage = 5
+}
+
+ie_bandit_camp_province_modifier = {
+	icon = county_modifier_control_negative
+	supply_limit_mult = -0.25
+	travel_danger = 10
+}
+
+ie_toll_house_province_modifier = {
+	icon = economy_positive
+	monthly_income = 0.5
+}
+
+ie_hanging_tree_province_modifier = {
+	icon = dread_positive
+	travel_danger = -5
+}
+
+
+##### dynasty / house modifiers #####
+ie_house_disgraced_modifier = {
+	icon = family_negative
+	monthly_dynasty_prestige = -0.2
+}
+
+ie_house_avenging_modifier = {
+	icon = family_negative
+	dynasty_house_opinion = -10
+}
+
+ie_dynasty_lawgivers_modifier = {
+	icon = family_positive
+	monthly_dynasty_prestige = 0.3
+}
+
+ie_dynasty_laughed_modifier = {
+	icon = family_negative
+	monthly_dynasty_prestige = -0.3
+}
+

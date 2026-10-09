@@ -1,0 +1,1068 @@
+﻿namespace = ie_theft
+
+##################################################################
+# THEFT AT COURT - part 4: unrest, revolt, and ten endings
+#
+# 0043 A Vassal Raises a Banner   - the defiant vassal starts an independence faction
+# 0044 Unrest in the Countryside  - angry peasants; the game's own peasant mechanics follow
+#
+# 0090 hidden dispatcher: picks the ending that fits what actually happened
+# 0100 The Iron Ledger            - you are feared
+# 0101 The Merciful Name          - you are trusted
+# 0102 A Laughing Stock           - you are mocked
+# 0103 The Reformed Thief         - a thief now works for you
+# 0104 The Reckoning Abroad       - a foreign court paid for the theft
+# 0105 A Scar on the Realm        - the countryside suffered
+# 0106 The Innocent's Revenge     - the wronged house will not forget
+# 0107 The Reformed Treasury      - the administration is better for it
+# 0108 A Matter for the Church    - the Church became part of the story
+# 0109 A Tale Retold              - the affair became a story people tell
+# 0110 Nothing Changes            - fallback
+#
+# Story notes (set during play) decide the ending:
+#   note_executed note_jailed note_pardoned note_reformed note_exiled note_killed
+#   note_war note_usurper note_unrest note_bandit note_sanctuary note_audit
+#   note_scapegoat_freed
+##################################################################
+
+
+#####################################
+# 0043 A Vassal Raises a Banner
+#####################################
+ie_theft.0043 = {
+	type = character_event
+	title = ie_theft.0043.t
+	desc = ie_theft.0043.desc
+	theme = vassal
+	left_portrait = {
+		character = scope:harbor_vassal
+		animation = anger
+	}
+
+	trigger = {
+		any_owned_story = {
+			type = ie_story_theft
+			exists = var:harbor_vassal
+		}
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		scope:story = { remove_variable = pending_revolt }
+		if = {
+			limit = {
+				exists = scope:harbor_vassal
+				scope:harbor_vassal = {
+					can_create_faction = {
+						target = root
+						type = independence_faction
+					}
+				}
+			}
+			scope:harbor_vassal = {
+				create_faction = {
+					type = independence_faction
+					target = root
+				}
+			}
+		}
+	}
+
+	# Strike first
+	option = {
+		name = ie_theft.0043.a
+		imprison = {
+			target = scope:harbor_vassal
+			type = dungeon
+		}
+		add_tyranny = minor_tyranny_gain
+		add_character_modifier = {
+			modifier = ie_tyrant_of_the_marches_modifier
+			years = 8
+		}
+		ie_theft_rep_effect = {
+			VAR = ie_fear
+			AMOUNT = 2
+		}
+		ie_theft_trait_effect = { TRAIT = arbitrary OPPOSITE = just CHANCE = 25 }
+		stress_impact = {
+			honest = minor_stress_impact_gain
+			just = minor_stress_impact_gain
+			compassionate = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_loss
+		}
+		ie_theft_end_story_effect = yes
+	}
+
+	# Make concessions
+	option = {
+		name = ie_theft.0043.b
+		scope:harbor_vassal = {
+			add_opinion = {
+				target = root
+				modifier = ie_saved_by_ruler_opinion
+				opinion = 40
+			}
+			add_hook = {
+				target = root
+				type = favor_hook
+			}
+		}
+		add_prestige = -25
+		ie_theft_rep_effect = {
+			VAR = ie_mockery
+			AMOUNT = 1
+		}
+		stress_impact = {
+			arrogant = minor_stress_impact_gain
+			vengeful = miniscule_stress_impact_gain
+			humble = miniscule_stress_impact_loss
+		}
+		ie_theft_end_story_effect = yes
+	}
+
+	# Win the other lords over
+	option = {
+		name = ie_theft.0043.c
+		trigger = {
+			OR = {
+				diplomacy >= 12
+				has_trait = gregarious
+				has_perk = diplomat_perk
+			}
+		}
+		stress_impact = {
+			shy = miniscule_stress_impact_gain
+			gregarious = miniscule_stress_impact_loss
+		}
+		random_list = {
+			55 = {
+				desc = ie_theft.out.lords_rally
+				modifier = {
+					add = 15
+					diplomacy >= 16
+				}
+				every_vassal = {
+					limit = {
+						NOT = { this = scope:harbor_vassal }
+					}
+					add_opinion = {
+						target = root
+						modifier = ie_trusts_justice_opinion
+						opinion = 12
+					}
+				}
+				ie_theft_rep_effect = {
+					VAR = ie_loyalty
+					AMOUNT = 1
+				}
+				ie_theft_end_story_effect = yes
+			}
+			35 = {
+				desc = ie_theft.out.lords_waver
+				ie_theft_rep_effect = {
+					VAR = ie_mockery
+					AMOUNT = 1
+				}
+				ie_theft_end_story_effect = yes
+			}
+		}
+	}
+
+	# Let them posture
+	option = {
+		name = ie_theft.0043.d
+		ie_theft_end_story_effect = yes
+	}
+}
+
+
+#####################################
+# 0044 Unrest in the Countryside
+#####################################
+ie_theft.0044 = {
+	type = character_event
+	title = ie_theft.0044.t
+	desc = ie_theft.0044.desc
+	theme = realm
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+		any_realm_county = { count >= 1 }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		scope:story = { remove_variable = pending_unrest }
+		if = {
+			limit = {
+				any_realm_county = { has_county_modifier = ie_bandit_haven_modifier }
+			}
+			random_realm_county = {
+				limit = { has_county_modifier = ie_bandit_haven_modifier }
+				save_scope_as = unrest_county
+			}
+		}
+		else = {
+			random_realm_county = {
+				save_scope_as = unrest_county
+			}
+		}
+		scope:unrest_county = {
+			add_county_modifier = {
+				modifier = ie_peasant_unrest_modifier
+				years = 2
+			}
+		}
+	}
+
+	# Send the army before it spreads
+	option = {
+		name = ie_theft.0044.a
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.4 }
+		scope:unrest_county = {
+			remove_county_modifier = ie_peasant_unrest_modifier
+			add_county_modifier = {
+				modifier = ie_punitive_levy_modifier
+				years = 5
+			}
+		}
+		add_character_modifier = {
+			modifier = ie_harsh_hand_modifier
+			years = 5
+		}
+		add_dread = minor_dread_gain
+		ie_theft_rep_effect = {
+			VAR = ie_fear
+			AMOUNT = 1
+		}
+		stress_impact = {
+			compassionate = minor_stress_impact_gain
+			just = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_loss
+		}
+		ie_theft_end_story_effect = yes
+	}
+
+	# Open the granaries
+	option = {
+		name = ie_theft.0044.b
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.25 }
+		scope:unrest_county = {
+			remove_county_modifier = ie_peasant_unrest_modifier
+			add_county_modifier = {
+				modifier = ie_peasant_unrest_modifier
+				days = 180
+			}
+			add_county_modifier = {
+				modifier = ie_amnesty_county_modifier
+				years = 3
+			}
+		}
+		ie_theft_rep_effect = {
+			VAR = ie_loyalty
+			AMOUNT = 1
+		}
+		ie_theft_trait_effect = { TRAIT = generous OPPOSITE = greedy CHANCE = 20 }
+		stress_impact = {
+			greedy = minor_stress_impact_gain
+			generous = miniscule_stress_impact_loss
+			compassionate = miniscule_stress_impact_loss
+		}
+		ie_theft_end_story_effect = yes
+	}
+
+	# Ride out and hear their grievances
+	option = {
+		name = ie_theft.0044.d
+		trigger = {
+			OR = {
+				diplomacy >= 10
+				has_trait = compassionate
+				has_trait = just
+			}
+		}
+		stress_impact = {
+			arrogant = miniscule_stress_impact_gain
+			compassionate = miniscule_stress_impact_loss
+		}
+		random_list = {
+			55 = {
+				desc = ie_theft.out.grievances_heard
+				modifier = {
+					add = 15
+					diplomacy >= 14
+				}
+				scope:unrest_county = {
+					remove_county_modifier = ie_peasant_unrest_modifier
+					add_county_modifier = {
+						modifier = ie_loyal_county_modifier
+						years = 10
+					}
+				}
+				add_character_modifier = {
+					modifier = ie_peoples_champion_modifier
+					years = 8
+				}
+				ie_theft_rep_effect = {
+					VAR = ie_loyalty
+					AMOUNT = 1
+				}
+				ie_theft_end_story_effect = yes
+			}
+			35 = {
+				desc = ie_theft.out.grievances_scorned
+				ie_theft_rep_effect = {
+					VAR = ie_mockery
+					AMOUNT = 1
+				}
+				ie_theft_end_story_effect = yes
+			}
+		}
+	}
+
+	# Let it burn out
+	option = {
+		name = ie_theft.0044.c
+		scope:unrest_county = {
+			add_county_modifier = {
+				modifier = ie_thieves_market_modifier
+				years = 10
+			}
+		}
+		ie_theft_rep_effect = {
+			VAR = ie_mockery
+			AMOUNT = 1
+		}
+		ie_theft_end_story_effect = yes
+	}
+}
+
+
+#####################################
+# 0090 The ending dispatcher (hidden)
+#####################################
+ie_theft.0090 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		random_owned_story = {
+			type = ie_story_theft
+			save_scope_as = story
+		}
+		if = {
+			limit = {
+				has_variable = ie_mockery
+				var:ie_mockery >= 2
+			}
+			trigger_event = ie_theft.0102
+		}
+		else_if = {
+			limit = {
+				scope:story = {
+					OR = {
+						exists = var:note_usurper
+						exists = var:note_unrest
+					}
+				}
+			}
+			trigger_event = ie_theft.0105
+		}
+		else_if = {
+			limit = { scope:story = { exists = var:note_war } }
+			trigger_event = ie_theft.0104
+		}
+		else_if = {
+			limit = { scope:story = { exists = var:note_sanctuary } }
+			trigger_event = ie_theft.0108
+		}
+		else_if = {
+			limit = {
+				scope:story = {
+					exists = var:scapegoat_punished
+					NOT = { exists = var:note_scapegoat_freed }
+				}
+			}
+			trigger_event = ie_theft.0106
+		}
+		else_if = {
+			limit = { scope:story = { exists = var:note_audit } }
+			trigger_event = ie_theft.0107
+		}
+		else_if = {
+			limit = { scope:story = { exists = var:note_reformed } }
+			trigger_event = ie_theft.0103
+		}
+		else_if = {
+			limit = {
+				scope:story = {
+					OR = {
+						exists = var:note_killed
+						var:method ?= 9
+						var:method ?= 10
+						var:method ?= 11
+					}
+				}
+			}
+			trigger_event = ie_theft.0109
+		}
+		else_if = {
+			limit = {
+				has_variable = ie_fear
+				var:ie_fear >= 2
+			}
+			trigger_event = ie_theft.0100
+		}
+		else_if = {
+			limit = {
+				has_variable = ie_loyalty
+				var:ie_loyalty >= 2
+			}
+			trigger_event = ie_theft.0101
+		}
+		else = {
+			trigger_event = ie_theft.0110
+		}
+		ie_theft_clear_rep_effect = yes
+	}
+}
+
+
+#####################################
+# 0100 The Iron Ledger
+#####################################
+ie_theft.0100 = {
+	type = character_event
+	title = ie_theft.0100.t
+	desc = ie_theft.0100.desc
+	theme = dread
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_feared_justice_modifier
+			years = 10
+		}
+		ie_theft_duchy_modifier_effect = {
+			MODIFIER = ie_county_watch_modifier
+			YEARS = 10
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Make the Watch permanent
+	option = {
+		name = ie_theft.0100.a
+		add_character_flag = ie_decision_watch
+		add_dread = minor_dread_gain
+		ie_theft_trait_effect = { TRAIT = callous OPPOSITE = compassionate CHANCE = 20 }
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_loss
+		}
+	}
+
+	# Soften the edges
+	option = {
+		name = ie_theft.0100.b
+		remove_character_modifier = ie_feared_justice_modifier
+		add_character_modifier = {
+			modifier = ie_lenient_judge_modifier
+			years = 8
+		}
+		add_prestige = 25
+	}
+}
+
+
+#####################################
+# 0101 The Merciful Name
+#####################################
+ie_theft.0101 = {
+	type = character_event
+	title = ie_theft.0101.t
+	desc = ie_theft.0101.desc
+	theme = diplomacy
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_respected_justice_modifier
+			years = 10
+		}
+		ie_theft_duchy_modifier_effect = {
+			MODIFIER = ie_loyal_county_modifier
+			YEARS = 8
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Lean into it
+	option = {
+		name = ie_theft.0101.a
+		add_character_flag = ie_decision_amnesty
+		ie_theft_trait_effect = { TRAIT = forgiving OPPOSITE = vengeful CHANCE = 25 }
+		stress_impact = {
+			vengeful = miniscule_stress_impact_gain
+			forgiving = miniscule_stress_impact_loss
+		}
+	}
+
+	# Make it law
+	option = {
+		name = ie_theft.0101.b
+		add_character_flag = ie_decision_assizes
+		add_character_modifier = {
+			modifier = ie_court_of_law_modifier
+			years = 8
+		}
+	}
+}
+
+
+#####################################
+# 0102 A Laughing Stock
+#####################################
+ie_theft.0102 = {
+	type = character_event
+	title = ie_theft.0102.t
+	desc = ie_theft.0102.desc
+	theme = court
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_laughingstock_modifier
+			years = 5
+		}
+		dynasty ?= {
+			add_dynasty_modifier = {
+				modifier = ie_dynasty_laughed_modifier
+				years = 10
+			}
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Laugh along
+	option = {
+		name = ie_theft.0102.a
+		ie_theft_trait_effect = { TRAIT = humble OPPOSITE = arrogant CHANCE = 30 }
+		stress_impact = {
+			arrogant = minor_stress_impact_gain
+			humble = miniscule_stress_impact_loss
+			content = miniscule_stress_impact_loss
+		}
+	}
+
+	# Vow to restore your name
+	option = {
+		name = ie_theft.0102.b
+		add_character_flag = ie_decision_restore_name
+		ie_theft_trait_effect = { TRAIT = ambitious OPPOSITE = content CHANCE = 20 }
+		stress_impact = {
+			ambitious = miniscule_stress_impact_loss
+			content = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+#####################################
+# 0103 The Reformed Thief
+#####################################
+ie_theft.0103 = {
+	type = character_event
+	title = ie_theft.0103.t
+	desc = ie_theft.0103.desc
+	theme = court
+	left_portrait = {
+		character = scope:thief
+		animation = personality_honorable
+	}
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_reformed_thief_modifier
+			years = 10
+		}
+		if = {
+			limit = { scope:thief = { is_alive = yes } }
+			scope:thief = {
+				if = {
+					limit = { NOT = { has_trait = ie_thief_taker } }
+					add_trait = ie_thief_taker
+				}
+				ie_theft_trait_effect = { TRAIT = honest OPPOSITE = deceitful CHANCE = 40 }
+			}
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Give them a position of trust
+	option = {
+		name = ie_theft.0103.a
+		trigger = { scope:thief = { is_alive = yes } }
+		scope:thief = {
+			add_opinion = {
+				target = root
+				modifier = ie_saved_by_ruler_opinion
+				opinion = 30
+			}
+		}
+		add_hook = {
+			target = scope:thief
+			type = favor_hook
+		}
+		add_character_modifier = {
+			modifier = ie_spymasters_favour_modifier
+			years = 10
+		}
+		stress_impact = {
+			paranoid = minor_stress_impact_gain
+			trusting = miniscule_stress_impact_loss
+		}
+	}
+
+	# Keep them on a short leash
+	option = {
+		name = ie_theft.0103.b
+		trigger = { scope:thief = { is_alive = yes } }
+		add_hook = {
+			target = scope:thief
+			type = threat_hook
+		}
+		stress_impact = {
+			paranoid = miniscule_stress_impact_loss
+			trusting = miniscule_stress_impact_gain
+		}
+	}
+
+	# Nothing more to be done
+	option = {
+		name = ie_theft.0103.c
+	}
+}
+
+
+#####################################
+# 0104 The Reckoning Abroad
+#####################################
+ie_theft.0104 = {
+	type = character_event
+	title = ie_theft.0104.t
+	desc = ie_theft.0104.desc
+	theme = war
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_foreign_reckoning_modifier
+			years = 10
+		}
+		if = {
+			limit = { exists = scope:harbor_ruler }
+			scope:harbor_ruler = {
+				random_realm_county = {
+					save_scope_as = claim_county
+				}
+			}
+			if = {
+				limit = { exists = scope:claim_county }
+				set_variable = {
+					name = ie_claim_target
+					value = scope:claim_county
+				}
+			}
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Keep the claim for later
+	option = {
+		name = ie_theft.0104.a
+		trigger = { exists = scope:claim_county }
+		add_character_flag = ie_decision_claim
+		ie_theft_trait_effect = { TRAIT = wrathful OPPOSITE = calm CHANCE = 15 }
+		stress_impact = {
+			forgiving = miniscule_stress_impact_gain
+			vengeful = miniscule_stress_impact_loss
+		}
+	}
+
+	# Offer the hand of peace
+	option = {
+		name = ie_theft.0104.b
+		trigger = { exists = scope:harbor_ruler }
+		scope:harbor_ruler = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 30
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:harbor_ruler
+				has_relation_rival = scope:harbor_ruler
+			}
+			remove_relation_rival = scope:harbor_ruler
+		}
+		ie_theft_trait_effect = { TRAIT = forgiving OPPOSITE = vengeful CHANCE = 20 }
+		stress_impact = {
+			vengeful = minor_stress_impact_gain
+			forgiving = miniscule_stress_impact_loss
+		}
+	}
+
+	# Let it rest
+	option = {
+		name = ie_theft.0104.c
+	}
+}
+
+
+#####################################
+# 0105 A Scar on the Realm
+#####################################
+ie_theft.0105 = {
+	type = character_event
+	title = ie_theft.0105.t
+	desc = ie_theft.0105.desc
+	theme = realm
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+		any_realm_county = { count >= 1 }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		if = {
+			limit = {
+				any_realm_county = { has_county_modifier = ie_bandit_haven_modifier }
+			}
+			random_realm_county = {
+				limit = { has_county_modifier = ie_bandit_haven_modifier }
+				save_scope_as = scar_county
+			}
+		}
+		else = {
+			random_realm_county = {
+				save_scope_as = scar_county
+			}
+		}
+		scope:scar_county = {
+			add_county_modifier = {
+				modifier = ie_scarred_county_modifier
+				years = 12
+			}
+		}
+		add_character_modifier = {
+			modifier = ie_scar_on_realm_modifier
+			years = 8
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Vow to rebuild
+	option = {
+		name = ie_theft.0105.a
+		add_character_flag = ie_decision_marches
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+		}
+	}
+
+	# Garrison the roads
+	option = {
+		name = ie_theft.0105.b
+		remove_short_term_gold = { value = ie_theft_loot_value multiply = 0.3 }
+		scope:scar_county = {
+			add_county_modifier = {
+				modifier = ie_frontier_garrison_modifier
+				years = 15
+			}
+			add_county_modifier = {
+				modifier = ie_watchtowers_county_modifier
+				years = 15
+			}
+			title_province ?= {
+				add_province_modifier = {
+					modifier = ie_watchtower_province_modifier
+					years = 20
+				}
+			}
+		}
+		ie_theft_trait_effect = { TRAIT = paranoid OPPOSITE = trusting CHANCE = 15 }
+	}
+
+	# Move on
+	option = {
+		name = ie_theft.0105.c
+		ie_theft_rep_effect = {
+			VAR = ie_mockery
+			AMOUNT = 1
+		}
+	}
+}
+
+
+#####################################
+# 0106 The Innocent's Revenge
+#####################################
+ie_theft.0106 = {
+	type = character_event
+	title = ie_theft.0106.t
+	desc = ie_theft.0106.desc
+	theme = family
+	left_portrait = {
+		character = scope:scapegoat
+		animation = anger
+	}
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_innocent_blood_modifier
+			years = 10
+		}
+		ie_theft_wronged_effect = yes
+		scope:story = { end_story = yes }
+	}
+
+	# Make amends at last
+	option = {
+		name = ie_theft.0106.a
+		add_character_flag = ie_decision_pardon_house
+		stress_impact = {
+			honest = miniscule_stress_impact_loss
+			just = miniscule_stress_impact_loss
+			arrogant = minor_stress_impact_gain
+		}
+	}
+
+	# Let them hate
+	option = {
+		name = ie_theft.0106.b
+		add_dread = minor_dread_gain
+		ie_theft_trait_effect = { TRAIT = stubborn OPPOSITE = fickle CHANCE = 30 }
+		stress_impact = {
+			honest = minor_stress_impact_gain
+			just = minor_stress_impact_gain
+			arrogant = miniscule_stress_impact_loss
+		}
+	}
+}
+
+
+#####################################
+# 0107 The Reformed Treasury
+#####################################
+ie_theft.0107 = {
+	type = character_event
+	title = ie_theft.0107.t
+	desc = ie_theft.0107.desc
+	theme = stewardship
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_reformed_court_modifier
+			years = 10
+		}
+		add_character_modifier = {
+			modifier = ie_honest_ledgers_modifier
+			years = 10
+		}
+		capital_province ?= {
+			add_province_modifier = {
+				modifier = ie_toll_house_province_modifier
+				years = 15
+			}
+		}
+		ie_theft_duchy_modifier_effect = {
+			MODIFIER = ie_reformed_county_modifier
+			YEARS = 10
+		}
+		if = {
+			limit = { exists = scope:steward }
+			scope:steward = {
+				ie_theft_trait_effect = { TRAIT = diligent OPPOSITE = lazy CHANCE = 50 }
+			}
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Found a Court of Assizes
+	option = {
+		name = ie_theft.0107.a
+		add_character_flag = ie_decision_assizes
+		ie_theft_trait_effect = { TRAIT = just OPPOSITE = arbitrary CHANCE = 30 }
+	}
+
+	# Reward your steward
+	option = {
+		name = ie_theft.0107.b
+		trigger = { exists = scope:steward }
+		scope:steward = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 30
+			}
+			ie_theft_trait_effect = { TRAIT = shrewd OPPOSITE = shrewd CHANCE = 25 }
+		}
+		stress_impact = {
+			greedy = miniscule_stress_impact_gain
+			generous = miniscule_stress_impact_loss
+		}
+	}
+}
+
+
+#####################################
+# 0108 A Matter for the Church
+#####################################
+ie_theft.0108 = {
+	type = character_event
+	title = ie_theft.0108.t
+	desc = ie_theft.0108.desc
+	theme = faith
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_piety = 50
+		random_realm_county = {
+			add_county_modifier = {
+				modifier = ie_pilgrim_shrine_modifier
+				years = 20
+			}
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Endow the abbey
+	option = {
+		name = ie_theft.0108.a
+		add_character_flag = ie_decision_abbey
+		ie_theft_trait_effect = { TRAIT = zealous OPPOSITE = cynical CHANCE = 20 }
+		stress_impact = {
+			zealous = miniscule_stress_impact_loss
+			cynical = miniscule_stress_impact_gain
+		}
+	}
+
+	# Keep your distance
+	option = {
+		name = ie_theft.0108.b
+		stress_impact = {
+			cynical = miniscule_stress_impact_loss
+			zealous = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+#####################################
+# 0109 A Tale Retold
+#####################################
+ie_theft.0109 = {
+	type = character_event
+	title = ie_theft.0109.t
+	desc = ie_theft.0109.desc
+	theme = court
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		add_character_modifier = {
+			modifier = ie_legend_modifier
+			years = 10
+		}
+		scope:story = { end_story = yes }
+	}
+
+	# Commission a ballad
+	option = {
+		name = ie_theft.0109.a
+		add_character_flag = ie_decision_ballad
+		stress_impact = {
+			humble = miniscule_stress_impact_gain
+			arrogant = miniscule_stress_impact_loss
+		}
+	}
+
+	# Let the tale grow on its own
+	option = {
+		name = ie_theft.0109.b
+		add_prestige = 50
+	}
+}
+
+
+#####################################
+# 0110 Nothing Changes
+#####################################
+ie_theft.0110 = {
+	type = character_event
+	title = ie_theft.0110.t
+	desc = ie_theft.0110.desc
+	theme = court
+
+	trigger = {
+		any_owned_story = { type = ie_story_theft }
+	}
+
+	immediate = {
+		ie_theft_load_scopes_effect = yes
+		scope:story = { end_story = yes }
+	}
+
+	option = {
+		name = ie_theft.0110.a
+		add_prestige = 10
+	}
+}

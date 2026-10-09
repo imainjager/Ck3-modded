@@ -1,0 +1,88 @@
+﻿l_english:
+ # ---------- 0043 A Vassal Raises a Banner ----------
+ ie_theft.0043.t:0 "A Vassal Raises a Banner"
+ ie_theft.0043.desc:0 "#bold [harbor_vassal.GetShortUIName] has stopped hiding [harbor_vassal.GetHerHis] anger and started organising it.#!\n\nA faction is forming around the vassal who defied you over the thief. Other lords are listening. If nothing is done, the grumbling at court may turn into something with swords.\n\nHow you answer now will tell every lord in your realm how you treat dissent."
+ ie_theft.0043.a:0 "Strike first: arrest [harbor_vassal.GetShortUIName]."
+ ie_theft.0043.b:0 "Make concessions to [harbor_vassal.GetShortUIName]."
+ ie_theft.0043.c:0 "Win the other lords over."
+ ie_theft.0043.d:0 "Let them posture."
+ ie_theft.out.lords_rally:0 "The other lords rally to you."
+ ie_theft.out.lords_waver:0 "The other lords waver, and the faction grows."
+
+ # ---------- 0044 Unrest in the Countryside ----------
+ ie_theft.0044.t:0 "Unrest in the Countryside"
+ ie_theft.0044.desc:0 "#bold The people of [unrest_county.GetName] are close to rising.#!\n\nThe brigands, the unpaid taxes and the tales of a ruler who could not guard his own treasury have all taken their toll, and hunger has done the rest. If nothing is done the unrest will last about two years, long enough for the peasants to organise.\n\nYou can crush it, feed it, or listen to it."
+ ie_theft.0044.a:0 "Send the army before it spreads."
+ ie_theft.0044.b:0 "Open the granaries."
+ ie_theft.0044.d:0 "Ride out and hear their grievances."
+ ie_theft.0044.c:0 "Let it burn out."
+ ie_theft.out.grievances_heard:0 "The people feel heard and calm down."
+ ie_theft.out.grievances_scorned:0 "The people feel mocked, and the unrest stays."
+
+ # ---------- 0100 The Iron Ledger ----------
+ ie_theft.0100.t:0 "The Iron Ledger"
+ ie_theft.0100.desc:0 "#bold Your handling of the theft has made you feared.#!\n\nThe court speaks of the matter in lowered voices. Locks have been changed, accounts are checked twice, and nobody jokes about the treasury any more. The story has become a warning, and it will outlive the thief.\n\nYou can let the fear settle into habit, or try to turn it into something that lasts."
+ ie_theft.0100.a:0 "Make the Watch permanent. (Unlocks a decision.)"
+ ie_theft.0100.b:0 "Soften the edges."
+
+ # ---------- 0101 The Merciful Name ----------
+ ie_theft.0101.t:0 "The Merciful Name"
+ ie_theft.0101.desc:0 "#bold Your mercy has become part of your reputation.#!\n\nPeople tell the story of the thief you spared, and some of them mean to test how far it extends. Others remember it with real gratitude. Either way, you are now a ruler people hope to be judged by."
+ ie_theft.0101.a:0 "Lean into it. (Unlocks a decision.)"
+ ie_theft.0101.b:0 "Make it law. (Unlocks a decision.)"
+
+ # ---------- 0102 A Laughing Stock ----------
+ ie_theft.0102.t:0 "A Laughing Stock"
+ ie_theft.0102.desc:0 "#bold The court is still laughing at how you handled the theft.#!\n\nThe story gets better with every telling. In the version told in the taverns, you were robbed by a man wearing your own hat. It is not a good story to be in."
+ ie_theft.0102.a:0 "Laugh along."
+ ie_theft.0102.b:0 "Vow to restore your name. (Unlocks a decision.)"
+
+ # ---------- 0103 The Reformed Thief ----------
+ ie_theft.0103.t:0 "The Reformed Thief"
+ ie_theft.0103.desc:0 "#bold [thief.GetShortUIName] has turned [thief.GetHerHis] life around.#!\n\nThe thief you chose to use rather than destroy has proved more valuable than the gold. [thief.GetSheHe|U] knows every trick of the underworld and now uses that knowledge for you. The court has grown used to the sight."
+ ie_theft.0103.a:0 "Give [thief.GetHerHim] a position of trust."
+ ie_theft.0103.b:0 "Keep [thief.GetHerHim] on a short leash."
+ ie_theft.0103.c:0 "Nothing more needs doing."
+
+ # ---------- 0104 The Reckoning Abroad ----------
+ ie_theft.0104.t:0 "The Reckoning Abroad"
+ ie_theft.0104.desc:0 "#bold Your war over the stolen gold has changed how foreign courts see you.#!\n\nWhat began as a stolen treasury ended with armies in the field and a ruler humbled. Other courts are quicker to answer your letters now, and slower to trust your smiles."
+ ie_theft.0104.a:0 "Keep the claim for later. (Unlocks a decision.)"
+ ie_theft.0104.b:0 "Offer the hand of peace."
+ ie_theft.0104.c:0 "Let it rest."
+
+ # ---------- 0105 A Scar on the Realm ----------
+ ie_theft.0105.t:0 "A Scar on the Realm"
+ ie_theft.0105.desc:0 "#bold The affair left a scar on your realm that will take years to heal.#!\n\nBrigands, a rebellious count, a restless peasantry: whichever it was, the villages around [scar_county.GetName] remember it. Crops were left to rot, roads fell into disrepair, and your name is spoken with some bitterness there."
+ ie_theft.0105.a:0 "Vow to rebuild. (Unlocks a decision.)"
+ ie_theft.0105.b:0 "Garrison the roads."
+ ie_theft.0105.c:0 "Move on."
+
+ # ---------- 0106 The Innocent's Revenge ----------
+ ie_theft.0106.t:0 "The Innocent's Revenge"
+ ie_theft.0106.desc:0 "#bold [scapegoat.GetShortUIName] has not forgiven you, and neither has [scapegoat.GetHerHis] house.#!\n\nYou punished an innocent person and never set it right. The house has taken the matter to heart and speaks of it at every gathering. Whatever you do now, the story will be told their way."
+ ie_theft.0106.a:0 "Make amends at last. (Unlocks a decision.)"
+ ie_theft.0106.b:0 "Let them hate."
+
+ # ---------- 0107 The Reformed Treasury ----------
+ ie_theft.0107.t:0 "The Reformed Treasury"
+ ie_theft.0107.desc:0 "#bold The treasury has been reformed for good.#!\n\nThe theft taught your administrators a lesson the hard way. Ledgers are signed in three hands, strongrooms need two keys, and a toll house now collects what the thief once skimmed. Your steward is quietly proud."
+ ie_theft.0107.a:0 "Found a Court of Assizes. (Unlocks a decision.)"
+ ie_theft.0107.b:0 "Reward your steward."
+
+ # ---------- 0108 A Matter for the Church ----------
+ ie_theft.0108.t:0 "A Matter for the Church"
+ ie_theft.0108.desc:0 "#bold The theft has become a matter of faith.#!\n\nThe monastery where the thief took refuge has become a place people talk about, whether for its mercy or its stubbornness. The clergy watch you closely, and the abbot has written you a letter that could be read as a blessing or a warning."
+ ie_theft.0108.a:0 "Endow the abbey. (Unlocks a decision.)"
+ ie_theft.0108.b:0 "Keep your distance."
+
+ # ---------- 0109 A Tale Retold ----------
+ ie_theft.0109.t:0 "A Tale Retold"
+ ie_theft.0109.desc:0 "#bold The affair has become a story people like to tell.#!\n\nBards have taken the thief and the ruler and turned them into figures in a tale. The details improve with every telling, and in the best version you were never in any danger. You can leave it to grow, or try to guide it."
+ ie_theft.0109.a:0 "Commission a ballad. (Unlocks a decision.)"
+ ie_theft.0109.b:0 "Let the tale grow on its own."
+
+ # ---------- 0110 Nothing Changes ----------
+ ie_theft.0110.t:0 "The Matter Fades"
+ ie_theft.0110.desc:0 "#bold The matter fades from memory.#!\n\nIt was a theft like any other, and nothing in how you handled it changed anyone's mind."
+ ie_theft.0110.a:0 "So be it."

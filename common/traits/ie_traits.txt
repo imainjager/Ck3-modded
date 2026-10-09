@@ -1,0 +1,57 @@
+﻿# Theft at Court - fame traits
+
+ie_lawgiver = {
+	category = fame
+	monthly_prestige = 0.3
+	vassal_opinion = 5
+	courtier_and_guest_opinion = 5
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/just.dds"
+		}
+	}
+}
+
+ie_notorious_thief = {
+	category = fame
+	intrigue = 1
+	general_opinion = -5
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/deceitful.dds"
+		}
+	}
+}
+
+ie_wrongly_accused = {
+	category = fame
+	opinion_of_liege = -15
+	stress_gain_mult = 0.1
+	diplomacy = -1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/honest.dds"
+		}
+	}
+}
+
+ie_thief_taker = {
+	category = fame
+	intrigue = 2
+	prowess = 1
+	owned_hostile_scheme_success_chance_add = 5
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/shrewd.dds"
+		}
+	}
+}
+
