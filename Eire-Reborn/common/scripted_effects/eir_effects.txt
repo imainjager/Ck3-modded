@@ -35,7 +35,7 @@ eir_collapse_top_title_effect = {
 
 # Gives up to three pressed claims on counties of $TITLE$ that are held by non-Celtic rulers.
 eir_grant_claims_non_celtic_effect = {
-	$TITLE$ = {
+	title:$TITLE$ = {
 		random_in_de_jure_hierarchy = {
 			limit = {
 				tier = tier_county

@@ -111,3 +111,111 @@ eir_cattle_lord = {
 	}
 }
 
+eir_champion_of_ulster = {
+	category = fame
+	prowess = 3
+	monthly_prestige = 0.2
+	knight_effectiveness_mult = 0.1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/brave.dds"
+		}
+	}
+}
+
+eir_poet_prince = {
+	category = fame
+	learning = 2
+	diplomacy = 1
+	owned_legend_spread_mult = 0.1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/poet.dds"
+		}
+	}
+}
+
+eir_saint_king = {
+	category = fame
+	monthly_piety = 0.4
+	clergy_opinion = 8
+	stress_gain_mult = -0.05
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/zealous.dds"
+		}
+	}
+}
+
+eir_fosterling = {
+	category = fame
+	general_opinion = 3
+	diplomacy = 1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/honest.dds"
+		}
+	}
+}
+
+eir_exile_king = {
+	category = fame
+	monthly_prestige = -0.1
+	intrigue = 1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/craven.dds"
+		}
+	}
+}
+
+eir_kingmaker = {
+	category = fame
+	diplomacy = 2
+	vassal_opinion = 4
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/shrewd.dds"
+		}
+	}
+}
+
+eir_peacemaker_of_tara = {
+	category = fame
+	diplomacy = 2
+	general_opinion = 5
+	monthly_prestige = 0.15
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/just.dds"
+		}
+	}
+}
+
+eir_hostage_scarred = {
+	category = fame
+	stress_gain_mult = 0.1
+	intrigue = 1
+
+	shown_in_ruler_designer = no
+	icon = {
+		first_valid = {
+			desc = "gfx/interface/icons/traits/paranoid.dds"
+		}
+	}
+}
+

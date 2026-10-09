@@ -1,0 +1,177 @@
+﻿l_english:
+ eir.0150.t:0 "The Tale for the Year"
+ eir.0150.desc:0 "#bold Your poets are ready to tell one great story, and you may choose which.#!
+
+A hundred tales are in the repertoire: raids and wooings, voyages and heroes, laments and quarrels. A court that hears a story all year absorbs its habits.
+
+The chief poet has narrowed it to six."
+ eir.0150.a:0 "The Salmon of Knowledge."
+ eir.0150.b:0 "The Hound of Ulster."
+ eir.0150.c:0 "Finn and the Fianna."
+ eir.0150.d:0 "Queen Medb and the Cattle-Raid."
+ eir.0150.e:0 "The Children of Lir."
+ eir.0150.f:0 "The Voyage of Saint Brendan."
+ eir.0151.t:0 "The Champion Steps Forward"
+ eir.0151.desc:0 "#bold A Norse champion has stepped out of the line and called a challenge across the field.#!
+
+Both armies have stopped to watch. He is huge, he is smiling, and he has a very large axe. The old customs say that the kings may settle a war between two men, or that they may refuse and be talked about for generations."
+ eir.0151.a:0 "Answer the challenge yourself."
+ eir.0151.b:0 "Send your champion."
+ eir.0151.c:0 "Refuse, and loose the arrows."
+ eir.0151.d:0 "Offer him a place at your table instead."
+ eir.0152.t:0 "The Road to Rome"
+ eir.0152.desc:0 "#bold You set out for Rome on foot, as the pilgrim saints did.#!
+
+The road crosses sea, mountain and half of France. Pilgrims fall ill, are robbed, are blessed, are lost. The few who return talk about nothing else for the rest of their lives.
+
+How will you go?"
+ eir.0152.a:0 "On foot, in a plain cloak, begging for bread."
+ eir.0152.b:0 "With a large retinue and gifts for the Pope."
+ eir.0152.c:0 "Send an envoy and a relic request in your place."
+ eir.0152.d:0 "Turn back at Provence."
+ eir.0153.t:0 "A Gospel for the Satchel"
+ eir.0153.desc:0 "#bold The scriptorium has finished a small gospel book, small enough to be carried in a satchel.#!
+
+It is not as grand as the great books, but it is perfectly made. The abbot says it was meant for a missionary and that you might like to keep it."
+ eir.0153.a:0 "Keep it for your own use."
+ eir.0153.b:0 "Send it with a missionary to Scotland."
+ eir.0153.c:0 "Give it to your heir."
+ eir.0154.t:0 "An Answer from Gwynedd"
+ eir.0154.desc:0 "#bold The prince of Gwynedd has answered your embassy with a counter-proposal.#!
+
+He would be glad to be your ally. He would be even more glad to have an Irish princess in his hall, and an Irish army if the Normans press him.
+
+He has also sent a young poet, to see what you are like."
+ eir.0154.a:0 "Offer a marriage and an alliance."
+ eir.0154.b:0 "Promise help against the Normans, but no marriage."
+ eir.0154.c:0 "Send the poet back with a gift and polite words."
+ eir.0155.t:0 "The Last Britons of the North"
+ eir.0155.desc:0 "#bold A messenger from the rock on the Clyde has come to see you.#!
+
+They are the last of the old kingdom of the north, between the Picts and the Saxons. They speak a tongue that is somewhere between Welsh and Irish, they pay tribute to nobody, and they have asked for a friend."
+ eir.0155.a:0 "Promise them friendship and an annual gift."
+ eir.0155.b:0 "Exchange poets and say little else."
+ eir.0155.c:0 "Turn them away. They are too far to help."
+ eir.0156.t:0 "A Daughter of the Isles"
+ eir.0156.desc:0 "#bold A galley-lord of the Isles offers his daughter's hand to your house.#!
+
+The galley-lords of the western seas are hard, practical men who like to know who their friends are. A marriage is the easiest way to be sure."
+ eir.0156.a:0 "Accept the marriage for your heir."
+ eir.0156.b:0 "Offer a fosterage instead."
+ eir.0156.c:0 "Decline politely."
+ eir.0157.t:0 "The Ship Returns from Armorica"
+ eir.0157.desc:0 "#bold The ship you sent to Brittany has returned, or something has.#!
+
+The captain stands on the quay with a sunburned face, a mended sail and a very careful expression. What he says will depend on what happened."
+ eir.0157.a:0 "Hear his report."
+ eir.0157.b:0 "Send him out again at once."
+ eir.0157.c:0 "Take his report privately."
+ eir.0158.t:0 "A Breton Comes to Court"
+ eir.0158.desc:0 "#bold A Breton nobleman has arrived at your hall, with his family and nothing else.#!
+
+He speaks a Celtic language that you can almost follow. He was a count at home. Now he bows to everyone and eats whatever he is given.
+
+He has a good story and a certain dignity. He would like a position."
+ eir.0158.a:0 "Give him a hall and an estate."
+ eir.0158.b:0 "Make him your steward."
+ eir.0158.c:0 "Send him to Wales."
+ eir.0160.t:0 "A Quarrel at the Host's Table"
+ eir.0160.desc:0 "#bold Halfway round the circuit, your host and his neighbour have started a quarrel over the seating.#!
+
+In the old halls, every man has his place by rank. This one's neighbour has moved the bench half an inch. It is not about the bench."
+ eir.0160.a:0 "Judge the matter in front of the court."
+ eir.0160.b:0 "Move the bench yourself, and apologise to both."
+ eir.0160.c:0 "Call for the poets to sing the quarrel into laughter."
+ eir.0160.d:0 "Ignore it, and finish your dinner."
+ eir.0161.t:0 "A Throne to Give"
+ eir.0161.desc:0 "#bold A provincial throne is empty, and the rival claimants have come to you for a ruling.#!
+
+A king has died and left two cousins and a brother. Each says the others have no claim. Each has brought gifts, men and a story. The kings of Ireland are watching to see who you pick."
+ eir.0161.a:0 "Back the eldest cousin."
+ eir.0161.b:0 "Back the brother."
+ eir.0161.c:0 "Propose a split between them."
+ eir.0161.d:0 "Refuse to choose."
+ eir.0162.t:0 "A King Without a Kingdom"
+ eir.0162.desc:0 "#bold A deposed king rides up to your gate with twelve men and a harpist.#!
+
+He was driven off his throne by cousins, and by a sudden shortage of friends. He wants shelter, an army, and a chance to say 'I told you so' to everyone who betrayed him.
+
+The harpist is very good."
+ eir.0162.a:0 "Give him a hall and a place at the high table."
+ eir.0162.b:0 "Offer him men to take the throne back."
+ eir.0162.c:0 "Send him away."
+ eir.0162.d:0 "Hand him over to his enemies for a price."
+ eir.0163.t:0 "The Harp of the High King"
+ eir.0163.desc:0 "#bold A harp is said to have belonged to Brian himself. A monastery now offers it to you.#!
+
+The harp is old. It has been carried in battle, mended three times, and its fittings are dull gold. A monk says that it plays by itself, once a year, in the dead of night. The monks do not say who has heard it."
+ eir.0163.a:0 "Keep it in your hall."
+ eir.0163.b:0 "Give it to your chief poet."
+ eir.0163.c:0 "Leave it with the monastery, and pay for a feast day."
+ eir.0164.t:0 "The Shrine for the Saint's Bell"
+ eir.0164.desc:0 "#bold The saint's old iron bell is falling apart, and the monks want to make it a shrine.#!
+
+The bell has been rung for centuries. It is cracked, and the iron is flaking. A shrine of bronze and silver would preserve it, and the monks have asked who will pay."
+ eir.0164.a:0 "Pay for the shrine, and keep it in your chapel."
+ eir.0164.b:0 "Pay for the shrine, and leave it with the monks."
+ eir.0164.c:0 "Decline."
+ eir.0165.t:0 "A Crescent of Gold"
+ eir.0165.desc:0 "#bold A ploughman has turned up a gold crescent as wide as his hand.#!
+
+It is a thin sheet of beaten gold, shaped like a new moon, decorated with fine chevrons. It is far older than any king of Ireland. It is also exactly the kind of thing a king would want."
+ eir.0165.a:0 "Buy it, and wear it at feasts."
+ eir.0165.b:0 "Reward the ploughman and let him keep it."
+ eir.0165.c:0 "Melt it into coin."
+ eir.0166.t:0 "A Blade with Letters"
+ eir.0166.desc:0 "#bold A smith has made a sword with a line of ogham carved along the spine.#!
+
+He says the letters spell the name of a hero. Nobody in the hall can read ogham. The smith promises that the sword is real."
+ eir.0166.a:0 "Buy the blade for yourself."
+ eir.0166.b:0 "Give it to your champion."
+ eir.0166.c:0 "Send the smith away."
+ eir.0167.t:0 "A Lesser King's Torc"
+ eir.0167.desc:0 "#bold A dying under-king leaves you his gold neck-ring in his will.#!
+
+He was nobody's friend and nobody's enemy. He says the torc has been worn by every chieftain of his line since the days of the Tuatha Dé. He asks that you wear it and remember him."
+ eir.0167.a:0 "Wear it, and remember him."
+ eir.0167.b:0 "Pass it to your heir."
+ eir.0167.c:0 "Return it to the dead man's kindred."
+ eir.0168.t:0 "Butter from the Bog"
+ eir.0168.desc:0 "#bold A farmer has dug a keg of butter out of a bog, three hundred years old and still edible.#!
+
+It was buried against raiders, famine and Vikings. It is very old, and it tastes the way old butter tastes. The farmer wants to know whether it belongs to him or to you."
+ eir.0168.a:0 "Let him keep it."
+ eir.0168.b:0 "Buy it, and display it as a marvel."
+ eir.0168.c:0 "Order the bog drained to look for more."
+ eir.0169.t:0 "The Abbot's Crozier"
+ eir.0169.desc:0 "#bold An abbot lies dying and wants his crozier to go somewhere safe.#!
+
+It is a bronze crook with a hollow in the head for a holy relic. It has belonged to six abbots in a row. The monks are quarrelling over who should have it next."
+ eir.0169.a:0 "Take it into your own keeping."
+ eir.0169.b:0 "Give it to the monk the abbot named."
+ eir.0169.c:0 "Offer to settle the quarrel in court."
+ eir.0170.t:0 "A Hostage Returns"
+ eir.0170.desc:0 "#bold A boy taken as a hostage years ago comes home as a man.#!
+
+He has been at your court since childhood. He knows your halls as well as his own, and he is not sure whom he is loyal to. His father is waiting at the gate with an expression you cannot read."
+ eir.0170.a:0 "Welcome him as a foster-son."
+ eir.0170.b:0 "Return him with gifts and thanks."
+ eir.0170.c:0 "Say little, and let him go quietly."
+ eir.0171.t:0 "The Cáin Is Tested"
+ eir.0171.desc:0 "#bold A man has been dragged from sanctuary and killed on the steps of a church.#!
+
+The law you swore has been broken in front of a hundred witnesses. The killers are the household of a powerful lord. The bishop is waiting for your answer."
+ eir.0171.a:0 "Demand the honour-price in full."
+ eir.0171.b:0 "Raise an army and burn the lord's hall."
+ eir.0171.c:0 "Accept a smaller fine, and move on."
+ eir.0171.d:0 "Do penance in front of the church yourself."
+ eir.0172.t:0 "Who Marches First?"
+ eir.0172.desc:0 "#bold The four provincial kings cannot agree on who leads the van.#!
+
+Munster says it has always led. Leinster says that Munster has always lost. Connacht says it will go first or not at all. Ulster says nothing and looks at its sword.
+
+The armies stand idle while the tent-poles are argued over."
+ eir.0172.a:0 "Put the Munstermen in the van."
+ eir.0172.b:0 "Let the kings draw lots."
+ eir.0172.c:0 "Take the van yourself."
+ eir.0172.d:0 "Appeal to the poets to remind them of an earlier peace."

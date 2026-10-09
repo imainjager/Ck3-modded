@@ -154,3 +154,40 @@ eir_tara_guard = {
 	icon = palace_guards
 }
 
+eir_ceithern = {
+	type = heavy_infantry
+
+	damage = 30
+	toughness = 28
+	pursuit = 0
+	screen = 22
+
+	terrain_bonus = {
+		hills = { damage = 4 toughness = 4 }
+		forest = { damage = 3 }
+	}
+
+	counters = {
+		light_cavalry = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_stable_kingship }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_ceithern
+			}
+		}
+	}
+
+	buy_cost = { gold = huscarls_recruitment_cost }
+	low_maintenance_cost = { gold = huscarls_low_maint_cost }
+	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = 7
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = palace_guards
+}
+

@@ -484,6 +484,16 @@ TITLES = {
 }
 
 
+import extra_world as _X
+CHAR.update(_X.CHAR)
+COUNTY.update(_X.COUNTY)
+PROVINCE.update(_X.PROVINCE)
+ARTIFACT.update(_X.ARTIFACT)
+TRAITS.update(_X.TRAITS)
+OPINIONS.update(_X.OPINIONS)
+MAA.update(_X.MAA)
+
+
 def build():
     # ---------------------------------------------------------------- modifiers
     L = Loc("eir_world_l_english.yml")

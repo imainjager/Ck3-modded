@@ -236,6 +236,325 @@ eir_tara_vigil_modifier = {
 	monthly_piety = 0.1
 }
 
+eir_royal_circuit_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.25
+	vassal_opinion = 5
+}
+
+eir_hostages_modifier = {
+	icon = dread_mixed
+	monthly_prestige = 0.2
+	vassal_opinion = -6
+}
+
+eir_cain_law_modifier = {
+	icon = piety_positive
+	clergy_opinion = 10
+	monthly_piety = 0.3
+}
+
+eir_provincial_oath_modifier = {
+	icon = legitimacy_positive
+	vassal_opinion = 4
+	legitimacy_gain_mult = 0.1
+}
+
+eir_feis_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.4
+	courtier_opinion = 5
+}
+
+eir_tanaiste_modifier = {
+	icon = legitimacy_positive
+	vassal_opinion = 4
+	legitimacy_gain_mult = 0.1
+}
+
+eir_cain_tribute_modifier = {
+	icon = economy_mixed
+	monthly_income = 2
+	vassal_opinion = -5
+}
+
+eir_wergild_peace_modifier = {
+	icon = family_positive
+	stress_gain_mult = -0.1
+	general_opinion = 3
+}
+
+eir_gaelic_court_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.2
+	courtier_opinion = 5
+}
+
+eir_royal_ollamh_modifier = {
+	icon = learning_positive
+	monthly_prestige = 0.3
+	learning = 1
+}
+
+eir_hosting_modifier = {
+	icon = dread_mixed
+	levy_size = 0.1
+	monthly_prestige = 0.1
+}
+
+eir_sanctuary_modifier = {
+	icon = piety_positive
+	clergy_opinion = 5
+	monthly_piety = 0.2
+}
+
+eir_tanistry_dispute_modifier = {
+	icon = prestige_negative
+	vassal_opinion = -6
+	monthly_prestige = -0.1
+}
+
+eir_naming_customs_modifier = {
+	icon = family_positive
+	general_opinion = 3
+	monthly_dynasty_prestige = 0.05
+}
+
+eir_bardic_circuit_modifier = {
+	icon = learning_positive
+	monthly_prestige = 0.2
+	owned_legend_spread_mult = 0.1
+}
+
+eir_harper_modifier = {
+	icon = learning_positive
+	diplomacy = 1
+	courtier_opinion = 3
+}
+
+eir_sidhe_hosting_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.2
+	stress_gain_mult = 0.05
+}
+
+eir_brigid_cult_modifier = {
+	icon = piety_positive
+	health = 0.1
+	fertility = 0.1
+}
+
+eir_colmcille_cult_modifier = {
+	icon = learning_positive
+	learning = 1
+	monthly_piety = 0.2
+}
+
+eir_patrick_cult_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	clergy_opinion = 4
+}
+
+eir_yew_bows_modifier = {
+	icon = prowess_positive
+	archers_damage_add = 2
+}
+
+eir_wolfhound_kennels_modifier = {
+	icon = prowess_positive
+	prowess = 1
+	monthly_prestige = 0.1
+}
+
+eir_champions_portion_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.1
+}
+
+eir_dun_drill_modifier = {
+	icon = prowess_positive
+	martial = 1
+	knight_effectiveness_mult = 0.1
+}
+
+eir_watchtowers_modifier = {
+	icon = dread_mixed
+	monthly_prestige = 0.05
+}
+
+eir_island_fleet_modifier = {
+	icon = economy_positive
+	monthly_income = 1
+	monthly_prestige = 0.1
+}
+
+eir_monastery_founder_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	clergy_opinion = 3
+}
+
+eir_scriptorium_patron_modifier = {
+	icon = learning_positive
+	learning = 1
+	monthly_prestige = 0.1
+}
+
+eir_hermit_blessing_modifier = {
+	icon = piety_positive
+	stress_gain_mult = -0.1
+	monthly_piety = 0.2
+}
+
+eir_relic_procession_modifier = {
+	icon = piety_positive
+	clergy_opinion = 5
+	monthly_piety = 0.2
+}
+
+eir_penance_done_modifier = {
+	icon = piety_positive
+	stress_gain_mult = -0.15
+	monthly_piety = 0.1
+}
+
+eir_rome_pilgrim_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.4
+	monthly_prestige = 0.1
+}
+
+eir_gwynedd_alliance_modifier = {
+	icon = prestige_positive
+	diplomacy = 1
+	monthly_prestige = 0.15
+}
+
+eir_strathclyde_bond_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.15
+	general_opinion = 2
+}
+
+eir_pictish_memory_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.15
+	owned_legend_spread_mult = 0.05
+}
+
+eir_breton_refuge_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.2
+	general_opinion = 3
+}
+
+eir_armorica_voyage_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.2
+}
+
+eir_gaulish_heritage_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.15
+	diplomacy = 1
+}
+
+eir_britannia_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	vassal_opinion = 5
+}
+
+eir_hebridean_ties_modifier = {
+	icon = family_positive
+	general_opinion = 3
+	levy_size = 0.05
+}
+
+eir_tale_salmon_modifier = {
+	icon = learning_positive
+	learning = 2
+}
+
+eir_tale_cuchulainn_modifier = {
+	icon = prowess_positive
+	prowess = 2
+}
+
+eir_tale_finn_modifier = {
+	icon = prowess_positive
+	prowess = 1
+	monthly_prestige = 0.15
+}
+
+eir_tale_medb_modifier = {
+	icon = prestige_positive
+	intrigue = 1
+	monthly_prestige = 0.15
+}
+
+eir_tale_lir_modifier = {
+	icon = family_positive
+	general_opinion = 3
+	stress_gain_mult = -0.05
+}
+
+eir_tale_brendan_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	monthly_prestige = 0.1
+}
+
+eir_dimma_modifier = {
+	icon = learning_positive
+	learning = 1
+	monthly_piety = 0.2
+}
+
+eir_harp_of_brian_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.3
+	diplomacy = 1
+}
+
+eir_crozier_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	clergy_opinion = 4
+}
+
+eir_kingmaker_modifier = {
+	icon = prestige_positive
+	vassal_opinion = 5
+	monthly_prestige = 0.2
+}
+
+eir_exile_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.2
+	general_opinion = -3
+}
+
+eir_hostage_burden_modifier = {
+	icon = prestige_negative
+	stress_gain_mult = 0.1
+	monthly_prestige = -0.1
+}
+
+eir_blinded_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.1
+	learning = -1
+}
+
+eir_champion_victor_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.25
+}
+
 
 ##### county modifiers #####
 
@@ -400,6 +719,115 @@ eir_reclaimed_land_modifier = {
 	monthly_county_control_growth_add = 0.3
 }
 
+eir_ogham_stones_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	development_growth_factor = 0.03
+}
+
+eir_gaelic_schooling_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	development_growth_factor = 0.04
+}
+
+eir_salmon_fisheries_modifier = {
+	icon = county_modifier_development_positive
+	tax_mult = 0.08
+}
+
+eir_hurling_fields_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 6
+}
+
+eir_tara_hall_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 8
+	tax_mult = 0.05
+}
+
+eir_uisneach_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	development_growth_factor = 0.03
+}
+
+eir_newgrange_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 4
+	tax_mult = 0.05
+}
+
+eir_rathcroghan_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	levy_size = 0.05
+}
+
+eir_navan_fort_modifier = {
+	icon = county_modifier_control_positive
+	defender_holding_advantage = 5
+	county_opinion_add = 3
+}
+
+eir_dunadd_modifier = {
+	icon = county_modifier_control_positive
+	defender_holding_advantage = 5
+	county_opinion_add = 3
+}
+
+eir_kildare_flame_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	development_growth_factor = 0.03
+}
+
+eir_monasterboice_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 4
+	tax_mult = 0.05
+}
+
+eir_armagh_library_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.05
+	county_opinion_add = 3
+}
+
+eir_wooden_harbour_modifier = {
+	icon = county_modifier_development_positive
+	tax_mult = 0.08
+	development_growth_factor = 0.03
+}
+
+eir_monastery_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 4
+	development_growth_factor = 0.03
+}
+
+eir_relic_procession_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 6
+}
+
+eir_circuit_visit_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+}
+
+eir_bog_butter_modifier = {
+	icon = county_modifier_development_positive
+	tax_mult = 0.04
+}
+
+eir_coast_watch_county_modifier = {
+	icon = county_modifier_control_positive
+	defender_holding_advantage = 3
+	county_opinion_add = 2
+}
+
 
 ##### province modifiers #####
 
@@ -499,5 +927,35 @@ eir_caladbolg_modifier = {
 	icon = prowess_positive
 	prowess = 3
 	knight_effectiveness_mult = 0.1
+}
+
+eir_bell_shrine_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	clergy_opinion = 4
+}
+
+eir_lunula_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.25
+	diplomacy = 1
+}
+
+eir_ogham_blade_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	knight_effectiveness_mult = 0.05
+}
+
+eir_chieftain_torc_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.2
+	vassal_opinion = 2
+}
+
+eir_dimma_book_modifier = {
+	icon = learning_positive
+	learning = 1
+	monthly_piety = 0.2
 }
 

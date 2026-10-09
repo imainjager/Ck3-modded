@@ -18,7 +18,12 @@ def build():
     L.add("eir_torc_of_tara_desc", "A great twisted gold collar, older than any king of Ireland.")
     L.add("eir_caladbolg_name", "Caladbolg")
     L.add("eir_caladbolg_desc", "A sword the poets say struck three hills flat.")
-    for k, n, d in (("cathach", "The Cathach", "A battle psalter said to have been copied by a saint, carried around armies before they fought."),
+    for k, n, d in (("dimma", "The Little Gospel", "A pocket gospel book that can be carried in a satchel."),
+                    ("bell_shrine", "The Bell Shrine", "A bronze and silver shrine for the iron bell of a saint."),
+                    ("lunula", "The Gold Lunula", "A crescent of beaten gold, older than any king."),
+                    ("ogham_blade", "The Ogham Blade", "A sword with a line of ogham letters along the spine."),
+                    ("chieftain_torc", "The Chieftain's Torc", "A twisted gold collar worn by a line of lesser kings."),
+                    ("cathach", "The Cathach", "A battle psalter said to have been copied by a saint, carried around armies before they fought."),
                     ("tara_brooch", "The Great Brooch", "A vast silver-gilt brooch, too big to be practical and too beautiful to leave off."),
                     ("cross_of_cong", "The Processional Cross", "An oak cross covered in bronze and silver, with a crystal at its heart.")):
         L.add("eir_%s_name" % k, n)
