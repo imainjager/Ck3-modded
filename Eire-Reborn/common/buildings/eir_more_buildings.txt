@@ -23,7 +23,8 @@ eir_dun_t_01 = {
 	province_modifier = {
 		defender_holding_advantage = 3
 		fort_level = 1
-		stationed_maa_damage_mult = 0.05
+		stationed_pikemen_toughness_mult = 0.13
+		stationed_skirmishers_screen_add = 6
 	}
 	character_modifier = {
 		monthly_prestige = 0.13
@@ -59,7 +60,8 @@ eir_dun_t_02 = {
 	province_modifier = {
 		defender_holding_advantage = 5
 		fort_level = 2
-		stationed_maa_damage_mult = 0.08
+		stationed_pikemen_toughness_mult = 0.16
+		stationed_skirmishers_screen_add = 9
 	}
 	character_modifier = {
 		monthly_prestige = 0.26
@@ -92,7 +94,8 @@ eir_dun_01 = {
 	province_modifier = {
 		defender_holding_advantage = 3
 		fort_level = 1
-		stationed_maa_damage_mult = 0.05
+		stationed_pikemen_toughness_mult = 0.13
+		stationed_skirmishers_screen_add = 6
 	}
 	character_modifier = {
 		monthly_prestige = 0.13
@@ -126,7 +129,8 @@ eir_dun_02 = {
 	province_modifier = {
 		defender_holding_advantage = 5
 		fort_level = 2
-		stationed_maa_damage_mult = 0.08
+		stationed_pikemen_toughness_mult = 0.16
+		stationed_skirmishers_screen_add = 9
 	}
 	character_modifier = {
 		monthly_prestige = 0.26
@@ -160,7 +164,8 @@ eir_dun_03 = {
 	province_modifier = {
 		defender_holding_advantage = 8
 		fort_level = 3
-		stationed_maa_damage_mult = 0.11
+		stationed_pikemen_toughness_mult = 0.2
+		stationed_skirmishers_screen_add = 12
 	}
 	character_modifier = {
 		monthly_prestige = 0.26
@@ -194,7 +199,8 @@ eir_dun_04 = {
 	province_modifier = {
 		defender_holding_advantage = 10
 		fort_level = 4
-		stationed_maa_damage_mult = 0.14
+		stationed_pikemen_toughness_mult = 0.23
+		stationed_skirmishers_screen_add = 16
 	}
 	character_modifier = {
 		monthly_prestige = 0.34
@@ -235,7 +241,8 @@ eir_ringfort_t_01 = {
 	province_modifier = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
-		stationed_maa_toughness_mult = 0.05
+		stationed_heavy_infantry_toughness_mult = 0.13
+		stationed_maa_toughness_add = 2
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -272,7 +279,8 @@ eir_ringfort_t_02 = {
 	province_modifier = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
-		stationed_maa_toughness_mult = 0.08
+		stationed_heavy_infantry_toughness_mult = 0.16
+		stationed_maa_toughness_add = 3
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -313,7 +321,8 @@ eir_ringfort_01 = {
 	province_modifier = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
-		stationed_maa_toughness_mult = 0.05
+		stationed_heavy_infantry_toughness_mult = 0.13
+		stationed_maa_toughness_add = 2
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -348,7 +357,8 @@ eir_ringfort_02 = {
 	province_modifier = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
-		stationed_maa_toughness_mult = 0.08
+		stationed_heavy_infantry_toughness_mult = 0.16
+		stationed_maa_toughness_add = 3
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -383,7 +393,8 @@ eir_ringfort_03 = {
 	province_modifier = {
 		defender_holding_advantage = 8
 		monthly_income = 1
-		stationed_maa_toughness_mult = 0.11
+		stationed_heavy_infantry_toughness_mult = 0.2
+		stationed_maa_toughness_add = 4
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.39
@@ -418,7 +429,8 @@ eir_ringfort_04 = {
 	province_modifier = {
 		defender_holding_advantage = 10
 		monthly_income = 1.25
-		stationed_maa_toughness_mult = 0.14
+		stationed_heavy_infantry_toughness_mult = 0.23
+		stationed_maa_toughness_add = 6
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.52
@@ -463,7 +475,7 @@ eir_crannog_t_01 = {
 		supply_limit = 290
 		fort_level = 1
 		travel_danger = -1
-		stationed_maa_toughness_mult = 0.05
+		stationed_archers_damage_mult = 0.13
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -500,7 +512,7 @@ eir_crannog_t_02 = {
 		supply_limit = 520
 		fort_level = 2
 		travel_danger = -3
-		stationed_maa_toughness_mult = 0.08
+		stationed_archers_damage_mult = 0.16
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -541,7 +553,7 @@ eir_crannog_01 = {
 		supply_limit = 290
 		fort_level = 1
 		travel_danger = -1
-		stationed_maa_toughness_mult = 0.05
+		stationed_archers_damage_mult = 0.13
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -576,7 +588,7 @@ eir_crannog_02 = {
 		supply_limit = 520
 		fort_level = 2
 		travel_danger = -3
-		stationed_maa_toughness_mult = 0.08
+		stationed_archers_damage_mult = 0.16
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -611,7 +623,7 @@ eir_crannog_03 = {
 		supply_limit = 650
 		fort_level = 3
 		travel_danger = -4
-		stationed_maa_toughness_mult = 0.11
+		stationed_archers_damage_mult = 0.2
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.39
@@ -646,7 +658,7 @@ eir_crannog_04 = {
 		supply_limit = 780
 		fort_level = 4
 		travel_danger = -5
-		stationed_maa_toughness_mult = 0.14
+		stationed_archers_damage_mult = 0.23
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.52
@@ -687,7 +699,8 @@ eir_round_tower_t_01 = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
 		epidemic_resistance = 10
-		stationed_maa_toughness_mult = 0.05
+		stationed_archers_toughness_mult = 0.13
+		stationed_archers_screen_add = 6
 	}
 	county_modifier = {
 		hostile_raid_time = 0.13
@@ -726,7 +739,8 @@ eir_round_tower_t_02 = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
 		epidemic_resistance = 13
-		stationed_maa_toughness_mult = 0.08
+		stationed_archers_toughness_mult = 0.16
+		stationed_archers_screen_add = 9
 	}
 	county_modifier = {
 		hostile_raid_time = 0.26
@@ -769,7 +783,8 @@ eir_round_tower_01 = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
 		epidemic_resistance = 10
-		stationed_maa_toughness_mult = 0.05
+		stationed_archers_toughness_mult = 0.13
+		stationed_archers_screen_add = 6
 	}
 	county_modifier = {
 		hostile_raid_time = 0.13
@@ -806,7 +821,8 @@ eir_round_tower_02 = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
 		epidemic_resistance = 13
-		stationed_maa_toughness_mult = 0.08
+		stationed_archers_toughness_mult = 0.16
+		stationed_archers_screen_add = 9
 	}
 	county_modifier = {
 		hostile_raid_time = 0.26
@@ -843,7 +859,8 @@ eir_round_tower_03 = {
 		defender_holding_advantage = 8
 		monthly_income = 1
 		epidemic_resistance = 16
-		stationed_maa_toughness_mult = 0.11
+		stationed_archers_toughness_mult = 0.2
+		stationed_archers_screen_add = 12
 	}
 	county_modifier = {
 		hostile_raid_time = 0.39
@@ -880,7 +897,8 @@ eir_round_tower_04 = {
 		defender_holding_advantage = 10
 		monthly_income = 1.25
 		epidemic_resistance = 20
-		stationed_maa_toughness_mult = 0.14
+		stationed_archers_toughness_mult = 0.23
+		stationed_archers_screen_add = 16
 	}
 	county_modifier = {
 		hostile_raid_time = 0.52
@@ -2257,7 +2275,7 @@ eir_bardic_school_t_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_maa_damage_mult = 0.05
+		stationed_maa_damage_add = 2
 	}
 	county_modifier = {
 		development_growth_factor = 0.06
@@ -2295,7 +2313,7 @@ eir_bardic_school_t_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_maa_damage_mult = 0.08
+		stationed_maa_damage_add = 3
 	}
 	county_modifier = {
 		development_growth_factor = 0.12
@@ -2338,7 +2356,7 @@ eir_bardic_school_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_maa_damage_mult = 0.05
+		stationed_maa_damage_add = 2
 	}
 	county_modifier = {
 		development_growth_factor = 0.06
@@ -2374,7 +2392,7 @@ eir_bardic_school_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_maa_damage_mult = 0.08
+		stationed_maa_damage_add = 3
 	}
 	county_modifier = {
 		development_growth_factor = 0.12
@@ -2411,7 +2429,7 @@ eir_bardic_school_03 = {
 
 	province_modifier = {
 		monthly_income = 1
-		stationed_maa_damage_mult = 0.11
+		stationed_maa_damage_add = 4
 	}
 	county_modifier = {
 		development_growth_factor = 0.16
@@ -2448,7 +2466,7 @@ eir_bardic_school_04 = {
 
 	province_modifier = {
 		monthly_income = 1.25
-		stationed_maa_damage_mult = 0.14
+		stationed_maa_damage_add = 6
 	}
 	county_modifier = {
 		development_growth_factor = 0.2
@@ -3175,7 +3193,8 @@ eir_goibniu_smithy_t_01 = {
 	levy = 130
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_maa_damage_mult = 0.05
+		stationed_heavy_infantry_damage_mult = 0.2
+		stationed_pikemen_damage_add = 2
 	}
 	county_modifier = {
 		development_growth_factor = 0.06
@@ -3213,7 +3232,8 @@ eir_goibniu_smithy_t_02 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_maa_damage_mult = 0.08
+		stationed_heavy_infantry_damage_mult = 0.26
+		stationed_pikemen_damage_add = 3
 	}
 	county_modifier = {
 		development_growth_factor = 0.12
@@ -3249,7 +3269,8 @@ eir_goibniu_smithy_01 = {
 	levy = 130
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_maa_damage_mult = 0.05
+		stationed_heavy_infantry_damage_mult = 0.2
+		stationed_pikemen_damage_add = 2
 	}
 	county_modifier = {
 		development_growth_factor = 0.06
@@ -3286,7 +3307,8 @@ eir_goibniu_smithy_02 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_maa_damage_mult = 0.08
+		stationed_heavy_infantry_damage_mult = 0.26
+		stationed_pikemen_damage_add = 3
 	}
 	county_modifier = {
 		development_growth_factor = 0.12
@@ -3323,7 +3345,8 @@ eir_goibniu_smithy_03 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 1
-		stationed_maa_damage_mult = 0.11
+		stationed_heavy_infantry_damage_mult = 0.33
+		stationed_pikemen_damage_add = 4
 	}
 	county_modifier = {
 		development_growth_factor = 0.16
@@ -3360,7 +3383,8 @@ eir_goibniu_smithy_04 = {
 	levy = 290
 	province_modifier = {
 		monthly_income = 1.25
-		stationed_maa_damage_mult = 0.14
+		stationed_heavy_infantry_damage_mult = 0.39
+		stationed_pikemen_damage_add = 6
 	}
 	county_modifier = {
 		development_growth_factor = 0.2
@@ -3396,10 +3420,11 @@ eir_hobby_stables_t_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_light_cavalry_damage_mult = 0.05
 		levy_reinforcement_rate = 0.13
 		supply_limit = 290
 		travel_danger = -1
+		stationed_light_cavalry_damage_mult = 0.2
+		stationed_light_cavalry_pursuit_add = 6
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.03
@@ -3432,10 +3457,11 @@ eir_hobby_stables_t_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_light_cavalry_damage_mult = 0.08
 		levy_reinforcement_rate = 0.13
 		supply_limit = 520
 		travel_danger = -3
+		stationed_light_cavalry_damage_mult = 0.26
+		stationed_light_cavalry_pursuit_add = 9
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.05
@@ -3465,10 +3491,11 @@ eir_hobby_stables_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_light_cavalry_damage_mult = 0.05
 		levy_reinforcement_rate = 0.13
 		supply_limit = 290
 		travel_danger = -1
+		stationed_light_cavalry_damage_mult = 0.2
+		stationed_light_cavalry_pursuit_add = 6
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.03
@@ -3499,10 +3526,11 @@ eir_hobby_stables_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_light_cavalry_damage_mult = 0.08
 		levy_reinforcement_rate = 0.13
 		supply_limit = 520
 		travel_danger = -3
+		stationed_light_cavalry_damage_mult = 0.26
+		stationed_light_cavalry_pursuit_add = 9
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.05
@@ -3533,10 +3561,11 @@ eir_hobby_stables_03 = {
 
 	province_modifier = {
 		monthly_income = 1
-		stationed_light_cavalry_damage_mult = 0.11
 		levy_reinforcement_rate = 0.2
 		supply_limit = 650
 		travel_danger = -4
+		stationed_light_cavalry_damage_mult = 0.33
+		stationed_light_cavalry_pursuit_add = 12
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.08
@@ -3567,10 +3596,11 @@ eir_hobby_stables_04 = {
 
 	province_modifier = {
 		monthly_income = 1.25
-		stationed_light_cavalry_damage_mult = 0.14
 		levy_reinforcement_rate = 0.26
 		supply_limit = 780
 		travel_danger = -5
+		stationed_light_cavalry_damage_mult = 0.39
+		stationed_light_cavalry_pursuit_add = 16
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.1
@@ -3602,6 +3632,7 @@ eir_booley_pastures_t_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
+		stationed_light_cavalry_toughness_mult = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -3640,6 +3671,7 @@ eir_booley_pastures_t_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
+		stationed_light_cavalry_toughness_mult = 0.16
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -3676,6 +3708,7 @@ eir_booley_pastures_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
+		stationed_light_cavalry_toughness_mult = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -3713,6 +3746,7 @@ eir_booley_pastures_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
+		stationed_light_cavalry_toughness_mult = 0.16
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -3750,6 +3784,7 @@ eir_booley_pastures_03 = {
 
 	province_modifier = {
 		monthly_income = 1
+		stationed_light_cavalry_toughness_mult = 0.2
 	}
 	county_modifier = {
 		tax_mult = 0.07
@@ -3787,6 +3822,7 @@ eir_booley_pastures_04 = {
 
 	province_modifier = {
 		monthly_income = 1.25
+		stationed_light_cavalry_toughness_mult = 0.23
 	}
 	county_modifier = {
 		tax_mult = 0.08
@@ -3832,7 +3868,7 @@ eir_cattle_enclosure_t_01 = {
 	province_modifier = {
 		monthly_income = 0.45
 		defender_holding_advantage = 3
-		stationed_maa_toughness_mult = 0.05
+		stationed_light_cavalry_pursuit_mult = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -3871,7 +3907,7 @@ eir_cattle_enclosure_t_02 = {
 	province_modifier = {
 		monthly_income = 0.7
 		defender_holding_advantage = 5
-		stationed_maa_toughness_mult = 0.08
+		stationed_light_cavalry_pursuit_mult = 0.16
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -3914,7 +3950,7 @@ eir_cattle_enclosure_01 = {
 	province_modifier = {
 		monthly_income = 0.45
 		defender_holding_advantage = 3
-		stationed_maa_toughness_mult = 0.05
+		stationed_light_cavalry_pursuit_mult = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -3951,7 +3987,7 @@ eir_cattle_enclosure_02 = {
 	province_modifier = {
 		monthly_income = 0.7
 		defender_holding_advantage = 5
-		stationed_maa_toughness_mult = 0.08
+		stationed_light_cavalry_pursuit_mult = 0.16
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -3988,7 +4024,7 @@ eir_cattle_enclosure_03 = {
 	province_modifier = {
 		monthly_income = 1
 		defender_holding_advantage = 8
-		stationed_maa_toughness_mult = 0.11
+		stationed_light_cavalry_pursuit_mult = 0.2
 	}
 	county_modifier = {
 		tax_mult = 0.07
@@ -4025,7 +4061,7 @@ eir_cattle_enclosure_04 = {
 	province_modifier = {
 		monthly_income = 1.25
 		defender_holding_advantage = 10
-		stationed_maa_toughness_mult = 0.14
+		stationed_light_cavalry_pursuit_mult = 0.23
 	}
 	county_modifier = {
 		tax_mult = 0.08
@@ -4063,7 +4099,8 @@ eir_fosterage_hall_t_01 = {
 	levy = 130
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_maa_damage_mult = 0.05
+		stationed_maa_toughness_add = 2
+		stationed_pikemen_damage_mult = 0.02
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -4102,7 +4139,8 @@ eir_fosterage_hall_t_02 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_maa_damage_mult = 0.08
+		stationed_maa_toughness_add = 3
+		stationed_pikemen_damage_mult = 0.04
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -4139,7 +4177,8 @@ eir_fosterage_hall_01 = {
 	levy = 130
 	province_modifier = {
 		monthly_income = 0.45
-		stationed_maa_damage_mult = 0.05
+		stationed_maa_toughness_add = 2
+		stationed_pikemen_damage_mult = 0.02
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -4177,7 +4216,8 @@ eir_fosterage_hall_02 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 0.7
-		stationed_maa_damage_mult = 0.08
+		stationed_maa_toughness_add = 3
+		stationed_pikemen_damage_mult = 0.04
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -4215,7 +4255,8 @@ eir_fosterage_hall_03 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 1
-		stationed_maa_damage_mult = 0.11
+		stationed_maa_toughness_add = 4
+		stationed_pikemen_damage_mult = 0.06
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.39
@@ -4253,7 +4294,8 @@ eir_fosterage_hall_04 = {
 	levy = 290
 	province_modifier = {
 		monthly_income = 1.25
-		stationed_maa_damage_mult = 0.14
+		stationed_maa_toughness_add = 6
+		stationed_pikemen_damage_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.52
@@ -4525,9 +4567,10 @@ eir_fianna_lodge_t_01 = {
 
 	levy = 130
 	province_modifier = {
-		stationed_maa_damage_mult = 0.05
 		levy_reinforcement_rate = 0.13
 		monthly_income = 0.45
+		stationed_skirmishers_damage_mult = 0.2
+		stationed_skirmishers_pursuit_mult = 0.13
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.03
@@ -4561,9 +4604,10 @@ eir_fianna_lodge_t_02 = {
 
 	levy = 230
 	province_modifier = {
-		stationed_maa_damage_mult = 0.08
 		levy_reinforcement_rate = 0.13
 		monthly_income = 0.7
+		stationed_skirmishers_damage_mult = 0.26
+		stationed_skirmishers_pursuit_mult = 0.16
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.05
@@ -4601,9 +4645,10 @@ eir_fianna_lodge_01 = {
 
 	levy = 130
 	province_modifier = {
-		stationed_maa_damage_mult = 0.05
 		levy_reinforcement_rate = 0.13
 		monthly_income = 0.45
+		stationed_skirmishers_damage_mult = 0.2
+		stationed_skirmishers_pursuit_mult = 0.13
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.03
@@ -4635,9 +4680,10 @@ eir_fianna_lodge_02 = {
 
 	levy = 230
 	province_modifier = {
-		stationed_maa_damage_mult = 0.08
 		levy_reinforcement_rate = 0.13
 		monthly_income = 0.7
+		stationed_skirmishers_damage_mult = 0.26
+		stationed_skirmishers_pursuit_mult = 0.16
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.05
@@ -4669,9 +4715,10 @@ eir_fianna_lodge_03 = {
 
 	levy = 230
 	province_modifier = {
-		stationed_maa_damage_mult = 0.11
 		levy_reinforcement_rate = 0.2
 		monthly_income = 1
+		stationed_skirmishers_damage_mult = 0.33
+		stationed_skirmishers_pursuit_mult = 0.2
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.08
@@ -4703,9 +4750,10 @@ eir_fianna_lodge_04 = {
 
 	levy = 290
 	province_modifier = {
-		stationed_maa_damage_mult = 0.14
 		levy_reinforcement_rate = 0.26
 		monthly_income = 1.25
+		stationed_skirmishers_damage_mult = 0.39
+		stationed_skirmishers_pursuit_mult = 0.23
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.1
@@ -4740,6 +4788,8 @@ eir_hosting_ground_t_01 = {
 	province_modifier = {
 		levy_reinforcement_rate = 0.13
 		supply_limit = 290
+		stationed_maa_toughness_mult = 0.02
+		stationed_maa_screen_add = 6
 	}
 	county_modifier = {
 		levy_size = 0.08
@@ -4778,6 +4828,8 @@ eir_hosting_ground_t_02 = {
 	province_modifier = {
 		levy_reinforcement_rate = 0.13
 		supply_limit = 520
+		stationed_maa_toughness_mult = 0.04
+		stationed_maa_screen_add = 9
 	}
 	county_modifier = {
 		levy_size = 0.16
@@ -4813,6 +4865,8 @@ eir_hosting_ground_01 = {
 	province_modifier = {
 		levy_reinforcement_rate = 0.13
 		supply_limit = 290
+		stationed_maa_toughness_mult = 0.02
+		stationed_maa_screen_add = 6
 	}
 	county_modifier = {
 		levy_size = 0.08
@@ -4849,6 +4903,8 @@ eir_hosting_ground_02 = {
 	province_modifier = {
 		levy_reinforcement_rate = 0.13
 		supply_limit = 520
+		stationed_maa_toughness_mult = 0.04
+		stationed_maa_screen_add = 9
 	}
 	county_modifier = {
 		levy_size = 0.16
@@ -4885,6 +4941,8 @@ eir_hosting_ground_03 = {
 	province_modifier = {
 		levy_reinforcement_rate = 0.2
 		supply_limit = 650
+		stationed_maa_toughness_mult = 0.06
+		stationed_maa_screen_add = 12
 	}
 	county_modifier = {
 		levy_size = 0.23
@@ -4921,6 +4979,8 @@ eir_hosting_ground_04 = {
 	province_modifier = {
 		levy_reinforcement_rate = 0.26
 		supply_limit = 780
+		stationed_maa_toughness_mult = 0.08
+		stationed_maa_screen_add = 16
 	}
 	county_modifier = {
 		levy_size = 0.3
@@ -5203,6 +5263,8 @@ eir_longship_yard_t_01 = {
 		supply_limit = 290
 		monthly_income = 0.45
 		levy_reinforcement_rate = 0.13
+		stationed_skirmishers_screen_mult = 0.13
+		stationed_heavy_infantry_pursuit_add = 6
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.03
@@ -5240,6 +5302,8 @@ eir_longship_yard_t_02 = {
 		supply_limit = 520
 		monthly_income = 0.7
 		levy_reinforcement_rate = 0.13
+		stationed_skirmishers_screen_mult = 0.16
+		stationed_heavy_infantry_pursuit_add = 9
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.05
@@ -5282,6 +5346,8 @@ eir_longship_yard_01 = {
 		supply_limit = 290
 		monthly_income = 0.45
 		levy_reinforcement_rate = 0.13
+		stationed_skirmishers_screen_mult = 0.13
+		stationed_heavy_infantry_pursuit_add = 6
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.03
@@ -5318,6 +5384,8 @@ eir_longship_yard_02 = {
 		supply_limit = 520
 		monthly_income = 0.7
 		levy_reinforcement_rate = 0.13
+		stationed_skirmishers_screen_mult = 0.16
+		stationed_heavy_infantry_pursuit_add = 9
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.05
@@ -5354,6 +5422,8 @@ eir_longship_yard_03 = {
 		supply_limit = 650
 		monthly_income = 1
 		levy_reinforcement_rate = 0.2
+		stationed_skirmishers_screen_mult = 0.2
+		stationed_heavy_infantry_pursuit_add = 12
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.08
@@ -5390,6 +5460,8 @@ eir_longship_yard_04 = {
 		supply_limit = 780
 		monthly_income = 1.25
 		levy_reinforcement_rate = 0.26
+		stationed_skirmishers_screen_mult = 0.23
+		stationed_heavy_infantry_pursuit_add = 16
 	}
 	character_modifier = {
 		knight_effectiveness_mult = 0.1
@@ -6631,6 +6703,8 @@ eir_hall_of_tara_01 = {
 	max_garrison = 1000
 	province_modifier = {
 		monthly_income = 3.2
+		stationed_heavy_infantry_toughness_mult = 0.52
+		stationed_maa_screen_add = 18
 	}
 	county_modifier = {
 		development_growth_factor = 0.3
@@ -6682,6 +6756,8 @@ eir_armagh_cathedral_01 = {
 	province_modifier = {
 		monthly_income = 3.2
 		epidemic_resistance = 20
+		stationed_pikemen_toughness_mult = 0.26
+		stationed_maa_toughness_add = 10
 		defender_holding_advantage = 8
 	}
 	county_modifier = {
@@ -6734,7 +6810,8 @@ eir_rathcroghan_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
-		stationed_maa_damage_mult = 0.15
+		stationed_heavy_infantry_damage_mult = 0.39
+		stationed_maa_damage_add = 7
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -6820,6 +6897,7 @@ eir_uisneach_fires_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
+		stationed_skirmishers_screen_mult = 0.39
 		travel_danger = -20
 	}
 	county_modifier = {
@@ -6956,6 +7034,8 @@ eir_kincora_01 = {
 		monthly_income = 2.6
 		defender_holding_advantage = 8
 		fort_level = 2
+		stationed_archers_damage_mult = 0.39
+		stationed_archers_screen_add = 14
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -7003,6 +7083,8 @@ eir_black_pool_quays_01 = {
 		monthly_income = 2.6
 		supply_limit = 900
 		travel_danger = -10
+		stationed_archers_damage_mult = 0.2
+		stationed_maa_pursuit_add = 14
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -7052,6 +7134,7 @@ eir_waterford_harbour_01 = {
 		monthly_income = 2.6
 		supply_limit = 900
 		travel_danger = -10
+		stationed_heavy_infantry_damage_mult = 0.2
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -7101,6 +7184,7 @@ eir_cork_quays_01 = {
 		monthly_income = 1.3
 		supply_limit = 500
 		travel_danger = -5
+		stationed_skirmishers_damage_mult = 0.13
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -7150,6 +7234,8 @@ eir_limerick_longphort_01 = {
 		monthly_income = 1.3
 		defender_holding_advantage = 5
 		fort_level = 1
+		stationed_heavy_infantry_damage_add = 4
+		stationed_archers_toughness_mult = 0.13
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -7409,6 +7495,8 @@ eir_ferns_seat_01 = {
 	levy = 325
 	province_modifier = {
 		monthly_income = 1.3
+		stationed_light_cavalry_toughness_mult = 0.13
+		stationed_maa_pursuit_add = 10
 		fort_level = 1
 		defender_holding_advantage = 4
 	}
@@ -7452,6 +7540,7 @@ eir_newgrange_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
+		stationed_heavy_infantry_toughness_add = 7
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -7494,6 +7583,8 @@ eir_grianan_aileach_01 = {
 		monthly_income = 2.6
 		defender_holding_advantage = 8
 		fort_level = 2
+		stationed_pikemen_toughness_mult = 0.39
+		stationed_maa_screen_add = 14
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -7532,7 +7623,8 @@ eir_emain_macha_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
-		stationed_maa_damage_mult = 0.15
+		stationed_skirmishers_damage_mult = 0.39
+		stationed_skirmishers_pursuit_add = 14
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -7719,6 +7811,7 @@ eir_skellig_michael_01 = {
 	province_modifier = {
 		monthly_income = 1.3
 		epidemic_resistance = 10
+		stationed_maa_toughness_add = 4
 		defender_holding_advantage = 4
 	}
 	county_modifier = {
@@ -7804,6 +7897,7 @@ eir_carrowmore_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -7844,6 +7938,7 @@ eir_dun_ailinne_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		stationed_light_cavalry_pursuit_mult = 0.26
 		defender_holding_advantage = 4
 		garrison_size = 0.15
 	}
@@ -7983,6 +8078,7 @@ eir_kinsale_haven_01 = {
 		monthly_income = 1.3
 		supply_limit = 500
 		travel_danger = -5
+		stationed_archers_pursuit_mult = 0.13
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -8021,8 +8117,9 @@ eir_burren_court_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		stationed_skirmishers_toughness_mult = 0.26
+		stationed_skirmishers_pursuit_mult = 0.13
 		defender_holding_advantage = 4
-		stationed_maa_toughness_mult = 0.1
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -8079,6 +8176,7 @@ eir_dunadd_01 = {
 	max_garrison = 650
 	province_modifier = {
 		monthly_income = 2.6
+		stationed_pikemen_damage_mult = 0.39
 		fort_level = 2
 	}
 	county_modifier = {
@@ -8138,6 +8236,8 @@ eir_iona_abbey_01 = {
 	province_modifier = {
 		monthly_income = 3.2
 		epidemic_resistance = 20
+		stationed_pikemen_toughness_mult = 0.26
+		stationed_maa_screen_add = 18
 		travel_danger = -30
 	}
 	county_modifier = {
@@ -8253,6 +8353,8 @@ eir_dumbarton_rock_01 = {
 		monthly_income = 2.6
 		defender_holding_advantage = 8
 		fort_level = 2
+		stationed_archers_toughness_mult = 0.39
+		stationed_maa_toughness_add = 7
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
@@ -8361,6 +8463,8 @@ eir_tintagel_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		stationed_light_cavalry_damage_mult = 0.26
+		stationed_light_cavalry_screen_mult = 0.13
 		fort_level = 1
 		defender_holding_advantage = 4
 		garrison_size = 0.15
@@ -8420,8 +8524,9 @@ eir_caerleon_01 = {
 	levy = 325
 	province_modifier = {
 		monthly_income = 1.3
+		stationed_pikemen_damage_mult = 0.13
+		stationed_pikemen_toughness_mult = 0.13
 		fort_level = 1
-		stationed_maa_toughness_mult = 0.1
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -8478,6 +8583,7 @@ eir_holyhead_ferry_01 = {
 		monthly_income = 1.3
 		supply_limit = 500
 		travel_danger = -5
+		stationed_maa_screen_add = 10
 	}
 	county_modifier = {
 		development_growth_factor = 0.13

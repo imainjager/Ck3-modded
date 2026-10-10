@@ -297,6 +297,11 @@ Special buildings (median): county development growth +20%, income +2.0 per mont
 
 **R28. Special buildings need a slot and a real barony.** Declare the slot in province history and verify the barony id. Make them reachable by every government the region uses (tribal holders can build specials; vanilla only bars a few). Price: about half the vanilla gold plus prestige for a prestige culture (vanilla specials are mostly 1000 gold; a landmark 300 gold + 300 prestige, a major site 500 + 700, a wonder 1000 + 1200), with development growth, income, tax, opinion and a profile of effects (royal, holy, learning, sea, war, ancient, trade) for eight or more distinct effects.
 **R28b. Match vanilla's military share.** About half of vanilla special buildings (52%) and about half of regular buildings carry military fields (stationed men-at-arms bonuses, fort level, defender advantage, hostile raid time, levy, garrison, knight strength, travel danger, upkeep). Give about half of a pack's specials and regular families a military effect at the vanilla median times the pack's strength factor, and keep the learned or holy ones purely civil.
+**R28c. Stationed men-at-arms bonuses are the military flavor; make them varied and unique.** "Military" in a building means first of all the bonuses that apply to men-at-arms stationed in that province. Vanilla gives about 49% of regular buildings and 11% of specials such a bonus, and it has a full menu: four stats (damage, toughness, pursuit, screen) for each unit type (archers, skirmishers, pikemen, heavy infantry, light cavalry, heavy cavalry, and others), as a percentage (`stationed_<type>_<stat>_mult`) or a flat number (`stationed_<type>_<stat>_add`), or for every type at once (`stationed_maa_<stat>_mult` / `_add`). Rules:
+* About half of a pack's regular families carry one (two for the strong ones), and at least half of its special buildings do (the user asked for more than vanilla's 11%).
+* No two buildings give the same bonus. Match the unit to the building's story: a hill-fort strengthens pikemen's toughness, a lake fortress archers' damage, a stable light cavalry's damage and pursuit, a hunting lodge skirmishers' damage, a smithy heavy infantry's damage, a hostel or fair a flat screen or pursuit.
+* Mix forms inside a pack: some percentage bonuses for one type (for example +20% archer damage), some flat bonuses (for example +3 damage or toughness, +9 pursuit or screen), and a few small all-unit percentages. Percentage values follow vanilla's tiers times the pack's factor: low 0.10 / 0.125 / 0.15 / 0.175, normal 0.15 / 0.20 / 0.25 / 0.30, high 0.20 / 0.30 / 0.40 (levels I-III); the all-unit percentage is small (0.01-0.10). Flat values stay small (vanilla military buildings give 12-20 pursuit or screen; legendary ones 10-20 damage).
+* Keep the library in the pack's data file (one table per building) so the audit can count the share and the variety.
 **R29. A good chunk of the regular buildings must be open from the start for the starting government.** Gate the rest behind named decisions, and show the gate greyed-out in the build menu with a plain sentence. Never leave a starting ruler with an empty build menu.
 
 ## 22. Part IV checklist
@@ -307,6 +312,7 @@ Special buildings (median): county development growth +20%, income +2.0 per mont
 30. Does it appear for tribal and for feudal holders, and are its name and description keys present?
 31. If it is a special building, does its province have a declared slot and does its barony exist on the map?
 32. Is a good share of the regular buildings open to the starting government from day one?
+33. Do about half of the regular families and at least half of the specials carry a stationed men-at-arms bonus, and is each one different (unit type, stat, percentage or flat)?
 
 ---
 

@@ -61,7 +61,7 @@ def sections(recipe, level):
         v = series(spec, level)
         if v == 0:
             continue
-        sec = B.SECTION[field]
+        sec = B.SECTION.get(field) or ("prov" if field.startswith("stationed_") else None)
         if sec in out:
             out[sec][field] = v
         else:
@@ -109,9 +109,9 @@ def build():
     L.section("building requirement texts")
     L.section("regular building families")
     for key, name, kinds, gate, coastal, icon, fdesc, levels, recipe in B.FAMILIES:
-        recipe = list(recipe) + B.REG_EXTRA.get(key, [])
+        recipe = [r for r in recipe if not r[0].startswith("stationed_")] + B.REG_EXTRA.get(key, []) + B.REG_MAA.get(key, [])
         for field, spec in recipe:
-            if field not in B.SECTION:
+            if field not in B.SECTION and not field.startswith("stationed_"):
                 raise SystemExit("unknown field %s in %s" % (field, key))
         if gate:
             gates.add(gate)
@@ -215,6 +215,8 @@ def build():
         for f, vals in B.SPECIAL_PROFILE[prof]:
             sec = B.SECTION[f]
             {"prov": prov, "cty": cty, "chr": chr_}[sec][f] = vals[t]
+        for f, ser in B.SPECIAL_MAA.get(key, []):
+            prov[f] = ser[t]
         top = {}
         for f in B.SPECIAL_MIL.get(key, []):
             v = B.MIL_VALUES[f][t]

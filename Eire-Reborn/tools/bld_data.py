@@ -62,7 +62,7 @@ FAMILIES = [
       ("Royal Dún", "A great hall, a deep ditch and stone-faced banks. Poets say a king could hold it against the world."),
       ("Dún of the Kings", "A fortress-palace of banks, ditches and stone, whose name alone makes a raiding chief think again.")],
      [("defender_holding_advantage", "ADV"), ("fort_level", "FORT"), ("levy", "LEVYB"), ("max_garrison", "GARR"),
-      ("monthly_prestige", "PRES"), ("stationed_maa_damage_mult", "MAAUP")]),
+      ("monthly_prestige", "PRES")]),
     ("eir_ringfort", "Great Ringfort", ("castle",), "eir_unlock_ringfort", False, "icon_building_hill_forts.dds",
      "The ráth: a great circular rampart round a farmstead and its cattle, found at the heart of every Irish kingdom.",
      [("Earthen Ráth", "A circular bank round the farm and the cattle-yard."),
@@ -173,7 +173,7 @@ FAMILIES = [
       ("Iron Forge", "A smithy with its own charcoal burners and a good reputation."),
       ("Master Smith's Yard", "A yard of smiths who make swords, spears and ploughshares."),
       ("Smithy of the Gods", "Smiths of a name known across the sea, working weapons that the poets name.")],
-     [("monthly_income", "INC"), ("knight_effectiveness_mult", "KNIGHT"), ("stationed_maa_damage_mult", "MAAUP"), ("levy", "LEVYB"),
+     [("monthly_income", "INC"), ("knight_effectiveness_mult", "KNIGHT"), ("levy", "LEVYB"),
       ("men_at_arms_maintenance", "MAINT"), ("development_growth_factor", "DEV")]),
     ("eir_hobby_stables", "Hobby Stables", ("castle",), None, False, "icon_building_stables.dds",
      "Small, quick Irish horses bred for the hills and the bog, ridden bareback by men who throw javelins.",
@@ -181,7 +181,7 @@ FAMILIES = [
       ("Hobby Stud", "A stud of Irish hobbies bred for speed and sure feet."),
       ("Horse-Master's Yard", "A yard of trained mounts and riders who know the bog-roads."),
       ("Royal Hobby Stables", "A famous stable of swift horses that carry the king's messengers over a province in a day.")],
-     [("knight_effectiveness_mult", "KNIGHT"), ("monthly_income", "INC"), ("stationed_light_cavalry_damage_mult", "MAAUP"), ("levy_reinforcement_rate", "REINF"),
+     [("knight_effectiveness_mult", "KNIGHT"), ("monthly_income", "INC"), ("levy_reinforcement_rate", "REINF"),
       ("supply_limit", "SUPPLY"), ("travel_danger", "TRAVEL")]),
     ("eir_booley_pastures", "Booley Pastures", ("castle", "city"), None, False, "icon_building_hillside_grazing.dds",
      "Summer pastures in the hills, where the herds follow the grass up the mountain and the young people spend the happiest months of the year.",
@@ -221,7 +221,7 @@ FAMILIES = [
       ("Fianna Lodge", "A lodge where forty warriors winter, hunt and train."),
       ("Hall of the Fianna", "A hall decorated with the tales of Fionn, the hunters' hall and the poets' hall."),
       ("Great Fian Hall", "A great hunting-hall of a famous band of warriors, living by the old rules.")],
-     [("knight_effectiveness_mult", "KNIGHT"), ("stationed_maa_damage_mult", "MAAUP"), ("monthly_prestige", "PRES"), ("levy", "LEVYB"),
+     [("knight_effectiveness_mult", "KNIGHT"), ("monthly_prestige", "PRES"), ("levy", "LEVYB"),
       ("levy_reinforcement_rate", "REINF"), ("monthly_income", "INC")]),
     ("eir_hosting_ground", "Hosting Ground", ("castle",), None, False, "icon_building_barracks.dds",
      "The field where the slógad assembles. A hosting that can find its own ground quickly is a hosting that wins.",
@@ -394,12 +394,6 @@ SECTION["army_maintenance_mult"] = "chr"
 SECTION["stationed_maa_toughness_mult"] = "prov"
 
 REG_EXTRA = {   # family key -> extra recipe entries
-    "eir_ringfort": [("stationed_maa_toughness_mult", "MAAT")],
-    "eir_crannog": [("stationed_maa_toughness_mult", "MAAT")],
-    "eir_round_tower": [("stationed_maa_toughness_mult", "MAAT")],
-    "eir_cattle_enclosure": [("stationed_maa_toughness_mult", "MAAT")],
-    "eir_bardic_school": [("stationed_maa_damage_mult", "MAAUP")],
-    "eir_fosterage_hall": [("stationed_maa_damage_mult", "MAAUP")],
     "eir_brehon_court": [("men_at_arms_maintenance", "MAINT")],
     "eir_ogham_stones": [("hostile_raid_time", "RAID")],
     "eir_aonach": [("levy_reinforcement_rate", "REINF")],
@@ -419,20 +413,18 @@ MIL_VALUES = {
     "travel_danger": [-10, -20, -30],
     "men_at_arms_maintenance": [-0.05, -0.1, -0.13],
     "army_maintenance_mult": [-0.05, -0.065, -0.08],
-    "stationed_maa_damage_mult": [0.1, 0.15, 0.2],
-    "stationed_maa_toughness_mult": [0.1, 0.15, 0.2],
 }
 SPECIAL_MIL = {   # special building key -> military fields (the war and sea profiles already carry their own)
     "eir_hall_of_tara": ["levy", "max_garrison", "army_maintenance_mult"],
-    "eir_rathcroghan": ["levy_size", "knight_limit", "stationed_maa_damage_mult"],
+    "eir_rathcroghan": ["levy_size", "knight_limit"],
     "eir_ferns_seat": ["fort_level", "levy", "defender_holding_advantage"],
-    "eir_emain_macha": ["knight_effectiveness_mult", "stationed_maa_damage_mult", "levy_size"],
+    "eir_emain_macha": ["knight_effectiveness_mult", "levy_size"],
     "eir_dun_ailinne": ["levy_size", "defender_holding_advantage", "garrison_size"],
     "eir_dunadd": ["fort_level", "hostile_raid_time", "max_garrison"],
     "eir_tintagel": ["fort_level", "defender_holding_advantage", "garrison_size"],
     "eir_uisneach_fires": ["hostile_raid_time", "levy_size", "travel_danger"],
-    "eir_burren_court": ["defender_holding_advantage", "hostile_raid_time", "stationed_maa_toughness_mult"],
-    "eir_caerleon": ["fort_level", "levy", "stationed_maa_toughness_mult"],
+    "eir_burren_court": ["defender_holding_advantage", "hostile_raid_time"],
+    "eir_caerleon": ["fort_level", "levy"],
     "eir_skellig_michael": ["hostile_raid_time", "defender_holding_advantage"],
     "eir_iona_abbey": ["hostile_raid_time", "travel_danger", "max_garrison"],
     "eir_armagh_cathedral": ["max_garrison", "defender_holding_advantage", "hostile_raid_time"],
@@ -440,3 +432,65 @@ SPECIAL_MIL = {   # special building key -> military fields (the war and sea pro
 for _f in SPECIAL_MIL.values():
     for _x in _f:
         assert _x in MIL_VALUES, _x
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# STATIONED MEN-AT-ARMS LIBRARY (flavor guide R28c). Vanilla has a stationed bonus for every unit type and four stats
+# (damage, toughness, pursuit, screen), as a percentage (_mult) or a flat number (_add), for all men-at-arms (stationed_maa_*)
+# or one type (archers, skirmishers, pikemen, heavy_infantry, light_cavalry, heavy_cavalry). Each building gets its own
+# mix, so no two buildings give the same bonus. Percentages follow vanilla's tiers x1.3:
+#   LOWM  = low tier   0.10/0.125/0.15/0.175 -> 0.13/0.16/0.20/0.23     NORMM = normal tier 0.15/0.20/0.25/0.30 -> 0.20/0.26/0.33/0.39
+#   flat adds are small (vanilla military buildings give 12-20 screen or pursuit; legendary ones 10-20 damage).
+SERIES.update({
+    "LOWM": [0.13, 0.16, 0.20, 0.23], "NORMM": [0.20, 0.26, 0.33, 0.39], "SMALLM": [0.02, 0.04, 0.06, 0.08],
+    "FDT": [2, 3, 4, 6], "FPS": [6, 9, 12, 16],
+})
+
+REG_MAA = {   # regular family -> stationed bonuses (13 of 24 families, vanilla 49%)
+    "eir_dun": [("stationed_pikemen_toughness_mult", "LOWM"), ("stationed_skirmishers_screen_add", "FPS")],
+    "eir_ringfort": [("stationed_heavy_infantry_toughness_mult", "LOWM"), ("stationed_maa_toughness_add", "FDT")],
+    "eir_crannog": [("stationed_archers_damage_mult", "LOWM")],
+    "eir_round_tower": [("stationed_archers_toughness_mult", "LOWM"), ("stationed_archers_screen_add", "FPS")],
+    "eir_cattle_enclosure": [("stationed_light_cavalry_pursuit_mult", "LOWM")],
+    "eir_bardic_school": [("stationed_maa_damage_add", "FDT")],
+    "eir_fosterage_hall": [("stationed_maa_toughness_add", "FDT"), ("stationed_pikemen_damage_mult", "SMALLM")],
+    "eir_goibniu_smithy": [("stationed_heavy_infantry_damage_mult", "NORMM"), ("stationed_pikemen_damage_add", "FDT")],
+    "eir_hobby_stables": [("stationed_light_cavalry_damage_mult", "NORMM"), ("stationed_light_cavalry_pursuit_add", "FPS")],
+    "eir_fianna_lodge": [("stationed_skirmishers_damage_mult", "NORMM"), ("stationed_skirmishers_pursuit_mult", "LOWM")],
+    "eir_hosting_ground": [("stationed_maa_toughness_mult", "SMALLM"), ("stationed_maa_screen_add", "FPS")],
+    "eir_longship_yard": [("stationed_skirmishers_screen_mult", "LOWM"), ("stationed_heavy_infantry_pursuit_add", "FPS")],
+    "eir_booley_pastures": [("stationed_light_cavalry_toughness_mult", "LOWM")],
+}
+REG_EXTRA = {k: v for k, v in REG_EXTRA.items() if v}
+
+HIGHS = [0.26, 0.39, 0.52]     # special building, tier 1/2/3: vanilla 'high' tier x1.3
+LOWS = [0.13, 0.20, 0.26]
+GENS = [0.05, 0.08, 0.10]      # stationed_maa_* applies to every unit type, so it is small
+FDTS = [4, 7, 10]
+FPSS = [10, 14, 18]
+SPECIAL_MAA = {   # special building -> stationed bonuses (24 of 41; vanilla specials only 11%, raised by request)
+    "eir_hall_of_tara": [("stationed_heavy_infantry_toughness_mult", HIGHS), ("stationed_maa_screen_add", FPSS)],
+    "eir_armagh_cathedral": [("stationed_pikemen_toughness_mult", LOWS), ("stationed_maa_toughness_add", FDTS)],
+    "eir_rathcroghan": [("stationed_heavy_infantry_damage_mult", HIGHS), ("stationed_maa_damage_add", FDTS)],
+    "eir_kincora": [("stationed_archers_damage_mult", HIGHS), ("stationed_archers_screen_add", FPSS)],
+    "eir_limerick_longphort": [("stationed_heavy_infantry_damage_add", FDTS), ("stationed_archers_toughness_mult", LOWS)],
+    "eir_grianan_aileach": [("stationed_pikemen_toughness_mult", HIGHS), ("stationed_maa_screen_add", FPSS)],
+    "eir_dumbarton_rock": [("stationed_archers_toughness_mult", HIGHS), ("stationed_maa_toughness_add", FDTS)],
+    "eir_emain_macha": [("stationed_skirmishers_damage_mult", HIGHS), ("stationed_skirmishers_pursuit_add", FPSS)],
+    "eir_dunadd": [("stationed_pikemen_damage_mult", HIGHS)],
+    "eir_tintagel": [("stationed_light_cavalry_damage_mult", HIGHS), ("stationed_light_cavalry_screen_mult", LOWS)],
+    "eir_ferns_seat": [("stationed_light_cavalry_toughness_mult", LOWS), ("stationed_maa_pursuit_add", FPSS)],
+    "eir_dun_ailinne": [("stationed_light_cavalry_pursuit_mult", HIGHS)],
+    "eir_caerleon": [("stationed_pikemen_damage_mult", LOWS), ("stationed_pikemen_toughness_mult", LOWS)],
+    "eir_uisneach_fires": [("stationed_skirmishers_screen_mult", HIGHS)],
+    "eir_burren_court": [("stationed_skirmishers_toughness_mult", HIGHS), ("stationed_skirmishers_pursuit_mult", LOWS)],
+    "eir_skellig_michael": [("stationed_maa_toughness_add", FDTS)],
+    "eir_iona_abbey": [("stationed_pikemen_toughness_mult", LOWS), ("stationed_maa_screen_add", FPSS)],
+    "eir_newgrange": [("stationed_heavy_infantry_toughness_add", FDTS)],
+    "eir_carrowmore": [("stationed_maa_toughness_mult", GENS)],
+    "eir_black_pool_quays": [("stationed_archers_damage_mult", LOWS), ("stationed_maa_pursuit_add", FPSS)],
+    "eir_waterford_harbour": [("stationed_heavy_infantry_damage_mult", LOWS)],
+    "eir_cork_quays": [("stationed_skirmishers_damage_mult", LOWS)],
+    "eir_kinsale_haven": [("stationed_archers_pursuit_mult", LOWS)],
+    "eir_holyhead_ferry": [("stationed_maa_screen_add", FPSS)],
+}

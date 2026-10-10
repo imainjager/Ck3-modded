@@ -79,6 +79,12 @@ def known_modifier_keys():
                 continue
             for m in _KEY_RE.finditer(text):
                 keys.add(m.group(1))
+    for fn in glob.glob(os.path.join(GAME, "common", "modifier_definition_formats", "*.txt")):
+        try:
+            text = io.open(fn, encoding="utf-8-sig").read()
+        except Exception:
+            continue
+        keys.update(re.findall(r"^([a-z][a-z0-9_]+) = \{", text, re.M))
     return keys
 
 
