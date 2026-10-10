@@ -763,6 +763,308 @@ eir_tain_retold_modifier = {
 	prowess = 1
 }
 
+eir_black_host_modifier = {
+	icon = dread_mixed
+	advantage = 4
+	levy_size = 0.2
+	knight_effectiveness_mult = 0.1
+}
+
+eir_host_demoralised_modifier = {
+	icon = prestige_negative
+	advantage = -6
+	levy_size = -0.15
+}
+
+eir_beacons_modifier = {
+	icon = prowess_positive
+	defender_advantage = 4
+	monthly_prestige = 0.05
+}
+
+eir_shield_wall_modifier = {
+	icon = prowess_positive
+	advantage = 4
+	knight_effectiveness_mult = 0.05
+	defender_advantage = 3
+}
+
+eir_hill_war_modifier = {
+	icon = prowess_positive
+	defender_advantage = 5
+	knight_effectiveness_mult = 0.05
+	movement_speed = 0.1
+}
+
+eir_split_command_modifier = {
+	icon = prowess_positive
+	advantage = 2
+	movement_speed = 0.1
+	levy_reinforcement_rate = 0.2
+}
+
+eir_foreknowledge_modifier = {
+	icon = learning_positive
+	defender_advantage = 3
+	monthly_prestige = 0.05
+	intrigue = 1
+}
+
+eir_allied_kings_modifier = {
+	icon = prestige_positive
+	vassal_opinion = 5
+	levy_size = 0.1
+	monthly_prestige = 0.15
+}
+
+eir_hostile_envoys_modifier = {
+	icon = prestige_negative
+	vassal_opinion = -3
+	monthly_prestige = -0.05
+	dread_gain_mult = 0.1
+}
+
+eir_humble_service_modifier = {
+	icon = family_positive
+	general_opinion = 5
+	vassal_opinion = 3
+	monthly_prestige = -0.05
+}
+
+eir_black_host_broken_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.8
+	dread_gain_mult = 0.2
+	general_opinion = 5
+	advantage = 2
+	vassal_opinion = 5
+}
+
+eir_norse_bane_oath_modifier = {
+	icon = prowess_positive
+	advantage = 4
+	monthly_prestige = 0.4
+	dread_gain_mult = 0.15
+	knight_effectiveness_mult = 0.1
+}
+
+eir_longphort_burner_modifier = {
+	icon = dread_mixed
+	dread_gain_mult = 0.2
+	monthly_prestige = 0.3
+	advantage = 2
+	general_opinion = -2
+}
+
+eir_longphort_peace_modifier = {
+	icon = economy_mixed
+	monthly_income = 1.5
+	vassal_opinion = -2
+	monthly_prestige = -0.05
+}
+
+eir_yoke_broken_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	dread_gain_mult = 0.1
+	vassal_opinion = 4
+	advantage = 2
+}
+
+eir_norse_fleet_modifier = {
+	icon = economy_positive
+	naval_movement_speed_mult = 0.25
+	sea_travel_danger = -10
+	levy_size = 0.05
+	monthly_income = 1
+}
+
+eir_norse_kin_modifier = {
+	icon = family_positive
+	general_opinion = 4
+	levy_size = 0.05
+	monthly_prestige = 0.1
+	diplomacy = 1
+}
+
+eir_norse_spoils_modifier = {
+	icon = economy_positive
+	monthly_income = 1.5
+	monthly_prestige = 0.05
+}
+
+eir_norse_steel_modifier = {
+	icon = prowess_positive
+	knight_effectiveness_mult = 0.08
+	men_at_arms_maintenance = -0.03
+	advantage = 1
+}
+
+eir_hostage_peace_modifier = {
+	icon = family_positive
+	stress_gain_mult = -0.05
+	general_opinion = 3
+	monthly_prestige = 0.05
+}
+
+eir_hunting_hounds_modifier = {
+	icon = prowess_positive
+	prowess = 1
+	monthly_lifestyle_xp_gain_mult = 0.1
+	health = 0.05
+}
+
+eir_kin_defended_modifier = {
+	icon = family_positive
+	general_opinion = 4
+	vassal_opinion = 3
+	monthly_prestige = 0.1
+}
+
+eir_poet_slighted_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.15
+	general_opinion = -3
+	owned_legend_spread_mult = -0.05
+}
+
+eir_dun_well_modifier = {
+	icon = family_positive
+	health = 0.05
+	stress_gain_mult = -0.05
+	defender_advantage = 2
+}
+
+eir_ancestors_blessing_modifier = {
+	icon = family_positive
+	stress_gain_mult = -0.1
+	health = 0.1
+	monthly_piety = 0.1
+}
+
+eir_samhain_modifier = {
+	icon = family_positive
+	stress_gain_mult = -0.1
+	health = 0.05
+	monthly_prestige = 0.1
+	owned_legend_spread_mult = 0.05
+}
+
+eir_clan_oath_modifier = {
+	icon = family_positive
+	vassal_opinion = 6
+	levy_size = 0.08
+	dynasty_house_opinion = 10
+	monthly_prestige = 0.1
+}
+
+eir_clan_war_law_modifier = {
+	icon = prowess_positive
+	knight_effectiveness_mult = 0.1
+	men_at_arms_maintenance = -0.05
+	vassal_opinion = 3
+}
+
+eir_defensive_compact_modifier = {
+	icon = dread_mixed
+	levy_size = 0.15
+	vassal_opinion = 5
+	defender_advantage = 3
+	monthly_prestige = 0.15
+}
+
+eir_royal_stud_modifier = {
+	icon = prowess_positive
+	knight_effectiveness_mult = 0.08
+	monthly_prestige = 0.1
+	movement_speed = 0.1
+	monthly_income = 0.5
+}
+
+eir_kinship_law_modifier = {
+	icon = family_positive
+	dynasty_house_opinion = 10
+	vassal_opinion = 4
+	monthly_dynasty_prestige_mult = 0.1
+}
+
+eir_pedigree_proclaimed_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.25
+	legitimacy_gain_mult = 0.1
+	vassal_opinion = 2
+}
+
+eir_welsh_ties_modifier = {
+	icon = family_positive
+	general_opinion = 4
+	diplomacy = 1
+	monthly_prestige = 0.1
+}
+
+eir_welsh_tongue_modifier = {
+	icon = learning_positive
+	diplomacy = 1
+	courtier_and_guest_opinion = 4
+	monthly_lifestyle_xp_gain_mult = 0.1
+}
+
+eir_welsh_resentment_modifier = {
+	icon = family_negative
+	general_opinion = -4
+	vassal_opinion = -3
+}
+
+eir_insular_song_modifier = {
+	icon = learning_positive
+	owned_legend_spread_mult = 0.15
+	courtier_and_guest_opinion = 5
+	monthly_prestige = 0.1
+}
+
+eir_book_of_conquests_modifier = {
+	icon = learning_positive
+	owned_legend_spread_mult = 0.2
+	monthly_prestige = 0.3
+	learning = 1
+	vassal_opinion = 3
+}
+
+eir_conqueror_crowned_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.6
+	legitimacy_gain_mult = 0.15
+	vassal_opinion = 4
+	dread_gain_mult = 0.1
+}
+
+eir_insular_union_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.6
+	vassal_opinion = 6
+	general_opinion = 4
+	diplomacy = 2
+	legitimacy_gain_mult = 0.1
+}
+
+eir_island_crown_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1
+	legitimacy_gain_mult = 0.2
+	vassal_opinion = 8
+	general_opinion = 5
+	court_grandeur_baseline_add = 8
+}
+
+eir_sea_road_modifier = {
+	icon = economy_positive
+	monthly_income = 3
+	naval_movement_speed_mult = 0.15
+	sea_travel_danger = -8
+	diplomacy = 1
+	monthly_piety = 0.1
+}
+
 
 ##### county modifiers #####
 
@@ -1115,6 +1417,117 @@ eir_chartered_town_modifier = {
 	development_growth_factor = 0.05
 }
 
+eir_beacon_county_modifier = {
+	icon = county_modifier_opinion_positive
+	hostile_raid_time = 0.4
+	county_opinion_add = 3
+	monthly_county_control_growth_add = 0.1
+}
+
+eir_bounds_beaten_modifier = {
+	icon = county_modifier_opinion_positive
+	monthly_county_control_growth_add = 0.3
+	county_opinion_add = 4
+	tax_mult = 0.03
+}
+
+eir_bridgehead_modifier = {
+	icon = county_modifier_control_negative
+	supply_limit_mult = 0.3
+	monthly_county_control_growth_add = 0.2
+	levy_size = 0.05
+}
+
+eir_cairn_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 8
+	monthly_county_control_growth_add = 0.2
+	development_growth_factor = 0.03
+}
+
+eir_first_dun_modifier = {
+	icon = county_modifier_opinion_positive
+	levy_size = 0.1
+	monthly_county_control_growth_add = 0.3
+	county_opinion_add = 5
+	tax_mult = 0.03
+}
+
+eir_gaelic_settlers_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.08
+	tax_mult = 0.05
+	county_opinion_add = -4
+	levy_size = 0.05
+}
+
+eir_norse_bane_country_modifier = {
+	icon = county_modifier_opinion_positive
+	hostile_raid_time = 0.4
+	county_opinion_add = 6
+	levy_size = 0.08
+	monthly_county_control_growth_add = 0.15
+}
+
+eir_ogham_boundary_modifier = {
+	icon = county_modifier_opinion_positive
+	monthly_county_control_growth_add = 0.25
+	county_opinion_add = 3
+	tax_mult = 0.02
+}
+
+eir_ostmen_quarter_modifier = {
+	icon = county_modifier_development_positive
+	tax_mult = 0.08
+	development_growth_factor = 0.04
+	county_opinion_add = -2
+}
+
+eir_redeemed_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 8
+	development_growth_factor = 0.05
+	levy_size = 0.04
+}
+
+eir_roman_road_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.05
+	tax_mult = 0.05
+	supply_limit_mult = 0.2
+	county_opinion_add = 2
+}
+
+eir_samhain_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 6
+	tax_mult = 0.03
+	monthly_county_control_growth_add = 0.1
+}
+
+eir_scorched_earth_modifier = {
+	icon = county_modifier_development_negative
+	tax_mult = -0.25
+	supply_limit_mult = -0.5
+	development_growth_factor = -0.1
+	county_opinion_add = -4
+}
+
+eir_triumph_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 5
+	monthly_county_control_growth_add = 0.4
+	tax_mult = 0.05
+}
+
+eir_walled_town_modifier = {
+	icon = county_modifier_development_positive
+	tax_mult = 0.1
+	development_growth_factor = 0.06
+	monthly_county_control_growth_add = 0.2
+	county_opinion_add = 4
+}
+
 
 ##### province modifiers #####
 
@@ -1167,6 +1580,11 @@ eir_house_poets_modifier = {
 eir_house_exiles_modifier = {
 	icon = family_negative
 	monthly_dynasty_prestige = -0.15
+}
+
+eir_house_norse_bane_modifier = {
+	icon = family_positive
+	monthly_dynasty_prestige = 0.3
 }
 
 
@@ -1264,5 +1682,48 @@ eir_moot_horn_modifier = {
 	icon = prestige_positive
 	vassal_opinion = 3
 	monthly_prestige = 0.15
+}
+
+eir_black_jarl_sword_modifier = {
+	icon = prowess_positive
+	prowess = 3
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.1
+	dread_gain_mult = 0.1
+}
+
+eir_david_staff_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.4
+	clergy_opinion = 5
+	monthly_prestige = 0.1
+}
+
+eir_hill_king_sword_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.3
+	owned_legend_spread_mult = 0.1
+	diplomacy = 1
+}
+
+eir_hoard_cup_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.25
+	monthly_income = 0.5
+}
+
+eir_norse_blade_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	knight_effectiveness_mult = 0.08
+	advantage = 1
+}
+
+eir_union_banner_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.4
+	vassal_opinion = 4
+	general_opinion = 3
 }
 

@@ -280,3 +280,143 @@ tradition_eir_sea_kings = {
 	}
 }
 
+tradition_eir_insular_union = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = western
+		4 = crown.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		eir_insular_union = yes
+	}
+
+	character_modifier = {
+		vassal_opinion = 4
+		monthly_prestige_gain_mult = 0.05
+		diplomacy = 1
+		legitimacy_gain_mult = 0.1
+		general_opinion = 3
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_kinship_law = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = conversation.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		unlock_schiltron_innovation = yes
+		bonuses_from_patriarch_matriarch_trait = yes
+		cultural_house_personal_scheme_success_chance = yes
+		landing_house_members_give_prestige = yes
+		penalty_for_revoking_titles_from_house_members = yes
+		loyal_trait_more_common = yes
+		eir_kinship_law = yes
+	}
+
+	character_modifier = {
+		dynasty_house_opinion = 20
+		opinion_of_liege = -5
+		vassal_opinion = 3
+		monthly_dynasty_prestige_mult = 0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_clan_war_law = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = mountain.dds
+	}
+
+	is_shown = {
+		has_cultural_pillar = heritage_goidelic
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_goidelic
+	}
+
+	parameters = {
+		rough_terrain_expert_trait_more_common = yes
+		hill_trait_bonuses = yes
+		can_recruit_hill_specialist = yes
+		hills_nomadic_cultrad_stationing_bonus = yes
+		eir_clan_war_law = yes
+	}
+
+	character_modifier = {
+		knight_effectiveness_mult = 0.1
+		monthly_prestige_gain_mult = 0.05
+		men_at_arms_maintenance = -0.05
+		army_maintenance_mult = -0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+

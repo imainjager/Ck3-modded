@@ -10,6 +10,9 @@ ARTIFACT = {}
 TRAITS = {}
 OPINIONS = {}
 MAA = {}
+TRADS = {}
+DYNASTY_X = {}
+TITLES_X = {}
 
 
 def C(name, icon, fields, disp, desc):
@@ -242,3 +245,4 @@ C("eir_hebridean_ties_modifier", "family_positive", {"general_opinion": 3, "levy
   "Hebridean Kinship", "The galley-lords of the Isles are bound to you by marriage.")
 
 import v7_world  # noqa: E402,F401  (v0.7 content pack)
+import v8_world  # noqa: E402,F401  (Update 2 content pack)

@@ -77,3 +77,14 @@ e_eir_gaeldom = {
 	can_be_named_after_dynasty = no
 }
 
+k_eir_ynys_prydain = {
+	color = { 90 140 70 }
+	capital = c_isle_of_man
+
+	can_create = {
+		eir_can_create_island_kingdom_trigger = yes
+	}
+
+	can_be_named_after_dynasty = no
+}
+

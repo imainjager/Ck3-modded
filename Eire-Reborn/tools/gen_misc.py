@@ -50,7 +50,11 @@ def build():
         ("nick_eir_britain_restorer", "Restorer of Britain", "Stood at the centre when the old island spoke its old languages again.", False),
         ("nick_eir_norse_bane", "Norse-Bane", "Refused the Danegeld and sent the longships home.", False),
     ]
-    body = "# Eire Reborn - nicknames\n\n" + "".join("%s = %s\n" % (k, "{ is_bad = yes }" if bad else "{}") for k, _, _, bad in nicks)
+    import v8_world
+    nicks += [(k, n, d, False) for k, n, d in v8_world.NICKS]
+    for k, t in v8_world.LOC:
+        L.add(k, t)
+    body = "# Eire Reborn - nicknames\n\n" +"".join("%s = %s\n" % (k, "{ is_bad = yes }" if bad else "{}") for k, _, _, bad in nicks)
     write("common/nicknames/eir_nicknames.txt", body)
     for k, name, desc, _ in nicks:
         L.add(k, name)

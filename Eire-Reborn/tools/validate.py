@@ -143,7 +143,7 @@ for f, t in text_by_file.items():
         for key in re.findall(r"(?:title|desc|name) = (eir\.[0-9a-z_.]+)", t):
             needed.append(key)
     if "decisions" in f:
-        for key in re.findall(r"(?:desc|selection_tooltip|confirm_text) = ([a-z_0-9]+)", t):
+        for key in re.findall(r"(?:desc|selection_tooltip|confirm_text) = (?!eir\.out)([a-z_0-9]+)", t):
             needed.append(key)
 for key in sorted(set(needed)):
     if not loc_has(key):
@@ -255,6 +255,22 @@ for f, txt in text_by_file.items():
             if re.search(r"\b%s\b" % w, block):
                 errors.append("effect '%s' inside a trigger block in %s (near char %d)" % (w, os.path.basename(f), m.start()))
                 break
+
+# 9. requirement tooltips: count-style / global-variable / coast / stress statements need readable text (Update 2)
+BARE = re.compile(r"^\t\t(any_vassal|any_sub_realm_county|any_held_title|has_global_variable|NOT = \{ has_global_variable|stress >=|is_coastal|var:|has_variable|current_month)")
+if os.path.exists(dec_path):
+    for m in re.finditer(r"\n\tis_valid = \{\n(.*?)\n\t\}\n", read(dec_path), re.S):
+        for line in m.group(1).split("\n"):
+            if BARE.match(line):
+                errors.append("decision requirement has no readable tooltip: " + line.strip())
+# 10. every custom_description / custom_tooltip text key needs localization
+for f, txt in text_by_file.items():
+    for key in re.findall(r"\btext = (eir_[a-z_0-9]+)(?![a-z_0-9$])", txt):
+        if not loc_has(key):
+            errors.append("missing localization for requirement text: " + key)
+    for key in re.findall(r"custom_tooltip = (eir_[a-z_0-9]+)", txt):
+        if not loc_has(key):
+            errors.append("missing localization for tooltip text: " + key)
 
 print("files checked:", len(text_by_file), "| localization lines:", loc_text.count("\n"))
 for w in warnings:

@@ -1,0 +1,315 @@
+﻿##########################################################################
+# Eire Reborn - Update 2 on_actions (additive to the vanilla and v0.1 ones)
+##########################################################################
+
+eir_war_won_attacker_v8 = {
+	effect = {
+		scope:attacker = {
+			if = {
+				limit = { has_variable = eir_bh_raider }
+				scope:attacker = { save_scope_as = eir_bh_lord }
+				scope:defender = {
+					if = {
+						limit = { is_ai = no }
+						eir_bh_wave_lost_effect = yes
+					}
+					else_if = {
+						limit = {
+							exists = liege
+							liege = { is_ai = no }
+						}
+						liege = { eir_bh_wave_lost_effect = yes }
+					}
+				}
+				remove_variable = eir_bh_raider
+				remove_variable = eir_viking_target
+			}
+			else_if = {
+				limit = { has_variable = eir_inv_kind }
+				scope:attacker = { save_scope_as = eir_inv_lord }
+				scope:attacker.var:eir_viking_target ?= { save_scope_as = eir_target_county }
+				scope:defender = {
+					if = {
+						limit = {
+							is_ai = yes
+							exists = liege
+							liege = { is_ai = no }
+						}
+						liege = { save_scope_as = eir_inv_player }
+					}
+					else_if = {
+						limit = { is_ai = no }
+						save_scope_as = eir_inv_player
+					}
+				}
+				if = {
+					limit = { exists = scope:eir_inv_player }
+					scope:eir_inv_player = {
+						if = {
+							limit = { scope:eir_inv_lord.var:eir_inv_kind = 1 }
+							trigger_event = eir.0423
+						}
+						else_if = {
+							limit = { scope:eir_inv_lord.var:eir_inv_kind = 2 }
+							trigger_event = eir.0425
+						}
+						else_if = {
+							limit = { scope:eir_inv_lord.var:eir_inv_kind = 3 }
+							trigger_event = eir.0427
+						}
+						else = {
+							trigger_event = eir.0429
+						}
+					}
+				}
+				remove_variable = eir_inv_kind
+				remove_variable = eir_viking_target
+			}
+		}
+	}
+}
+
+eir_war_won_defender_v8 = {
+	effect = {
+		scope:attacker = {
+			if = {
+				limit = { has_variable = eir_bh_raider }
+				scope:attacker = { save_scope_as = eir_bh_lord }
+				scope:defender = {
+					if = {
+						limit = { is_ai = no }
+						eir_bh_wave_won_effect = yes
+					}
+					else_if = {
+						limit = {
+							exists = liege
+							liege = { is_ai = no }
+						}
+						liege = { eir_bh_wave_won_effect = yes }
+					}
+				}
+				remove_variable = eir_bh_raider
+				remove_variable = eir_viking_target
+			}
+			else_if = {
+				limit = { has_variable = eir_inv_kind }
+				scope:attacker = { save_scope_as = eir_inv_lord }
+				scope:attacker.var:eir_viking_target ?= { save_scope_as = eir_target_county }
+				scope:defender = {
+					if = {
+						limit = {
+							is_ai = yes
+							exists = liege
+							liege = { is_ai = no }
+						}
+						liege = { save_scope_as = eir_inv_player }
+					}
+					else_if = {
+						limit = { is_ai = no }
+						save_scope_as = eir_inv_player
+					}
+				}
+				if = {
+					limit = { exists = scope:eir_inv_player }
+					scope:eir_inv_player = {
+						if = {
+							limit = { scope:eir_inv_lord.var:eir_inv_kind = 1 }
+							trigger_event = eir.0422
+						}
+						else_if = {
+							limit = { scope:eir_inv_lord.var:eir_inv_kind = 2 }
+							trigger_event = eir.0424
+						}
+						else_if = {
+							limit = { scope:eir_inv_lord.var:eir_inv_kind = 3 }
+							trigger_event = eir.0426
+						}
+						else = {
+							trigger_event = eir.0428
+						}
+					}
+				}
+				remove_variable = eir_inv_kind
+				remove_variable = eir_viking_target
+			}
+		}
+	}
+}
+
+# The Black Host: a 12 percent chance a year from 868, certain from 880, once per game.
+eir_blackhost_pulse = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		current_year >= 868
+		current_year < 880
+		NOT = { has_global_variable = eir_bh_started }
+		eir_has_coast_trigger = yes
+	}
+	random_events = {
+		chance_to_happen = 12
+		1 = eir.0400
+	}
+}
+
+eir_blackhost_forced_pulse = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		current_year >= 880
+		NOT = { has_global_variable = eir_bh_started }
+		eir_has_coast_trigger = yes
+	}
+	first_valid = {
+		eir.0400
+	}
+}
+
+# Lesser invasions: Britons, Albans, Irish rivals and Hebridean raiders. Rarer than the flavor pulse, bigger than a raid.
+eir_invasion_pulse_v8 = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		current_year >= 870
+		is_at_war = no
+		NOT = { has_character_flag = eir_invasion_cd }
+		eir_has_coast_trigger = yes
+	}
+	random_events = {
+		chance_to_happen = 14
+		10 = 0
+		4 = eir.0410
+		4 = eir.0411
+		4 = eir.0412
+		3 = eir.0413
+	}
+}
+
+eir_norse_pulse_v8 = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		NOT = { has_character_flag = eir_flavor_cd }
+		eir_viking_age_trigger = yes
+		eir_has_coast_trigger = yes
+	}
+	random_events = {
+		chance_to_happen = 30
+		30 = 0
+		5 = eir.0440
+		5 = eir.0441
+		5 = eir.0442
+		5 = eir.0443
+		5 = eir.0444
+		5 = eir.0445
+		5 = eir.0446
+		5 = eir.0447
+		5 = eir.0448
+		5 = eir.0449
+		5 = eir.0450
+		5 = eir.0451
+		5 = eir.0452
+		5 = eir.0453
+	}
+}
+
+eir_gael_pulse_v8 = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		NOT = { has_character_flag = eir_flavor_cd }
+		eir_realm_size_trigger = { N = 2 }
+	}
+	random_events = {
+		chance_to_happen = 30
+		30 = 0
+		5 = eir.0456
+		5 = eir.0457
+		5 = eir.0458
+		5 = eir.0459
+		5 = eir.0460
+		5 = eir.0461
+		5 = eir.0462
+		5 = eir.0463
+		5 = eir.0464
+		5 = eir.0465
+		5 = eir.0466
+		5 = eir.0467
+		5 = eir.0468
+		5 = eir.0469
+		5 = eir.0470
+		5 = eir.0471
+	}
+}
+
+eir_britain_pulse_v8 = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		NOT = { has_character_flag = eir_flavor_cd }
+		OR = {
+			eir_has_foreign_britain_counties_trigger = yes
+			eir_has_celtic_britain_counties_trigger = yes
+		}
+	}
+	random_events = {
+		chance_to_happen = 35
+		30 = 0
+		5 = eir.0480
+		5 = eir.0481
+		5 = eir.0482
+		5 = eir.0483
+		5 = eir.0484
+		5 = eir.0485
+		5 = eir.0486
+		5 = eir.0487
+		5 = eir.0488
+		5 = eir.0489
+		5 = eir.0490
+		5 = eir.0491
+		5 = eir.0492
+		5 = eir.0493
+		5 = eir.0494
+		5 = eir.0495
+		5 = eir.0496
+		5 = eir.0497
+		5 = eir.0498
+		5 = eir.0499
+		5 = eir.0516
+		5 = eir.0517
+		5 = eir.0518
+		5 = eir.0519
+		5 = eir.0520
+		5 = eir.0521
+		5 = eir.0522
+		5 = eir.0523
+	}
+}
+
+# Early game: chieftain-level stories for rulers of a few counties. 1 chance in 3 a year, 3 years apart at most.
+eir_early_pulse = {
+	trigger = {
+		eir_is_gael_ruler_trigger = yes
+		is_ai = no
+		eir_small_realm_trigger = yes
+		NOT = { has_character_flag = eir_early_cd }
+	}
+	random_events = {
+		chance_to_happen = 40
+		30 = 0
+		4 = eir.0530
+		4 = eir.0531
+		4 = eir.0532
+		4 = eir.0533
+		4 = eir.0534
+		4 = eir.0535
+		4 = eir.0536
+		4 = eir.0537
+		4 = eir.0538
+		4 = eir.0539
+		3 = eir.0540
+		3 = eir.0541
+		3 = eir.0542
+		3 = eir.0543
+	}
+}

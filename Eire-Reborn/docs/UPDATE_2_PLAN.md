@@ -1,4 +1,7 @@
-# Eire Reborn: UPDATE 2 (planned, NOT yet executed)
+# Eire Reborn: UPDATE 2 (EXECUTED 2026-10-09 as v0.8)
+
+Status: done. Tooltip text, buildings, early game and the new Norse and Britain content were all built; see `FLAVOR_v0.8.md`, `UNLOCKS.md` and `BUILDING_AUDIT.md`. The text below is the original plan, kept for reference.
+
 
 Collected from the user's play-test (869-870 AD, Irish tribal chieftain) while the game was running. Nothing here has been applied.
 Reference numbers come from the vanilla files (see `docs/VANILLA_REWARD_CATALOG.md`).

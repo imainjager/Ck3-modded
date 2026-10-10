@@ -5,12 +5,12 @@ Makes the Irish campaign feel complete: a brutal tanistry rule, a long road to a
 ## The core rule
 When an Irish-culture ruler dies, their **top title (duchy or higher) is destroyed**. Kingdoms unravel every generation. You break the cycle with the decision chain: hold an Óenach, be crowned at Tara, then **End the Tanistic Fragmentation**.
 
-## What is in it
-- **116 decisions** in eight paths (incl. two for foreign rulers of Celtic land): Statecraft, Culture, War, Celtic Revival, Faith, Kingdoms and Places. Most are gated by global unlock variables (`eir_done_*`, `eir_unlock_*`) that persist across succession.
-- **99 events**: tanistry fallout, Viking and Norman invasions (spawned armies + claim wars), seasonal festivals, folklore, Brehon law, church, history (867-1169), Celtic diplomacy, and artifact rewards.
-- **10 culture traditions**, **4 unique men-at-arms** (Gallowglass, Fianna warband, Kern javelineers, Tara Guard), **8 unique buildings**, **8 fame traits**, ~75 modifiers, 14 opinion modifiers.
-- **New titles**: Kingdoms of Munster, Ulster, Leinster, Connacht, Meath, Dál Riata, and the Empire of Gaeldom.
-- Remedies exist for the negative outcomes (about 40% of choices cost something).
+## What is in it (v0.8)
+- **136 decisions**: the chieftain's first rungs, the statecraft ladder, the Norse struggle, conquest and culture in Britain, kings against kings, faith, kingdoms and places. Costs are explicit; prestige leads for tribal rulers.
+- **300 events** (including a three-wave Norse invasion with real armies, lesser invasions by Britons, Albans, Irish rivals and Hebridean reavers, chieftain-level stories for the first years, ceremonies for every major decision, and about 40% negative outcomes with remedies).
+- **9 culture traditions** (six upgrades and a union tradition), **7 men-at-arms** (see `docs/UNLOCKS.md`), **24 regional building families** (each with a tribal and a feudal version), **10 duchy-capital chains**, **41 special buildings** at real baronies.
+- **New titles**: Kingdoms of Munster, Ulster, Leinster, Connacht, Meath, Dal Riata and the Island of the Mighty, and the Empire of Gaeldom.
+- Remedies exist for the negative outcomes.
 
 See `docs/IDEAS.md` for the full catalogue, `CLAUDE.md` for how the generators work.
 
@@ -27,6 +27,9 @@ Runtime title creation (`can_create`), claim wars without a CB, adding a traditi
 cd tools
 python build_all.py
 python validate.py
+python token_check.py     # every effect/trigger word must exist in the base game
+python audit_buildings.py # building cost/benefit audit
+python dead_events.py     # events nothing fires
 ```
 
 ## How progression works (v0.5 rewrite)
@@ -47,8 +50,8 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 ### How the top-title rule works
 `on_death` (via `eir_on_death`) checks: the dying ruler is Irish culture, the global variable `eir_collapse_abolished` is NOT set, and their primary title is a duchy or higher. It then destroys that title and fires the heir event. The decision "End the Tanistic Fragmentation" sets the global variable and swaps the hidden tradition for Stable High Kingship. So it is a global switch, not a trait on the kingdom.
 
-### Buildings
-`tools/gen_buildings2.py`: 14 regular buildings (tribal-friendly), 10 duchy-capital buildings, 19 special buildings tied to real baronies. Special buildings now show in their barony from the start and list their requirements in the build tooltip.
+### Buildings (rebuilt in v0.8)
+`tools/gen_buildings3.py` and `tools/bld_data.py`. 24 families, each as a **tribal** version (2 levels, vanilla tribal pattern: 75 gold + 200 prestige, then 100 gold + 350 prestige) and a **feudal** version (4 levels, vanilla cost curve 150 / 250 / 340 / 500). Stats are the vanilla medians for the same level times about 1.3, with a regional effect on top; `tools/audit_buildings.py` checks this and writes `docs/BUILDING_AUDIT.md`. Ten duchy-capital buildings are three-level chains (vanilla: 485 / 725 / 1100 gold; here half gold, half prestige). 41 special buildings sit in real baronies; a special building only exists on a province whose history declares its slot, so `history/provinces/eir_special_slots.txt` is generated too. Names and descriptions use the keys the game reads (`building_type_<first level key>` for the family, `building_<key>` for each level). Requirement text is readable (`custom_description`).
 
 ### Tools
 `python tools/build_all.py` then `python tools/validate.py` (checks braces, traits, modifiers, events, effects, triggers, variables, localization format, BOMs, unused modifiers and variables, effects inside trigger blocks).
@@ -70,3 +73,6 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 * **Celtic neighbours**: Welsh princes, Cornish tinners, Breton exiles, a Pictish stone, Galloway; decisions for Welsh archers and the College of Bangor.
 * **Court and legend**: a prodigy at the harp, the Isles wedding, a ghost at Samhain, a comet, the Táin retold; a Bardic House and its High Poet's Chain; the Moot Horn.
 * Flavor guard: a ruler gets at most one random flavor event a year (flag `eir_flavor_cd`).
+- 0.6 ceremonies, reactions, nicknames and remedies for every major decision.
+- 0.7 re-Celticisation of Britain, the kindred and the law, the sea and the Norse, faith, cattle and the seasons.
+- 0.8 (Update 2) readable requirement tooltips, all buildings rebuilt (tribal and feudal, special slots fixed), the Black Host, lesser invasions, 36 new decisions, the Insular Union, the chieftain's early game.

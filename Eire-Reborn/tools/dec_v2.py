@@ -435,7 +435,7 @@ add_prestige = 1000
 eir_legend_title_effect = { TITLE = primary_title }
 trigger_event = { id = eir.0191 days = 30 }""",
   valid=req(S3, has_trad("tradition_eir_sea_kings"), "eir_ports_trigger = { N = 6 }", "any_sub_realm_county = { this = title:c_dublin }",
-            "any_sub_realm_county = {\n\tcount >= 2\n\tany_county_province = { has_building = eir_sea_quay_01 }\n}",
+            "any_sub_realm_county = {\n\tcount >= 2\n\tany_county_province = { has_building_or_higher = eir_sea_quay_01 }\n}",
             "NOT = { has_global_variable = eir_done_thalassocracy }"),
   cost=cost(gold=1500, prestige=2000), cd=36500, major=True, pic="decision_found_kingdom")
 

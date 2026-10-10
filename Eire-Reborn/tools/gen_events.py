@@ -4,6 +4,7 @@ An event is described with E(...). Options are Opt(...). Everything the text nee
 so keys cannot go missing. Run tools/validate.py afterwards.
 """
 import importlib
+import re
 from eir_lib import *
 from evdsl import Opt, Event, E, lab, LABELS
 
@@ -68,7 +69,7 @@ def render(ev, L):
 
 def load_groups():
     groups = {}
-    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5", "ev_v6", "ev_v7a", "ev_v7b", "ev_v7c", "ev_v7d"):
+    for mod in ("ev_tanistry", "ev_vikings", "ev_foreign", "ev_flavor", "ev_church_court", "ev_history", "ev_celtic", "ev_rewards", "ev_era867", "ev_resist", "ev_chains", "ev_extra", "ev_v5", "ev_v6", "ev_v7a", "ev_v7b", "ev_v7c", "ev_v7d", "ev_v8a", "ev_v8b", "ev_v8c", "ev_v8d"):
         try:
             m = importlib.import_module(mod)
         except ModuleNotFoundError as e:
@@ -101,7 +102,11 @@ def build():
                 raise SystemExit("duplicate event number %d" % ev.num)
             seen.add(ev.num)
             out.append(render(ev, L))
-        write("events/eir_%s.txt" % name, "".join(out))
+        text = "".join(out)
+        # lifestyle traits with several XP tracks need the track named (hunter: hunter/falconer; traveler: travel/danger)
+        text = re.sub(r"trait = lifestyle_hunter value", "trait = lifestyle_hunter track = hunter value", text)
+        text = re.sub(r"trait = lifestyle_traveler value", "trait = lifestyle_traveler track = travel value", text)
+        write("events/eir_%s.txt" % name, text)
         L.write()
         total += len(events)
     LL = Loc("eir_event_labels_l_english.yml")

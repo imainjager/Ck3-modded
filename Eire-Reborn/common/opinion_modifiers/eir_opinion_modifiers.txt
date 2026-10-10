@@ -180,3 +180,69 @@ eir_cousin_blinded_opinion = {
 	stacking = yes
 }
 
+eir_allied_kings_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_bought_back_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_fair_dealing_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_hard_justice_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_hosting_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_justice_done_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_norse_pact_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_shared_spoils_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_slighted_envoy_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_traitor_unmasked_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_triumph_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+

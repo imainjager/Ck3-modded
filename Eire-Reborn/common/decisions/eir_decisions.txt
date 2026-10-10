@@ -19,9 +19,15 @@ eir_hold_oenach_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		eir_irish_buildings_trigger = { COUNT = 1 }
-		any_vassal = { count >= 3 }
+		custom_description = {
+			text = eir_rq_d91bd13d89
+			any_vassal = { count >= 3 }
+		}
 		NOT = { has_character_modifier = eir_oenach_afterglow_modifier }
 	}
 
@@ -76,11 +82,20 @@ eir_rebuild_tara_hall_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_oenach
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
 		has_title = title:d_meath
 		eir_irish_buildings_trigger = { COUNT = 3 }
-		NOT = { has_global_variable = eir_done_tara_hall }
+		custom_description = {
+			text = eir_rq_3d592c8da4
+			NOT = { has_global_variable = eir_done_tara_hall }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -129,15 +144,27 @@ eir_crowned_at_tara_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		eir_holds_irish_duchies_trigger = { COUNT = 2 }
-		has_global_variable = eir_done_tara_hall
-		has_global_variable = eir_done_oenach
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_fabf640048
+			eir_holds_irish_duchies_trigger = { COUNT = 2 }
+		}
+		custom_description = {
+			text = eir_rq_aaf6467b80
+			has_global_variable = eir_done_tara_hall
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
 		is_independent_ruler = yes
 		has_title = title:d_meath
-		OR = {
-			has_title = title:k_ireland
-			NOT = { exists = title:k_ireland.holder }
+		custom_description = {
+			text = eir_rq_1945f4b70d
+			OR = { has_title = title:k_ireland NOT = { exists = title:k_ireland.holder } }
 		}
 	}
 
@@ -196,10 +223,19 @@ eir_end_fragmentation_decision = {
 
 	is_valid = {
 		government_has_flag = government_is_feudal
-		eir_holds_irish_counties_trigger = { COUNT = 25 }
+		custom_description = {
+			text = eir_rq_a7a5d92e90
+			eir_holds_irish_counties_trigger = { COUNT = 25 }
+		}
 		is_independent_ruler = yes
-		has_global_variable = eir_done_circuit
-		has_global_variable = eir_done_oath
+		custom_description = {
+			text = eir_rq_77c191873d
+			has_global_variable = eir_done_circuit
+		}
+		custom_description = {
+			text = eir_rq_203ed73d6b
+			has_global_variable = eir_done_oath
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -258,8 +294,14 @@ eir_circuit_of_ireland_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_oenach
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
 		is_at_war = no
 	}
 
@@ -310,11 +352,17 @@ eir_provincial_oath_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_oenach
-		any_vassal = {
-			highest_held_title_tier >= tier_duchy
-			count >= 2
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_b4b5848172
+			any_vassal = { highest_held_title_tier >= tier_duchy count >= 2 }
 		}
 	}
 
@@ -362,9 +410,18 @@ eir_feis_of_tara_decision = {
 	}
 
 	is_valid = {
-		has_global_variable = eir_done_tara_hall
-		has_global_variable = eir_done_circuit
-		has_global_variable = eir_done_oath
+		custom_description = {
+			text = eir_rq_aaf6467b80
+			has_global_variable = eir_done_tara_hall
+		}
+		custom_description = {
+			text = eir_rq_77c191873d
+			has_global_variable = eir_done_circuit
+		}
+		custom_description = {
+			text = eir_rq_203ed73d6b
+			has_global_variable = eir_done_oath
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -485,9 +542,18 @@ eir_take_hostages_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_oenach
-		any_vassal = { count >= 3 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_d91bd13d89
+			any_vassal = { count >= 3 }
+		}
 		NOT = { has_character_modifier = eir_hostages_modifier }
 	}
 
@@ -564,8 +630,14 @@ eir_foster_heir_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
-		any_vassal = { count >= 3 }
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_d91bd13d89
+			any_vassal = { count >= 3 }
+		}
 		NOT = { has_character_modifier = eir_foster_ties_modifier }
 	}
 
@@ -615,7 +687,10 @@ eir_name_tanaiste_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -667,8 +742,14 @@ eir_strike_claim_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
-		any_vassal = { count >= 2 }
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_b09b8066f2
+			any_vassal = { count >= 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -709,7 +790,10 @@ eir_cain_tribute_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		NOT = { has_character_modifier = eir_cain_tribute_modifier }
 	}
 
@@ -787,10 +871,13 @@ eir_name_ollamh_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		OR = {
-			learning >= 12
-			any_courtier = { has_trait = eir_ollamh }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_25c8dedbfb
+			OR = { learning >= 12 any_courtier = { has_trait = eir_ollamh } }
 		}
 	}
 
@@ -838,7 +925,10 @@ eir_call_slogad_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		is_at_war = no
 	}
 
@@ -883,10 +973,13 @@ eir_patronise_fili_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
-		OR = {
-			learning >= 8
-			any_courtier = { learning >= 10 }
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_c96f5f2f0b
+			OR = { learning >= 8 any_courtier = { learning >= 10 } }
 		}
 		NOT = { has_character_modifier = eir_fili_patron_modifier }
 	}
@@ -937,14 +1030,23 @@ eir_found_bardic_schools_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_fili
-		eir_irish_buildings_trigger = { COUNT = 3 }
-		OR = {
-			learning >= 12
-			any_courtier = { has_trait = eir_ollamh }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
 		}
-		culture = { has_cultural_tradition = tradition_poetry }
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		custom_description = {
+			text = eir_rq_25c8dedbfb
+			OR = { learning >= 12 any_courtier = { has_trait = eir_ollamh } }
+		}
+		custom_description = {
+			text = eir_rq_c89b943fd7
+			culture = { has_cultural_tradition = tradition_poetry }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -997,12 +1099,18 @@ eir_compile_brehon_laws_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_ce5b9cb0f7
+			culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		}
 		eir_irish_buildings_trigger = { COUNT = 4 }
-		OR = {
-			learning >= 12
-			any_courtier = { has_trait = eir_ollamh }
+		custom_description = {
+			text = eir_rq_25c8dedbfb
+			OR = { learning >= 12 any_courtier = { has_trait = eir_ollamh } }
 		}
 	}
 
@@ -1053,12 +1161,18 @@ eir_revive_fianna_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_ce5b9cb0f7
+			culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		}
 		eir_irish_buildings_trigger = { COUNT = 3 }
-		OR = {
-			prowess >= 12
-			martial >= 14
+		custom_description = {
+			text = eir_rq_b0952682f6
+			OR = { prowess >= 12 martial >= 14 }
 		}
 	}
 
@@ -1120,11 +1234,20 @@ eir_adopt_cattle_wealth_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		eir_realm_size_trigger = { N = 12 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_3ba28eb013
+			eir_realm_size_trigger = { N = 12 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 3 }
 		stewardship >= 10
-		culture = { has_cultural_tradition = tradition_pastoralists }
+		custom_description = {
+			text = eir_rq_a05518a085
+			culture = { has_cultural_tradition = tradition_pastoralists }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1181,11 +1304,20 @@ eir_adopt_culdee_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		piety >= 700
-		has_global_variable = eir_done_monastery
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
 		eir_irish_buildings_trigger = { COUNT = 3 }
-		culture = { has_cultural_tradition = tradition_monastic_communities }
+		custom_description = {
+			text = eir_rq_e4ef765185
+			culture = { has_cultural_tradition = tradition_monastic_communities }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1235,16 +1367,27 @@ eir_adopt_sea_kings_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		eir_ports_trigger = { N = 3 }
-		eir_irish_port_trigger = yes
-		prestige >= 1000
-		OR = {
-			gold >= 1000
-			stewardship >= 16
-			has_trait = shrewd
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
 		}
-		culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+		custom_description = {
+			text = eir_rq_01bdd1e84d
+			eir_ports_trigger = { N = 3 }
+		}
+		custom_description = {
+			text = eir_rq_a768fac8e1
+			eir_irish_port_trigger = yes
+		}
+		prestige >= 1000
+		custom_description = {
+			text = eir_rq_7f1af3a01c
+			OR = { gold >= 1000 stewardship >= 16 has_trait = shrewd }
+		}
+		custom_description = {
+			text = eir_rq_8f759b1977
+			culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1313,15 +1456,30 @@ eir_thalassocracy_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		culture = { has_cultural_tradition = tradition_eir_sea_kings }
-		eir_ports_trigger = { N = 6 }
-		any_sub_realm_county = { this = title:c_dublin }
-		any_sub_realm_county = {
-			count >= 2
-			any_county_province = { has_building = eir_sea_quay_01 }
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
 		}
-		NOT = { has_global_variable = eir_done_thalassocracy }
+		custom_description = {
+			text = eir_rq_5f8109162b
+			culture = { has_cultural_tradition = tradition_eir_sea_kings }
+		}
+		custom_description = {
+			text = eir_rq_4b24bfe7af
+			eir_ports_trigger = { N = 6 }
+		}
+		custom_description = {
+			text = eir_rq_e511c920de
+			any_sub_realm_county = { this = title:c_dublin }
+		}
+		custom_description = {
+			text = eir_rq_59a5156e9e
+			any_sub_realm_county = { count >= 2 any_county_province = { has_building_or_higher = eir_sea_quay_01 } }
+		}
+		custom_description = {
+			text = eir_rq_334b548207
+			NOT = { has_global_variable = eir_done_thalassocracy }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1382,13 +1540,34 @@ eir_gaelic_revival_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
-		culture = { has_cultural_tradition = tradition_eir_cattle_wealth }
-		culture = { has_cultural_tradition = tradition_eir_culdee_christianity }
-		culture = { has_cultural_tradition = tradition_eir_sea_kings }
-		has_global_variable = eir_unlock_brehon_court
-		NOT = { has_global_variable = eir_done_renaissance }
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_ce5b9cb0f7
+			culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		}
+		custom_description = {
+			text = eir_rq_8f809e1b2f
+			culture = { has_cultural_tradition = tradition_eir_cattle_wealth }
+		}
+		custom_description = {
+			text = eir_rq_c0d78392a6
+			culture = { has_cultural_tradition = tradition_eir_culdee_christianity }
+		}
+		custom_description = {
+			text = eir_rq_5f8109162b
+			culture = { has_cultural_tradition = tradition_eir_sea_kings }
+		}
+		custom_description = {
+			text = eir_rq_31d6603aa7
+			has_global_variable = eir_unlock_brehon_court
+		}
+		custom_description = {
+			text = eir_rq_ff5a3deff6
+			NOT = { has_global_variable = eir_done_renaissance }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1439,8 +1618,14 @@ eir_hold_tailteann_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_oenach
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
 		NOT = { has_character_modifier = eir_tailteann_modifier }
 	}
 
@@ -1487,11 +1672,23 @@ eir_ancient_sites_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_oenach
-		eir_realm_size_trigger = { N = 15 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 4 }
-		NOT = { has_global_variable = eir_done_sites }
+		custom_description = {
+			text = eir_rq_c03bd42088
+			NOT = { has_global_variable = eir_done_sites }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1540,8 +1737,14 @@ eir_raise_ringforts_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
-		NOT = { has_global_variable = eir_unlock_ringfort }
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_098f49ba06
+			NOT = { has_global_variable = eir_unlock_ringfort }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1594,8 +1797,14 @@ eir_commission_tale_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_fili
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1636,7 +1845,10 @@ eir_muster_the_gael_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		is_at_war = no
 	}
 
@@ -1682,10 +1894,13 @@ eir_reclaim_dublin_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		OR = {
-			prestige >= 800
-			has_character_flag = eir_oath_to_reclaim
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_96a7bb0527
+			OR = { prestige >= 800 has_character_flag = eir_oath_to_reclaim }
 		}
 		is_at_war = no
 	}
@@ -1773,7 +1988,10 @@ eir_dublin_garrison_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1815,8 +2033,14 @@ eir_pay_danegeld_decision = {
 	}
 
 	is_valid = {
-		eir_visible_stage1_trigger = yes
-		NOT = { has_character_flag = eir_paid_danegeld }
+		custom_description = {
+			text = eir_rq_420e0d1206
+			eir_visible_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_1025bce498
+			NOT = { has_character_flag = eir_paid_danegeld }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -1908,7 +2132,10 @@ eir_cattle_raid_decision = {
 	}
 
 	is_valid = {
-		eir_visible_stage1_trigger = yes
+		custom_description = {
+			text = eir_rq_420e0d1206
+			eir_visible_stage1_trigger = yes
+		}
 		NOT = { has_character_modifier = eir_raider_infamy_modifier }
 		is_at_war = no
 	}
@@ -2084,8 +2311,14 @@ eir_norse_captain_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		eir_has_coast_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_e6d15e986c
+			eir_has_coast_trigger = yes
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2141,10 +2374,22 @@ eir_four_provinces_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_muster
-		has_global_variable = eir_done_oenach
-		eir_holds_irish_duchies_trigger = { COUNT = 2 }
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_20a5d525aa
+			has_global_variable = eir_done_muster
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_fabf640048
+			eir_holds_irish_duchies_trigger = { COUNT = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2190,7 +2435,10 @@ eir_single_combat_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
 		prowess >= 10
 		is_at_war = no
 	}
@@ -2231,8 +2479,14 @@ eir_coastal_watch_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
-		eir_ports_trigger = { N = 3 }
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_01bdd1e84d
+			eir_ports_trigger = { N = 3 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2283,10 +2537,19 @@ eir_ceithern_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_oath
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_203ed73d6b
+			has_global_variable = eir_done_oath
+		}
 		eir_irish_buildings_trigger = { COUNT = 4 }
-		NOT = { has_global_variable = eir_unlock_ceithern }
+		custom_description = {
+			text = eir_rq_e8e6dead10
+			NOT = { has_global_variable = eir_unlock_ceithern }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2406,10 +2669,19 @@ eir_found_monastery_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
 		piety >= 200
-		any_held_title = { tier = tier_county }
-		NOT = { has_global_variable = eir_done_monastery }
+		custom_description = {
+			text = eir_rq_91cb43e0bc
+			any_held_title = { tier = tier_county }
+		}
+		custom_description = {
+			text = eir_rq_52bf5477ed
+			NOT = { has_global_variable = eir_done_monastery }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2456,10 +2728,19 @@ eir_found_scriptorium_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_monastery
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
 		piety >= 400
-		NOT = { has_global_variable = eir_unlock_scriptorium }
+		custom_description = {
+			text = eir_rq_5d0b6261ef
+			NOT = { has_global_variable = eir_unlock_scriptorium }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2505,9 +2786,18 @@ eir_raise_high_crosses_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_monastery
-		NOT = { has_global_variable = eir_unlock_high_cross }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
+		custom_description = {
+			text = eir_rq_2b7de241da
+			NOT = { has_global_variable = eir_unlock_high_cross }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2554,9 +2844,18 @@ eir_found_round_towers_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_monastery
-		NOT = { has_global_variable = eir_unlock_round_tower }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
+		custom_description = {
+			text = eir_rq_460b79e2f8
+			NOT = { has_global_variable = eir_unlock_round_tower }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2604,7 +2903,10 @@ eir_scriptorium_patron_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2648,11 +2950,20 @@ eir_endow_cashel_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		has_title = title:d_munster
-		has_global_variable = eir_done_monastery
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
 		piety >= 400
-		NOT = { has_global_variable = eir_done_cashel }
+		custom_description = {
+			text = eir_rq_0f9fc853a2
+			NOT = { has_global_variable = eir_done_cashel }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2699,10 +3010,19 @@ eir_synod_rath_breasail_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_cashel
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
 		piety >= 800
-		NOT = { has_global_variable = eir_done_synod }
+		custom_description = {
+			text = eir_rq_657d9d9bd1
+			NOT = { has_global_variable = eir_done_synod }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2783,9 +3103,15 @@ eir_pilgrimage_skellig_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
 		piety >= 200
-		eir_has_coast_trigger = yes
+		custom_description = {
+			text = eir_rq_e6d15e986c
+			eir_has_coast_trigger = yes
+		}
 		NOT = { has_character_modifier = eir_pilgrim_modifier }
 	}
 
@@ -2829,11 +3155,20 @@ eir_armagh_primacy_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		has_title = title:d_ulster
-		has_global_variable = eir_done_cashel
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
 		piety >= 500
-		NOT = { has_global_variable = eir_done_armagh }
+		custom_description = {
+			text = eir_rq_778396a729
+			NOT = { has_global_variable = eir_done_armagh }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2879,10 +3214,19 @@ eir_patronise_glendalough_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		has_title = title:d_leinster
-		has_global_variable = eir_done_cashel
-		NOT = { has_global_variable = eir_done_glendalough }
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
+		custom_description = {
+			text = eir_rq_e014ca8e47
+			NOT = { has_global_variable = eir_done_glendalough }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2927,10 +3271,19 @@ eir_restore_clonmacnoise_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		has_title = title:d_connacht
-		has_global_variable = eir_done_cashel
-		NOT = { has_global_variable = eir_done_clonmacnoise }
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
+		custom_description = {
+			text = eir_rq_36220ae799
+			NOT = { has_global_variable = eir_done_clonmacnoise }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2975,10 +3328,19 @@ eir_cain_law_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_cashel
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
 		piety >= 600
-		NOT = { has_global_variable = eir_done_cain }
+		custom_description = {
+			text = eir_rq_124e530b33
+			NOT = { has_global_variable = eir_done_cain }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3023,8 +3385,14 @@ eir_relic_procession_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_cashel
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3069,7 +3437,10 @@ eir_penance_decision = {
 	}
 
 	is_valid = {
-		stress >= 50
+		custom_description = {
+			text = eir_rq_fa22e5a94c
+			stress >= 50
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3110,7 +3481,10 @@ eir_rome_pilgrimage_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		piety >= 800
 		is_at_war = no
 	}
@@ -3154,8 +3528,14 @@ eir_honour_saints_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_monastery
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
 		piety >= 400
 	}
 
@@ -3199,13 +3579,28 @@ eir_crown_king_of_munster_decision = {
 	}
 
 	is_valid = {
-		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_munster }
+		custom_description = {
+			text = eir_rq_f9b64281d9
+			eir_can_create_provincial_kingdom_trigger = { DUCHY = d_munster }
+		}
 		prestige_level >= 3
-		eir_realm_size_trigger = { N = 15 }
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 2 }
-		has_global_variable = eir_done_oenach
-		has_global_variable = eir_done_cashel
-		NOT = { exists = title:k_eir_munster.holder }
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
+		custom_description = {
+			text = eir_rq_cebdb89e8b
+			NOT = { exists = title:k_eir_munster.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3255,13 +3650,28 @@ eir_crown_king_of_ulster_decision = {
 	}
 
 	is_valid = {
-		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_ulster }
+		custom_description = {
+			text = eir_rq_cab6b4a522
+			eir_can_create_provincial_kingdom_trigger = { DUCHY = d_ulster }
+		}
 		prestige_level >= 3
-		eir_realm_size_trigger = { N = 15 }
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 2 }
-		has_global_variable = eir_done_oenach
-		has_global_variable = eir_done_armagh
-		NOT = { exists = title:k_eir_ulster.holder }
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_85ee0b5ca4
+			has_global_variable = eir_done_armagh
+		}
+		custom_description = {
+			text = eir_rq_ff3fe465c7
+			NOT = { exists = title:k_eir_ulster.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3311,13 +3721,28 @@ eir_crown_king_of_leinster_decision = {
 	}
 
 	is_valid = {
-		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_leinster }
+		custom_description = {
+			text = eir_rq_8096843b6c
+			eir_can_create_provincial_kingdom_trigger = { DUCHY = d_leinster }
+		}
 		prestige_level >= 3
-		eir_realm_size_trigger = { N = 15 }
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 2 }
-		has_global_variable = eir_done_oenach
-		has_global_variable = eir_done_glendalough
-		NOT = { exists = title:k_eir_leinster.holder }
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_25f58075ee
+			has_global_variable = eir_done_glendalough
+		}
+		custom_description = {
+			text = eir_rq_cf0d5b2365
+			NOT = { exists = title:k_eir_leinster.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3367,13 +3792,28 @@ eir_crown_king_of_connacht_decision = {
 	}
 
 	is_valid = {
-		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_connacht }
+		custom_description = {
+			text = eir_rq_bac428d1cc
+			eir_can_create_provincial_kingdom_trigger = { DUCHY = d_connacht }
+		}
 		prestige_level >= 3
-		eir_realm_size_trigger = { N = 15 }
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 2 }
-		has_global_variable = eir_done_oenach
-		has_global_variable = eir_done_clonmacnoise
-		NOT = { exists = title:k_eir_connacht.holder }
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_6ccfd100b9
+			has_global_variable = eir_done_clonmacnoise
+		}
+		custom_description = {
+			text = eir_rq_75646e507f
+			NOT = { exists = title:k_eir_connacht.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3423,13 +3863,28 @@ eir_crown_king_of_meath_decision = {
 	}
 
 	is_valid = {
-		eir_can_create_provincial_kingdom_trigger = { DUCHY = d_meath }
+		custom_description = {
+			text = eir_rq_06affebdd1
+			eir_can_create_provincial_kingdom_trigger = { DUCHY = d_meath }
+		}
 		prestige_level >= 3
-		eir_realm_size_trigger = { N = 15 }
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
 		eir_irish_buildings_trigger = { COUNT = 2 }
-		has_global_variable = eir_done_oenach
-		has_global_variable = eir_done_tara_hall
-		NOT = { exists = title:k_eir_meath.holder }
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_aaf6467b80
+			has_global_variable = eir_done_tara_hall
+		}
+		custom_description = {
+			text = eir_rq_dff158a2a1
+			NOT = { exists = title:k_eir_meath.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3479,9 +3934,18 @@ eir_crown_king_of_dal_riata_decision = {
 	}
 
 	is_valid = {
-		eir_can_create_dal_riata_trigger = yes
-		eir_realm_size_trigger = { N = 12 }
-		NOT = { exists = title:k_eir_dal_riata.holder }
+		custom_description = {
+			text = eir_rq_5332d1f409
+			eir_can_create_dal_riata_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_3ba28eb013
+			eir_realm_size_trigger = { N = 12 }
+		}
+		custom_description = {
+			text = eir_rq_6f9f195069
+			NOT = { exists = title:k_eir_dal_riata.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3529,10 +3993,22 @@ eir_celtic_brotherhood_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_oath
-		eir_ports_trigger = { N = 3 }
-		NOT = { has_global_variable = eir_done_brotherhood }
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_203ed73d6b
+			has_global_variable = eir_done_oath
+		}
+		custom_description = {
+			text = eir_rq_01bdd1e84d
+			eir_ports_trigger = { N = 3 }
+		}
+		custom_description = {
+			text = eir_rq_580466e775
+			NOT = { has_global_variable = eir_done_brotherhood }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3585,10 +4061,19 @@ eir_reclaim_dal_riata_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
 		is_at_war = no
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3633,10 +4118,19 @@ eir_reclaim_man_isles_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
 		is_at_war = no
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3678,10 +4172,19 @@ eir_reclaim_cornwall_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
 		is_at_war = no
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3723,10 +4226,19 @@ eir_reclaim_armorica_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
 		is_at_war = no
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3768,10 +4280,19 @@ eir_reclaim_old_north_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
 		is_at_war = no
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3814,10 +4335,19 @@ eir_stand_with_wales_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
 		is_at_war = no
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3860,9 +4390,18 @@ eir_pictish_memory_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		has_global_variable = eir_done_dalriata
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_e92c81d2b5
+			has_global_variable = eir_done_dalriata
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3905,9 +4444,18 @@ eir_gaulish_heritage_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		eir_ports_trigger = { N = 3 }
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_01bdd1e84d
+			eir_ports_trigger = { N = 3 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3950,9 +4498,18 @@ eir_embassy_gwynedd_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		eir_ports_trigger = { N = 1 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -3994,9 +4551,18 @@ eir_embassy_strathclyde_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		eir_ports_trigger = { N = 1 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4038,9 +4604,18 @@ eir_breton_refuge_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		eir_ports_trigger = { N = 1 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4083,9 +4658,18 @@ eir_armorica_voyage_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		eir_ports_trigger = { N = 2 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4127,8 +4711,14 @@ eir_hebridean_marriage_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		eir_ports_trigger = { N = 1 }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4172,12 +4762,30 @@ eir_proclaim_gaeldom_decision = {
 	}
 
 	is_valid = {
-		eir_stage4_trigger = yes
-		has_global_variable = eir_done_brotherhood
-		has_global_variable = eir_done_renaissance
-		eir_realm_size_trigger = { N = 30 }
-		eir_can_create_gaeldom_trigger = yes
-		NOT = { exists = title:e_eir_gaeldom.holder }
+		custom_description = {
+			text = eir_rq_def12c80b0
+			eir_stage4_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_45dd239783
+			has_global_variable = eir_done_renaissance
+		}
+		custom_description = {
+			text = eir_rq_6f2fb8a76a
+			eir_realm_size_trigger = { N = 30 }
+		}
+		custom_description = {
+			text = eir_rq_cc81b63c92
+			eir_can_create_gaeldom_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_886969ca18
+			NOT = { exists = title:e_eir_gaeldom.holder }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4227,7 +4835,10 @@ eir_reclaim_tongue_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		is_at_war = no
 	}
 
@@ -4288,7 +4899,10 @@ eir_grant_saxon_moot_decision = {
 	}
 
 	is_valid = {
-		eir_has_foreign_britain_counties_trigger = yes
+		custom_description = {
+			text = eir_rq_0b6f603da0
+			eir_has_foreign_britain_counties_trigger = yes
+		}
 		is_at_war = no
 	}
 
@@ -4339,9 +4953,18 @@ eir_restore_old_names_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_fili
-		var:eir_recelt >= 2
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		custom_description = {
+			text = eir_rq_cb759434b5
+			var:eir_recelt >= 2
+		}
 		NOT = { has_character_modifier = eir_tongue_restorer_modifier }
 	}
 
@@ -4397,11 +5020,26 @@ eir_britons_return_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		var:eir_recelt >= 5
-		has_variable = eir_resent
-		var:eir_resent <= 1
-		eir_has_celtic_britain_counties_trigger = yes
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_5a8e7e8e91
+			var:eir_recelt >= 5
+		}
+		custom_description = {
+			text = eir_rq_31c6b84d4e
+			has_variable = eir_resent
+		}
+		custom_description = {
+			text = eir_rq_982ce4f0cc
+			var:eir_resent <= 1
+		}
+		custom_description = {
+			text = eir_rq_c27c560e64
+			eir_has_celtic_britain_counties_trigger = yes
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4449,10 +5087,16 @@ eir_call_derbfine_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
 		is_at_war = no
 		exists = primary_heir
-		any_vassal = { count >= 2 }
+		custom_description = {
+			text = eir_rq_b09b8066f2
+			any_vassal = { count >= 2 }
+		}
 		NOT = { has_character_modifier = eir_derbfine_counsel_modifier }
 	}
 
@@ -4504,9 +5148,18 @@ eir_found_bardic_house_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		has_global_variable = eir_done_fili
-		culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		custom_description = {
+			text = eir_rq_ce5b9cb0f7
+			culture = { has_cultural_tradition = tradition_eir_bardic_schools }
+		}
 		has_character_modifier = eir_royal_ollamh_modifier
 	}
 
@@ -4553,7 +5206,10 @@ eir_winter_court_of_tales_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		NOT = { has_character_modifier = eir_tain_retold_modifier }
 	}
 
@@ -4601,9 +5257,15 @@ eir_found_hospice_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		piety >= 300
-		any_held_title = { tier = tier_county }
+		custom_description = {
+			text = eir_rq_91cb43e0bc
+			any_held_title = { tier = tier_county }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -4654,7 +5316,10 @@ eir_send_missionaries_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		piety >= 250
 		is_at_war = no
 	}
@@ -4746,10 +5411,19 @@ eir_summer_booleying_decision = {
 	}
 
 	is_valid = {
-		eir_stage1_trigger = yes
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
 		is_at_war = no
-		current_month >= 5
-		current_month <= 8
+		custom_description = {
+			text = eir_rq_551e53d9d4
+			current_month >= 5
+		}
+		custom_description = {
+			text = eir_rq_360f8f52b0
+			current_month <= 8
+		}
 		NOT = { has_character_modifier = eir_booley_modifier }
 	}
 
@@ -4797,12 +5471,17 @@ eir_charter_port_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
-		eir_ports_trigger = { N = 1 }
-		any_held_title = {
-			tier = tier_county
-			is_coastal_county = yes
-			NOT = { has_county_modifier = eir_chartered_town_modifier }
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
+		custom_description = {
+			text = eir_rq_c6c7c6b6c5
+			any_held_title = { tier = tier_county is_coastal_county = yes NOT = { has_county_modifier = eir_chartered_town_modifier } }
 		}
 	}
 
@@ -4855,7 +5534,10 @@ eir_hire_welsh_archers_decision = {
 	}
 
 	is_valid = {
-		eir_stage2_trigger = yes
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
 		is_at_war = no
 	}
 
@@ -4920,9 +5602,18 @@ eir_found_college_bangor_decision = {
 	}
 
 	is_valid = {
-		eir_stage3_trigger = yes
-		has_global_variable = eir_done_monastery
-		has_global_variable = eir_unlock_scriptorium
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
+		custom_description = {
+			text = eir_rq_27a7590d3e
+			has_global_variable = eir_unlock_scriptorium
+		}
 		learning >= 12
 	}
 
@@ -4952,6 +5643,1992 @@ eir_found_college_bangor_decision = {
 		}
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_unique_college_bangor
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_swear_clan_oath_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_swear_clan_oath_decision_desc
+	selection_tooltip = eir_swear_clan_oath_decision_tooltip
+	confirm_text = eir_swear_clan_oath_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_6fdab135c7
+			eir_realm_size_trigger = { N = 3 }
+		}
+		NOT = { has_character_modifier = eir_clan_oath_modifier }
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 30
+		prestige = 100
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_oath_sworn_opinion OPINION = 4 }
+		trigger_event = eir.0544
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_hold_samhain_feast_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_hold_samhain_feast_decision_desc
+	selection_tooltip = eir_hold_samhain_feast_decision_tooltip
+	confirm_text = eir_hold_samhain_feast_decision_confirm
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_99b7fc1df7
+			current_month >= 10
+		}
+		custom_description = {
+			text = eir_rq_588a56f2e3
+			current_month <= 11
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_aadc340513
+			eir_realm_size_trigger = { N = 2 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 40
+		prestige = 40
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		add_stress = minor_stress_loss
+		capital_county ?= { add_county_modifier = { modifier = eir_samhain_county_modifier years = 3 } }
+		trigger_event = eir.0545
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_beat_the_bounds_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_beat_the_bounds_decision_desc
+	selection_tooltip = eir_beat_the_bounds_decision_tooltip
+	confirm_text = eir_beat_the_bounds_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_aadc340513
+			eir_realm_size_trigger = { N = 2 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 30
+		prestige = 60
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		capital_county ?= { change_county_control = minor_county_control_gain }
+		trigger_event = eir.0546
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_grant_land_to_saint_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_grant_land_to_saint_decision_desc
+	selection_tooltip = eir_grant_land_to_saint_decision_tooltip
+	confirm_text = eir_grant_land_to_saint_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		piety >= 30
+		custom_description = {
+			text = eir_rq_aadc340513
+			eir_realm_size_trigger = { N = 2 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 40
+		piety = 30
+	}
+
+	effect = {
+		add_piety = minor_piety_gain
+		capital_county ?= { add_county_modifier = { modifier = eir_hospice_modifier years = 8 } }
+		trigger_event = eir.0547
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_seal_pact_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_seal_pact_decision_desc
+	selection_tooltip = eir_seal_pact_decision_tooltip
+	confirm_text = eir_seal_pact_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_6fdab135c7
+			eir_realm_size_trigger = { N = 3 }
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_7c494fbb7a
+			eir_has_gael_neighbour_trigger = yes
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 50
+		prestige = 100
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		trigger_event = eir.0548
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_raise_first_dun_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_raise_first_dun_decision_desc
+	selection_tooltip = eir_raise_first_dun_decision_tooltip
+	confirm_text = eir_raise_first_dun_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		NOT = { has_global_variable = eir_unique_first_dun }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_aadc340513
+			eir_realm_size_trigger = { N = 2 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 60
+		prestige = 100
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		capital_county ?= { add_county_modifier = { modifier = eir_first_dun_modifier years = 15 } }
+		set_global_variable = eir_unique_first_dun
+		trigger_event = eir.0549
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_light_beacon_chain_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_light_beacon_chain_decision_desc
+	selection_tooltip = eir_light_beacon_chain_decision_tooltip
+	confirm_text = eir_light_beacon_chain_decision_confirm
+
+	cooldown = { days = 5475 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_viking_age_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 80
+		prestige = 80
+	}
+
+	effect = {
+		every_realm_county = {
+			limit = { is_coastal_county = yes }
+			add_county_modifier = { modifier = eir_beacon_county_modifier years = 10 }
+		}
+		add_character_modifier = { modifier = eir_beacons_modifier years = 8 }
+		add_prestige = minor_prestige_gain
+		trigger_event = eir.0550
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_call_defensive_compact_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_call_defensive_compact_decision_desc
+	selection_tooltip = eir_call_defensive_compact_decision_tooltip
+	confirm_text = eir_call_defensive_compact_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_stage2_trigger = yes
+		NOT = { has_global_variable = eir_unique_compact }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		custom_description = {
+			text = eir_rq_8e5ccdd587
+			eir_norse_presence_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_d91bd13d89
+			any_vassal = { count >= 3 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		prestige = 400
+		piety = 50
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_defensive_compact_modifier years = 15 }
+		add_prestige = major_prestige_gain
+		add_piety = minor_piety_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_allied_kings_opinion OPINION = 6 }
+		set_variable = { name = eir_bh_alliance value = 2 }
+		set_global_variable = eir_unique_compact
+		trigger_event = eir.0551
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_hire_norse_fleet_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_hire_norse_fleet_decision_desc
+	selection_tooltip = eir_hire_norse_fleet_decision_tooltip
+	confirm_text = eir_hire_norse_fleet_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_viking_age_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_6fdab135c7
+			eir_realm_size_trigger = { N = 3 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 60
+	}
+
+	effect = {
+		random_list = {
+			75 = {
+				desc = eir.out.norse_fleet_loyal
+				modifier = {
+					add = 10
+					diplomacy >= 12
+				}
+				add_character_modifier = { modifier = eir_norse_fleet_modifier years = 4 }
+				spawn_army = {
+					levies = 0
+					men_at_arms = {
+						type = armored_footmen
+						stacks = 3
+					}
+					location = capital_province
+					origin = capital_province
+					inheritable = no
+					name = eir_gallowglass_company_name
+				}
+				add_prestige = minor_prestige_gain
+			}
+			25 = {
+				desc = eir.out.norse_fleet_sold
+				add_prestige = minor_prestige_loss
+				add_stress = minor_stress_gain
+				add_character_modifier = { modifier = eir_raider_infamy_modifier years = 4 }
+			}
+		}
+
+		trigger_event = eir.0552
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_redeem_captives_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_redeem_captives_decision_desc
+	selection_tooltip = eir_redeem_captives_decision_tooltip
+	confirm_text = eir_redeem_captives_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_bh_started
+	}
+
+	is_valid = {
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_aadc340513
+			eir_realm_size_trigger = { N = 2 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		piety = 50
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		add_piety = medium_piety_gain
+		eir_court_opinion_effect = { MODIFIER = eir_hospitality_opinion OPINION = 6 }
+		trigger_event = eir.0553
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_break_norse_yoke_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_break_norse_yoke_decision_desc
+	selection_tooltip = eir_break_norse_yoke_decision_tooltip
+	confirm_text = eir_break_norse_yoke_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		NOT = { has_global_variable = eir_unique_norse_yoke }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_1377102d9c
+			eir_holds_irish_counties_trigger = { COUNT = 10 }
+		}
+		prestige >= 600
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_b9d0ad49b6
+			OR = { has_variable = eir_bh_defeated has_character_flag = eir_paid_danegeld has_character_modifier = eir_danegeld_modifier }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 500
+	}
+
+	effect = {
+		add_prestige = major_prestige_gain
+		add_piety = minor_piety_gain
+		eir_end_danegeld_effect = yes
+		eir_grant_claims_norse_effect = yes
+		set_global_variable = eir_unique_norse_yoke
+		trigger_event = eir.0554
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_burn_longphort_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_burn_longphort_decision_desc
+	selection_tooltip = eir_burn_longphort_decision_tooltip
+	confirm_text = eir_burn_longphort_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_norse_holds_irish_county_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_2041b7b48c
+			eir_norse_holds_irish_county_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_64d2df3b83
+			OR = { has_global_variable = eir_black_host_broken has_global_variable = eir_bh_ended has_variable = eir_norse_enclave }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 350
+	}
+
+	effect = {
+		add_prestige = major_prestige_gain
+		add_dread = minor_dread_gain
+		eir_grant_claims_norse_effect = yes
+		add_character_modifier = { modifier = eir_longphort_burner_modifier years = 12 }
+		trigger_event = eir.0555
+		trigger_event = { id = eir.0413 years = 2 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_assimilate_ostmen_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_culture.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_assimilate_ostmen_decision_desc
+	selection_tooltip = eir_assimilate_ostmen_decision_tooltip
+	confirm_text = eir_assimilate_ostmen_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_holds_norse_county_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_9819947fa8
+			has_global_variable = eir_done_fosterage
+		}
+		custom_description = {
+			text = eir_rq_97b02b623a
+			eir_holds_norse_county_trigger = yes
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		prestige = 150
+	}
+
+	effect = {
+		random_sub_realm_county = {
+			limit = { culture ?= { has_cultural_pillar = heritage_north_germanic } }
+			save_scope_as = eir_conv_county
+			set_county_culture = root.culture
+			add_county_modifier = { modifier = eir_ostmen_quarter_modifier years = 15 }
+		}
+		add_prestige = medium_prestige_gain
+		add_piety = minor_piety_gain
+		eir_trait_effect = { TRAIT = just OPPOSITE = arbitrary CHANCE = 20 }
+		trigger_event = eir.0556
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_swear_norse_bane_oath_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_swear_norse_bane_oath_decision_desc
+	selection_tooltip = eir_swear_norse_bane_oath_decision_tooltip
+	confirm_text = eir_swear_norse_bane_oath_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_black_host_broken
+		NOT = { has_global_variable = eir_unique_norse_bane_oath }
+	}
+
+	is_valid = {
+		piety >= 150
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 300
+		piety = 150
+	}
+
+	effect = {
+		add_prestige = major_prestige_gain
+		add_piety = medium_piety_gain
+		set_global_variable = eir_unlock_norse_bane
+		set_global_variable = eir_unique_norse_bane_oath
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0557
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_walled_town_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_castle_view.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_walled_town_decision_desc
+	selection_tooltip = eir_found_walled_town_decision_tooltip
+	confirm_text = eir_found_walled_town_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_stage2_trigger = yes
+		NOT = { has_global_variable = eir_unique_walled_town }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		eir_irish_buildings_trigger = { COUNT = 3 }
+		custom_description = {
+			text = eir_rq_bcc93373b8
+			eir_ports_trigger = { N = 1 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 500
+	}
+
+	effect = {
+		add_prestige = major_prestige_gain
+		capital_county ?= { add_county_modifier = { modifier = eir_walled_town_modifier years = 20 } }
+		add_character_modifier = { modifier = eir_irish_sea_trade_modifier years = 8 }
+		set_global_variable = eir_unique_walled_town
+		trigger_event = eir.0558
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_raise_fallen_cairn_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_raise_fallen_cairn_decision_desc
+	selection_tooltip = eir_raise_fallen_cairn_decision_tooltip
+	confirm_text = eir_raise_fallen_cairn_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_black_host_broken
+		NOT = { has_global_variable = eir_unique_fallen_cairn }
+	}
+
+	is_valid = {
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_6fdab135c7
+			eir_realm_size_trigger = { N = 3 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		prestige = 100
+	}
+
+	effect = {
+		add_piety = medium_piety_gain
+		add_prestige = medium_prestige_gain
+		capital_county ?= { add_county_modifier = { modifier = eir_cairn_county_modifier years = 25 } }
+		eir_vassal_opinion_effect = { MODIFIER = eir_justice_done_opinion OPINION = 4 }
+		set_global_variable = eir_unique_fallen_cairn
+		trigger_event = eir.0559
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_commission_victory_song_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_commission_victory_song_decision_desc
+	selection_tooltip = eir_commission_victory_song_decision_tooltip
+	confirm_text = eir_commission_victory_song_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_fili
+		has_global_variable = eir_black_host_broken
+		NOT = { has_global_variable = eir_unique_victory_song }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		custom_description = {
+			text = eir_rq_67f3b64bb6
+			eir_realm_size_trigger = { N = 4 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 80
+		prestige = 80
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		eir_legend_defence_effect = yes
+		set_global_variable = eir_unique_victory_song
+		trigger_event = eir.0560
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_hold_triumph_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_hold_triumph_decision_desc
+	selection_tooltip = eir_hold_triumph_decision_tooltip
+	confirm_text = eir_hold_triumph_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_foreign_conquests_trigger = { N = 2 }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_a13dcbcbc5
+			eir_foreign_conquests_trigger = { N = 3 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 400
+	}
+
+	effect = {
+		random_sub_realm_county = {
+			limit = { eir_foreign_conquest_county_trigger = yes }
+			save_scope_as = eir_conq_county
+		}
+		add_prestige = massive_prestige_gain
+		add_dread = minor_dread_gain
+		eir_triumph_glory_effect = yes
+		set_global_variable = eir_done_triumph
+		trigger_event = eir.0500
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_raise_conquest_cairn_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_raise_conquest_cairn_decision_desc
+	selection_tooltip = eir_raise_conquest_cairn_decision_tooltip
+	confirm_text = eir_raise_conquest_cairn_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_foreign_conquests_trigger = { N = 1 }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a183b30b78
+			eir_foreign_conquests_trigger = { N = 1 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 60
+		prestige = 100
+	}
+
+	effect = {
+		random_sub_realm_county = {
+			limit = { eir_foreign_conquest_county_trigger = yes }
+			save_scope_as = eir_conq_county
+		}
+		add_prestige = minor_prestige_gain
+		add_piety = minor_piety_gain
+		trigger_event = eir.0501
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_plant_colonists_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_levy_outcasts.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_plant_colonists_decision_desc
+	selection_tooltip = eir_plant_colonists_decision_tooltip
+	confirm_text = eir_plant_colonists_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_foreign_conquests_trigger = { N = 1 }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_a183b30b78
+			eir_foreign_conquests_trigger = { N = 1 }
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_fcb0a24b6a
+			NOT = { has_variable = eir_colony_county }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 120
+		prestige = 150
+	}
+
+	effect = {
+		random_sub_realm_county = {
+			limit = { eir_foreign_conquest_county_trigger = yes }
+			save_scope_as = eir_conq_county
+		}
+		scope:eir_conq_county = {
+			add_county_modifier = { modifier = eir_gaelic_settlers_modifier years = 12 }
+			save_scope_as = eir_colony
+		}
+		set_variable = {
+			name = eir_colony_county
+			value = scope:eir_conq_county
+		}
+		add_prestige = minor_prestige_gain
+		trigger_event = eir.0502
+		trigger_event = { id = eir.0503 years = 8 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_feast_of_three_peoples_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_feast_of_three_peoples_decision_desc
+	selection_tooltip = eir_feast_of_three_peoples_decision_tooltip
+	confirm_text = eir_feast_of_three_peoples_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_77c87bfdf2
+			OR = { eir_has_foreign_britain_counties_trigger = yes eir_has_celtic_britain_counties_trigger = yes }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 300
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		trigger_event = eir.0504
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_lebor_gabala_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_lebor_gabala_decision_desc
+	selection_tooltip = eir_lebor_gabala_decision_tooltip
+	confirm_text = eir_lebor_gabala_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_fili
+		NOT = { has_global_variable = eir_unique_book_conquests }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		custom_description = {
+			text = eir_rq_25c8dedbfb
+			OR = { learning >= 12 any_courtier = { has_trait = eir_ollamh } }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		prestige = 400
+		piety = 50
+	}
+
+	effect = {
+		add_prestige = major_prestige_gain
+		eir_legend_title_effect = { TITLE = primary_title }
+		eir_grant_claims_non_celtic_effect = { TITLE = k_england }
+		set_global_variable = eir_unique_book_conquests
+		trigger_event = eir.0505
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_proclaim_insular_union_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_proclaim_insular_union_decision_desc
+	selection_tooltip = eir_proclaim_insular_union_decision_tooltip
+	confirm_text = eir_proclaim_insular_union_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		NOT = { has_global_variable = eir_done_union }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_b733e3b70d
+			eir_celtic_britain_counties_trigger = { N = 6 }
+		}
+		custom_description = {
+			text = eir_rq_7aac14ac3b
+			var:eir_recelt >= 3
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 500
+		prestige = 1500
+		piety = 250
+	}
+
+	effect = {
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		eir_add_tradition_effect = { TRADITION = tradition_eir_insular_union }
+		set_global_variable = eir_done_union
+		set_global_variable = eir_unlock_insular_spears
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 6 }
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0506
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_island_kingdom_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_island_kingdom_decision_desc
+	selection_tooltip = eir_found_island_kingdom_decision_tooltip
+	confirm_text = eir_found_island_kingdom_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_union
+		NOT = { has_global_variable = eir_unique_island_kingdom }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_33ea20c0d6
+			has_global_variable = eir_done_union
+		}
+		custom_description = {
+			text = eir_rq_76293a3903
+			eir_can_create_island_kingdom_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_e4bf9c0c66
+			NOT = { exists = title:k_eir_ynys_prydain.holder }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 700
+		prestige = 2000
+		piety = 300
+	}
+
+	effect = {
+		eir_create_title_effect = { TITLE = k_eir_ynys_prydain }
+		add_prestige = massive_prestige_gain
+		eir_legend_title_effect = { TITLE = k_eir_ynys_prydain }
+		set_global_variable = eir_unique_island_kingdom
+		trigger_event = eir.0509
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_secure_bridgehead_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_secure_bridgehead_decision_desc
+	selection_tooltip = eir_secure_bridgehead_decision_tooltip
+	confirm_text = eir_secure_bridgehead_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_ports_trigger = { N = 2 }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_d20fc88309
+			current_year >= 868
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		prestige = 200
+	}
+
+	effect = {
+		eir_grant_claims_non_celtic_effect = { TITLE = k_england }
+		add_prestige = minor_prestige_gain
+		trigger_event = eir.0510
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_foster_british_princes_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_foster_british_princes_decision_desc
+	selection_tooltip = eir_foster_british_princes_decision_tooltip
+	confirm_text = eir_foster_british_princes_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		has_global_variable = eir_done_fosterage
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_68b5837652
+			has_global_variable = eir_done_brotherhood
+		}
+		custom_description = {
+			text = eir_rq_9819947fa8
+			has_global_variable = eir_done_fosterage
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		prestige = 200
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		trigger_event = eir.0511
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_raid_saxon_coast_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_raid_saxon_coast_decision_desc
+	selection_tooltip = eir_raid_saxon_coast_decision_tooltip
+	confirm_text = eir_raid_saxon_coast_decision_confirm
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_ports_trigger = { N = 2 }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_51f7d2d8fd
+			eir_ports_trigger = { N = 2 }
+		}
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_d20fc88309
+			current_year >= 868
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 60
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		add_dread = minor_dread_gain
+		add_character_modifier = { modifier = eir_raider_infamy_modifier years = 3 }
+		random = {
+			chance = 33
+			trigger_event = { id = eir.0410 years = 1 }
+		}
+		trigger_event = eir.0513
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_acclaim_conquered_capital_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_acclaim_conquered_capital_decision_desc
+	selection_tooltip = eir_acclaim_conquered_capital_decision_tooltip
+	confirm_text = eir_acclaim_conquered_capital_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_triumph
+		NOT = { has_global_variable = eir_unique_acclaimed }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_8e7c029cd8
+			eir_foreign_conquests_trigger = { N = 5 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 800
+		piety = 150
+	}
+
+	effect = {
+		random_sub_realm_county = {
+			limit = { eir_foreign_conquest_county_trigger = yes }
+			save_scope_as = eir_conq_county
+		}
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		eir_triumph_glory_effect = yes
+		set_global_variable = eir_unique_acclaimed
+		trigger_event = eir.0514
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_open_sea_road_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_open_sea_road_decision_desc
+	selection_tooltip = eir_open_sea_road_decision_tooltip
+	confirm_text = eir_open_sea_road_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		NOT = { has_global_variable = eir_unique_sea_road }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_01bdd1e84d
+			eir_ports_trigger = { N = 3 }
+		}
+		custom_description = {
+			text = eir_rq_e2ba1c5e9d
+			eir_holds_british_port_trigger = yes
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 250
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		add_character_modifier = { modifier = eir_sea_road_modifier years = 15 }
+		every_realm_county = {
+			limit = { is_coastal_county = yes }
+			add_county_modifier = { modifier = eir_beacon_county_modifier years = 10 }
+		}
+		set_global_variable = eir_unique_sea_road
+		trigger_event = eir.0515
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_produce_genealogy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_tale.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_produce_genealogy_decision_desc
+	selection_tooltip = eir_produce_genealogy_decision_tooltip
+	confirm_text = eir_produce_genealogy_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_fili
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		prestige = 150
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		trigger_event = eir.0561
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_demand_rival_hostages_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_prison.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_demand_rival_hostages_decision_desc
+	selection_tooltip = eir_demand_rival_hostages_decision_tooltip
+	confirm_text = eir_demand_rival_hostages_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_stage2_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_887f44d15a
+			has_global_variable = eir_done_oenach
+		}
+		prestige >= 700
+		is_at_war = no
+		custom_description = {
+			text = eir_rq_7c494fbb7a
+			eir_has_gael_neighbour_trigger = yes
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		prestige = 250
+	}
+
+	effect = {
+		add_prestige = medium_prestige_gain
+		add_dread = minor_dread_gain
+		trigger_event = eir.0562
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_judge_kings_quarrel_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_judge_kings_quarrel_decision_desc
+	selection_tooltip = eir_judge_kings_quarrel_decision_tooltip
+	confirm_text = eir_judge_kings_quarrel_decision_confirm
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_global_variable = eir_done_oenach
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_d91bd13d89
+			any_vassal = { count >= 3 }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 50
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		trigger_event = eir.0563
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_end_blood_feud_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_social.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_end_blood_feud_decision_desc
+	selection_tooltip = eir_end_blood_feud_decision_tooltip
+	confirm_text = eir_end_blood_feud_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		has_character_flag = eir_vowed_vengeance
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_8e6de82e64
+			has_character_flag = eir_vowed_vengeance
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		piety = 40
+	}
+
+	effect = {
+		remove_character_flag = eir_vowed_vengeance
+		add_prestige = medium_prestige_gain
+		add_character_modifier = { modifier = eir_honour_restored_modifier years = 10 }
+		trigger_event = eir.0564
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_royal_stud_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_royal_stud_decision_desc
+	selection_tooltip = eir_royal_stud_decision_tooltip
+	confirm_text = eir_royal_stud_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		NOT = { has_global_variable = eir_unique_royal_stud }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		prestige = 150
+	}
+
+	effect = {
+		add_prestige = minor_prestige_gain
+		set_global_variable = eir_unique_royal_stud
+		trigger_event = eir.0565
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_codify_kinship_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_codify_kinship_decision_desc
+	selection_tooltip = eir_codify_kinship_decision_tooltip
+	confirm_text = eir_codify_kinship_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		culture ?= { has_cultural_tradition = tradition_strong_kinship }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_38acb0c585
+			culture = { has_cultural_tradition = tradition_strong_kinship }
+		}
+		custom_description = {
+			text = eir_rq_a6e6299c24
+			NOT = { has_global_variable = eir_unique_kinship_law }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 700
+		piety = 100
+	}
+
+	effect = {
+		eir_upgrade_tradition_effect = { OLD = tradition_strong_kinship NEW = tradition_eir_kinship_law }
+		add_prestige = major_prestige_gain
+		set_global_variable = eir_unique_kinship_law
+		trigger_event = eir.0566
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_codify_clan_war_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_codify_clan_war_decision_desc
+	selection_tooltip = eir_codify_clan_war_decision_tooltip
+	confirm_text = eir_codify_clan_war_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		culture ?= { has_cultural_tradition = tradition_highland_warriors }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_a527c32265
+			culture = { has_cultural_tradition = tradition_highland_warriors }
+		}
+		custom_description = {
+			text = eir_rq_89cc8a9cd3
+			NOT = { has_global_variable = eir_unique_clan_war_law }
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 700
+		piety = 100
+	}
+
+	effect = {
+		eir_upgrade_tradition_effect = { OLD = tradition_highland_warriors NEW = tradition_eir_clan_war_law }
+		add_prestige = major_prestige_gain
+		set_global_variable = eir_unique_clan_war_law
+		trigger_event = eir.0567
 	}
 
 	ai_will_do = {

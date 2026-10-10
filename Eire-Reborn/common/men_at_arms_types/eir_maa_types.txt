@@ -190,3 +190,83 @@ eir_ceithern = {
 	icon = palace_guards
 }
 
+eir_insular_spears = {
+	type = pikemen
+
+	damage = 22
+	toughness = 28
+	pursuit = 0
+	screen = 22
+
+	terrain_bonus = {
+		hills = { damage = 4 toughness = 4 }
+		forest = { damage = 3 }
+		plains = { toughness = 3 }
+	}
+
+	counters = {
+		heavy_cavalry = 1
+		light_cavalry = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_insular_union }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_insular_spears
+			}
+		}
+	}
+
+
+	buy_cost = { gold = huscarls_recruitment_cost }
+	low_maintenance_cost = { gold = huscarls_low_maint_cost }
+	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = 7
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = teulu
+}
+
+eir_norse_bane_axemen = {
+	type = heavy_infantry
+
+	damage = 52
+	toughness = 26
+	pursuit = 0
+	screen = 22
+
+	terrain_bonus = {
+		plains = { damage = 4 }
+		wetlands = { damage = 4 }
+		hills = { toughness = 4 }
+	}
+
+	counters = {
+		skirmishers = 1
+		archers = 1
+	}
+
+	can_recruit = {
+		OR = {
+			culture ?= { has_cultural_parameter = eir_norse_bane_oath }
+			AND = {
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				has_global_variable = eir_unlock_norse_bane
+			}
+		}
+	}
+
+
+	buy_cost = { gold = huscarls_recruitment_cost }
+	low_maintenance_cost = { gold = huscarls_low_maint_cost }
+	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = 7
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = danish_huskarls
+}
+

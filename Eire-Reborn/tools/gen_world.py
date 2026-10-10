@@ -401,48 +401,7 @@ MAA = {
 # BUILDINGS
 # =============================================================================
 # key: (holding, flag, icon, modifiers dict by section, name, desc)
-BUILDINGS = {
-    "eir_ringfort_01": ("castle", "eir_unlock_ringfort", "icon_building_hill_forts.dds",
-        {"province": {"defender_holding_advantage": 5, "monthly_income": 0.2},
-         "county": {"levy_size": 0.05},
-         "character": {"knight_effectiveness_mult": 0.02}},
-        "Great Ringfort", "A mighty earthen ringfort in the old Irish style, ringed by banks and ditches."),
-    "eir_crannog_01": ("castle", "eir_unlock_crannog", "icon_building_palisades.dds",
-        {"province": {"defender_holding_advantage": 10, "supply_limit_mult": 0.1},
-         "county": {"monthly_county_control_growth_add": 0.2},
-         "character": {}},
-        "Crannóg Stronghold", "A fortified artificial island in a lake, reachable only by boat or a hidden causeway."),
-    "eir_round_tower_01": ("church", "eir_unlock_round_tower", "icon_building_watchtowers.dds",
-        {"province": {"defender_holding_advantage": 5, "monthly_income": 0.2},
-         "county": {"county_opinion_add": 3},
-         "character": {"monthly_piety": 0.1}},
-        "Round Tower", "A tall stone belfry that doubles as a refuge and treasury when raiders come."),
-    "eir_high_cross_01": ("church", "eir_unlock_high_cross", "icon_building_graveyard.dds",
-        {"province": {"monthly_income": 0.2},
-         "county": {"county_opinion_add": 5, "development_growth_factor": 0.02},
-         "character": {"monthly_piety": 0.15}},
-        "High Cross", "A carved stone cross, taller than three men, covered in scenes from scripture."),
-    "eir_scriptorium_01": ("church", "eir_unlock_scriptorium", "icon_building_library.dds",
-        {"province": {"monthly_income": 0.3},
-         "county": {"development_growth_factor": 0.04},
-         "character": {"monthly_piety": 0.1, "learning": 1}},
-        "Great Scriptorium", "Monks copy and illuminate gospel books in the old Irish style."),
-    "eir_brehon_court_01": ("city", "eir_unlock_brehon_court", "icon_building_tax_assessor.dds",
-        {"province": {"monthly_income": 0.3},
-         "county": {"county_opinion_add": 4, "monthly_county_control_growth_add": 0.2},
-         "character": {"legitimacy_gain_mult": 0.01}},
-        "Brehon Court", "A court where learned judges apply the ancient laws to every dispute."),
-    "eir_bardic_school_01": ("city", "eir_unlock_bardic_school", "icon_building_monastic_schools.dds",
-        {"province": {"monthly_income": 0.2},
-         "county": {"county_opinion_add": 3},
-         "character": {"monthly_prestige": 0.1, "owned_legend_spread_mult": 0.02}},
-        "Bardic School", "A school where poets train for twelve years before they may recite before a king."),
-    "eir_cattle_enclosure_01": ("castle", "eir_unlock_cattle_enclosure", "icon_building_hillside_grazing.dds",
-        {"province": {"monthly_income": 0.5},
-         "county": {"tax_mult": 0.03},
-         "character": {"domain_tax_mult": 0.01}},
-        "Great Cattle Enclosure", "Walled fields where the herds that make up a lord's wealth are kept safe from raiders."),
-}
+BUILDINGS = {}   # superseded by gen_buildings3.py (Update 2)
 
 # =============================================================================
 # TITLES
@@ -474,6 +433,9 @@ ARTIFACT.update(_X.ARTIFACT)
 TRAITS.update(_X.TRAITS)
 OPINIONS.update(_X.OPINIONS)
 MAA.update(_X.MAA)
+TRADITIONS.update(_X.TRADS)
+DYNASTY.update(_X.DYNASTY_X)
+TITLES.update(_X.TITLES_X)
 
 
 def build():

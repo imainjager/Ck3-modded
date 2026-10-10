@@ -16,3 +16,7 @@ nick_eir_emperor_gael = {}
 nick_eir_tongue_giver = {}
 nick_eir_britain_restorer = {}
 nick_eir_norse_bane = {}
+nick_eir_host_breaker = {}
+nick_eir_triumphant = {}
+nick_eir_island_king = {}
+nick_eir_longphort_burner = {}

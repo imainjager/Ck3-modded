@@ -1,4 +1,7 @@
-# Eire Reborn: UPDATE 4, the building rebuild (planned, NOT executed)
+# Eire Reborn: UPDATE 4 (building part EXECUTED 2026-10-09 inside v0.8)
+
+Status: the building rebuild is done (24 tribal+feudal families, 3-level duchy chains, specials at real baronies with province slots, audit script). The text below is the original plan.
+
 
 Named by the user. It **supersedes section 1 (buildings) of UPDATE_2_PLAN.md**; Update 2 keeps the tooltip text and early-game items.
 

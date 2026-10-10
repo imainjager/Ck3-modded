@@ -8,7 +8,7 @@ Before anything ships ask: **what must the player DO to earn this, what does it 
 If the answer is "click a button, get a modifier", it does not ship.
 
 ## 1. Rules the user has set (do not relax these)
-1. **Unique decisions: Claude decides how many times each can happen, per decision.** If a decision is truly unique (founding something, a one-time restoration, a first-ever event) it happens **once per game**; track it with a global variable (vanilla uses the global list `unavailable_unique_decisions`). Anything that is a recurring act (a feast, a circuit, a festival) gets a cooldown instead. A decision whose result the pack's own rules keep undoing (for example a crown that a custom succession rule destroys on every death) stays repeatable until that rule is lifted. State the choice in the decision's tooltip.
+1. **Unique decisions: Claude decides how many times each can happen, per decision.** If a decision is truly unique (founding something, a one-time restoration, a first-ever event) it happens **once per game**; track it with a global variable (vanilla uses the global list `unavailable_unique_decisions`). Anything that is a recurring act (a feast, a circuit, a festival) gets a cooldown instead. Only if a pack deliberately adds its own special rule that keeps undoing one decision's result (an example would be a custom succession rule that destroys a title on every death) does that one decision stay repeatable until the rule is lifted. Most packs have no such rule and should ignore this sentence: it is a per-pack exception, never a default for every realm. State the choice in the decision's tooltip.
 2. **Build for the region, not for one government.** This rule set will drive regional expansion packs, some feudal, some tribal, some clan or other. Before writing a pack, look at the region's start dates and governments, then set income/prestige scales, building access and costs to fit **that** region. Every building, unit and decision must be reachable by the governments the region actually uses (for example, tribal holdings need `tribal_holding` checked explicitly). Use **explicit numbers** for costs; scaled values like `*_gold_value` follow income and misbehave at low income.
 3. **Every negative has a way out, and the way out can beat the original loss.** A remedy decision or event must exist for every penalty; the best remedies leave the player *better* than before (a new modifier, trait, opinion, nickname) if they pay the price and do the work.
 4. **Flavor must be dynamic, not one note.** A reward touches at least three of: ruler, realm, other characters, map, culture, religion, future decisions.
@@ -77,6 +77,12 @@ Other recurring vanilla rewards: artifacts, legend seeds, hooks, memories, opini
 * Legends: guard with `has_dlc_feature = legends`; vanilla chronicles `great_deed_title` and `valiant_defense` work.
 * Tradition swap: remove the old and add the new in culture scope; copy the old tradition's `parameters`.
 * Buildings: tribal holders need `tribal_holding` in the holding check; special buildings use `barony ?= title:b_x` and show requirements in `can_construct`; duchy-capital buildings use `type = duchy_capital` and `county.holder = { has_title = prev.duchy }`; costs may use `cost_prestige` and `cost_gold`.
+* Special buildings exist only on a province whose history declares `special_building_slot = <key>`; the barony id in `can_construct_potential` must exist in the target map's `landed_titles` (verify every id against the base game: a pack's "Tara" barony turned out to be in Siberia). Have the generator write the slot file.
+* Requirement tooltips: count-style triggers (`any_vassal` with `count`), global-variable checks, coast checks and stress or variable checks have no built-in text and show "BUG: missing localization". Wrap each in `custom_description = { text = key ... }` with a plain sentence; make the validator reject a bare one.
+* Lifestyle traits with several XP tracks need `track =` in `add_trait_xp` (hunter: hunter or falconer; traveler: travel or danger).
+* Wars with spawned armies: `spawn_army` only creates the host; start the war yourself with `start_war`, feed the result back through the `on_war_won_attacker` and `on_war_won_defender` hooks, and handle the defender being the player's vassal (use the liege). Add a timeout event for a war that ends without a victor, and scale army size to the target's realm.
+* Chain plumbing: a hidden relay event picks the people and places, then fires the visible event with those scopes attached; saved scopes do not survive delays, so store people and places in variables when a later event needs them.
+* Extra checks worth having: a token check (every effect or trigger word must also appear in the base game's script), a dead-event finder, and a cost/benefit audit for buildings.
 * Run the validator before every commit and read `error.log` after the user tests.
 
 ## 8. Shipping checklist (all must be yes)
@@ -236,6 +242,9 @@ Reading the table: in vanilla only 23% of options do three or more things, and a
 **R19. Be honest in the tooltip.** The preview must show every thing the option does, including the side effects and the marks, so the player can choose with open eyes.
 **R20. Count them.** When a pack is finished, count the things per option, per event and per decision, compare with the target table above, and report the result with the pack.
 
+**R30. Invasions are chains with real armies.** A threat that matters has several waves (three is a good number), scales with the player's realm, gives the player preparation choices that change the outcome (warn the kings, build beacons, hire mercenaries who may betray you, pay for peace and meet a stronger enemy later), a traitor or a loss along the way, and an ending in both directions: a victory with a legend, a nickname, a unit and a decision unlocked, and a defeat with a remedy that can end up better than the start. Smaller invasions let the player avoid the war by hospitality, a bishop, a judge, a poet or fosterage, and report their result.
+**R31. The first ten years need a story too.** Write chieftain-level events that need no stage (hospitality, a quarrelsome neighbour, a wolf pack, a harvest, a foster-child, a festival), a short personal cooldown, and cheap early decisions whose cost is a few dozen gold and prestige, so that a ruler of one county has something to do and something to want.
+
 ## 18. Part III checklist (in addition to sections 8 and 14)
 21. Does each ordinary option do at least two different kinds of thing, and none do nothing?
 22. Is there a self thing, a world thing and (for meaningful outcomes) a mark thing?
@@ -286,12 +295,17 @@ Special buildings (median): county development growth +20%, income +2.0 per mont
 **R26. Localization.** Each building needs `building_type_<key>` and `building_type_<key>_desc` (header and description) as well as `building_<key>` for the level name. A building showing a raw key is a bug.
 **R27. Chains.** Use levels like vanilla: regular buildings four to eight levels, tribal two to four, duchy buildings three; each level adds about a fifth to a half of the first level's effect (see section 20).
 
+**R28. Special buildings need a slot and a real barony.** Declare the slot in province history and verify the barony id. Make them reachable by every government the region uses (tribal holders can build specials; vanilla only bars a few). Price: about half the vanilla gold plus prestige for a prestige culture (vanilla specials are mostly 1000 gold; a landmark 300 gold + 300 prestige, a major site 500 + 700, a wonder 1000 + 1200), with development growth, income, tax, opinion and a profile of effects (royal, holy, learning, sea, war, ancient, trade) for eight or more distinct effects.
+**R29. A good chunk of the regular buildings must be open from the start for the starting government.** Gate the rest behind named decisions, and show the gate greyed-out in the build menu with a plain sentence. Never leave a starting ruler with an empty build menu.
+
 ## 22. Part IV checklist
 26. Is the cost per unit of benefit within about 25% of the vanilla line for the tier?
 27. If it is a regional building, is the headline stat about 30% above its vanilla analogue, and is that stated?
 28. Does it do four or more different things, matching the target distribution?
 29. Is it a recognisable regional institution with one flavor effect and a real description?
 30. Does it appear for tribal and for feudal holders, and are its name and description keys present?
+31. If it is a special building, does its province have a declared slot and does its barony exist on the map?
+32. Is a good share of the regular buildings open to the starting government from day one?
 
 ---
 
@@ -305,3 +319,5 @@ Use this when applying the guide to a new area and period.
 6. **Early game:** give the smallest ruler of each start date events and decisions from the first year, not only the higher stages.
 7. **Safety:** read the validator and the game's `error.log` after every test; replace every count-style or unlabelled requirement with plain text.
 8. **Count and report:** compare the finished pack with the "things at once" and building targets and report the result.
+
+9. **Early game and threats.** Write the chieftain-level stories, the first cheap decisions, and one major threat chain with real armies (R30, R31). Run the token check, the dead-event finder and the building audit before shipping.

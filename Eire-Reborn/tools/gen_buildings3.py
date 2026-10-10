@@ -1,0 +1,270 @@
+"""Building rebuild (Update 2 / Update 4).
+
+* 24 regional families, each with a TRIBAL version (2 levels, vanilla tribal pattern: gold + prestige) and a FEUDAL
+  version (4 levels, vanilla cost curve 150/250/340/500) for castle / city / church holdings.
+* 10 duchy-capital chains of 3 levels (vanilla: +10/20/30% duchy development growth, +5/10/15 opinion, +4/8/12 grandeur, x1.3).
+* ~40 special buildings. A special building only appears on a province whose history declares `special_building_slot`,
+  so this also writes history/provinces/eir_special_slots.txt (the old specials had no slot and could never be built).
+* Loc: building_type_<first level key> (+_desc) for the family, building_<key> (+_desc) for every level.
+Output: common/buildings/eir_more_buildings.txt, eir_buildings.txt (emptied), history/provinces/eir_special_slots.txt,
+common/scripted_triggers/eir_building_triggers.txt, localization/english/eir_buildings2_l_english.yml
+"""
+import re
+from eir_lib import *
+import bld_data as B
+
+GAEL_C = "scope:holder = {\n\t\t\tculture = { has_cultural_pillar = heritage_goidelic }\n\t\t}"
+CELT_C = ("scope:holder = {\n\t\t\tculture = {\n\t\t\t\tOR = {\n\t\t\t\t\thas_cultural_pillar = heritage_goidelic\n"
+          "\t\t\t\t\thas_cultural_pillar = heritage_brythonic\n\t\t\t\t}\n\t\t\t}\n\t\t}")
+
+SERIES = dict(B.SERIES)
+SERIES["LEVYB"] = [130, 230, 230, 290]
+SERIES["GARR"] = [195, 390, 585, 780]
+
+# readable text for every unlock gate (shown greyed-out in the build menu with the reason)
+GATE_TEXT = {
+    "eir_unlock_ringfort": "Unlocked by the decision Raise the Ringforts",
+    "eir_unlock_crannog": "Unlocked by the decision Raise the Ringforts",
+    "eir_unlock_cattle_enclosure": "Unlocked by the decision Raise the Ringforts or Codify the Bó-aire",
+    "eir_unlock_round_tower": "Unlocked by the decision Raise the Round Towers",
+    "eir_unlock_high_cross": "Unlocked by the decision Raise the High Crosses",
+    "eir_unlock_scriptorium": "Unlocked by the decision Found a Great Scriptorium",
+    "eir_unlock_bardic_school": "Unlocked by the decision Charter the Schools of the Filí",
+    "eir_unlock_brehon_court": "Unlocked by the decision Compile the Brehon Laws",
+    "eir_unlock_sea_trade": "Unlocked by the decision Claim the Irish Sea",
+    "eir_unlock_fianna": "Unlocked by the decision Charter the Schools of the Filí",
+    "eir_done_tara_hall": "Requires the decision Rebuild the Hall of Tara to have been carried out",
+    "eir_done_armagh": "Requires the decision Claim the Primacy for Armagh to have been carried out",
+    "eir_done_dublin": "Requires the return of Dublin to Irish hands (the decision Celebrate the Return of Dublin)",
+    "eir_done_fili": "Requires the Filí's patronage (the decision Patronise the Filí)",
+    "eir_done_glendalough": "Requires the decision Revive Glendalough to have been carried out",
+    "eir_done_clonmacnoise": "Requires the decision Restore Clonmacnoise to have been carried out",
+    "eir_done_cashel": "Requires the decision Endow the Rock of Cashel to have been carried out",
+}
+GATE_TEXT_BASIC = {
+    "gael": "The holder must be of a Goidelic (Gaelic or Irish) culture",
+    "celt": "The holder must be of a Goidelic or Brythonic (Celtic) culture",
+}
+
+HOLDING = {"castle": "castle_holding", "city": "city_holding", "church": "church_holding"}
+
+
+def series(spec, level):
+    """value of a recipe entry at level index 0..3"""
+    return SERIES[spec][level] if isinstance(spec, str) else spec[level]
+
+
+def sections(recipe, level):
+    out = {"prov": {}, "cty": {}, "chr": {}}
+    top = {}
+    for field, spec in recipe:
+        v = series(spec, level)
+        if v == 0:
+            continue
+        sec = B.SECTION[field]
+        if sec in out:
+            out[sec][field] = v
+        else:
+            top[field] = v
+    return out, top
+
+
+def block(name, d):
+    d = {k: v for k, v in d.items() if v != 0}
+    if not d:
+        return ""
+    return "\t%s = {\n%s\t}\n" % (name, fields_block(d, "\t\t"))
+
+
+def gate_trigger(gate):
+    """can_construct body for an unlock gate (readable in the tooltip)"""
+    if gate is None:
+        return ""
+    if gate in GATE_TEXT_BASIC:
+        cond = GAEL_C if gate == "gael" else CELT_C
+        return "\tcan_construct = {\n\t\tcustom_description = {\n\t\t\ttext = eir_breq_%s\n\t\t\t%s\n\t\t}\n\t}\n\n" % (gate, cond)
+    return ("\tcan_construct = {\n\t\tcustom_description = {\n\t\t\ttext = eir_breq_%s\n\t\t\thas_global_variable = %s\n\t\t}\n\t}\n\n" % (gate, gate))
+
+
+def province_ids():
+    txt = open(GAME + r"\common\landed_titles\00_landed_titles.txt", encoding="utf-8-sig").read()
+    txt = re.sub(r"#[^\n]*", "", txt)
+    ids = {}
+    for m in re.finditer(r"\b(b_[a-z0-9_]+) = \{", txt):
+        p = re.search(r"province = (\d+)", txt[m.end():m.end() + 400])
+        if p:
+            ids.setdefault(m.group(1), int(p.group(1)))
+    return ids
+
+
+def build():
+    L = Loc("eir_buildings2_l_english.yml")
+    out = ["# Eire Reborn - buildings. Generated by tools/gen_buildings3.py\n"
+           "# Vanilla cost curve and vanilla medians x1.3; every family has a tribal (2 level) and a feudal (4 level) version.\n\n"]
+    n_regular = 0
+    first_keys = []
+    gates = set()
+
+    # ------------------------------------------------------------------ regular families
+    L.section("building requirement texts")
+    L.section("regular building families")
+    for key, name, kinds, gate, coastal, icon, fdesc, levels, recipe in B.FAMILIES:
+        for field, spec in recipe:
+            if field not in B.SECTION:
+                raise SystemExit("unknown field %s in %s" % (field, key))
+        if gate:
+            gates.add(gate)
+        coast = "\t\tis_coastal = yes\n" if coastal else ""
+        # ---- tribal version: 2 levels
+        for lvl in range(2):
+            k = "%s_t_%02d" % (key, lvl + 1)
+            sec, top = sections(recipe, lvl)
+            for s in sec.values():
+                check_keys(k, s)
+            out.append("%s = {\n\tconstruction_time = slow_construction_time\n\n" % k)
+            out.append("\tis_enabled = {\n\t\tbuilding_requirement_tribal = yes\n\t}\n\n")
+            pot = "\tcan_construct_potential = {\n\t\thas_building_or_higher = tribe_01\n\t\t%s\n%s\t}\n\n" % (GAEL_C, coast)
+            out.append(pot)
+            if lvl == 0 and gate:
+                out.append(gate_trigger(gate))
+            out.append("\tcost_gold = %d\n\tcost_prestige = %d\n\n" % ((75, 100)[lvl], (200, 350)[lvl]))
+            for f, v in top.items():
+                out.append("\t%s = %s\n" % (f, num(v)))
+            out.append(block("province_modifier", sec["prov"]) + block("county_modifier", sec["cty"]) + block("character_modifier", sec["chr"]))
+            if lvl == 0:
+                out.append("\tnext_building = %s_t_02\n" % key)
+            out.append('\n\ttype_icon = "%s"\n\n\tai_value = {\n\t\tbase = 3\n\t}\n}\n\n' % icon)
+            L.add("building_" + k, "%s (Tribal)" % levels[lvl][0] if False else levels[lvl][0])
+            L.add("building_%s_desc" % k, levels[lvl][1])
+            n_regular += 1
+        L.add("building_type_%s_t_01" % key, name)
+        L.add("building_type_%s_t_01_desc" % key, fdesc)
+        first_keys.append("%s_t_01" % key)
+        # ---- feudal version: 4 levels
+        hold = "\t\tOR = {\n" + "".join("\t\t\thas_holding_type = %s\n" % HOLDING[h] for h in kinds) + "\t\t}\n"
+        for lvl in range(4):
+            k = "%s_%02d" % (key, lvl + 1)
+            sec, top = sections(recipe, lvl)
+            for s in sec.values():
+                check_keys(k, s)
+            out.append("%s = {\n\tconstruction_time = slow_construction_time\n\n" % k)
+            out.append("\tcan_construct_potential = {\n\t\tbuilding_requirement_tribal = no\n%s\t\t%s\n%s\t}\n\n" % (hold, GAEL_C, coast))
+            if lvl == 0 and gate:
+                out.append(gate_trigger(gate))
+            out.append("\tcost_gold = %d\n\n" % (150, 250, 340, 500)[lvl])
+            for f, v in top.items():
+                out.append("\t%s = %s\n" % (f, num(v)))
+            out.append(block("province_modifier", sec["prov"]) + block("county_modifier", sec["cty"]) + block("character_modifier", sec["chr"]))
+            if lvl < 3:
+                out.append("\tnext_building = %s_%02d\n" % (key, lvl + 2))
+            out.append('\n\ttype_icon = "%s"\n\n\tai_value = {\n\t\tbase = 4\n\t}\n}\n\n' % icon)
+            L.add("building_" + k, levels[lvl][0])
+            L.add("building_%s_desc" % k, levels[lvl][1])
+            n_regular += 1
+        L.add("building_type_%s_01" % key, name)
+        L.add("building_type_%s_01_desc" % key, fdesc)
+        first_keys.append("%s_01" % key)
+
+    # ------------------------------------------------------------------ duchy capital chains
+    L.section("duchy capital buildings")
+    for key, duchy, gate, name, fdesc, lnames, extra in B.DUCHY:
+        cgate = GAEL_C if gate == "gael" else CELT_C
+        where = ("\t\tcounty = { duchy = title:%s }\n" % duchy) if duchy else ""
+        for lvl in range(3):
+            k = "%s_%02d" % (key, lvl + 1)
+            county = {"development_growth_factor": B.DUCHY_BASE["dev"][lvl], "county_opinion_add": B.DUCHY_BASE["opn"][lvl]}
+            char = {"court_grandeur_baseline_add": B.DUCHY_BASE["grand"][lvl]}
+            for f, vals in extra:
+                sec = B.SECTION[f]
+                (county if sec == "cty" else char)[f] = vals[lvl]
+                if sec in ("prov",):
+                    raise SystemExit("duchy extra %s must be county or character scope" % f)
+            check_keys(k, county)
+            check_keys(k, char)
+            out.append("%s = {\n\tconstruction_time = slow_construction_time\n\n" % k)
+            out.append("\tcan_construct_potential = {\n\t\t%s\n%s\t}\n\n" % (cgate, where))
+            out.append("\tis_enabled = {\n\t\tcounty.holder = { has_title = prev.duchy }\n\t}\n\tshow_disabled = yes\n\n")
+            out.append("\tcost_gold = %d\n\tcost_prestige = %d\n\n" % ((250, 370, 550)[lvl], (250, 400, 600)[lvl]))
+            out.append(block("duchy_capital_county_modifier", county) + block("character_modifier", char))
+            if lvl < 2:
+                out.append("\n\tnext_building = %s_%02d\n" % (key, lvl + 2))
+            out.append('\n\ttype_icon = "icon_building_hall_of_heroes.dds"\n\n\ttype = duchy_capital\n\n\tai_value = {\n\t\tbase = 6\n\t}\n}\n\n')
+            L.add("building_" + k, lnames[lvl])
+            L.add("building_%s_desc" % k, fdesc)
+        L.add("building_type_%s_01" % key, name)
+        L.add("building_type_%s_01_desc" % key, fdesc)
+
+    # ------------------------------------------------------------------ special buildings
+    L.section("special buildings")
+    ids = province_ids()
+    slots = []
+    poi = {"holy": "travel_point_of_interest_religious", "war": "travel_point_of_interest_martial", "sea": "travel_point_of_interest_economic",
+           "royal": "travel_point_of_interest_wonder", "ancient": "travel_point_of_interest_natural_feature", "learn": "travel_point_of_interest_learning",
+           "trade": "travel_point_of_interest_economic"}
+    for key, bar, gate, tier, prof, icon, name, desc in B.SPECIAL:
+        if bar not in ids:
+            raise SystemExit("barony %s for %s does not exist in vanilla landed_titles" % (bar, key))
+        k = key + "_01"
+        t = tier - 1
+        g, p = B.SPECIAL_COST[tier]
+        dev, inc, tax, opn = B.SPECIAL_BASE[tier]
+        prov = {"monthly_income": inc}
+        cty = {"development_growth_factor": dev, "development_growth": (0.1, 0.15, 0.2)[t], "tax_mult": tax, "county_opinion_add": opn}
+        chr_ = {}
+        for f, vals in B.SPECIAL_PROFILE[prof]:
+            sec = B.SECTION[f]
+            {"prov": prov, "cty": cty, "chr": chr_}[sec][f] = vals[t]
+        if prof in ("royal", "holy"):
+            chr_["monthly_dynasty_prestige_mult"] = (0.05, 0.08, 0.1)[t]
+        for d in (prov, cty, chr_):
+            check_keys(k, d)
+        if gate:
+            gates.add(gate)
+        out.append("%s = {\n\tconstruction_time = very_slow_construction_time\n\n" % k)
+        out.append("\tcan_construct_potential = {\n\t\tbarony ?= title:%s\n\t}\n\n" % bar)
+        out.append(gate_trigger(gate))
+        out.append("\tcost_gold = %d\n\tcost_prestige = %d\n\n" % (g, p))
+        out.append(block("province_modifier", prov) + block("county_modifier", cty) + block("character_modifier", chr_))
+        flags = "\tflag = %s\n" % poi[prof]
+        if prof == "holy":
+            flags += "\tflag = holy_building\n"
+        out.append('\n\ttype_icon = "%s"\n\n\ttype = special\n%s\n\tai_value = {\n\t\tbase = 100\n\t\tmodifier = {\n\t\t\tfactor = 0\n\t\t\tfree_building_slots > 0\n\t\t}\n\t}\n}\n\n' % (icon, flags))
+        L.add("building_type_" + k, name)
+        L.add("building_type_%s_desc" % k, desc)
+        L.add("building_" + k, "$building_type_%s$" % k)
+        L.add("building_%s_desc" % k, "$building_type_%s_desc$" % k)
+        slots.append((ids[bar], k, bar))
+
+    # requirement texts (added here so they sit in the same file)
+    for g in sorted(gates):
+        text = GATE_TEXT_BASIC.get(g) or GATE_TEXT.get(g)
+        if not text:
+            raise SystemExit("no requirement text for gate " + g)
+        L.add("eir_breq_" + g, text)
+
+    write("common/buildings/eir_more_buildings.txt", "".join(out))
+    write("common/buildings/eir_buildings.txt", "# Eire Reborn - superseded by eir_more_buildings.txt (gen_buildings3.py)\n")
+
+    # province history: declare the special building slots
+    hist = ["# Eire Reborn - special building slots. Generated by tools/gen_buildings3.py\n# A special building can only be built on a province whose history declares its slot.\n\n"]
+    for pid, k, bar in slots:
+        hist.append("%d = {\t# %s\n\tspecial_building_slot = %s\n}\n" % (pid, bar, k))
+    write("history/provinces/eir_special_slots.txt", "".join(hist))
+
+    # scripted trigger: the realm contains at least COUNT counties with one of the regular Irish buildings
+    cond = "".join("\t\t\t\thas_building_or_higher = %s\n" % k for k in first_keys)
+    trig = ("# Generated by tools/gen_buildings3.py\n"
+            "# At least $COUNT$ counties of the realm hold one of the regional (Eire) buildings.\n"
+            "eir_irish_buildings_trigger = {\n\tcustom_description = {\n\t\ttext = eir_req_buildings_$COUNT$\n"
+            "\t\tany_sub_realm_county = {\n\t\t\tcount >= $COUNT$\n\t\t\tany_county_province = {\n\t\t\t\tOR = {\n%s\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n"
+            % "".join("\t\t\t\t\thas_building_or_higher = %s\n" % k for k in first_keys))
+    write("common/scripted_triggers/eir_building_triggers.txt", trig)
+    for n in range(1, 13):
+        L.add("eir_req_buildings_%d" % n, "At least %d of your counties have built one of the regional (Gaelic) buildings" % n if n > 1
+              else "At least 1 of your counties has built one of the regional (Gaelic) buildings")
+    L.write()
+    print("buildings3: %d regular entries (%d families), %d duchy-capital entries, %d special" % (n_regular, len(B.FAMILIES), 3 * len(B.DUCHY), len(B.SPECIAL)))
+
+
+if __name__ == "__main__":
+    build()

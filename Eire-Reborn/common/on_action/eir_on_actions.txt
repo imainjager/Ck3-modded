@@ -45,7 +45,7 @@ eir_yearly_global = {
 
 # Flavour pulse: one chance per year for each playable Irish ruler to see something happen.
 random_yearly_playable_pulse = {
-	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse eir_flavor_pulse_v7 eir_recelt_pulse }
+	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse eir_flavor_pulse_v7 eir_recelt_pulse eir_blackhost_pulse eir_blackhost_forced_pulse eir_early_pulse eir_invasion_pulse_v8 eir_norse_pulse_v8 eir_gael_pulse_v8 eir_britain_pulse_v8 }
 }
 
 eir_flavor_pulse = {
@@ -168,7 +168,7 @@ eir_resistance_pulse = {
 
 # Invasions: report the result to the defender.
 on_war_won_attacker = {
-	on_actions = { eir_war_won_attacker }
+	on_actions = { eir_war_won_attacker eir_war_won_attacker_v8 }
 }
 
 eir_war_won_attacker = {
@@ -205,7 +205,7 @@ eir_war_won_attacker = {
 }
 
 on_war_won_defender = {
-	on_actions = { eir_war_won_defender }
+	on_actions = { eir_war_won_defender eir_war_won_defender_v8 }
 }
 
 eir_war_won_defender = {
