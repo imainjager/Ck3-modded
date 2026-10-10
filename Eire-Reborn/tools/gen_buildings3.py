@@ -109,6 +109,7 @@ def build():
     L.section("building requirement texts")
     L.section("regular building families")
     for key, name, kinds, gate, coastal, icon, fdesc, levels, recipe in B.FAMILIES:
+        recipe = list(recipe) + B.REG_EXTRA.get(key, [])
         for field, spec in recipe:
             if field not in B.SECTION:
                 raise SystemExit("unknown field %s in %s" % (field, key))
@@ -214,6 +215,14 @@ def build():
         for f, vals in B.SPECIAL_PROFILE[prof]:
             sec = B.SECTION[f]
             {"prov": prov, "cty": cty, "chr": chr_}[sec][f] = vals[t]
+        top = {}
+        for f in B.SPECIAL_MIL.get(key, []):
+            v = B.MIL_VALUES[f][t]
+            sec = B.SECTION[f]
+            if sec in ("levy", "garr"):
+                top[f] = v
+            else:
+                {"prov": prov, "cty": cty, "chr": chr_}[sec].setdefault(f, v)
         if prof in ("royal", "holy"):
             chr_["monthly_dynasty_prestige_mult"] = (0.05, 0.08, 0.1)[t]
         for d in (prov, cty, chr_):
@@ -224,6 +233,8 @@ def build():
         out.append("\tcan_construct_potential = {\n\t\tbarony ?= title:%s\n\t}\n\n" % bar)
         out.append(gate_trigger(gate))
         out.append("\tcost_gold = %d\n\tcost_prestige = %d\n\n" % (g, p))
+        for f_, v_ in top.items():
+            out.append("\t%s = %s\n" % (f_, num(v_)))
         out.append(block("province_modifier", prov) + block("county_modifier", cty) + block("character_modifier", chr_))
         flags = "\tflag = %s\n" % poi[prof]
         if prof == "holy":

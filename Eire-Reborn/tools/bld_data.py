@@ -383,3 +383,60 @@ SPECIAL_PROFILE = {
     "ancient": [("monthly_prestige", [0.2, 0.35, 0.5]), ("owned_legend_spread_mult", [0.08, 0.12, 0.2]), ("monthly_piety", [0.15, 0.25, 0.4]), ("health", [0.05, 0.1, 0.15])],
     "trade": [("stewardship", [1, 2, 3]), ("diplomacy", [1, 1, 2]), ("monthly_prestige", [0.1, 0.2, 0.3]), ("travel_danger", [-5, -10, -15])],
 }
+
+# ---------------------------------------------------------------------------------------------------------------
+# Military additions (flavor guide R23/R28). Vanilla: 52% of special buildings and about half of regular buildings carry
+# military fields (stationed men-at-arms bonuses 49% of regular, travel danger 25%, fort level 20%, defender advantage 19%,
+# hostile raid time 11%, levy 8-35%). Values are the vanilla medians x ~1.3.
+SERIES["MAAT"] = [0.05, 0.08, 0.11, 0.14]     # stationed_maa_toughness_mult
+SECTION["garrison_size"] = "prov"
+SECTION["army_maintenance_mult"] = "chr"
+SECTION["stationed_maa_toughness_mult"] = "prov"
+
+REG_EXTRA = {   # family key -> extra recipe entries
+    "eir_ringfort": [("stationed_maa_toughness_mult", "MAAT")],
+    "eir_crannog": [("stationed_maa_toughness_mult", "MAAT")],
+    "eir_round_tower": [("stationed_maa_toughness_mult", "MAAT")],
+    "eir_cattle_enclosure": [("stationed_maa_toughness_mult", "MAAT")],
+    "eir_bardic_school": [("stationed_maa_damage_mult", "MAAUP")],
+    "eir_fosterage_hall": [("stationed_maa_damage_mult", "MAAUP")],
+    "eir_brehon_court": [("men_at_arms_maintenance", "MAINT")],
+    "eir_ogham_stones": [("hostile_raid_time", "RAID")],
+    "eir_aonach": [("levy_reinforcement_rate", "REINF")],
+}
+
+# tier 1 / 2 / 3 values
+MIL_VALUES = {
+    "fort_level": [1, 2, 3],
+    "defender_holding_advantage": [4, 6, 8],
+    "hostile_raid_time": [0.4, 0.65, 1.0],
+    "levy_size": [0.13, 0.2, 0.3],
+    "garrison_size": [0.15, 0.33, 0.5],
+    "max_garrison": [325, 650, 1000],
+    "levy": [325, 650, 1000],
+    "knight_effectiveness_mult": [0.1, 0.2, 0.25],
+    "knight_limit": [1, 2, 2],
+    "travel_danger": [-10, -20, -30],
+    "men_at_arms_maintenance": [-0.05, -0.1, -0.13],
+    "army_maintenance_mult": [-0.05, -0.065, -0.08],
+    "stationed_maa_damage_mult": [0.1, 0.15, 0.2],
+    "stationed_maa_toughness_mult": [0.1, 0.15, 0.2],
+}
+SPECIAL_MIL = {   # special building key -> military fields (the war and sea profiles already carry their own)
+    "eir_hall_of_tara": ["levy", "max_garrison", "army_maintenance_mult"],
+    "eir_rathcroghan": ["levy_size", "knight_limit", "stationed_maa_damage_mult"],
+    "eir_ferns_seat": ["fort_level", "levy", "defender_holding_advantage"],
+    "eir_emain_macha": ["knight_effectiveness_mult", "stationed_maa_damage_mult", "levy_size"],
+    "eir_dun_ailinne": ["levy_size", "defender_holding_advantage", "garrison_size"],
+    "eir_dunadd": ["fort_level", "hostile_raid_time", "max_garrison"],
+    "eir_tintagel": ["fort_level", "defender_holding_advantage", "garrison_size"],
+    "eir_uisneach_fires": ["hostile_raid_time", "levy_size", "travel_danger"],
+    "eir_burren_court": ["defender_holding_advantage", "hostile_raid_time", "stationed_maa_toughness_mult"],
+    "eir_caerleon": ["fort_level", "levy", "stationed_maa_toughness_mult"],
+    "eir_skellig_michael": ["hostile_raid_time", "defender_holding_advantage"],
+    "eir_iona_abbey": ["hostile_raid_time", "travel_danger", "max_garrison"],
+    "eir_armagh_cathedral": ["max_garrison", "defender_holding_advantage", "hostile_raid_time"],
+}
+for _f in SPECIAL_MIL.values():
+    for _x in _f:
+        assert _x in MIL_VALUES, _x

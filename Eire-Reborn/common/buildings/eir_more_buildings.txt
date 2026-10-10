@@ -235,6 +235,7 @@ eir_ringfort_t_01 = {
 	province_modifier = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -271,6 +272,7 @@ eir_ringfort_t_02 = {
 	province_modifier = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -311,6 +313,7 @@ eir_ringfort_01 = {
 	province_modifier = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -345,6 +348,7 @@ eir_ringfort_02 = {
 	province_modifier = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -379,6 +383,7 @@ eir_ringfort_03 = {
 	province_modifier = {
 		defender_holding_advantage = 8
 		monthly_income = 1
+		stationed_maa_toughness_mult = 0.11
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.39
@@ -413,6 +418,7 @@ eir_ringfort_04 = {
 	province_modifier = {
 		defender_holding_advantage = 10
 		monthly_income = 1.25
+		stationed_maa_toughness_mult = 0.14
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.52
@@ -457,6 +463,7 @@ eir_crannog_t_01 = {
 		supply_limit = 290
 		fort_level = 1
 		travel_danger = -1
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -493,6 +500,7 @@ eir_crannog_t_02 = {
 		supply_limit = 520
 		fort_level = 2
 		travel_danger = -3
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -533,6 +541,7 @@ eir_crannog_01 = {
 		supply_limit = 290
 		fort_level = 1
 		travel_danger = -1
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -567,6 +576,7 @@ eir_crannog_02 = {
 		supply_limit = 520
 		fort_level = 2
 		travel_danger = -3
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -601,6 +611,7 @@ eir_crannog_03 = {
 		supply_limit = 650
 		fort_level = 3
 		travel_danger = -4
+		stationed_maa_toughness_mult = 0.11
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.39
@@ -635,6 +646,7 @@ eir_crannog_04 = {
 		supply_limit = 780
 		fort_level = 4
 		travel_danger = -5
+		stationed_maa_toughness_mult = 0.14
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.52
@@ -675,6 +687,7 @@ eir_round_tower_t_01 = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
 		epidemic_resistance = 10
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		hostile_raid_time = 0.13
@@ -713,6 +726,7 @@ eir_round_tower_t_02 = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
 		epidemic_resistance = 13
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		hostile_raid_time = 0.26
@@ -755,6 +769,7 @@ eir_round_tower_01 = {
 		defender_holding_advantage = 3
 		monthly_income = 0.45
 		epidemic_resistance = 10
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		hostile_raid_time = 0.13
@@ -791,6 +806,7 @@ eir_round_tower_02 = {
 		defender_holding_advantage = 5
 		monthly_income = 0.7
 		epidemic_resistance = 13
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		hostile_raid_time = 0.26
@@ -827,6 +843,7 @@ eir_round_tower_03 = {
 		defender_holding_advantage = 8
 		monthly_income = 1
 		epidemic_resistance = 16
+		stationed_maa_toughness_mult = 0.11
 	}
 	county_modifier = {
 		hostile_raid_time = 0.39
@@ -863,6 +880,7 @@ eir_round_tower_04 = {
 		defender_holding_advantage = 10
 		monthly_income = 1.25
 		epidemic_resistance = 20
+		stationed_maa_toughness_mult = 0.14
 	}
 	county_modifier = {
 		hostile_raid_time = 0.52
@@ -2239,6 +2257,7 @@ eir_bardic_school_t_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
+		stationed_maa_damage_mult = 0.05
 	}
 	county_modifier = {
 		development_growth_factor = 0.06
@@ -2276,6 +2295,7 @@ eir_bardic_school_t_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
+		stationed_maa_damage_mult = 0.08
 	}
 	county_modifier = {
 		development_growth_factor = 0.12
@@ -2318,6 +2338,7 @@ eir_bardic_school_01 = {
 
 	province_modifier = {
 		monthly_income = 0.45
+		stationed_maa_damage_mult = 0.05
 	}
 	county_modifier = {
 		development_growth_factor = 0.06
@@ -2353,6 +2374,7 @@ eir_bardic_school_02 = {
 
 	province_modifier = {
 		monthly_income = 0.7
+		stationed_maa_damage_mult = 0.08
 	}
 	county_modifier = {
 		development_growth_factor = 0.12
@@ -2389,6 +2411,7 @@ eir_bardic_school_03 = {
 
 	province_modifier = {
 		monthly_income = 1
+		stationed_maa_damage_mult = 0.11
 	}
 	county_modifier = {
 		development_growth_factor = 0.16
@@ -2425,6 +2448,7 @@ eir_bardic_school_04 = {
 
 	province_modifier = {
 		monthly_income = 1.25
+		stationed_maa_damage_mult = 0.14
 	}
 	county_modifier = {
 		development_growth_factor = 0.2
@@ -2478,6 +2502,7 @@ eir_brehon_court_t_01 = {
 	character_modifier = {
 		legitimacy_gain_mult = 0.02
 		vassal_opinion = 1
+		men_at_arms_maintenance = -0.01
 	}
 	next_building = eir_brehon_court_t_02
 
@@ -2516,6 +2541,7 @@ eir_brehon_court_t_02 = {
 	character_modifier = {
 		legitimacy_gain_mult = 0.03
 		vassal_opinion = 2
+		men_at_arms_maintenance = -0.02
 	}
 
 	type_icon = "icon_building_tax_assessor.dds"
@@ -2558,6 +2584,7 @@ eir_brehon_court_01 = {
 	character_modifier = {
 		legitimacy_gain_mult = 0.02
 		vassal_opinion = 1
+		men_at_arms_maintenance = -0.01
 	}
 	next_building = eir_brehon_court_02
 
@@ -2594,6 +2621,7 @@ eir_brehon_court_02 = {
 	character_modifier = {
 		legitimacy_gain_mult = 0.03
 		vassal_opinion = 2
+		men_at_arms_maintenance = -0.02
 	}
 	next_building = eir_brehon_court_03
 
@@ -2630,6 +2658,7 @@ eir_brehon_court_03 = {
 	character_modifier = {
 		legitimacy_gain_mult = 0.04
 		vassal_opinion = 3
+		men_at_arms_maintenance = -0.03
 	}
 	next_building = eir_brehon_court_04
 
@@ -2666,6 +2695,7 @@ eir_brehon_court_04 = {
 	character_modifier = {
 		legitimacy_gain_mult = 0.05
 		vassal_opinion = 4
+		men_at_arms_maintenance = -0.04
 	}
 
 	type_icon = "icon_building_tax_assessor.dds"
@@ -2695,6 +2725,7 @@ eir_aonach_t_01 = {
 	province_modifier = {
 		monthly_income = 0.45
 		travel_danger = -1
+		levy_reinforcement_rate = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -2733,6 +2764,7 @@ eir_aonach_t_02 = {
 	province_modifier = {
 		monthly_income = 0.7
 		travel_danger = -3
+		levy_reinforcement_rate = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -2769,6 +2801,7 @@ eir_aonach_01 = {
 	province_modifier = {
 		monthly_income = 0.45
 		travel_danger = -1
+		levy_reinforcement_rate = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -2806,6 +2839,7 @@ eir_aonach_02 = {
 	province_modifier = {
 		monthly_income = 0.7
 		travel_danger = -3
+		levy_reinforcement_rate = 0.13
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -2843,6 +2877,7 @@ eir_aonach_03 = {
 	province_modifier = {
 		monthly_income = 1
 		travel_danger = -4
+		levy_reinforcement_rate = 0.2
 	}
 	county_modifier = {
 		tax_mult = 0.07
@@ -2880,6 +2915,7 @@ eir_aonach_04 = {
 	province_modifier = {
 		monthly_income = 1.25
 		travel_danger = -5
+		levy_reinforcement_rate = 0.26
 	}
 	county_modifier = {
 		tax_mult = 0.08
@@ -3796,6 +3832,7 @@ eir_cattle_enclosure_t_01 = {
 	province_modifier = {
 		monthly_income = 0.45
 		defender_holding_advantage = 3
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -3834,6 +3871,7 @@ eir_cattle_enclosure_t_02 = {
 	province_modifier = {
 		monthly_income = 0.7
 		defender_holding_advantage = 5
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -3876,6 +3914,7 @@ eir_cattle_enclosure_01 = {
 	province_modifier = {
 		monthly_income = 0.45
 		defender_holding_advantage = 3
+		stationed_maa_toughness_mult = 0.05
 	}
 	county_modifier = {
 		tax_mult = 0.05
@@ -3912,6 +3951,7 @@ eir_cattle_enclosure_02 = {
 	province_modifier = {
 		monthly_income = 0.7
 		defender_holding_advantage = 5
+		stationed_maa_toughness_mult = 0.08
 	}
 	county_modifier = {
 		tax_mult = 0.06
@@ -3948,6 +3988,7 @@ eir_cattle_enclosure_03 = {
 	province_modifier = {
 		monthly_income = 1
 		defender_holding_advantage = 8
+		stationed_maa_toughness_mult = 0.11
 	}
 	county_modifier = {
 		tax_mult = 0.07
@@ -3984,6 +4025,7 @@ eir_cattle_enclosure_04 = {
 	province_modifier = {
 		monthly_income = 1.25
 		defender_holding_advantage = 10
+		stationed_maa_toughness_mult = 0.14
 	}
 	county_modifier = {
 		tax_mult = 0.08
@@ -4021,6 +4063,7 @@ eir_fosterage_hall_t_01 = {
 	levy = 130
 	province_modifier = {
 		monthly_income = 0.45
+		stationed_maa_damage_mult = 0.05
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -4059,6 +4102,7 @@ eir_fosterage_hall_t_02 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 0.7
+		stationed_maa_damage_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -4095,6 +4139,7 @@ eir_fosterage_hall_01 = {
 	levy = 130
 	province_modifier = {
 		monthly_income = 0.45
+		stationed_maa_damage_mult = 0.05
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.13
@@ -4132,6 +4177,7 @@ eir_fosterage_hall_02 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 0.7
+		stationed_maa_damage_mult = 0.08
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.26
@@ -4169,6 +4215,7 @@ eir_fosterage_hall_03 = {
 	levy = 230
 	province_modifier = {
 		monthly_income = 1
+		stationed_maa_damage_mult = 0.11
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.39
@@ -4206,6 +4253,7 @@ eir_fosterage_hall_04 = {
 	levy = 290
 	province_modifier = {
 		monthly_income = 1.25
+		stationed_maa_damage_mult = 0.14
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.52
@@ -4247,6 +4295,7 @@ eir_ogham_stones_t_01 = {
 		county_opinion_add = 4
 		monthly_county_control_growth_add = 0.13
 		development_growth_factor = 0.06
+		hostile_raid_time = 0.13
 	}
 	character_modifier = {
 		owned_legend_spread_mult = 0.03
@@ -4285,6 +4334,7 @@ eir_ogham_stones_t_02 = {
 		county_opinion_add = 8
 		monthly_county_control_growth_add = 0.26
 		development_growth_factor = 0.12
+		hostile_raid_time = 0.26
 	}
 	character_modifier = {
 		owned_legend_spread_mult = 0.05
@@ -4321,6 +4371,7 @@ eir_ogham_stones_01 = {
 		county_opinion_add = 4
 		monthly_county_control_growth_add = 0.13
 		development_growth_factor = 0.06
+		hostile_raid_time = 0.13
 	}
 	character_modifier = {
 		owned_legend_spread_mult = 0.03
@@ -4358,6 +4409,7 @@ eir_ogham_stones_02 = {
 		county_opinion_add = 8
 		monthly_county_control_growth_add = 0.26
 		development_growth_factor = 0.12
+		hostile_raid_time = 0.26
 	}
 	character_modifier = {
 		owned_legend_spread_mult = 0.05
@@ -4395,6 +4447,7 @@ eir_ogham_stones_03 = {
 		county_opinion_add = 12
 		monthly_county_control_growth_add = 0.39
 		development_growth_factor = 0.16
+		hostile_raid_time = 0.39
 	}
 	character_modifier = {
 		owned_legend_spread_mult = 0.08
@@ -4432,6 +4485,7 @@ eir_ogham_stones_04 = {
 		county_opinion_add = 16
 		monthly_county_control_growth_add = 0.52
 		development_growth_factor = 0.2
+		hostile_raid_time = 0.52
 	}
 	character_modifier = {
 		owned_legend_spread_mult = 0.1
@@ -6573,6 +6627,8 @@ eir_hall_of_tara_01 = {
 	cost_gold = 1000
 	cost_prestige = 1200
 
+	levy = 1000
+	max_garrison = 1000
 	province_modifier = {
 		monthly_income = 3.2
 	}
@@ -6587,6 +6643,7 @@ eir_hall_of_tara_01 = {
 		legitimacy_gain_mult = 0.15
 		vassal_opinion = 6
 		court_grandeur_baseline_add = 6
+		army_maintenance_mult = -0.08
 		monthly_dynasty_prestige_mult = 0.1
 	}
 
@@ -6621,15 +6678,18 @@ eir_armagh_cathedral_01 = {
 	cost_gold = 1000
 	cost_prestige = 1200
 
+	max_garrison = 1000
 	province_modifier = {
 		monthly_income = 3.2
 		epidemic_resistance = 20
+		defender_holding_advantage = 8
 	}
 	county_modifier = {
 		development_growth_factor = 0.3
 		development_growth = 0.2
 		tax_mult = 0.3
 		county_opinion_add = 12
+		hostile_raid_time = 1
 	}
 	character_modifier = {
 		monthly_piety = 0.8
@@ -6674,18 +6734,21 @@ eir_rathcroghan_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
+		stationed_maa_damage_mult = 0.15
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
 		development_growth = 0.15
 		tax_mult = 0.26
 		county_opinion_add = 10
+		levy_size = 0.2
 	}
 	character_modifier = {
 		monthly_prestige = 0.5
 		legitimacy_gain_mult = 0.1
 		vassal_opinion = 4
 		court_grandeur_baseline_add = 4
+		knight_limit = 2
 		monthly_dynasty_prestige_mult = 0.08
 	}
 
@@ -6757,12 +6820,15 @@ eir_uisneach_fires_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
+		travel_danger = -20
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
 		development_growth = 0.15
 		tax_mult = 0.26
 		county_opinion_add = 10
+		hostile_raid_time = 0.65
+		levy_size = 0.2
 	}
 	character_modifier = {
 		monthly_prestige = 0.35
@@ -7340,8 +7406,11 @@ eir_ferns_seat_01 = {
 	cost_gold = 300
 	cost_prestige = 300
 
+	levy = 325
 	province_modifier = {
 		monthly_income = 1.3
+		fort_level = 1
+		defender_holding_advantage = 4
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -7463,18 +7532,21 @@ eir_emain_macha_01 = {
 
 	province_modifier = {
 		monthly_income = 2.6
+		stationed_maa_damage_mult = 0.15
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
 		development_growth = 0.15
 		tax_mult = 0.26
 		county_opinion_add = 10
+		levy_size = 0.2
 	}
 	character_modifier = {
 		monthly_prestige = 0.5
 		legitimacy_gain_mult = 0.1
 		vassal_opinion = 4
 		court_grandeur_baseline_add = 4
+		knight_effectiveness_mult = 0.2
 		monthly_dynasty_prestige_mult = 0.08
 	}
 
@@ -7647,12 +7719,14 @@ eir_skellig_michael_01 = {
 	province_modifier = {
 		monthly_income = 1.3
 		epidemic_resistance = 10
+		defender_holding_advantage = 4
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
 		development_growth = 0.1
 		tax_mult = 0.13
 		county_opinion_add = 6
+		hostile_raid_time = 0.4
 	}
 	character_modifier = {
 		monthly_piety = 0.3
@@ -7770,12 +7844,15 @@ eir_dun_ailinne_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		defender_holding_advantage = 4
+		garrison_size = 0.15
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
 		development_growth = 0.1
 		tax_mult = 0.13
 		county_opinion_add = 6
+		levy_size = 0.13
 	}
 	character_modifier = {
 		monthly_prestige = 0.3
@@ -7944,12 +8021,15 @@ eir_burren_court_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		defender_holding_advantage = 4
+		stationed_maa_toughness_mult = 0.1
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
 		development_growth = 0.1
 		tax_mult = 0.13
 		county_opinion_add = 6
+		hostile_raid_time = 0.4
 	}
 	character_modifier = {
 		monthly_prestige = 0.2
@@ -7996,14 +8076,17 @@ eir_dunadd_01 = {
 	cost_gold = 500
 	cost_prestige = 700
 
+	max_garrison = 650
 	province_modifier = {
 		monthly_income = 2.6
+		fort_level = 2
 	}
 	county_modifier = {
 		development_growth_factor = 0.26
 		development_growth = 0.15
 		tax_mult = 0.26
 		county_opinion_add = 10
+		hostile_raid_time = 0.65
 	}
 	character_modifier = {
 		monthly_prestige = 0.5
@@ -8051,15 +8134,18 @@ eir_iona_abbey_01 = {
 	cost_gold = 1000
 	cost_prestige = 1200
 
+	max_garrison = 1000
 	province_modifier = {
 		monthly_income = 3.2
 		epidemic_resistance = 20
+		travel_danger = -30
 	}
 	county_modifier = {
 		development_growth_factor = 0.3
 		development_growth = 0.2
 		tax_mult = 0.3
 		county_opinion_add = 12
+		hostile_raid_time = 1
 	}
 	character_modifier = {
 		monthly_piety = 0.8
@@ -8275,6 +8361,9 @@ eir_tintagel_01 = {
 
 	province_modifier = {
 		monthly_income = 1.3
+		fort_level = 1
+		defender_holding_advantage = 4
+		garrison_size = 0.15
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
@@ -8328,8 +8417,11 @@ eir_caerleon_01 = {
 	cost_gold = 300
 	cost_prestige = 300
 
+	levy = 325
 	province_modifier = {
 		monthly_income = 1.3
+		fort_level = 1
+		stationed_maa_toughness_mult = 0.1
 	}
 	county_modifier = {
 		development_growth_factor = 0.13
