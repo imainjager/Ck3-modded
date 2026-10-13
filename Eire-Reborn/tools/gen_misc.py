@@ -51,9 +51,9 @@ def build():
         ("nick_eir_norse_bane", "Norse-Bane", "Refused the Danegeld and sent the longships home.", False),
     ]
     import v8_world
-    import v9_world  # noqa: F401
-    nicks += [(k, n, d, False) for k, n, d in v8_world.NICKS]
-    for k, t in v8_world.LOC:
+    import v9_world
+    nicks += [(k, n, d, False) for k, n, d in v8_world.NICKS + v9_world.NICKS]
+    for k, t in v8_world.LOC + v9_world.LOC:
         L.add(k, t)
     body = "# Eire Reborn - nicknames\n\n" +"".join("%s = %s\n" % (k, "{ is_bad = yes }" if bad else "{}") for k, _, _, bad in nicks)
     write("common/nicknames/eir_nicknames.txt", body)

@@ -1,6 +1,6 @@
 # Eire Reborn v0.8 (Update 2): the Black Host, the Union and the chieftain's first years
 
-Every piece follows docs/FLAVOR_GUIDE.md. Counts: 36 decisions, 138 visible events (+8 hidden relays and timers), 24 building families (each with a tribal and a feudal version), 10 duchy chains, 41 special buildings, 3 traditions, 2 men-at-arms, 1 kingdom, 4 nicknames, 6 artifacts.
+Every piece follows docs/FLAVOR_GUIDE.md. Counts: 37 decisions, 138 visible events (+8 hidden relays and timers), 24 building families (each with a tribal and a feudal version), 10 duchy chains, 41 special buildings, 3 traditions, 2 men-at-arms, 1 kingdom, 4 nicknames, 6 artifacts.
 
 ## The Black Host (a three-wave Norse invasion with real armies)
 Between 868 and 880 the first Gaelic player with a coastline gets **Smoke on the Horizon** (a 12% chance a year, certain from 880). You prepare (warn the kings, raise beacons, consult the seers, hire mercenaries who may betray you, pay Danegeld, or ignore it) and the fleet lands: **wave one**, then a **Council of the Kings**, **wave two** (a larger fleet, with a traitor at your table and a monastery in flames), and a **third, bigger wave** only if you have not already won two. The army sizes scale with your realm: 2,200 levies and about 10 regiments for a chieftain, up to 6,500 levies and 20+ regiments for a king. Win two waves and you are the **Breaker of the Black Host** (massive prestige, a legend, a sword, a fifteen-year Norse-Bane coast, and the Norse-Bane Axemen); lose and the Norse keep your coast, but the Break the Norse Yoke decision turns the shame into a boast.
@@ -8,7 +8,7 @@ Between 868 and 880 the first Gaelic player with a coastline gets **Smoke on the
 ## Lesser invasions (real armies)
 Britons, Albannach Gaels, Irish rival kings and Hebridean reavers land from time to time (events 0410-0413). Each can be met with spears, bought off, argued out of it by hospitality, a bishop, a brehon, a poet or fosterage, and each reports its result.
 
-## Decisions (36)
+## Decisions (37)
 | Decision | Cost | What it does |
 |---|---|---|
 | **Swear the Clan Oath** | gold = 30, prestige = 100 | Needs three counties. A Clan Oath modifier for 12 years, vassal opinion and prestige, a hostage option for the doubtful. Every ten years the oath can be renewed. |
@@ -47,6 +47,7 @@ Britons, Albannach Gaels, Irish rival kings and Hebridean reavers land from time
 | **Establish the Royal Stud** | gold = 200, prestige = 150 | Needs a duchy. A Royal Stud modifier for 15 years (cavalry strength and prestige), the foals of the stud for your vassals, and trade in horses with England. Once per game. |
 | **Codify the Law of Kinship** (major) | gold = 250, prestige = 700, piety = 100 | Replaces Strong Kinship with the Law of Kinship (keeps every parameter, adds more). Needs a duchy and the Strong Kinship tradition. House opinion and dynasty prestige, a new war-law clause, and a ceremony. Once per game. |
 | **Codify the Law of the Sword and the Clan** (major) | gold = 250, prestige = 700, piety = 100 | Replaces Highland Warriors with the Law of the Sword and the Clan (keeps every parameter, adds more). Needs a duchy and the Highland Warriors tradition. Knight strength, war-law clauses, a cheaper army and a ceremony. Once per game. |
+| **Rebuild the Ravaged Counties** | gold = 300, prestige = 200, piety = 50 | Shown when a county of your realm is ravaged. Removes the Ravaged modifier from every county, gives each a Rebuilt Stronger modifier for 15 years (development growth, opinion, tax, control) and restores a level of development. If you swore to rebuild in the aftermath event, it also pays prestige and piety. The remedy for the Conquerors: it leaves you better off than before. Every five years. |
 
 ## Events (138)
 | # | Event | Summary |

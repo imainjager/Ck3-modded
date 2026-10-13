@@ -1,9 +1,11 @@
 """Update 3 content pack: modifiers, nickname and names for the five Conquerors. Imported at the end of v8_world.py."""
 from extra_world import C, K, CHAR, COUNTY, ARTIFACT, OPINIONS
-import v8_world
 from conq_data import CONQ
 
-v8_world.NICKS.append(("nick_eir_warlord_slayer", "the Warlord-Slayer", "Met a conqueror's great army in the field and sent it home beaten."))
+NICKS = []
+LOC = []
+
+NICKS.append(("nick_eir_warlord_slayer", "the Warlord-Slayer", "Met a conqueror's great army in the field and sent it home beaten."))
 
 C("eir_conqueror_modifier", "dread_mixed", {"advantage": 4, "levy_size": 0.2, "knight_effectiveness_mult": 0.1, "levy_reinforcement_rate": 0.2},
   "The Conqueror", "A king with nine thousand men and an idea about the map, and he does not plan to go home with either unused.")
@@ -27,6 +29,6 @@ for c in CONQ:
       c["bane_name"], c["bane_desc"])
     ARTIFACT[c["sword"] + "_modifier"] = ("prowess_positive", {"prowess": 2, "monthly_prestige": 0.3, "knight_effectiveness_mult": 0.08, "dread_gain_mult": 0.1},
                                           c["sword_name"], c["sword_desc"])
-    v8_world.LOC.append((c["sword"] + "_name", c["sword_name"]))
-    v8_world.LOC.append((c["sword"] + "_desc", c["sword_desc"]))
-    v8_world.LOC.append(("eir_conq%d_host_name" % k, c["army"]))
+    LOC.append((c["sword"] + "_name", c["sword_name"]))
+    LOC.append((c["sword"] + "_desc", c["sword_desc"]))
+    LOC.append(("eir_conq%d_host_name" % k, c["army"]))
