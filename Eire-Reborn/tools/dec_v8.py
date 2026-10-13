@@ -344,7 +344,7 @@ D("eir_found_island_kingdom_decision", "Crown the King of the Island of the Migh
   GAEL + "\n" + VIS + "\n" + UNION + "\n" + not_done("eir_unique_island_kingdom"),
   """eir_create_title_effect = { TITLE = k_eir_ynys_prydain }
 add_prestige = massive_prestige_gain
-eir_legend_title_effect = { TITLE = k_eir_ynys_prydain }
+eir_legend_title_effect = { TITLE = title:k_eir_ynys_prydain }
 set_global_variable = eir_unique_island_kingdom
 trigger_event = eir.0509""",
   valid=req(S3, UNION, "eir_can_create_island_kingdom_trigger = yes", "NOT = { exists = title:k_eir_ynys_prydain.holder }", "is_at_war = no"),

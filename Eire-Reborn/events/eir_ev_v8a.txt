@@ -890,7 +890,7 @@ eir.0405 = {
 				}
 				scope:eir_traitor = { add_opinion = { target = root modifier = eir_traitor_unmasked_opinion opinion = -30 } }
 				add_prestige = medium_prestige_gain
-				add_hook = { target = scope:eir_traitor type = strong_hook }
+				add_hook = { target = scope:eir_traitor type = strong_favor_hook }
 				eir_vassal_opinion_effect = { MODIFIER = eir_justice_done_opinion OPINION = 6 }
 			}
 			45 = {
@@ -1223,7 +1223,7 @@ eir.0408 = {
 			shrewd = minor_stress_impact_loss
 			trusting = minor_stress_impact_gain
 		}
-		add_hook = { target = scope:eir_norse_captain type = strong_hook }
+		add_hook = { target = scope:eir_norse_captain type = strong_favor_hook }
 		add_prestige = medium_prestige_gain
 		scope:eir_norse_captain = { add_opinion = { target = root modifier = eir_fair_dealing_opinion opinion = 20 } }
 		add_character_modifier = { modifier = eir_norse_kin_modifier years = 8 }
@@ -2034,7 +2034,7 @@ eir.0418 = {
 			wrathful = minor_stress_impact_gain
 			impatient = minor_stress_impact_gain
 		}
-		add_hook = { target = scope:eir_bh_lord type = strong_hook }
+		add_hook = { target = scope:eir_bh_lord type = strong_favor_hook }
 		add_prestige = medium_prestige_gain
 		add_character_modifier = { modifier = eir_hostage_peace_modifier years = 8 }
 		ai_chance = {

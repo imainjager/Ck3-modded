@@ -250,13 +250,8 @@ eir_norse_bane_axemen = {
 	}
 
 	can_recruit = {
-		OR = {
-			culture ?= { has_cultural_parameter = eir_norse_bane_oath }
-			AND = {
-				culture ?= { has_cultural_pillar = heritage_goidelic }
-				has_global_variable = eir_unlock_norse_bane
-			}
-		}
+		culture ?= { has_cultural_pillar = heritage_goidelic }
+		has_global_variable = eir_unlock_norse_bane
 	}
 
 

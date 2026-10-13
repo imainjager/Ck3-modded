@@ -15,3 +15,4 @@ See `../docs/FLAVOR_GUIDE.md`. Unique decisions once per game; prestige-led cost
 - Black Host chain state: character variables `eir_bh_stage` (1 wave 1 landed ... 6 over), `eir_bh_wins`, `eir_bh_losses`, `eir_bh_prep`; hidden relay events 0394-0399 pick the warlord and carry the scopes; timeouts end stalled waves.
 - Lifestyle traits with several XP tracks need `track =` (hunter: hunter; traveler: travel); gen_events adds it.
 - New folders (history/) and files need a full game restart.
+- Regular buildings only show in a holding's menu if `common/holdings/00_holdings.txt` lists their first level: that file is a generated copy of the base game's with the Eire keys added (gen_buildings3.py). Re-run the build after a game patch. Hook types must exist (`strong_favor_hook`, not `strong_hook`).

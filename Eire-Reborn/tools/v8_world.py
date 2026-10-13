@@ -195,7 +195,7 @@ MAA["eir_norse_bane_axemen"] = dict(
     base="heavy_infantry", damage=52, toughness=26, pursuit=0, screen=22,
     terrain={"plains": "damage = 4", "wetlands": "damage = 4", "hills": "toughness = 4"},
     counters="skirmishers = 1\n\t\tarchers = 1", icon="danish_huskarls", prov="infantry_moderate",
-    param="eir_norse_bane_oath", flag="eir_unlock_norse_bane",
+    param=None, flag="eir_unlock_norse_bane",
     cost=("huscarls_recruitment_cost", "huscarls_low_maint_cost", "huscarls_high_maint_cost"),
     name="Norse-Bane Axemen",
     flavor="Axemen who stood on the strand, and who have never forgotten how a shield wall breaks.")

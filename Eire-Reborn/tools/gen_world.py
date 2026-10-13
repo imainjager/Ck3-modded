@@ -500,6 +500,8 @@ def build():
         prov = {"infantry_cheap": 3, "infantry_moderate": 7}[d["prov"]]
         if d.get("open"):
             recruit = "\tcan_recruit = {\n\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t}\n"
+        elif not d.get("param"):
+            recruit = ("\tcan_recruit = {\n\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t\thas_global_variable = %s\n\t}\n" % d["flag"])
         else:
             recruit = ("\tcan_recruit = {\n\t\tOR = {\n\t\t\tculture ?= { has_cultural_parameter = %s }\n\t\t\tAND = {\n"
                        "\t\t\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t\t\t\thas_global_variable = %s\n\t\t\t}\n\t\t}\n\t}\n"

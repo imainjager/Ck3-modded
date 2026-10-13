@@ -631,7 +631,7 @@ eir.0444 = {
 		}
 		add_character_modifier = { modifier = eir_hostage_peace_modifier years = 10 }
 		add_prestige = medium_prestige_gain
-		add_hook = { target = scope:eir_norse type = strong_hook }
+		add_hook = { target = scope:eir_norse type = strong_favor_hook }
 		add_stress = minor_stress_gain
 		ai_chance = {
 			base = 20
@@ -674,7 +674,7 @@ eir.0444 = {
 			deceitful = minor_stress_impact_loss
 			honest = minor_stress_impact_gain
 		}
-		add_hook = { target = scope:eir_norse type = strong_hook }
+		add_hook = { target = scope:eir_norse type = strong_favor_hook }
 		add_prestige = minor_prestige_gain
 		scope:eir_norse = { add_opinion = { target = root modifier = eir_slighted_envoy_opinion opinion = -25 } }
 		add_character_modifier = { modifier = eir_raider_infamy_modifier years = 4 }
@@ -2388,7 +2388,7 @@ eir.0460 = {
 			ambitious = minor_stress_impact_loss
 			content = minor_stress_impact_gain
 		}
-		add_hook = { target = scope:eir_rival type = strong_hook }
+		add_hook = { target = scope:eir_rival type = strong_favor_hook }
 		add_prestige = minor_prestige_gain
 		eir_vassal_opinion_effect = { MODIFIER = eir_hospitality_opinion OPINION = -2 }
 		ai_chance = {
@@ -3436,7 +3436,7 @@ eir.0468 = {
 		}
 		add_gold = medium_gold_value
 		add_prestige = minor_prestige_gain
-		add_hook = { target = scope:eir_rival type = strong_hook }
+		add_hook = { target = scope:eir_rival type = strong_favor_hook }
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -3487,7 +3487,7 @@ eir.0468 = {
 					intrigue >= 12
 				}
 				add_prestige = medium_prestige_gain
-				add_hook = { target = scope:eir_rival type = strong_hook }
+				add_hook = { target = scope:eir_rival type = strong_favor_hook }
 			}
 			50 = {
 				desc = eir.out.t468l

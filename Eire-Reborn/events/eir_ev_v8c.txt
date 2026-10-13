@@ -73,7 +73,7 @@ eir.0480 = {
 			sadistic = minor_stress_impact_loss
 			compassionate = minor_stress_impact_gain
 		}
-		add_hook = { target = scope:eir_thegn type = strong_hook }
+		add_hook = { target = scope:eir_thegn type = strong_favor_hook }
 		add_prestige = minor_prestige_gain
 		scope:eir_conq_county ?= { change_county_control = minor_county_control_gain }
 		add_character_modifier = { modifier = eir_hostage_peace_modifier years = 6 }
@@ -727,7 +727,7 @@ eir.0486 = {
 		}
 		add_character_flag = { flag = eir_oath_to_reclaim years = 10 }
 		add_prestige = minor_prestige_gain
-		add_hook = { target = scope:eir_briton type = strong_hook }
+		add_hook = { target = scope:eir_briton type = strong_favor_hook }
 		add_character_modifier = { modifier = eir_kin_defended_modifier years = 6 }
 		ai_chance = {
 			base = 30
@@ -749,7 +749,7 @@ eir.0486 = {
 		}
 		add_prestige = medium_prestige_gain
 		add_character_modifier = { modifier = eir_welsh_ties_modifier years = 12 }
-		add_hook = { target = scope:eir_briton type = strong_hook }
+		add_hook = { target = scope:eir_briton type = strong_favor_hook }
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -1511,7 +1511,7 @@ eir.0493 = {
 		}
 		add_prestige = minor_prestige_gain
 		add_character_modifier = { modifier = eir_welsh_ties_modifier years = 15 }
-		add_hook = { target = scope:eir_briton type = strong_hook }
+		add_hook = { target = scope:eir_briton type = strong_favor_hook }
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -3724,7 +3724,7 @@ eir.0517 = {
 		}
 		add_piety = medium_piety_gain
 		add_prestige = minor_prestige_gain
-		add_hook = { target = scope:eir_briton type = strong_hook }
+		add_hook = { target = scope:eir_briton type = strong_favor_hook }
 		add_character_modifier = { modifier = eir_welsh_ties_modifier years = 10 }
 		ai_chance = {
 			base = 30
