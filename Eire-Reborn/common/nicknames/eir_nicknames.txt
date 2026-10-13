@@ -20,3 +20,4 @@ nick_eir_host_breaker = {}
 nick_eir_triumphant = {}
 nick_eir_island_king = {}
 nick_eir_longphort_burner = {}
+nick_eir_warlord_slayer = {}

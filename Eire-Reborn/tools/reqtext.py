@@ -95,6 +95,7 @@ def describe(ctx, st):
         "has_variable = eir_bh_defeated": "The Norse have beaten you in the field, or you have paid them off",
         "has_character_flag = eir_vowed_vengeance": "You have sworn a vow of vengeance",
         "has_variable = eir_norse_enclave": "You have agreed to a Norse enclave on your coast",
+        "eir_has_ravaged_county_trigger = yes": "A county of your realm lies ravaged by a conqueror",
     }
     if st in simple:
         return simple[st]

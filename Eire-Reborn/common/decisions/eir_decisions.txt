@@ -7636,3 +7636,68 @@ eir_codify_clan_war_decision = {
 	}
 }
 
+eir_rebuild_ravaged_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_rebuild_ravaged_decision_desc
+	selection_tooltip = eir_rebuild_ravaged_decision_tooltip
+	confirm_text = eir_rebuild_ravaged_decision_confirm
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		eir_visible_stage1_trigger = yes
+		eir_has_ravaged_county_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_36ef42883e
+			eir_stage1_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_440c550c7a
+			eir_has_ravaged_county_trigger = yes
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+		prestige = 200
+		piety = 50
+	}
+
+	effect = {
+		every_sub_realm_county = {
+			limit = { has_county_modifier = eir_ravaged_modifier }
+			remove_county_modifier = eir_ravaged_modifier
+			change_development_level = 1
+			add_county_modifier = { modifier = eir_rebuilt_county_modifier years = 15 }
+		}
+		add_prestige = medium_prestige_gain
+		add_piety = minor_piety_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_justice_done_opinion OPINION = 6 }
+		if = {
+			limit = { has_character_flag = eir_vowed_rebuild }
+			remove_character_flag = eir_vowed_rebuild
+			add_prestige = major_prestige_gain
+			add_piety = medium_piety_gain
+			add_character_modifier = { modifier = eir_honour_restored_modifier years = 10 }
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+

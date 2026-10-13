@@ -1065,6 +1065,80 @@ eir_sea_road_modifier = {
 	monthly_piety = 0.1
 }
 
+eir_conqueror_modifier = {
+	icon = dread_mixed
+	advantage = 4
+	levy_size = 0.2
+	knight_effectiveness_mult = 0.1
+	levy_reinforcement_rate = 0.2
+}
+
+eir_conqueror_emboldened_modifier = {
+	icon = dread_mixed
+	advantage = 3
+	monthly_prestige = 0.2
+}
+
+eir_conq_tributary_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.3
+	general_opinion = -5
+	vassal_opinion = -4
+	dread_gain_mult = -0.1
+}
+
+eir_conq_resolve_modifier = {
+	icon = prestige_positive
+	stress_gain_mult = -0.1
+	monthly_prestige = 0.2
+	defender_advantage = 3
+}
+
+eir_conq1_bane_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	dread_gain_mult = 0.15
+	advantage = 2
+	general_opinion = 3
+	vassal_opinion = 3
+}
+
+eir_conq2_bane_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	dread_gain_mult = 0.15
+	advantage = 2
+	general_opinion = 3
+	vassal_opinion = 3
+}
+
+eir_conq3_bane_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	dread_gain_mult = 0.15
+	advantage = 2
+	general_opinion = 3
+	vassal_opinion = 3
+}
+
+eir_conq4_bane_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	dread_gain_mult = 0.15
+	advantage = 2
+	general_opinion = 3
+	vassal_opinion = 3
+}
+
+eir_conq5_bane_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	dread_gain_mult = 0.15
+	advantage = 2
+	general_opinion = 3
+	vassal_opinion = 3
+}
+
 
 ##### county modifiers #####
 
@@ -1528,6 +1602,32 @@ eir_walled_town_modifier = {
 	county_opinion_add = 4
 }
 
+eir_ravaged_modifier = {
+	icon = county_modifier_development_negative
+	tax_mult = -0.25
+	development_growth_factor = -0.2
+	county_opinion_add = -10
+	monthly_county_control_growth_add = -0.3
+	levy_size = -0.15
+}
+
+eir_liberated_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 10
+	development_growth_factor = 0.1
+	tax_mult = 0.05
+	levy_size = 0.05
+	monthly_county_control_growth_add = 0.3
+}
+
+eir_rebuilt_county_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.15
+	county_opinion_add = 8
+	tax_mult = 0.08
+	monthly_county_control_growth_add = 0.2
+}
+
 
 ##### province modifiers #####
 
@@ -1725,5 +1825,45 @@ eir_union_banner_modifier = {
 	monthly_prestige = 0.4
 	vassal_opinion = 4
 	general_opinion = 3
+}
+
+eir_conq1_sword_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.08
+	dread_gain_mult = 0.1
+}
+
+eir_conq2_sword_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.08
+	dread_gain_mult = 0.1
+}
+
+eir_conq3_sword_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.08
+	dread_gain_mult = 0.1
+}
+
+eir_conq4_sword_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.08
+	dread_gain_mult = 0.1
+}
+
+eir_conq5_sword_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige = 0.3
+	knight_effectiveness_mult = 0.08
+	dread_gain_mult = 0.1
 }
 

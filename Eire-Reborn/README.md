@@ -76,3 +76,4 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 - 0.6 ceremonies, reactions, nicknames and remedies for every major decision.
 - 0.7 re-Celticisation of Britain, the kindred and the law, the sea and the Norse, faith, cattle and the seasons.
 - 0.8 (Update 2) readable requirement tooltips, all buildings rebuilt (tribal and feudal, special slots fixed), the Black Host, lesser invasions, 36 new decisions, the Insular Union, the chieftain's early game.
+- 0.9 (Update 3) the five Conquerors: one-time, spaced invasions of Scotland or Ireland with 8,500-9,000 men, a victory and a disaster for each, and the Rebuild the Ravaged Counties decision (see docs/CONQUERORS.md). Also: regional buildings listed in the holding types (they were invisible before), special buildings count toward building requirements, stationed men-at-arms library.

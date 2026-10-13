@@ -543,3 +543,7 @@
  eir_codify_clan_war_decision_desc:0 "The war-leaders of the Highlands have a custom for everything: how a clan musters, who leads, how spoil is divided. Put it in writing."
  eir_codify_clan_war_decision_tooltip:0 "Replaces Highland Warriors with the Law of the Sword and the Clan (keeps every parameter, adds more). Needs a duchy and the Highland Warriors tradition. Knight strength, war-law clauses, a cheaper army and a ceremony. Once per game."
  eir_codify_clan_war_decision_confirm:0 "Codify the Law of the Sword and the Clan"
+ eir_rebuild_ravaged_decision:0 "Rebuild the Ravaged Counties"
+ eir_rebuild_ravaged_decision_desc:0 "A conqueror burned the mills, taxed the churches and took the herds. Pay the masons, restock the byres and put back every ford, and the counties will come back stronger than before."
+ eir_rebuild_ravaged_decision_tooltip:0 "Shown when a county of your realm is ravaged. Removes the Ravaged modifier from every county, gives each a Rebuilt Stronger modifier for 15 years (development growth, opinion, tax, control) and restores a level of development. If you swore to rebuild in the aftermath event, it also pays prestige and piety. The remedy for the Conquerors: it leaves you better off than before. Every five years."
+ eir_rebuild_ravaged_decision_confirm:0 "Rebuild the Ravaged Counties"

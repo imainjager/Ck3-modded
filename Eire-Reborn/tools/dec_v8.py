@@ -485,3 +485,30 @@ set_global_variable = eir_unique_clan_war_law
 trigger_event = eir.0567""",
   valid=req(S2, "culture = { has_cultural_tradition = tradition_highland_warriors }", not_done("eir_unique_clan_war_law"), "is_at_war = no"),
   cost=cost(gold=250, prestige=700, piety=100), cd=36500, major=True, pic="decision_recruitment")
+
+
+# =============================================================================
+# THE CONQUERORS: the remedy
+# =============================================================================
+D("eir_rebuild_ravaged_decision", "Rebuild the Ravaged Counties",
+  "A conqueror burned the mills, taxed the churches and took the herds. Pay the masons, restock the byres and put back every ford, and the counties will come back stronger than before.",
+  "Shown when a county of your realm is ravaged. Removes the Ravaged modifier from every county, gives each a Rebuilt Stronger modifier for 15 years (development growth, opinion, tax, control) and restores a level of development. If you swore to rebuild in the aftermath event, it also pays prestige and piety. The remedy for the Conquerors: it leaves you better off than before. Every five years.",
+  GAEL + "\n" + VIS + "\neir_has_ravaged_county_trigger = yes",
+  """every_sub_realm_county = {
+	limit = { has_county_modifier = eir_ravaged_modifier }
+	remove_county_modifier = eir_ravaged_modifier
+	change_development_level = 1
+	add_county_modifier = { modifier = eir_rebuilt_county_modifier years = 15 }
+}
+add_prestige = medium_prestige_gain
+add_piety = minor_piety_gain
+eir_vassal_opinion_effect = { MODIFIER = eir_justice_done_opinion OPINION = 6 }
+if = {
+	limit = { has_character_flag = eir_vowed_rebuild }
+	remove_character_flag = eir_vowed_rebuild
+	add_prestige = major_prestige_gain
+	add_piety = medium_piety_gain
+	add_character_modifier = { modifier = eir_honour_restored_modifier years = 10 }
+}""",
+  valid=req(S1, "eir_has_ravaged_county_trigger = yes", "is_at_war = no"),
+  cost=cost(gold=300, prestige=200, piety=50), cd=1825, pic="decision_spend_money")
