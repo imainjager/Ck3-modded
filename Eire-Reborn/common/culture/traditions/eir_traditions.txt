@@ -155,6 +155,7 @@ tradition_eir_cattle_wealth = {
 		farm_estates_pastures_unlock = yes
 		better_herders_pasturalists = yes
 		eir_cattle_wealth = yes
+		eir_tributaries_inherited = yes
 	}
 
 	character_modifier = {

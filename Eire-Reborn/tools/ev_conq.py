@@ -188,3 +188,21 @@ if = {
 
 for c in CONQ:
     conq(c)
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# 0700: hidden diagnostic. Five days after an Irish ruler with tributaries dies, compare the heir's tributaries with the dead
+# ruler's and write the answer to debug.log. It changes nothing.
+# ----------------------------------------------------------------------------------------------------------------
+EVENTS.append(E(700, "", "", "", [], hidden=True, theme="court", trigger="",
+                immediate="""if = {
+	limit = { has_variable = eir_tribs_before }
+	if = {
+		limit = { number_of_tributaries < var:eir_tribs_before }
+		debug_log = "EIR tributary check: the heir LOST tributaries after succession"
+	}
+	else = {
+		debug_log = "EIR tributary check: the heir kept the tributaries"
+	}
+	remove_variable = eir_tribs_before
+}"""))

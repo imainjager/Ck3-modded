@@ -2964,3 +2964,22 @@ eir.0655 = {
 	}
 }
 
+eir.0700 = {
+	type = character_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { has_variable = eir_tribs_before }
+			if = {
+				limit = { number_of_tributaries < var:eir_tribs_before }
+				debug_log = "EIR tributary check: the heir LOST tributaries after succession"
+			}
+			else = {
+				debug_log = "EIR tributary check: the heir kept the tributaries"
+			}
+			remove_variable = eir_tribs_before
+		}
+	}
+}
+

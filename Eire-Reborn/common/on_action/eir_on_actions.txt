@@ -9,6 +9,27 @@ on_death = {
 
 eir_on_death = {
 	effect = {
+		# Diagnostic (v0.9.1): does the heir keep the tributaries? Logs only; changes nothing.
+		if = {
+			limit = {
+				eir_is_irish_ruler_trigger = yes
+				number_of_tributaries > 0
+				culture ?= {
+					OR = {
+						has_cultural_parameter = eir_tributaries_inherited
+						has_cultural_tradition = tradition_pastoralists
+					}
+				}
+			}
+			debug_log = "EIR tributary check: an Irish ruler with tributaries has died"
+			primary_heir ?= {
+				set_variable = {
+					name = eir_tribs_before
+					value = root.number_of_tributaries
+				}
+				trigger_event = { id = eir.0700 days = 5 }
+			}
+		}
 		if = {
 			limit = {
 				eir_is_irish_ruler_trigger = yes

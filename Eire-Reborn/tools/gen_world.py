@@ -339,7 +339,7 @@ TRADITIONS = {
         "Poets train twelve years in the schools of the Filí, learning genealogy, law and satire, and the heroic tales give young nobles a pattern to follow. Replaces Poetry. Unlocks the Fianna warbands and Kern javelineers."),
     "tradition_eir_cattle_wealth": ("steward", "farmland.dds", None,
         {"pastures_building_bonuses": "yes", "farm_estates_pastures_unlock": "yes", "better_herders_pasturalists": "yes",
-         "eir_cattle_wealth": "yes"},
+         "eir_cattle_wealth": "yes", "eir_tributaries_inherited": "yes"},
         {"negate_health_penalty_add": 0.15, "prowess": 1, "stewardship": 1, "domain_tax_mult": 0.05, "monthly_income": 1},
         "Bó-aire: The Cattle Lords",
         "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars, and the lords who keep the biggest herds keep the biggest warbands. Replaces Pastoralists."),
