@@ -83,6 +83,7 @@
  eir_arthur_spear_desc:0 "A long ash spear with a bronze head, carried by the Pendragon at Camlann and recovered from the field a lifetime later."
  eir_arthur_table_name:0 "The Round Table"
  eir_arthur_table_desc:0 "A circular table of oak, big enough to seat a hundred and fifty, where no knight sits at the head."
+ eir_gsu_host_name:0 "The Saxon Host"
  nick_eir_convener:0 "the Convener"
  nick_eir_convener_desc:0 "Called the great assembly of the Gael, and every king came."
  nick_eir_tara_builder:0 "the Builder of Tara"
@@ -129,3 +130,5 @@
  nick_eir_once_future_king_desc:0 "Drew the sword of the Britons and made the old island whole again."
  nick_eir_last_of_the_celts:0 "the Last Hope of the Celts"
  nick_eir_last_of_the_celts_desc:0 "Took back the whole island that the Celts had lost, and the poems say it was always meant to be so."
+ nick_eir_saxon_breaker:0 "the Saxon-Breaker"
+ nick_eir_saxon_breaker_desc:0 "Put down the greatest English rising since the Gaels took the island, and made the peace stick."

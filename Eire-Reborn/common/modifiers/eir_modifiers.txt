@@ -1234,6 +1234,39 @@ eir_final_revenge_modifier = {
 	court_grandeur_baseline_add = 25
 }
 
+eir_saxon_rebel_modifier = {
+	icon = dread_mixed
+	advantage = 3
+	levy_size = 0.2
+	knight_effectiveness_mult = 0.05
+	levy_reinforcement_rate = 0.2
+}
+
+eir_saxon_subdued_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.6
+	vassal_opinion = 6
+	dread_gain_mult = 0.2
+	advantage = 2
+	general_opinion = 3
+}
+
+eir_saxon_shaken_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.4
+	vassal_opinion = -6
+	levy_size = -0.1
+	stress_gain_mult = 0.1
+}
+
+eir_saxon_amnesty_modifier = {
+	icon = family_positive
+	general_opinion = 5
+	vassal_opinion = 3
+	stress_gain_mult = -0.05
+	monthly_prestige = 0.15
+}
+
 
 ##### county modifiers #####
 

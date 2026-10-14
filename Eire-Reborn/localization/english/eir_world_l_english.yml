@@ -369,6 +369,14 @@
  eir_path_table_modifier_desc:0 "A hundred knights, no head to the table and not a single quarrel. The poets have run out of adjectives."
  eir_final_revenge_modifier:0 "Lord of the Whole Island"
  eir_final_revenge_modifier_desc:0 "From the Orkneys to the Cornish tin-mines the island answers to the Celts, and the Celts have a long memory."
+ eir_saxon_rebel_modifier:0 "Leader of the Rising"
+ eir_saxon_rebel_modifier_desc:0 "A thane the English chose on the hill, with a county, a banner and an army of men who have nothing left to lose."
+ eir_saxon_subdued_modifier:0 "The Saxons Subdued"
+ eir_saxon_subdued_modifier_desc:0 "You broke the Great Saxon Uprising, and the English have learned what the Gael is capable of."
+ eir_saxon_shaken_modifier:0 "Shaken by the Uprising"
+ eir_saxon_shaken_modifier_desc:0 "The English took the duchies back, burned what they could not hold and left the throne with the smell of smoke on it."
+ eir_saxon_amnesty_modifier:0 "The Winchester Amnesty"
+ eir_saxon_amnesty_modifier_desc:0 "You pardoned the leaders who laid down their arms, and the English remember who was merciful."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"
