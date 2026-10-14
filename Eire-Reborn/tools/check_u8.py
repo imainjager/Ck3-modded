@@ -81,6 +81,32 @@ if os.path.exists(act_file):
         if o not in opts:
             problems.append("an activity refers to option %s which does not exist" % o)
 
+
+# ---------------------------------------------------------------- 3. casus belli, court positions, innovations
+cb_file = os.path.join(ROOT, "common", "casus_belli_types", "eir_casus_belli.txt")
+if os.path.exists(cb_file):
+    t = strip(read(cb_file))
+    for cb in re.findall(r"^(eir_[a-z_]+_cb) = \{", t, re.M):
+        need_loc(cb, cb, cb + "_desc")
+    for k in re.findall(r'(?:war_name|war_name_base|cb_name) = "([A-Z_]+)"', t):
+        need_loc("cb", k)
+    for k in re.findall(r"desc = (eir_[a-z_]+)", t) + re.findall(r"on_invalidated_desc = (eir_[a-z_]+)", t):
+        need_loc("cb text", k)
+cp_file = os.path.join(ROOT, "common", "court_positions", "types", "eir_court_positions.txt")
+if os.path.exists(cp_file):
+    t = strip(read(cp_file))
+    for k in re.findall(r"^(eir_[a-z_]+_court_position) = \{", t, re.M):
+        need_loc(k, k, k + "_desc")
+    for k in re.findall(r"desc = (eir_court_trait_[a-z]+)", t):
+        need_loc("court trait text", k)
+inn_file = os.path.join(ROOT, "common", "culture", "innovations", "eir_innovations.txt")
+if os.path.exists(inn_file):
+    t = strip(read(inn_file))
+    for k in re.findall(r"^(innovation_eir_[a-z_]+) = \{", t, re.M):
+        need_loc(k, k, k + "_desc")
+    for k in re.findall(r"custom = (eir_[a-z_]+)", t):
+        need_loc("innovation text", k)
+
 if problems:
     for p in problems:
         print("PROBLEM", p)

@@ -433,6 +433,12 @@
  eir_tn_heavy_crown_boon_modifier_desc:0 "You wear the crown in public every day. The court admires it. The court's children have begun to hate it."
  eir_geis_broken_modifier:0 "A Geis Broken"
  eir_geis_broken_modifier_desc:0 "You broke the taboo, and the omens were right. The strength it gave you has turned round and is looking at you."
+ eir_cattle_plunder_modifier:0 "Cattle Plunder"
+ eir_cattle_plunder_modifier_desc:0 "The herds of a neighbouring county are in your fields and the poets are already composing the story."
+ eir_cain_received_modifier:0 "The Cáin Received"
+ eir_cain_received_modifier_desc:0 "A neighbouring lord pays you the yearly cáin: cattle in autumn, silver in spring, and a very long face at the feast."
+ eir_owes_cain_modifier:0 "Owes the Cáin"
+ eir_owes_cain_modifier_desc:0 "Defeat has made you pay a yearly tribute to a stronger king. Your lords have noticed."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"

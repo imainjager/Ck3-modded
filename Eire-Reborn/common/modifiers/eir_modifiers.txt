@@ -1483,6 +1483,27 @@ eir_geis_broken_modifier = {
 	advantage = -2
 }
 
+eir_cattle_plunder_modifier = {
+	icon = economy_positive
+	monthly_income = 1
+	monthly_prestige = 0.1
+	levy_reinforcement_rate = 0.05
+}
+
+eir_cain_received_modifier = {
+	icon = economy_positive
+	monthly_income = 1.5
+	monthly_prestige = 0.15
+	dread_gain_mult = 0.1
+}
+
+eir_owes_cain_modifier = {
+	icon = economy_negative
+	monthly_income = -1
+	vassal_opinion = -3
+	general_opinion = -3
+}
+
 
 ##### county modifiers #####
 

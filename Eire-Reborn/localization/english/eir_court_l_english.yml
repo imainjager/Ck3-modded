@@ -1,0 +1,19 @@
+﻿l_english:
+
+ # ---------- court positions ----------
+ eir_ollamh_court_position:0 "Ollamh"
+ eir_ollamh_court_position_desc:0 "The chief poet of the kingdom: historian, genealogist, lawyer and satirist in one. He remembers every king and every debt, and is believed more readily than a bishop."
+ eir_brehon_court_position:0 "Brehon"
+ eir_brehon_court_position_desc:0 "A hereditary judge who knows the law tracts by heart: the price of a death, the fine for a broken oath, the fee due to a surety. Every dispute in the kingdom comes to him in the end."
+ eir_druid_court_position:0 "Druid"
+ eir_druid_court_position_desc:0 "A keeper of the old lore: the oaks, the calendar of the fires, the cures of the herbs. In a Christian court he is called a hermit, and nobody asks too closely what he prays to."
+ eir_foster_father_court_position:0 "Aite"
+ eir_foster_father_court_position_desc:0 "The foster-father: the man in whose house a king's son is raised. He teaches the boy to ride, to fight, to speak and to keep a secret, and the boy will call him father for the rest of his life."
+ eir_court_trait_poet:0 "Has the poet trait"
+ eir_court_trait_gregarious:0 "Has the gregarious trait"
+ eir_court_trait_just:0 "Has the just trait"
+ eir_court_trait_diligent:0 "Has the diligent trait"
+ eir_court_trait_mystic:0 "Has the mystic trait"
+ eir_court_trait_herbalist:0 "Has the herbalist trait"
+ eir_court_trait_compassionate:0 "Has the compassionate trait"
+ eir_court_trait_patient:0 "Has the patient trait"
