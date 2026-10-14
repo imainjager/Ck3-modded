@@ -58,6 +58,10 @@
  eir_druidic_adj:0 "Druidic"
  eir_druidic_adherent:0 "Druid"
  eir_druidic_adherent_plural:0 "Druids"
+ eir_druidic_old:0 "Old Druidry"
+ eir_druidic_old_adj:0 "Old Druidic"
+ eir_druidic_old_adherent:0 "Old Druid"
+ eir_druidic_old_adherent_plural:0 "Old Druids"
  eir_druidic_desc:0 "The old faith of the oak-groves: the quarter-day fires, the judges and the poets, and the belief that the island itself is holy. The druids kept it alive in secret under the monks; now a king has lit the fires in public."
 
  # ---------- the Culdee Reform ----------

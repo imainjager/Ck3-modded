@@ -181,6 +181,35 @@ if os.path.exists(hs):
         if barony not in lt[mm.end():j]:
             problems.append("holy site %s: barony %s is not in %s" % (key, barony, county))
 
+# tenet icons and decision pictures
+tf = os.path.join(ROOT, "common", "religion", "tenet_types", "eir_tenets.txt")
+if os.path.exists(tf):
+    for ic in set(re.findall(r"^\s*icon = ([a-z_]+)\s*$", read(tf), re.M)):
+        if not (os.path.exists(os.path.join(GAME, "gfx", "interface", "icons", "faith_tenets", ic + ".dds")) or os.path.exists(os.path.join(ROOT, "gfx", "interface", "icons", "faith_tenets", ic + ".dds"))):
+            problems.append("tenet icon missing: %s" % ic)
+for fn in glob.glob(os.path.join(ROOT, "common", "decisions", "*.txt")):
+    for rel in set(re.findall(r'"(gfx/[^"]+\.dds)"', read(fn))):
+        if not (os.path.exists(os.path.join(GAME, *rel.split("/"))) or os.path.exists(os.path.join(ROOT, *rel.split("/")))):
+            problems.append("%s: picture does not exist: %s" % (os.path.basename(fn), rel))
+# faith, rites, holy sites: localization
+if os.path.exists(os.path.join(ROOT, "common", "religion", "faith_types", "eir_faith_types.txt")):
+    need_loc("faith", "eir_druidic", "eir_druidic_adj", "eir_druidic_adherent", "eir_druidic_adherent_plural", "eir_druidic_desc", "eir_druidic_old")
+    for k in re.findall(r"^(eir_[a-z_]+) = \{", read(os.path.join(ROOT, "common", "religion", "rite_types", "eir_rite_types.txt")), re.M):
+        need_loc("rite", k, k + "_adj", k + "_adherent", k + "_adherent_plural", k + "_desc")
+    for k in re.findall(r"^(eir_[a-z_]+) = \{", read(os.path.join(ROOT, "common", "religion", "holy_site_types", "eir_holy_sites.txt")), re.M):
+        need_loc("holy site", "holy_site_%s_name" % k, "holy_site_%s_effects" % k)
+    for v in re.findall(r"= (eir_druidic_[a-z_0-9]+)\s*$", read(os.path.join(ROOT, "common", "religion", "faith_types", "eir_faith_types.txt")), re.M):
+        need_loc("faith text", v)
+# struggle: phases, decisions
+sf = os.path.join(ROOT, "common", "struggle", "struggles", "eir_struggle.txt")
+if os.path.exists(sf):
+    t = strip(read(sf))
+    need_loc("struggle", "eir_irish_struggle", "eir_irish_struggle_desc")
+    for k in re.findall(r"^\t\t(eir_struggle_phase_[a-z_]+) = \{", t, re.M):
+        need_loc("struggle phase", k, k + "_desc")
+    for k in re.findall(r"^\t\t\t\t(eir_struggle_end_[a-z_]+_decision)$", t, re.M):
+        need_loc("struggle ending", k.replace("_decision", ""), k + "_desc")
+
 if problems:
     for p in problems:
         print("PROBLEM", p)
