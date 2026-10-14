@@ -808,7 +808,7 @@
  tradition_eir_bardic_schools_name:0 "Schools of the Filí"
  tradition_eir_bardic_schools_desc:0 "Poets train twelve years in the schools of the Filí, learning genealogy, law and satire, and the heroic tales give young nobles a pattern to follow. Replaces Poetry. Unlocks the Fianna warbands and Kern javelineers."
  tradition_eir_cattle_wealth_name:0 "Bó-aire: The Cattle Lords"
- tradition_eir_cattle_wealth_desc:0 "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars, and the lords who keep the biggest herds keep the biggest warbands. Replaces Pastoralists."
+ tradition_eir_cattle_wealth_desc:0 "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars, and the lords who keep the biggest herds keep the biggest warbands. Replaces Pastoralists. First step of the raiding line: feudal and clan rulers of this culture can raid over land (the Cattle Raid is no tribal privilege), with +10% loot; the next steps are Táin Bó and the Four Seas."
  tradition_eir_culdee_christianity_name:0 "Insular Monasticism"
  tradition_eir_culdee_christianity_desc:0 "Irish monasteries, scriptoria and wandering saints give the Christianity of this culture a flavour all its own: the abbot is as powerful as the bishop, and the monastery is a city. Replaces Monastic Communities."
  tradition_eir_sea_kings_name:0 "Kings of the Irish Sea"
@@ -821,6 +821,10 @@
  tradition_eir_clan_war_law_desc:0 "The war-leaders of the Highlands wrote down their customs: how a clan musters, who leads, how spoil is divided. Replaces Highland Warriors; keeps all its effects."
  tradition_eir_forest_warriors_name:0 "Mystical Celtic Warriors"
  tradition_eir_forest_warriors_desc:0 "The druids' groves have been planted again and the Forest Warriors have come out of them. The culture finds it easier to hybridise, to diverge and to convert its neighbours, and holds its own lands with +10 advantage, but those outside the oaks like it much less. Unlocks the Forest Warriors and the Sacred Grove (Nemeton)."
+ tradition_eir_tain_bo_name:0 "Táin Bó: The Great Cattle Raid"
+ tradition_eir_tain_bo_desc:0 "The old story of the Cattle Raid of Cooley is told at every hearth, and the young nobles want a táin of their own. Raiding is now a lord's honour, on land and across the water, with a quarter more loot. Replaces Bó-aire; keeps all of its effects. Next step: the Four Seas."
+ tradition_eir_four_seas_name:0 "Raiders of the Four Seas"
+ tradition_eir_four_seas_desc:0 "From the Hebrides to Aquitaine, the Irish are known to be the best raiders of the Atlantic coast, and no kind of raid is closed to them: by land or sea, against Christian or heathen, in summer or winter. Half again as much loot. Replaces Táin Bó; keeps all of its effects."
 
  # ---------- men-at-arms ----------
  eir_gallowglass:0 "Gallowglass"

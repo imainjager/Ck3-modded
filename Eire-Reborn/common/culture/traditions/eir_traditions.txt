@@ -156,6 +156,8 @@ tradition_eir_cattle_wealth = {
 		better_herders_pasturalists = yes
 		eir_cattle_wealth = yes
 		eir_tributaries_inherited = yes
+		culture_can_raid_over_land_even_if_feudal = yes
+		not_tribal_raiding_malus = yes
 	}
 
 	character_modifier = {
@@ -164,6 +166,7 @@ tradition_eir_cattle_wealth = {
 		stewardship = 1
 		domain_tax_mult = 0.05
 		monthly_income = 1
+		max_loot_mult = 0.1
 	}
 
 	cost = {
@@ -450,6 +453,120 @@ tradition_eir_forest_warriors = {
 		faith_conversion_piety_cost_mult = -0.4
 		forest_advantage = 5
 		monthly_prestige_gain_mult = 0.05
+		knight_effectiveness_mult = 0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_tain_bo = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = battle.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+	can_pick = {
+		always = no
+	}
+
+	parameters = {
+		pastures_building_bonuses = yes
+		farm_estates_pastures_unlock = yes
+		better_herders_pasturalists = yes
+		eir_cattle_wealth = yes
+		eir_tributaries_inherited = yes
+		culture_can_raid_over_land_even_if_feudal = yes
+		not_tribal_raiding_malus = yes
+		culture_can_raid_at_sea_even_if_feudal = yes
+		eir_tain_bo = yes
+	}
+
+	character_modifier = {
+		negate_health_penalty_add = 0.15
+		prowess = 1
+		stewardship = 1
+		domain_tax_mult = 0.05
+		monthly_income = 1
+		max_loot_mult = 0.25
+		raid_speed = 0.15
+		naval_movement_speed_mult = 0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+
+tradition_eir_four_seas = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = ship.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+	can_pick = {
+		always = no
+	}
+
+	parameters = {
+		pastures_building_bonuses = yes
+		farm_estates_pastures_unlock = yes
+		better_herders_pasturalists = yes
+		eir_cattle_wealth = yes
+		eir_tributaries_inherited = yes
+		culture_can_raid_over_land_even_if_feudal = yes
+		not_tribal_raiding_malus = yes
+		culture_can_raid_at_sea_even_if_feudal = yes
+		culture_can_raid_over_land_even_if_feudal_no_restrictions = yes
+		culture_can_raid_at_sea_even_if_feudal_no_restrictions = yes
+		eir_tain_bo = yes
+		eir_four_seas = yes
+	}
+
+	character_modifier = {
+		negate_health_penalty_add = 0.15
+		prowess = 1
+		stewardship = 1
+		domain_tax_mult = 0.05
+		monthly_income = 1
+		max_loot_mult = 0.5
+		raid_speed = 0.3
+		naval_movement_speed_mult = 0.2
 		knight_effectiveness_mult = 0.05
 	}
 

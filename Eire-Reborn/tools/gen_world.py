@@ -339,10 +339,11 @@ TRADITIONS = {
         "Poets train twelve years in the schools of the Filí, learning genealogy, law and satire, and the heroic tales give young nobles a pattern to follow. Replaces Poetry. Unlocks the Fianna warbands and Kern javelineers."),
     "tradition_eir_cattle_wealth": ("steward", "farmland.dds", None,
         {"pastures_building_bonuses": "yes", "farm_estates_pastures_unlock": "yes", "better_herders_pasturalists": "yes",
-         "eir_cattle_wealth": "yes", "eir_tributaries_inherited": "yes"},
-        {"negate_health_penalty_add": 0.15, "prowess": 1, "stewardship": 1, "domain_tax_mult": 0.05, "monthly_income": 1},
+         "eir_cattle_wealth": "yes", "eir_tributaries_inherited": "yes",
+         "culture_can_raid_over_land_even_if_feudal": "yes", "not_tribal_raiding_malus": "yes"},
+        {"negate_health_penalty_add": 0.15, "prowess": 1, "stewardship": 1, "domain_tax_mult": 0.05, "monthly_income": 1, "max_loot_mult": 0.1},
         "Bó-aire: The Cattle Lords",
-        "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars, and the lords who keep the biggest herds keep the biggest warbands. Replaces Pastoralists."),
+        "A man's worth is counted in cows. Cattle are wealth, tribute, dowry and the cause of half the island's wars, and the lords who keep the biggest herds keep the biggest warbands. Replaces Pastoralists. First step of the raiding line: feudal and clan rulers of this culture can raid over land (the Cattle Raid is no tribal privilege), with +10% loot; the next steps are Táin Bó and the Four Seas."),
     "tradition_eir_culdee_christianity": ("learning", "temple.dds", None,
         {"temperate_trait_more_common": "yes", "temperate_trait_bonuses": "yes", "devoted_trait_bonuses": "yes",
          "monastic_expectations": "yes", "next_level_monasteries": "yes", "monastic_monastery_learning_bonus": "yes",
@@ -478,7 +479,8 @@ def build():
     L.section("culture traditions")
     for key, (bg, item, _x, params, mods, disp, desc) in TRADITIONS.items():
         check_keys(key, mods)
-        hidden = key in ("tradition_eir_tanistic_fragmentation", "tradition_eir_high_kingship", "tradition_eir_forest_warriors")
+        hidden = key in ("tradition_eir_tanistic_fragmentation", "tradition_eir_high_kingship", "tradition_eir_forest_warriors",
+                                "tradition_eir_tain_bo", "tradition_eir_four_seas")
         out.append("%s = {\n\tcategory = regional\n\n\tlayers = {\n\t\t0 = %s\n\t\t1 = western\n\t\t4 = %s\n\t}\n\n" % (key, bg, item))
         if hidden:
             out.append("\tis_shown = {\n\t\talways = no\n\t}\n\tcan_pick = {\n\t\talways = no\n\t}\n\n")

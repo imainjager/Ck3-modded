@@ -1,8 +1,26 @@
 """Update 8 content pack (activities, court, culture, faith, law, war, struggle): modifiers, opinions and names shared by the generators."""
-from extra_world import C, K, CHAR, COUNTY, ARTIFACT, OPINIONS
+from extra_world import C, K, CHAR, COUNTY, ARTIFACT, OPINIONS, TRADS
 
 NICKS = []
 LOC = []
+
+# ---- the raiding line of the Irish: Pastoralists -> Bó-aire (raid over land) -> Táin Bó (raid at sea too) -> The Four Seas (every kind of raid)
+_RAID_BASE = {"pastures_building_bonuses": "yes", "farm_estates_pastures_unlock": "yes", "better_herders_pasturalists": "yes",
+              "eir_cattle_wealth": "yes", "eir_tributaries_inherited": "yes",
+              "culture_can_raid_over_land_even_if_feudal": "yes", "not_tribal_raiding_malus": "yes"}
+TRADS["tradition_eir_tain_bo"] = ("martial", "battle.dds", None,
+    dict(_RAID_BASE, **{"culture_can_raid_at_sea_even_if_feudal": "yes", "eir_tain_bo": "yes"}),
+    {"negate_health_penalty_add": 0.15, "prowess": 1, "stewardship": 1, "domain_tax_mult": 0.05, "monthly_income": 1,
+     "max_loot_mult": 0.25, "raid_speed": 0.15, "naval_movement_speed_mult": 0.1},
+    "Táin Bó: The Great Cattle Raid",
+    "The old story of the Cattle Raid of Cooley is told at every hearth, and the young nobles want a táin of their own. Raiding is now a lord's honour, on land and across the water, with a quarter more loot. Replaces Bó-aire; keeps all of its effects. Next step: the Four Seas.")
+TRADS["tradition_eir_four_seas"] = ("martial", "ship.dds", None,
+    dict(_RAID_BASE, **{"culture_can_raid_at_sea_even_if_feudal": "yes", "culture_can_raid_over_land_even_if_feudal_no_restrictions": "yes",
+                        "culture_can_raid_at_sea_even_if_feudal_no_restrictions": "yes", "eir_tain_bo": "yes", "eir_four_seas": "yes"}),
+    {"negate_health_penalty_add": 0.15, "prowess": 1, "stewardship": 1, "domain_tax_mult": 0.05, "monthly_income": 1,
+     "max_loot_mult": 0.5, "raid_speed": 0.3, "naval_movement_speed_mult": 0.2, "knight_effectiveness_mult": 0.05},
+    "Raiders of the Four Seas",
+    "From the Hebrides to Aquitaine, the Irish are known to be the best raiders of the Atlantic coast, and no kind of raid is closed to them: by land or sea, against Christian or heathen, in summer or winter. Half again as much loot. Replaces Táin Bó; keeps all of its effects.")
 
 OPINIONS["eir_act_hosted_opinion"] = "Hosted a fine gathering"
 OPINIONS["eir_act_insulted_opinion"] = "Insulted at the gathering"

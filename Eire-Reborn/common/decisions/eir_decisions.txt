@@ -10117,3 +10117,132 @@ eir_story_road_decision = {
 	}
 }
 
+eir_take_up_tain_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_take_up_tain_decision_desc
+	selection_tooltip = eir_take_up_tain_decision_tooltip
+	confirm_text = eir_take_up_tain_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		culture = { has_cultural_tradition = tradition_eir_cattle_wealth }
+		has_global_variable = eir_done_muster
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_67ee036d25
+			eir_stage2_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_8f809e1b2f
+			culture = { has_cultural_tradition = tradition_eir_cattle_wealth }
+		}
+		custom_description = {
+			text = eir_rq_20a5d525aa
+			has_global_variable = eir_done_muster
+		}
+		custom_description = {
+			text = eir_rq_c1eff7eb63
+			eir_realm_size_trigger = { N = 15 }
+		}
+		martial >= 10
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 700
+		prestige = 900
+	}
+
+	effect = {
+		eir_upgrade_tradition_effect = { OLD = tradition_eir_cattle_wealth NEW = tradition_eir_tain_bo }
+		add_character_modifier = { modifier = eir_hosting_modifier years = 15 }
+		add_prestige = major_prestige_gain
+		add_dread = minor_dread_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_tain_bo
+		trigger_event = eir.1113
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_sail_four_seas_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_sail_four_seas_decision_desc
+	selection_tooltip = eir_sail_four_seas_decision_tooltip
+	confirm_text = eir_sail_four_seas_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		culture = { has_cultural_tradition = tradition_eir_tain_bo }
+		has_global_variable = eir_done_tain_bo
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_96597c2d4c
+			eir_stage3_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_eb428dab1b
+			culture = { has_cultural_tradition = tradition_eir_tain_bo }
+		}
+		custom_description = {
+			text = eir_rq_bc32020bba
+			has_global_variable = eir_done_tain_bo
+		}
+		custom_description = {
+			text = eir_rq_01bdd1e84d
+			eir_ports_trigger = { N = 3 }
+		}
+		prestige_level >= 3
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1200
+		prestige = 1200
+	}
+
+	effect = {
+		eir_upgrade_tradition_effect = { OLD = tradition_eir_tain_bo NEW = tradition_eir_four_seas }
+		add_character_modifier = { modifier = eir_thalassocracy_modifier years = 15 }
+		add_prestige = massive_prestige_gain
+		add_dread = medium_dread_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.1114
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+

@@ -89,6 +89,36 @@ D("eir_story_road_decision", "Where Stands the Road?",
   "trigger_event = eir.0990",
   valid="is_at_war = no", cost="", cd=30, pic="decision_golden_age")
 
+# ------------------------------------------------------------------------------------------------ the raiding line of the Irish traditions
+from dec_v2 import S2, S3, has_trad
+
+D("eir_take_up_tain_decision", "Take Up the Táin",
+  "Every Irish child knows the Cattle Raid of Cooley: the champion at the ford, the queen at her tent, the whole island in arms over a brown bull. Let the young nobles have their own táin, with your blessing and the poets' praise.",
+  "REPLACES Bó-aire with Táin Bó: The Great Cattle Raid. Needs the Bó-aire tradition, 15 counties, the host mustered once and 900 prestige. Keeps everything Bó-aire gives (including raiding over land even when feudal) and adds raiding at sea even when feudal, +25% loot in total, raid speed and a hosting modifier. Once per game.",
+  IRISH + "\n" + has_trad("tradition_eir_cattle_wealth") + "\n" + HAS("eir_done_muster"),
+  """eir_upgrade_tradition_effect = { OLD = tradition_eir_cattle_wealth NEW = tradition_eir_tain_bo }
+add_character_modifier = { modifier = eir_hosting_modifier years = 15 }
+add_prestige = major_prestige_gain
+add_dread = minor_dread_gain
+eir_world_reacts_effect = yes
+set_global_variable = eir_done_tain_bo
+trigger_event = eir.1113""",
+  valid=req(S2, has_trad("tradition_eir_cattle_wealth"), HAS("eir_done_muster"), "eir_realm_size_trigger = { N = 15 }", "martial >= 10", "is_at_war = no"),
+  cost=cost(gold=700, prestige=900), cd=36500, major=True, pic="decision_found_kingdom")
+
+D("eir_sail_four_seas_decision", "Raiders of the Four Seas",
+  "The Irish have raided the Welsh coast since before Patrick, and have taken Britons home as slaves. Fit out the fleet, summon the sea-captains and tell them the whole Atlantic coast is a cattle-pasture.",
+  "REPLACES Táin Bó with Raiders of the Four Seas. Needs Táin Bó, 3 ports, prestige level 3 and 1200 prestige. Every kind of raid opens to your culture, even when feudal (land, sea, against any faith), loot is +50% in total, raid speed is doubled again, and knights fight better. Once per game.",
+  IRISH + "\n" + has_trad("tradition_eir_tain_bo") + "\n" + HAS("eir_done_tain_bo"),
+  """eir_upgrade_tradition_effect = { OLD = tradition_eir_tain_bo NEW = tradition_eir_four_seas }
+add_character_modifier = { modifier = eir_thalassocracy_modifier years = 15 }
+add_prestige = massive_prestige_gain
+add_dread = medium_dread_gain
+eir_world_reacts_effect = yes
+trigger_event = eir.1114""",
+  valid=req(S3, has_trad("tradition_eir_tain_bo"), HAS("eir_done_tain_bo"), "eir_ports_trigger = { N = 3 }", "prestige_level >= 3", "is_at_war = no"),
+  cost=cost(gold=1200, prestige=1200), cd=36500, major=True, pic="decision_found_kingdom")
+
 # every step of the road leaves a flag, so that the tracker can tell what is done
 for key in story_chain.STEP:
     d = [x for x in DEC if x["key"] == key]

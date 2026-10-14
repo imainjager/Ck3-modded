@@ -117,3 +117,22 @@ ev(1112, "The Chair Awarded",
        O("Name the clever one: he will be easier to manage.", PRESTIGE_S, "eir_vassal_opinion_effect = { MODIFIER = eir_justice_done_opinion OPINION = 2 }", st=S_SHREWD, ai=25),
        O("Name nobody. Let them fight for it at the next contest.", STRESS_UP, LOSS_S, st=S_CRAVEN, ai=10),
    ], "court", guarded=False)
+
+# ============================================================================== THE RAIDING LINE (1113-1114)
+ev(1113, "The Young Men Ask for a Táin",
+   "Your sons and the sons of your lords have asked for a táin of their own, and they are very polite about it.",
+   "They stand in a row with their spears and their best cloaks, and the eldest does the talking. They want a herd, a ford, a story and a poet to tell it. In return they promise not to start a war. They promise it with the faces of young men who plan to start one anyway.",
+   [
+       O("Bless the raid and send your poet with them.", GOLD_S, PRESTIGE_M, xp("lifestyle_poet", 15), "add_character_modifier = { modifier = eir_hosting_modifier years = 4 }", st=S_BRAVE, ai=40, ai_mod=[("brave", 15)]),
+       O("Give them a neighbour to raid, and a limit.", PRESTIGE_S, "add_character_modifier = { modifier = eir_foreknowledge_modifier years = 3 }", st=S_SHREWD, ai=30),
+       O("Let them go, and pay the damages later.", GOLD_M, STRESS_DOWN, "eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 3 }", st=S_GEN, ai=25),
+   ], "war", guarded=False)
+
+ev(1114, "The Fleet Puts Out",
+   "Forty curraghs and a dozen longer ships are leaving the harbour, and the whole town has come to watch.",
+   "The captains have drawn lots for the coasts. One is for Wales and another for the Isle of Man. One, a very young man, has announced he is going to Brittany and that he will bring back wine. The old sailors say nothing; they have seen the young captains go out and some of them come back.",
+   [
+       O("Send the fleet with your blessing and a priest in every ship.", GOLD_M, PIETY_S, PRESTIGE_M, "add_character_modifier = { modifier = eir_saints_blessing_modifier years = 4 }", st=S_ZEAL, ai=40),
+       O("Take command of the greatest ship yourself.", PRESTIGE_L, "increase_wounds_effect = { REASON = fight }", st=S_BRAVE, ai=25, ai_mod=[("brave", 20)]),
+       O("Keep half the fleet at home against the Norse.", "eir_defender_levy_effect = yes", LOSS_S, st=S_SHREWD, ai=30),
+   ], "war", guarded=False)
