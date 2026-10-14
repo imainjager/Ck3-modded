@@ -107,6 +107,80 @@ if os.path.exists(inn_file):
     for k in re.findall(r"custom = (eir_[a-z_]+)", t):
         need_loc("innovation text", k)
 
+# ---------------------------------------------------------------- 4. every art path, animation, environment and sound the new files name must exist
+vanilla_text = None
+
+
+def vanilla_blob():
+    global vanilla_text
+    if vanilla_text is None:
+        parts = []
+        for sub in ("common", "events", "gui"):
+            for fn in glob.glob(os.path.join(GAME, sub, "**", "*.txt"), recursive=True):
+                try:
+                    parts.append(open(fn, encoding="utf-8-sig", errors="replace").read())
+                except Exception:
+                    pass
+        vanilla_text = "\n".join(parts)
+    return vanilla_text
+
+
+new_files = []
+for pattern in ("common/activities/**/*.txt", "common/struggle/**/*.txt", "common/decisions/eir_struggle_decisions.txt",
+                "common/court_positions/**/*.txt", "common/casus_belli_types/*.txt", "common/culture/innovations/*.txt"):
+    new_files += glob.glob(os.path.join(ROOT, pattern.replace("/", os.sep)), recursive=True)
+for fn in new_files:
+    t = read(fn)
+    for m in re.finditer(r'"(gfx/[^"]+\.dds)"', t):
+        rel = m.group(1)
+        if not (os.path.exists(os.path.join(GAME, *rel.split("/"))) or os.path.exists(os.path.join(ROOT, *rel.split("/")))):
+            problems.append("%s: art file does not exist: %s" % (os.path.basename(fn), rel))
+blob = vanilla_blob()
+for fn in new_files:
+    t = read(fn)
+    for kw in ("animation", "environment", "ambience", "camera"):
+        for v in set(re.findall(r'\b%s = "?([A-Za-z_0-9:/.\-]+)"?' % kw, t)):
+            if v not in blob:
+                problems.append("%s: %s '%s' is not used by the base game's own script" % (os.path.basename(fn), kw, v))
+
+
+def have_icon(folder, name):
+    return os.path.exists(os.path.join(GAME, "gfx", "interface", "icons", folder, name + ".dds")) or os.path.exists(os.path.join(ROOT, "gfx", "interface", "icons", folder, name + ".dds"))
+
+
+pa = os.path.join(ROOT, "common", "activities", "pulse_actions", "eir_pulse_actions.txt")
+if os.path.exists(pa):
+    for ic in set(re.findall(r"^\s*icon = ([a-z_]+)\s*$", read(pa), re.M)):
+        if not have_icon("activity_pulse_actions", ic):
+            problems.append("pulse action icon missing: %s" % ic)
+ie = os.path.join(ROOT, "common", "activities", "intents", "eir_intents.txt")
+if os.path.exists(ie):
+    for ic in set(re.findall(r"^\s*icon = ([a-z_]+)\s*$", read(ie), re.M)):
+        if not have_icon("activity_intents", ic):
+            problems.append("intent icon missing: %s" % ic)
+inn = os.path.join(ROOT, "common", "culture", "innovations", "eir_innovations.txt")
+if os.path.exists(inn):
+    for rel in re.findall(r'= "(gfx/interface/icons/culture_innovations/[a-z_0-9]+\.dds)"', read(inn)):
+        if not os.path.exists(os.path.join(GAME, *rel.split("/"))):
+            problems.append("innovation icon missing: %s" % rel)
+hs = os.path.join(ROOT, "common", "religion", "holy_site_types", "eir_holy_sites.txt")
+if os.path.exists(hs):
+    lt = strip(read(os.path.join(GAME, "common", "landed_titles", "00_landed_titles.txt")))
+    for key, county, barony in re.findall(r"^(eir_[a-z_]+) = \{\n\tcounty = ([a-z_]+)\n\tbarony = ([a-z_]+)", read(hs), re.M):
+        mm = re.search(r"\b%s\s*=\s*\{" % county, lt)
+        if not mm:
+            problems.append("holy site %s: county %s does not exist" % (key, county))
+            continue
+        depth, j = 1, mm.end()
+        while depth and j < len(lt):
+            if lt[j] == "{":
+                depth += 1
+            elif lt[j] == "}":
+                depth -= 1
+            j += 1
+        if barony not in lt[mm.end():j]:
+            problems.append("holy site %s: barony %s is not in %s" % (key, barony, county))
+
 if problems:
     for p in problems:
         print("PROBLEM", p)

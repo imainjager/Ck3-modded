@@ -83,3 +83,4 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 - 0.13 (Update 7) fifteen Celtic tenets, personal and faith level, unlocked by the Britannia and Return of the Celts decisions, each with a decision and an event (see docs/CELTIC_TENETS.md).
 - 0.13.1 every decision that needs an earlier decision stays hidden until it is taken; events fired by a decision can no longer be blocked by their own trigger; tools/audit_decisions.py checks both.
 - 0.13.2 the 30 decisions of the main story are purple (tools/story_chain.py lists them in four acts); the rest are unchanged.
+- 0.14.0 (Update 8) six Irish activities, ten culture innovations, four court positions, three casus belli, twelve holy sites, the Druidic faith and the Culdee Reform, the Fragmentation of Ireland struggle, the road tracker and 40 new events (see docs/UPDATE8.md).
