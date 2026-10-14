@@ -84,6 +84,8 @@
  eir_arthur_table_name:0 "The Round Table"
  eir_arthur_table_desc:0 "A circular table of oak, big enough to seat a hundred and fifty, where no knight sits at the head."
  eir_gsu_host_name:0 "The Saxon Host"
+ eir_grail_name:0 "The Vessel of the Island"
+ eir_grail_desc:0 "A plain cup of dark wood bound in silver, found at the end of a long ride. The land is a little greener where it is carried."
  nick_eir_convener:0 "the Convener"
  nick_eir_convener_desc:0 "Called the great assembly of the Gael, and every king came."
  nick_eir_tara_builder:0 "the Builder of Tara"

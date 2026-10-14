@@ -7757,6 +7757,11 @@ eir_third_of_britannia_decision = {
 		set_global_variable = eir_done_brit30
 		trigger_event = eir.0801
 		trigger_event = { id = eir.0804 days = 90 }
+		set_global_variable = eir_tenet_salt_hearth
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_salt_hearth
+		}
 	}
 
 	ai_will_do = {
@@ -7821,6 +7826,11 @@ eir_unite_gaelic_kingdoms_decision = {
 		set_global_variable = eir_done_gaelic_isles
 		trigger_event = eir.0802
 		trigger_event = { id = eir.0805 days = 60 }
+		set_global_variable = eir_tenet_brehon_peace
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_brehon_peace
+		}
 	}
 
 	ai_will_do = {
@@ -7883,6 +7893,11 @@ eir_revive_arthur_decision = {
 		set_global_variable = eir_done_arthur
 		trigger_event = eir.0803
 		trigger_event = { id = eir.0806 days = 120 }
+		set_global_variable = eir_tenet_grail
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_grail
+		}
 	}
 
 	ai_will_do = {
@@ -7944,6 +7959,11 @@ eir_path_armor_decision = {
 		title:c_cornwall ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
 		set_global_variable = eir_path_armor_done
 		trigger_event = eir.0811
+		set_global_variable = eir_tenet_rage
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_rage
+		}
 	}
 
 	ai_will_do = {
@@ -8005,6 +8025,11 @@ eir_path_crown_decision = {
 		title:c_monmouthshire ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
 		set_global_variable = eir_path_crown_done
 		trigger_event = eir.0812
+		set_global_variable = eir_tenet_heavy_crown
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_heavy_crown
+		}
 	}
 
 	ai_will_do = {
@@ -8067,6 +8092,11 @@ eir_path_brooch_decision = {
 		title:c_somerset ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
 		set_global_variable = eir_path_brooch_done
 		trigger_event = eir.0813
+		set_global_variable = eir_tenet_pilgrim_relic
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_pilgrim_relic
+		}
 	}
 
 	ai_will_do = {
@@ -8125,6 +8155,11 @@ eir_path_spear_decision = {
 		title:c_somerset ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
 		set_global_variable = eir_path_spear_done
 		trigger_event = eir.0814
+		set_global_variable = eir_tenet_fianna
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_fianna
+		}
 	}
 
 	ai_will_do = {
@@ -8186,6 +8221,11 @@ eir_path_table_decision = {
 		capital_county ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
 		set_global_variable = eir_path_table_done
 		trigger_event = eir.0815
+		set_global_variable = eir_tenet_geis
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_geis
+		}
 	}
 
 	ai_will_do = {
@@ -8256,6 +8296,11 @@ eir_final_revenge_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_final_revenge
 		trigger_event = eir.0820
+		set_global_variable = eir_tenet_high_circuit
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_high_circuit
+		}
 	}
 
 	ai_will_do = {
@@ -8325,6 +8370,11 @@ eir_mystic_celts_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_mystic_celts
 		trigger_event = eir.0950
+		set_global_variable = eir_tenet_oak_rite
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_oak_rite
+		}
 	}
 
 	ai_will_do = {
@@ -8383,6 +8433,11 @@ eir_celts_mainland_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celts_mainland
 		trigger_event = eir.0951
+		set_global_variable = eir_tenet_gael_voice
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_gael_voice
+		}
 	}
 
 	ai_will_do = {
@@ -8447,6 +8502,11 @@ eir_return_france_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_france
 		trigger_event = eir.0952
+		set_global_variable = eir_tenet_gaul_vow
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_gaul_vow
+		}
 	}
 
 	ai_will_do = {
@@ -8576,6 +8636,11 @@ eir_return_germany_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_germany
 		trigger_event = eir.0953
+		set_global_variable = eir_tenet_wood_warden
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_wood_warden
+		}
 	}
 
 	ai_will_do = {
@@ -8837,6 +8902,11 @@ eir_return_italy_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_italy
 		trigger_event = eir.0955
+		set_global_variable = eir_tenet_brennus
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_brennus
+		}
 	}
 
 	ai_will_do = {
@@ -8966,6 +9036,11 @@ eir_return_galatia_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_galatia
 		trigger_event = eir.0956
+		set_global_variable = eir_tenet_galatian
+		if = {
+			limit = { free_personal_tenet_slots > 0 }
+			set_personal_tenet = tenet:tenet_eir_galatian
+		}
 	}
 
 	ai_will_do = {
@@ -9031,6 +9106,642 @@ eir_celt_galatia_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celt_galatia
 		trigger_event = eir.0961
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_oak_rite_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_oak_rite_decision_desc
+	selection_tooltip = eir_tn_oak_rite_decision_tooltip
+	confirm_text = eir_tn_oak_rite_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_oak_rite_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		piety = 150
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_oak_rite_boon_modifier years = 8 }
+		add_trait_xp = { trait = lifestyle_mystic value = 100 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0970
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_wood_warden_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_wood_warden_decision_desc
+	selection_tooltip = eir_tn_wood_warden_decision_tooltip
+	confirm_text = eir_tn_wood_warden_decision_confirm
+
+	cooldown = { days = 2920 }
+
+	is_shown = {
+		eir_tn_wood_warden_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_wood_warden_boon_modifier years = 6 }
+		eir_defender_levy_effect = yes
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0971
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_high_circuit_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_high_circuit_decision_desc
+	selection_tooltip = eir_tn_high_circuit_decision_tooltip
+	confirm_text = eir_tn_high_circuit_decision_confirm
+
+	cooldown = { days = 2920 }
+
+	is_shown = {
+		eir_tn_high_circuit_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_high_circuit_boon_modifier years = 8 }
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 6 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0972
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_brehon_peace_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_brehon_peace_decision_desc
+	selection_tooltip = eir_tn_brehon_peace_decision_tooltip
+	confirm_text = eir_tn_brehon_peace_decision_confirm
+
+	cooldown = { days = 2190 }
+
+	is_shown = {
+		eir_tn_brehon_peace_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 200
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_brehon_peace_boon_modifier years = 6 }
+		add_character_modifier = { modifier = eir_wergild_peace_modifier years = 6 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0973
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_gael_voice_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_gael_voice_decision_desc
+	selection_tooltip = eir_tn_gael_voice_decision_tooltip
+	confirm_text = eir_tn_gael_voice_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_gael_voice_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_gael_voice_boon_modifier years = 10 }
+		add_character_modifier = { modifier = eir_bardic_circuit_modifier years = 10 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0974
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_gaul_vow_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_gaul_vow_decision_desc
+	selection_tooltip = eir_tn_gaul_vow_decision_tooltip
+	confirm_text = eir_tn_gaul_vow_decision_confirm
+
+	cooldown = { days = 4380 }
+
+	is_shown = {
+		eir_tn_gaul_vow_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+		piety = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_gaul_vow_boon_modifier years = 6 }
+		eir_defender_levy_effect = yes
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0975
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_pilgrim_relic_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_pilgrim_relic_decision_desc
+	selection_tooltip = eir_tn_pilgrim_relic_decision_tooltip
+	confirm_text = eir_tn_pilgrim_relic_decision_confirm
+
+	cooldown = { days = 2920 }
+
+	is_shown = {
+		eir_tn_pilgrim_relic_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		piety = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_pilgrim_relic_boon_modifier years = 8 }
+		add_character_modifier = { modifier = eir_saints_blessing_modifier years = 8 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0976
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_brennus_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_brennus_decision_desc
+	selection_tooltip = eir_tn_brennus_decision_tooltip
+	confirm_text = eir_tn_brennus_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_brennus_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		piety = 150
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_brennus_boon_modifier years = 8 }
+		add_gold = major_gold_value
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0977
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_galatian_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_galatian_decision_desc
+	selection_tooltip = eir_tn_galatian_decision_tooltip
+	confirm_text = eir_tn_galatian_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_galatian_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+		piety = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_galatian_boon_modifier years = 10 }
+		add_character_modifier = { modifier = eir_royal_ollamh_modifier years = 10 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0978
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_salt_hearth_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_salt_hearth_decision_desc
+	selection_tooltip = eir_tn_salt_hearth_decision_tooltip
+	confirm_text = eir_tn_salt_hearth_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_salt_hearth_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_salt_hearth_boon_modifier years = 10 }
+		add_gold = major_gold_value
+		capital_county ?= { add_county_modifier = { modifier = eir_island_pride_modifier years = 10 } }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0979
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_rage_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_rage_decision_desc
+	selection_tooltip = eir_tn_rage_decision_tooltip
+	confirm_text = eir_tn_rage_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_rage_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_rage_boon_modifier years = 6 }
+		add_trait_xp = { trait = lifestyle_blademaster value = 60 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0980
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_fianna_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_fianna_decision_desc
+	selection_tooltip = eir_tn_fianna_decision_tooltip
+	confirm_text = eir_tn_fianna_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_tn_fianna_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 200
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_fianna_boon_modifier years = 8 }
+		eir_defender_levy_effect = yes
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0981
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_grail_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_grail_decision_desc
+	selection_tooltip = eir_tn_grail_decision_tooltip
+	confirm_text = eir_tn_grail_decision_confirm
+
+	cooldown = { days = 7300 }
+
+	is_shown = {
+		eir_tn_grail_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+		piety = 200
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_grail_boon_modifier years = 10 }
+		add_trait_xp = { trait = lifestyle_mystic value = 50 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0982
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_geis_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_geis_decision_desc
+	selection_tooltip = eir_tn_geis_decision_tooltip
+	confirm_text = eir_tn_geis_decision_confirm
+
+	cooldown = { days = 4380 }
+
+	is_shown = {
+		eir_tn_geis_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		prestige = 150
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_geis_boon_modifier years = 12 }
+		add_character_modifier = { modifier = eir_foreknowledge_modifier years = 6 }
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0983
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_tn_heavy_crown_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_tn_heavy_crown_decision_desc
+	selection_tooltip = eir_tn_heavy_crown_decision_tooltip
+	confirm_text = eir_tn_heavy_crown_decision_confirm
+
+	cooldown = { days = 5475 }
+
+	is_shown = {
+		eir_tn_heavy_crown_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		piety = 200
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_tn_heavy_crown_boon_modifier years = 15 }
+		add_legitimacy = major_legitimacy_gain
+		add_prestige = massive_prestige_gain
+		add_prestige = medium_prestige_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0984
 	}
 
 	ai_will_do = {

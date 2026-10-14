@@ -1368,6 +1368,121 @@ eir_celt_galatia_won_modifier = {
 	monthly_piety = 0.4
 }
 
+eir_tn_oak_rite_boon_modifier = {
+	icon = prestige_positive
+	monthly_piety = 0.4
+	stress_gain_mult = -0.15
+	monthly_prestige = 0.2
+}
+
+eir_tn_wood_warden_boon_modifier = {
+	icon = prestige_positive
+	forest_advantage = 6
+	advantage = 3
+	levy_size = 0.1
+}
+
+eir_tn_high_circuit_boon_modifier = {
+	icon = prestige_positive
+	vassal_opinion = 8
+	monthly_prestige = 0.3
+	legitimacy_gain_mult = 0.15
+}
+
+eir_tn_brehon_peace_boon_modifier = {
+	icon = prestige_positive
+	vassal_opinion = 6
+	general_opinion = 4
+	stress_gain_mult = -0.1
+}
+
+eir_tn_gael_voice_boon_modifier = {
+	icon = prestige_positive
+	owned_legend_spread_mult = 0.3
+	monthly_prestige = 0.3
+	courtier_opinion = 5
+}
+
+eir_tn_gaul_vow_boon_modifier = {
+	icon = prestige_positive
+	defender_advantage = 8
+	levy_size = 0.15
+	advantage = 3
+}
+
+eir_tn_pilgrim_relic_boon_modifier = {
+	icon = prestige_positive
+	monthly_piety = 0.4
+	clergy_opinion = 5
+	monthly_prestige = 0.1
+}
+
+eir_tn_brennus_boon_modifier = {
+	icon = prestige_positive
+	dread_gain_mult = 0.3
+	monthly_prestige = 0.2
+	general_opinion = -4
+}
+
+eir_tn_galatian_boon_modifier = {
+	icon = prestige_positive
+	learning = 2
+	monthly_piety = 0.3
+	general_opinion = 3
+}
+
+eir_tn_salt_hearth_boon_modifier = {
+	icon = prestige_positive
+	monthly_income = 2
+	domain_tax_mult = 0.05
+	courtier_opinion = 3
+}
+
+eir_tn_rage_boon_modifier = {
+	icon = prestige_positive
+	prowess = 5
+	knight_effectiveness_mult = 0.15
+	advantage = 3
+	stress_gain_mult = 0.1
+}
+
+eir_tn_fianna_boon_modifier = {
+	icon = prestige_positive
+	men_at_arms_maintenance = -0.15
+	knight_effectiveness_mult = 0.1
+	levy_size = 0.1
+}
+
+eir_tn_grail_boon_modifier = {
+	icon = prestige_positive
+	monthly_piety = 0.5
+	monthly_prestige = 0.5
+	learning = 2
+}
+
+eir_tn_geis_boon_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	advantage = 3
+	stress_gain_mult = -0.1
+}
+
+eir_tn_heavy_crown_boon_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1
+	legitimacy_gain_mult = 0.3
+	vassal_opinion = -8
+	stress_gain_mult = 0.15
+}
+
+eir_geis_broken_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.5
+	stress_gain_mult = 0.2
+	vassal_opinion = -5
+	advantage = -2
+}
+
 
 ##### county modifiers #####
 
@@ -2193,5 +2308,13 @@ eir_arthur_table_modifier = {
 	monthly_piety = 1
 	knight_limit = 4
 	monthly_prestige = 1
+}
+
+eir_grail_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.8
+	monthly_prestige = 0.5
+	health = 0.2
+	general_opinion = 5
 }
 
