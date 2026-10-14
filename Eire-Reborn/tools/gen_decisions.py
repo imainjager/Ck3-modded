@@ -29,6 +29,10 @@ def build():
     import dec_v12  # noqa: F401  (Update 6: Return of the Celts)
     import dec_v13  # noqa: F401  (Update 7: Celtic tenets)
     import re as _re
+    import story_chain
+    missing = [k for k in story_chain.STEP if k not in {x["key"] for x in DEC}]
+    if missing:
+        raise SystemExit("story_chain lists decisions that do not exist: %s" % missing)
     import reqtext
     import gen_world
     L = Loc("eir_decisions_l_english.yml")
@@ -71,9 +75,17 @@ def build():
             out.append("\tcost = {\n%s\t}\n\n" % ind(d["cost"], 2))
         out.append("\teffect = {\n%s\t}\n\n" % ind(d["effect"], 2))
         out.append("\tai_will_do = {\n\t\tbase = 0\n\t}\n}\n\n")
-        L.add(key, d["name"])
-        L.add(key + "_desc", d["desc"])
-        L.add(key + "_tooltip", d["tip"])
+        step = story_chain.STEP.get(key)
+        if step:
+            # the decisions of the main story are purple, with a line that says where they stand in it
+            tag = "#bold #color_porple %s, step %d of %d#!#!" % (step[0], step[1], step[2])
+            L.add(key, "#bold #color_porple %s#!#!" % d["name"])
+            L.add(key + "_desc", tag + chr(10) + chr(10) + d["desc"])
+            L.add(key + "_tooltip", tag + chr(10) + chr(10) + d["tip"])
+        else:
+            L.add(key, d["name"])
+            L.add(key + "_desc", d["desc"])
+            L.add(key + "_tooltip", d["tip"])
         L.add(key + "_confirm", d["name"])
     write("common/decisions/eir_decisions.txt", "".join(out))
     L.write()

@@ -92,3 +92,22 @@ for d in DEC:
 print("decisions audited: %d, reachable: %d, problems: %d" % (len(DEC), len(done), len(problems)))
 for p in problems:
     print("  PROBLEM", p)
+
+# every decision that the final decisions of the story require must be on the purple road
+import story_chain
+by_key = {d["key"]: d for d in DEC}
+ends = ["eir_final_revenge_decision", "eir_proclaim_gaeldom_decision", "eir_end_fragmentation_decision"] + ["eir_celt_%s_decision" % r for r in ("france", "germany", "spain", "italy", "galatia")]
+need_all, stack = set(), list(ends)
+while stack:
+    k = stack.pop()
+    if k in need_all:
+        continue
+    need_all.add(k)
+    for v in prereq.get(k, ()):
+        for s in set_by.get(v, ()):
+            if s != k and s not in need_all:
+                stack.append(s)
+off_road = sorted(k for k in need_all if k not in story_chain.STEP and not k.startswith("eir_crown_king_"))
+for k in off_road:
+    print("  PROBLEM %s is required by the story but is not on the purple road (tools/story_chain.py)" % k)
+print("purple road: %d decisions" % len(story_chain.STEP))
