@@ -14,21 +14,26 @@ eir.0010 = {
 	}
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
-		eir_viking_age_trigger = yes
-		eir_has_coast_trigger = yes
-		is_at_war = no
-		NOT = { has_character_flag = eir_paid_danegeld }
-		NOT = { has_character_flag = eir_viking_cooldown }
-		any_ruler = {
-			is_ai = yes
-			is_ruler = yes
-			highest_held_title_tier >= tier_county
-			culture ?= { has_cultural_pillar = heritage_north_germanic }
-			is_at_war = no
-			NOT = { has_truce = root }
-			NOT = { this = root }
+		OR = {
+			has_character_flag = eir_dec_ev_0010
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+				eir_viking_age_trigger = yes
+				eir_has_coast_trigger = yes
+				is_at_war = no
+				NOT = { has_character_flag = eir_paid_danegeld }
+				NOT = { has_character_flag = eir_viking_cooldown }
+				any_ruler = {
+					is_ai = yes
+					is_ruler = yes
+					highest_held_title_tier >= tier_county
+					culture ?= { has_cultural_pillar = heritage_north_germanic }
+					is_at_war = no
+					NOT = { has_truce = root }
+					NOT = { this = root }
+				}
+			}
 		}
 	}
 

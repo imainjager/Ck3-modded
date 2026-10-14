@@ -363,8 +363,13 @@ eir.0303 = {
 	theme = learning
 
 	trigger = {
-		has_variable = eir_recelt
-		eir_has_celtic_britain_counties_trigger = yes
+		OR = {
+			has_character_flag = eir_dec_ev_0303
+			AND = {
+				has_variable = eir_recelt
+				eir_has_celtic_britain_counties_trigger = yes
+			}
+		}
 	}
 
 	immediate = {

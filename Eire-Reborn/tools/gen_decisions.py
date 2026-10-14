@@ -44,6 +44,17 @@ def build():
     for d in DEC:
         key = d["key"]
         d = dict(d)
+        # a decision that needs an earlier decision stays hidden until that decision has been taken
+        depth, need = 0, []
+        for ln in d["valid"].splitlines():
+            st = ln.strip()
+            m = _re.match(r"^has_global_variable = ([a-z_0-9]+)$", st)
+            if depth == 0 and m and m.group(1) in var_sources and key not in var_sources[m.group(1)]:
+                need.append(st)
+            depth += st.count("{") - st.count("}")
+        for st in need:
+            if st not in d["shown"]:
+                d["shown"] = d["shown"] + chr(10) + st
         d["valid"] = reqtext.wrap(ctx, d["valid"], key, req_loc)
         out.append("%s = {\n" % key)
         out.append('\tpicture = {\n\t\treference = "gfx/interface/illustrations/decisions/%s.dds"\n\t}\n' % d["pic"])

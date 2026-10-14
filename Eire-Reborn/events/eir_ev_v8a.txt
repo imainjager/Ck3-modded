@@ -2465,15 +2465,20 @@ eir.0410 = {
 	}
 
 	trigger = {
-		is_at_war = no
-		NOT = { has_character_flag = eir_invasion_cd }
-		any_ruler = {
-			is_ai = yes
-			is_ruler = yes
-			highest_held_title_tier >= tier_county
-			NOT = { has_truce = root }
-			NOT = { this = root }
-			culture ?= { has_cultural_pillar = heritage_brythonic }
+		OR = {
+			has_character_flag = eir_dec_ev_0410
+			AND = {
+				is_at_war = no
+				NOT = { has_character_flag = eir_invasion_cd }
+				any_ruler = {
+					is_ai = yes
+					is_ruler = yes
+					highest_held_title_tier >= tier_county
+					NOT = { has_truce = root }
+					NOT = { this = root }
+					culture ?= { has_cultural_pillar = heritage_brythonic }
+				}
+			}
 		}
 	}
 
@@ -2909,16 +2914,21 @@ eir.0413 = {
 	}
 
 	trigger = {
-		is_at_war = no
-		NOT = { has_character_flag = eir_invasion_cd }
-		any_ruler = {
-			is_ai = yes
-			is_ruler = yes
-			highest_held_title_tier >= tier_county
-			NOT = { has_truce = root }
-			NOT = { this = root }
-			culture ?= { has_cultural_pillar = heritage_north_germanic }
-			highest_held_title_tier <= tier_duchy
+		OR = {
+			has_character_flag = eir_dec_ev_0413
+			AND = {
+				is_at_war = no
+				NOT = { has_character_flag = eir_invasion_cd }
+				any_ruler = {
+					is_ai = yes
+					is_ruler = yes
+					highest_held_title_tier >= tier_county
+					NOT = { has_truce = root }
+					NOT = { this = root }
+					culture ?= { has_cultural_pillar = heritage_north_germanic }
+					highest_held_title_tier <= tier_duchy
+				}
+			}
 		}
 	}
 

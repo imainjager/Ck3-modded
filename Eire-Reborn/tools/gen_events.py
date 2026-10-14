@@ -4,6 +4,7 @@ An event is described with E(...). Options are Opt(...). Everything the text nee
 so keys cannot go missing. Run tools/validate.py afterwards.
 """
 import importlib
+import io
 import re
 from eir_lib import *
 from evdsl import Opt, Event, E, lab, LABELS
@@ -14,6 +15,10 @@ EVENT_FILES = {}   # filename -> list of events
 def ind(text, tabs):
     pad = "\t" * tabs
     return "".join(pad + line + "\n" if line.strip() else "\n" for line in text.strip("\n").split("\n"))
+
+
+# events that a decision fires: their own trigger must not block the decision (a click that shows nothing); the decision sets a flag first
+DEC_FIRED = {}
 
 
 def render(ev, L):
@@ -36,7 +41,10 @@ def render(ev, L):
         out.append("\tcooldown = { years = %d }\n" % ev.cooldown)
     if ev.portraits and not ev.hidden:
         out.append(ind(ev.portraits, 1))
-    if ev.trigger:
+    if ev.trigger and ev.num in DEC_FIRED:
+        out.append("\n\ttrigger = {\n\t\tOR = {\n\t\t\thas_character_flag = eir_dec_ev_%04d\n\t\t\tAND = {\n%s\t\t\t}\n\t\t}\n\t}\n" % (ev.num, ind(ev.trigger, 4)))
+        FLAGGED.add(ev.num)
+    elif ev.trigger:
         out.append("\n\ttrigger = {\n%s\t}\n" % ind(ev.trigger, 2))
     if ev.immediate:
         out.append("\n\timmediate = {\n%s\t}\n" % ind(ev.immediate, 2))
@@ -90,7 +98,14 @@ def load_groups():
     return groups
 
 
+FLAGGED = set()
+
+
 def build():
+    dec_path = path("common", "decisions", "eir_decisions.txt")
+    dec_text = io.open(dec_path, encoding="utf-8-sig").read()
+    for m in re.finditer(r"trigger_event = (?:\{ id = )?eir\.(\d+)(?: days = (\d+))?", dec_text):
+        DEC_FIRED[int(m.group(1))] = max(DEC_FIRED.get(int(m.group(1)), 0), int(m.group(2) or 0))
     groups = load_groups()
     total = 0
     seen = set()
@@ -109,6 +124,16 @@ def build():
         write("events/eir_%s.txt" % name, text)
         L.write()
         total += len(events)
+    # the decisions that fire those events set the bypass flag first
+    lines = []
+    for line in dec_text.split("\n"):
+        m = re.match(r"^([ \t]*)trigger_event = (?:\{ id = )?eir\.(\d+)", line)
+        if m and int(m.group(2)) in FLAGGED:
+            num = int(m.group(2))
+            lines.append("%sadd_character_flag = { flag = eir_dec_ev_%04d days = %d }" % (m.group(1), num, DEC_FIRED[num] + 3))
+        lines.append(line)
+    write("common/decisions/eir_decisions.txt", "\n".join(lines))
+    print("events fired by decisions that got a bypass flag:", len(FLAGGED))
     LL = Loc("eir_event_labels_l_english.yml")
     for k in sorted(LABELS):
         LL.add(k, LABELS[k])

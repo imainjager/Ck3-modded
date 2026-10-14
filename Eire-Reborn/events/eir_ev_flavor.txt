@@ -612,8 +612,13 @@ eir.0051 = {
 	cooldown = { years = 6 }
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
+		OR = {
+			has_character_flag = eir_dec_ev_0051
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+			}
+		}
 	}
 
 	option = {

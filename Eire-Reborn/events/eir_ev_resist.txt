@@ -254,9 +254,14 @@ eir.0130 = {
 	cooldown = { years = 25 }
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
-		has_global_variable = eir_done_fili
+		OR = {
+			has_character_flag = eir_dec_ev_0130
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+				has_global_variable = eir_done_fili
+			}
+		}
 	}
 
 	option = {

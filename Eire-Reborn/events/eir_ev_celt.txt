@@ -9,7 +9,12 @@ eir.0950 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_mystic_celts
+		OR = {
+			has_character_flag = eir_dec_ev_0950
+			AND = {
+				has_global_variable = eir_done_mystic_celts
+			}
+		}
 	}
 
 	option = {
@@ -97,7 +102,12 @@ eir.0951 = {
 	theme = diplomacy
 
 	trigger = {
-		has_global_variable = eir_done_celts_mainland
+		OR = {
+			has_character_flag = eir_dec_ev_0951
+			AND = {
+				has_global_variable = eir_done_celts_mainland
+			}
+		}
 	}
 
 	option = {
@@ -177,7 +187,12 @@ eir.0952 = {
 	theme = war
 
 	trigger = {
-		has_global_variable = eir_done_return_france
+		OR = {
+			has_character_flag = eir_dec_ev_0952
+			AND = {
+				has_global_variable = eir_done_return_france
+			}
+		}
 	}
 
 	option = {
@@ -260,7 +275,12 @@ eir.0957 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_celt_france
+		OR = {
+			has_character_flag = eir_dec_ev_0957
+			AND = {
+				has_global_variable = eir_done_celt_france
+			}
+		}
 	}
 
 	option = {
@@ -350,7 +370,12 @@ eir.0953 = {
 	theme = war
 
 	trigger = {
-		has_global_variable = eir_done_return_germany
+		OR = {
+			has_character_flag = eir_dec_ev_0953
+			AND = {
+				has_global_variable = eir_done_return_germany
+			}
+		}
 	}
 
 	option = {
@@ -433,7 +458,12 @@ eir.0958 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_celt_germany
+		OR = {
+			has_character_flag = eir_dec_ev_0958
+			AND = {
+				has_global_variable = eir_done_celt_germany
+			}
+		}
 	}
 
 	option = {
@@ -523,7 +553,12 @@ eir.0954 = {
 	theme = war
 
 	trigger = {
-		has_global_variable = eir_done_return_spain
+		OR = {
+			has_character_flag = eir_dec_ev_0954
+			AND = {
+				has_global_variable = eir_done_return_spain
+			}
+		}
 	}
 
 	option = {
@@ -606,7 +641,12 @@ eir.0959 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_celt_spain
+		OR = {
+			has_character_flag = eir_dec_ev_0959
+			AND = {
+				has_global_variable = eir_done_celt_spain
+			}
+		}
 	}
 
 	option = {
@@ -696,7 +736,12 @@ eir.0955 = {
 	theme = war
 
 	trigger = {
-		has_global_variable = eir_done_return_italy
+		OR = {
+			has_character_flag = eir_dec_ev_0955
+			AND = {
+				has_global_variable = eir_done_return_italy
+			}
+		}
 	}
 
 	option = {
@@ -779,7 +824,12 @@ eir.0960 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_celt_italy
+		OR = {
+			has_character_flag = eir_dec_ev_0960
+			AND = {
+				has_global_variable = eir_done_celt_italy
+			}
+		}
 	}
 
 	option = {
@@ -869,7 +919,12 @@ eir.0956 = {
 	theme = war
 
 	trigger = {
-		has_global_variable = eir_done_return_galatia
+		OR = {
+			has_character_flag = eir_dec_ev_0956
+			AND = {
+				has_global_variable = eir_done_return_galatia
+			}
+		}
 	}
 
 	option = {
@@ -952,7 +1007,12 @@ eir.0961 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_celt_galatia
+		OR = {
+			has_character_flag = eir_dec_ev_0961
+			AND = {
+				has_global_variable = eir_done_celt_galatia
+			}
+		}
 	}
 
 	option = {

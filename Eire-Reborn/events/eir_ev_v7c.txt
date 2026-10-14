@@ -582,10 +582,15 @@ eir.0343 = {
 	cooldown = { years = 10 }
 
 	trigger = {
-		eir_is_gael_ruler_trigger = yes
-		is_ai = no
-		eir_stage1_trigger = yes
-		NOT = { has_character_flag = eir_flavor_cd }
+		OR = {
+			has_character_flag = eir_dec_ev_0343
+			AND = {
+				eir_is_gael_ruler_trigger = yes
+				is_ai = no
+				eir_stage1_trigger = yes
+				NOT = { has_character_flag = eir_flavor_cd }
+			}
+		}
 	}
 
 	immediate = {

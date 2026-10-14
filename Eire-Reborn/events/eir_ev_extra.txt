@@ -69,10 +69,15 @@ eir.0151 = {
 	cooldown = { years = 10 }
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
-		prowess >= 6
-		is_at_war = no
+		OR = {
+			has_character_flag = eir_dec_ev_0151
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+				prowess >= 6
+				is_at_war = no
+			}
+		}
 	}
 
 	option = {
@@ -273,13 +278,18 @@ eir.0154 = {
 	}
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
-		has_global_variable = eir_done_brotherhood
-		any_ruler = {
-		is_ai = yes
-		is_ruler = yes
-		culture ?= { has_cultural_pillar = heritage_brythonic }
+		OR = {
+			has_character_flag = eir_dec_ev_0154
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+				has_global_variable = eir_done_brotherhood
+				any_ruler = {
+				is_ai = yes
+				is_ruler = yes
+				culture ?= { has_cultural_pillar = heritage_brythonic }
+				}
+			}
 		}
 	}
 
@@ -328,13 +338,18 @@ eir.0155 = {
 	}
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
-		has_global_variable = eir_done_brotherhood
-		any_ruler = {
-		is_ai = yes
-		is_ruler = yes
-		culture ?= { has_cultural_pillar = heritage_brythonic }
+		OR = {
+			has_character_flag = eir_dec_ev_0155
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+				has_global_variable = eir_done_brotherhood
+				any_ruler = {
+				is_ai = yes
+				is_ruler = yes
+				culture ?= { has_cultural_pillar = heritage_brythonic }
+				}
+			}
 		}
 	}
 
@@ -386,13 +401,18 @@ eir.0156 = {
 	}
 
 	trigger = {
-		eir_is_irish_ruler_trigger = yes
-		is_ai = no
-		any_ruler = {
-		is_ai = yes
-		is_ruler = yes
-		culture ?= { has_cultural_pillar = heritage_goidelic }
-		NOT = { this = root }
+		OR = {
+			has_character_flag = eir_dec_ev_0156
+			AND = {
+				eir_is_irish_ruler_trigger = yes
+				is_ai = no
+				any_ruler = {
+				is_ai = yes
+				is_ruler = yes
+				culture ?= { has_cultural_pillar = heritage_goidelic }
+				NOT = { this = root }
+				}
+			}
 		}
 	}
 

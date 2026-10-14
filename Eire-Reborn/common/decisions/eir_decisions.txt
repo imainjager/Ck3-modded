@@ -52,6 +52,7 @@ eir_hold_oenach_decision = {
 		add_prestige = 300
 		add_piety = 50
 		set_global_variable = eir_done_oenach
+		add_character_flag = { flag = eir_dec_ev_0051 days = 33 }
 		trigger_event = { id = eir.0051 days = 30 }
 		trigger_event = { id = eir.0210 days = 10 }
 	}
@@ -79,6 +80,7 @@ eir_rebuild_tara_hall_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_rebuild_tara_hall }
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -141,6 +143,8 @@ eir_crowned_at_tara_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_tara_hall
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -219,6 +223,8 @@ eir_end_fragmentation_decision = {
 		has_global_variable = eir_done_crowned
 		eir_collapse_active_trigger = yes
 		NOT = { has_global_variable = eir_unique_end_fragmentation }
+		has_global_variable = eir_done_circuit
+		has_global_variable = eir_done_oath
 	}
 
 	is_valid = {
@@ -291,6 +297,7 @@ eir_circuit_of_ireland_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -349,6 +356,7 @@ eir_provincial_oath_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -407,6 +415,9 @@ eir_feis_of_tara_decision = {
 	is_shown = {
 		eir_is_irish_ruler_trigger = yes
 		eir_stage4_trigger = yes
+		has_global_variable = eir_done_tara_hall
+		has_global_variable = eir_done_circuit
+		has_global_variable = eir_done_oath
 	}
 
 	is_valid = {
@@ -439,6 +450,7 @@ eir_feis_of_tara_decision = {
 		add_character_modifier = { modifier = eir_feis_modifier years = 12 }
 		add_prestige = 600
 		eir_vassal_opinion_effect = { MODIFIER = eir_oenach_opinion OPINION = 12 }
+		add_character_flag = { flag = eir_dec_ev_0051 days = 33 }
 		trigger_event = { id = eir.0051 days = 20 }
 	}
 
@@ -539,6 +551,7 @@ eir_take_hostages_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -1027,6 +1040,7 @@ eir_found_bardic_schools_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_found_bardic_schools }
+		has_global_variable = eir_done_fili
 	}
 
 	is_valid = {
@@ -1069,6 +1083,7 @@ eir_found_bardic_schools_decision = {
 		add_character_modifier = { modifier = eir_bardic_circuit_modifier years = 10 }
 		eir_held_county_modifier_effect = { MODIFIER = eir_gaelic_schooling_modifier YEARS = 25 }
 		add_prestige = 400
+		add_character_flag = { flag = eir_dec_ev_0130 days = 63 }
 		trigger_event = { id = eir.0130 days = 60 }
 		trigger_event = { id = eir.0212 days = 10 }
 		set_global_variable = eir_unique_found_bardic_schools
@@ -1132,6 +1147,7 @@ eir_compile_brehon_laws_decision = {
 			add_trait = eir_brehon
 		}
 		add_prestige = 250
+		add_character_flag = { flag = eir_dec_ev_0040 days = 43 }
 		trigger_event = { id = eir.0040 days = 40 }
 		set_global_variable = eir_unique_compile_brehon_laws
 	}
@@ -1301,6 +1317,7 @@ eir_adopt_culdee_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_adopt_culdee }
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -1537,6 +1554,7 @@ eir_gaelic_revival_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
 		NOT = { has_global_variable = eir_unique_gaelic_revival }
+		has_global_variable = eir_unlock_brehon_court
 	}
 
 	is_valid = {
@@ -1615,6 +1633,7 @@ eir_hold_tailteann_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -1669,6 +1688,7 @@ eir_ancient_sites_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_ancient_sites }
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -1794,6 +1814,7 @@ eir_commission_tale_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_fili
 	}
 
 	is_valid = {
@@ -2007,6 +2028,7 @@ eir_dublin_garrison_decision = {
 	effect = {
 		title:c_dublin ?= { add_county_modifier = { modifier = eir_gallowglass_garrison_modifier years = 20 } }
 		add_prestige = 100
+		add_character_flag = { flag = eir_dec_ev_0151 days = 93 }
 		trigger_event = { id = eir.0151 days = 90 }
 	}
 
@@ -2098,6 +2120,7 @@ eir_end_danegeld_decision = {
 		remove_character_flag = eir_paid_danegeld
 		add_prestige = 150
 		eir_trait_effect = { TRAIT = brave OPPOSITE = craven CHANCE = 20 }
+		add_character_flag = { flag = eir_dec_ev_0010 days = 33 }
 		trigger_event = { id = eir.0010 days = 30 }
 		add_character_modifier = { modifier = eir_honour_restored_modifier years = 10 }
 		if = {
@@ -2371,6 +2394,8 @@ eir_four_provinces_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_muster
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -2453,6 +2478,7 @@ eir_single_combat_decision = {
 	}
 
 	effect = {
+		add_character_flag = { flag = eir_dec_ev_0151 days = 93 }
 		trigger_event = { id = eir.0151 days = 5 }
 	}
 
@@ -2534,6 +2560,7 @@ eir_ceithern_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
 		NOT = { has_global_variable = eir_unique_ceithern }
+		has_global_variable = eir_done_oath
 	}
 
 	is_valid = {
@@ -2725,6 +2752,7 @@ eir_found_scriptorium_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_found_scriptorium }
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -2783,6 +2811,7 @@ eir_raise_high_crosses_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_raise_high_crosses }
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -2841,6 +2870,7 @@ eir_found_round_towers_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_found_round_towers }
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -2947,6 +2977,7 @@ eir_endow_cashel_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_endow_cashel }
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -3007,6 +3038,7 @@ eir_synod_rath_breasail_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
 		NOT = { has_global_variable = eir_unique_synod_rath_breasail }
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3152,6 +3184,7 @@ eir_armagh_primacy_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_armagh_primacy }
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3211,6 +3244,7 @@ eir_patronise_glendalough_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_patronise_glendalough }
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3268,6 +3302,7 @@ eir_restore_clonmacnoise_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_restore_clonmacnoise }
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3325,6 +3360,7 @@ eir_cain_law_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
 		NOT = { has_global_variable = eir_unique_cain_law }
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3382,6 +3418,7 @@ eir_relic_procession_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3525,6 +3562,7 @@ eir_honour_saints_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -3576,6 +3614,8 @@ eir_crown_king_of_munster_decision = {
 		eir_visible_stage1_trigger = yes
 		has_title = title:d_munster
 		NOT = { has_global_variable = eir_unique_crown_king_of_munster }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_cashel
 	}
 
 	is_valid = {
@@ -3647,6 +3687,8 @@ eir_crown_king_of_ulster_decision = {
 		eir_visible_stage1_trigger = yes
 		has_title = title:d_ulster
 		NOT = { has_global_variable = eir_unique_crown_king_of_ulster }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_armagh
 	}
 
 	is_valid = {
@@ -3718,6 +3760,8 @@ eir_crown_king_of_leinster_decision = {
 		eir_visible_stage1_trigger = yes
 		has_title = title:d_leinster
 		NOT = { has_global_variable = eir_unique_crown_king_of_leinster }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_glendalough
 	}
 
 	is_valid = {
@@ -3789,6 +3833,8 @@ eir_crown_king_of_connacht_decision = {
 		eir_visible_stage1_trigger = yes
 		has_title = title:d_connacht
 		NOT = { has_global_variable = eir_unique_crown_king_of_connacht }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_clonmacnoise
 	}
 
 	is_valid = {
@@ -3860,6 +3906,8 @@ eir_crown_king_of_meath_decision = {
 		eir_visible_stage1_trigger = yes
 		has_title = title:d_meath
 		NOT = { has_global_variable = eir_unique_crown_king_of_meath }
+		has_global_variable = eir_done_oenach
+		has_global_variable = eir_done_tara_hall
 	}
 
 	is_valid = {
@@ -3990,6 +4038,7 @@ eir_celtic_brotherhood_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
 		NOT = { has_global_variable = eir_unique_celtic_brotherhood }
+		has_global_variable = eir_done_oath
 	}
 
 	is_valid = {
@@ -4058,6 +4107,7 @@ eir_reclaim_dal_riata_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4115,6 +4165,7 @@ eir_reclaim_man_isles_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4169,6 +4220,7 @@ eir_reclaim_cornwall_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4223,6 +4275,7 @@ eir_reclaim_armorica_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4277,6 +4330,7 @@ eir_reclaim_old_north_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4332,6 +4386,7 @@ eir_stand_with_wales_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4387,6 +4442,8 @@ eir_pictish_memory_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
+		has_global_variable = eir_done_dalriata
 	}
 
 	is_valid = {
@@ -4441,6 +4498,7 @@ eir_gaulish_heritage_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4495,6 +4553,7 @@ eir_embassy_gwynedd_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4524,6 +4583,7 @@ eir_embassy_gwynedd_decision = {
 
 	effect = {
 		add_prestige = 50
+		add_character_flag = { flag = eir_dec_ev_0154 days = 63 }
 		trigger_event = { id = eir.0154 days = 60 }
 	}
 
@@ -4548,6 +4608,7 @@ eir_embassy_strathclyde_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4577,6 +4638,7 @@ eir_embassy_strathclyde_decision = {
 
 	effect = {
 		add_prestige = 50
+		add_character_flag = { flag = eir_dec_ev_0155 days = 63 }
 		trigger_event = { id = eir.0155 days = 60 }
 	}
 
@@ -4601,6 +4663,7 @@ eir_breton_refuge_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4655,6 +4718,7 @@ eir_armorica_voyage_decision = {
 		eir_is_irish_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage1_trigger = yes
+		has_global_variable = eir_done_brotherhood
 	}
 
 	is_valid = {
@@ -4733,6 +4797,7 @@ eir_hebridean_marriage_decision = {
 
 	effect = {
 		add_prestige = 25
+		add_character_flag = { flag = eir_dec_ev_0156 days = 48 }
 		trigger_event = { id = eir.0156 days = 45 }
 	}
 
@@ -4759,6 +4824,8 @@ eir_proclaim_gaeldom_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage3_trigger = yes
 		NOT = { has_global_variable = eir_unique_proclaim_gaeldom }
+		has_global_variable = eir_done_brotherhood
+		has_global_variable = eir_done_renaissance
 	}
 
 	is_valid = {
@@ -4871,6 +4938,7 @@ eir_reclaim_tongue_decision = {
 		add_prestige = medium_prestige_gain
 		add_piety = minor_piety_gain
 		trigger_event = eir.0300
+		add_character_flag = { flag = eir_dec_ev_0303 days = 3 }
 		trigger_event = { id = eir.0303 years = 2 }
 	}
 
@@ -4950,6 +5018,7 @@ eir_restore_old_names_decision = {
 		eir_is_gael_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		has_variable = eir_recelt
+		has_global_variable = eir_done_fili
 	}
 
 	is_valid = {
@@ -5145,6 +5214,7 @@ eir_found_bardic_house_decision = {
 		eir_is_gael_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		NOT = { has_global_variable = eir_unique_bardic_house }
+		has_global_variable = eir_done_fili
 	}
 
 	is_valid = {
@@ -5444,6 +5514,7 @@ eir_summer_booleying_decision = {
 		}
 		add_stress = medium_stress_loss
 		add_prestige = miniscule_prestige_gain
+		add_character_flag = { flag = eir_dec_ev_0343 days = 3 }
 		trigger_event = { id = eir.0343 days = { 20 60 } }
 	}
 
@@ -5599,6 +5670,8 @@ eir_found_college_bangor_decision = {
 		eir_visible_stage1_trigger = yes
 		has_global_variable = eir_done_fili
 		NOT = { has_global_variable = eir_unique_college_bangor }
+		has_global_variable = eir_done_monastery
+		has_global_variable = eir_unlock_scriptorium
 	}
 
 	is_valid = {
@@ -6009,6 +6082,7 @@ eir_call_defensive_compact_decision = {
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
 		NOT = { has_global_variable = eir_unique_compact }
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -6293,6 +6367,7 @@ eir_burn_longphort_decision = {
 		eir_grant_claims_norse_effect = yes
 		add_character_modifier = { modifier = eir_longphort_burner_modifier years = 12 }
 		trigger_event = eir.0555
+		add_character_flag = { flag = eir_dec_ev_0413 days = 3 }
 		trigger_event = { id = eir.0413 years = 2 }
 	}
 
@@ -6317,6 +6392,7 @@ eir_assimilate_ostmen_decision = {
 		eir_is_gael_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_holds_norse_county_trigger = yes
+		has_global_variable = eir_done_fosterage
 	}
 
 	is_valid = {
@@ -6741,6 +6817,7 @@ eir_plant_colonists_decision = {
 		}
 		add_prestige = minor_prestige_gain
 		trigger_event = eir.0502
+		add_character_flag = { flag = eir_dec_ev_0503 days = 3 }
 		trigger_event = { id = eir.0503 years = 8 }
 	}
 
@@ -7141,6 +7218,7 @@ eir_raid_saxon_coast_decision = {
 		add_character_modifier = { modifier = eir_raider_infamy_modifier years = 3 }
 		random = {
 			chance = 33
+			add_character_flag = { flag = eir_dec_ev_0410 days = 3 }
 			trigger_event = { id = eir.0410 years = 1 }
 		}
 		trigger_event = eir.0513
@@ -7336,6 +7414,7 @@ eir_demand_rival_hostages_decision = {
 		eir_is_gael_ruler_trigger = yes
 		eir_visible_stage1_trigger = yes
 		eir_stage2_trigger = yes
+		has_global_variable = eir_done_oenach
 	}
 
 	is_valid = {
@@ -7756,6 +7835,7 @@ eir_third_of_britannia_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_brit30
 		trigger_event = eir.0801
+		add_character_flag = { flag = eir_dec_ev_0804 days = 93 }
 		trigger_event = { id = eir.0804 days = 90 }
 		set_global_variable = eir_tenet_salt_hearth
 		if = {
@@ -7825,6 +7905,7 @@ eir_unite_gaelic_kingdoms_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_gaelic_isles
 		trigger_event = eir.0802
+		add_character_flag = { flag = eir_dec_ev_0805 days = 63 }
 		trigger_event = { id = eir.0805 days = 60 }
 		set_global_variable = eir_tenet_brehon_peace
 		if = {
@@ -7892,6 +7973,7 @@ eir_revive_arthur_decision = {
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_arthur
 		trigger_event = eir.0803
+		add_character_flag = { flag = eir_dec_ev_0806 days = 123 }
 		trigger_event = { id = eir.0806 days = 120 }
 		set_global_variable = eir_tenet_grail
 		if = {
@@ -7922,6 +8004,7 @@ eir_path_armor_decision = {
 		eir_is_gael_ruler_trigger = yes
 		has_global_variable = eir_done_gaelic_isles
 		NOT = { has_global_variable = eir_path_armor_done }
+		has_global_variable = eir_done_arthur
 	}
 
 	is_valid = {
@@ -7988,6 +8071,7 @@ eir_path_crown_decision = {
 		eir_is_gael_ruler_trigger = yes
 		has_global_variable = eir_done_gaelic_isles
 		NOT = { has_global_variable = eir_path_crown_done }
+		has_global_variable = eir_done_arthur
 	}
 
 	is_valid = {
@@ -8054,6 +8138,8 @@ eir_path_brooch_decision = {
 		eir_is_gael_ruler_trigger = yes
 		has_global_variable = eir_done_gaelic_isles
 		NOT = { has_global_variable = eir_path_brooch_done }
+		has_global_variable = eir_done_arthur
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -8121,6 +8207,7 @@ eir_path_spear_decision = {
 		eir_is_gael_ruler_trigger = yes
 		has_global_variable = eir_done_gaelic_isles
 		NOT = { has_global_variable = eir_path_spear_done }
+		has_global_variable = eir_done_arthur
 	}
 
 	is_valid = {
@@ -8184,6 +8271,7 @@ eir_path_table_decision = {
 		eir_is_gael_ruler_trigger = yes
 		has_global_variable = eir_done_gaelic_isles
 		NOT = { has_global_variable = eir_path_table_done }
+		has_global_variable = eir_done_arthur
 	}
 
 	is_valid = {
@@ -8369,6 +8457,7 @@ eir_mystic_celts_decision = {
 		}
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_mystic_celts
+		add_character_flag = { flag = eir_dec_ev_0950 days = 3 }
 		trigger_event = eir.0950
 		set_global_variable = eir_tenet_oak_rite
 		if = {
@@ -8432,6 +8521,7 @@ eir_celts_mainland_decision = {
 		add_piety = medium_piety_gain
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celts_mainland
+		add_character_flag = { flag = eir_dec_ev_0951 days = 3 }
 		trigger_event = eir.0951
 		set_global_variable = eir_tenet_gael_voice
 		if = {
@@ -8501,6 +8591,7 @@ eir_return_france_decision = {
 		add_dread = minor_dread_gain
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_france
+		add_character_flag = { flag = eir_dec_ev_0952 days = 3 }
 		trigger_event = eir.0952
 		set_global_variable = eir_tenet_gaul_vow
 		if = {
@@ -8571,6 +8662,7 @@ eir_celt_france_decision = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celt_france
+		add_character_flag = { flag = eir_dec_ev_0957 days = 3 }
 		trigger_event = eir.0957
 	}
 
@@ -8635,6 +8727,7 @@ eir_return_germany_decision = {
 		add_dread = minor_dread_gain
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_germany
+		add_character_flag = { flag = eir_dec_ev_0953 days = 3 }
 		trigger_event = eir.0953
 		set_global_variable = eir_tenet_wood_warden
 		if = {
@@ -8705,6 +8798,7 @@ eir_celt_germany_decision = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celt_germany
+		add_character_flag = { flag = eir_dec_ev_0958 days = 3 }
 		trigger_event = eir.0958
 	}
 
@@ -8730,6 +8824,7 @@ eir_return_spain_decision = {
 		eir_is_irish_ruler_trigger = yes
 		has_global_variable = eir_done_celts_mainland
 		NOT = { has_global_variable = eir_done_return_spain }
+		has_global_variable = eir_done_monastery
 	}
 
 	is_valid = {
@@ -8772,6 +8867,7 @@ eir_return_spain_decision = {
 		add_dread = minor_dread_gain
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_spain
+		add_character_flag = { flag = eir_dec_ev_0954 days = 3 }
 		trigger_event = eir.0954
 	}
 
@@ -8837,6 +8933,7 @@ eir_celt_spain_decision = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celt_spain
+		add_character_flag = { flag = eir_dec_ev_0959 days = 3 }
 		trigger_event = eir.0959
 	}
 
@@ -8901,6 +8998,7 @@ eir_return_italy_decision = {
 		add_dread = minor_dread_gain
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_italy
+		add_character_flag = { flag = eir_dec_ev_0955 days = 3 }
 		trigger_event = eir.0955
 		set_global_variable = eir_tenet_brennus
 		if = {
@@ -8971,6 +9069,7 @@ eir_celt_italy_decision = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celt_italy
+		add_character_flag = { flag = eir_dec_ev_0960 days = 3 }
 		trigger_event = eir.0960
 	}
 
@@ -9035,6 +9134,7 @@ eir_return_galatia_decision = {
 		add_dread = minor_dread_gain
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_return_galatia
+		add_character_flag = { flag = eir_dec_ev_0956 days = 3 }
 		trigger_event = eir.0956
 		set_global_variable = eir_tenet_galatian
 		if = {
@@ -9105,6 +9205,7 @@ eir_celt_galatia_decision = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
 		eir_world_reacts_effect = yes
 		set_global_variable = eir_done_celt_galatia
+		add_character_flag = { flag = eir_dec_ev_0961 days = 3 }
 		trigger_event = eir.0961
 	}
 

@@ -81,3 +81,4 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 - 0.11 (Update 5) the Great Saxon Uprising: a twice-per-game disaster with a spawned English leader and about 5,000 men for every occupied duchy of England (see docs/GREAT_SAXON_UPRISING.md).
 - 0.12 (Update 6) the Return of the Celts: Mystical Celtic Warriors (tradition, Forest Warriors, Sacred Grove), the Mainland, five claim and five restoration decisions (see docs/CELTIC_RETURN.md).
 - 0.13 (Update 7) fifteen Celtic tenets, personal and faith level, unlocked by the Britannia and Return of the Celts decisions, each with a decision and an event (see docs/CELTIC_TENETS.md).
+- 0.13.1 every decision that needs an earlier decision stays hidden until it is taken; events fired by a decision can no longer be blocked by their own trigger; tools/audit_decisions.py checks both.

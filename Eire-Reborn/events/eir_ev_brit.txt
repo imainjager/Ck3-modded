@@ -412,7 +412,12 @@ eir.0804 = {
 	theme = court
 
 	trigger = {
-		has_global_variable = eir_done_brit30
+		OR = {
+			has_character_flag = eir_dec_ev_0804
+			AND = {
+				has_global_variable = eir_done_brit30
+			}
+		}
 	}
 
 	option = {
@@ -499,7 +504,12 @@ eir.0805 = {
 	theme = diplomacy
 
 	trigger = {
-		has_global_variable = eir_done_gaelic_isles
+		OR = {
+			has_character_flag = eir_dec_ev_0805
+			AND = {
+				has_global_variable = eir_done_gaelic_isles
+			}
+		}
 	}
 
 	option = {
@@ -583,7 +593,12 @@ eir.0806 = {
 	theme = legend
 
 	trigger = {
-		has_global_variable = eir_done_arthur
+		OR = {
+			has_character_flag = eir_dec_ev_0806
+			AND = {
+				has_global_variable = eir_done_arthur
+			}
+		}
 	}
 
 	option = {
