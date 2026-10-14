@@ -439,6 +439,14 @@
  eir_cain_received_modifier_desc:0 "A neighbouring lord pays you the yearly cáin: cattle in autumn, silver in spring, and a very long face at the feast."
  eir_owes_cain_modifier:0 "Owes the Cáin"
  eir_owes_cain_modifier_desc:0 "Defeat has made you pay a yearly tribute to a stronger king. Your lords have noticed."
+ eir_fires_kindled_modifier:0 "The Fires Kindled"
+ eir_fires_kindled_modifier_desc:0 "You lit the quarter-day fires in public. The people sing, the monks write letters, and the vassals check where their own priests stand."
+ eir_penitent_modifier:0 "Penitent"
+ eir_penitent_modifier_desc:0 "You came back to the Church on your knees. The abbots are satisfied, the court is smirking and the people are confused."
+ eir_culdee_reform_modifier:0 "Culdee Reform"
+ eir_culdee_reform_modifier_desc:0 "Your Church is a Church of hermits and small houses, and its abbots live on barley bread and good report. The great bishops are not happy."
+ eir_end_of_strife_modifier:0 "The Strife Ended"
+ eir_end_of_strife_modifier_desc:0 "The great quarrel of the kings is over, and nobody now alive remembers who began it."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"

@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import gen_decisions
 from eir_lib import ROOT
 
-import dec_v2, dec_v7, dec_v8, dec_v10, dec_v12, dec_v13  # noqa: F401,E401
+import dec_v2, dec_v7, dec_v8, dec_v10, dec_v12, dec_v13, dec_v14  # noqa: F401,E401
 DEC = gen_decisions.DEC
 text = open(os.path.join(ROOT, "common", "decisions", "eir_decisions.txt"), encoding="utf-8-sig").read()
 blocks = {}

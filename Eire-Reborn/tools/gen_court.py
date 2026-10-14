@@ -28,7 +28,7 @@ POSITIONS = [
     dict(key="eir_druid", name="Druid", skill="learning",
          desc="A keeper of the old lore: the oaks, the calendar of the fires, the cures of the herbs. In a Christian court he is called a hermit, and nobody asks too closely what he prays to.",
          anim="holding_staff", bg="ep2_travel_mountains", rank="county",
-         position="culture ?= {\n\tOR = {\n\t\thas_cultural_pillar = heritage_goidelic\n\t\thas_cultural_pillar = heritage_brythonic\n\t}\n}",
+         position="culture ?= {\n\tOR = {\n\t\thas_cultural_pillar = heritage_goidelic\n\t\thas_cultural_pillar = heritage_brythonic\n\t}\n}\nOR = {\n\thas_global_variable = eir_done_druidic_revival\n\tfaith = faith:eir_druidic\n\teir_tn_oak_rite_trigger = yes\n}",
          skills=[("learning", 2, "court_position_skill_learning"), ("stewardship", 1, "court_position_skill_stewardship")],
          traits=[("lifestyle_mystic", 20, "eir_court_trait_mystic"), ("lifestyle_herbalist", 10, "eir_court_trait_herbalist")],
          employer={"terrible": {"monthly_piety": 0.02}, "poor": {"monthly_piety": 0.05}, "average": {"monthly_piety": 0.1},

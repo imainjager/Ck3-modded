@@ -412,6 +412,11 @@ eir_druid_court_position = {
 				has_cultural_pillar = heritage_brythonic
 			}
 		}
+		OR = {
+			has_global_variable = eir_done_druidic_revival
+			faith = faith:eir_druidic
+			eir_tn_oak_rite_trigger = yes
+		}
 	}
 
 	valid_position = {
@@ -420,6 +425,11 @@ eir_druid_court_position = {
 				has_cultural_pillar = heritage_goidelic
 				has_cultural_pillar = heritage_brythonic
 			}
+		}
+		OR = {
+			has_global_variable = eir_done_druidic_revival
+			faith = faith:eir_druidic
+			eir_tn_oak_rite_trigger = yes
 		}
 		is_landed_or_landless_administrative_or_theocratic = yes
 	}

@@ -55,6 +55,7 @@ eir_hold_oenach_decision = {
 		add_character_flag = { flag = eir_dec_ev_0051 days = 33 }
 		trigger_event = { id = eir.0051 days = 30 }
 		trigger_event = { id = eir.0210 days = 10 }
+		set_global_variable = eir_story_done_hold_oenach
 	}
 
 	ai_will_do = {
@@ -119,6 +120,7 @@ eir_rebuild_tara_hall_decision = {
 		set_global_variable = eir_done_tara_hall
 		trigger_event = { id = eir.0211 days = 10 }
 		set_global_variable = eir_unique_rebuild_tara_hall
+		set_global_variable = eir_story_done_rebuild_tara_hall
 	}
 
 	ai_will_do = {
@@ -197,6 +199,7 @@ eir_crowned_at_tara_decision = {
 		set_global_variable = eir_done_crowned
 		eir_legend_title_effect = { TITLE = title:k_ireland }
 		trigger_event = { id = eir.0110 days = 7 }
+		set_global_variable = eir_story_done_crowned_at_tara
 	}
 
 	ai_will_do = {
@@ -274,6 +277,7 @@ eir_end_fragmentation_decision = {
 		trigger_event = { id = eir.0110 days = 7 }
 		trigger_event = { id = eir.0217 days = 10 }
 		set_global_variable = eir_unique_end_fragmentation
+		set_global_variable = eir_story_done_end_fragmentation
 	}
 
 	ai_will_do = {
@@ -333,6 +337,7 @@ eir_circuit_of_ireland_decision = {
 		add_prestige = 200
 		set_global_variable = eir_done_circuit
 		trigger_event = { id = eir.0160 days = 45 }
+		set_global_variable = eir_story_done_circuit_of_ireland
 	}
 
 	ai_will_do = {
@@ -392,6 +397,7 @@ eir_provincial_oath_decision = {
 		add_character_modifier = { modifier = eir_provincial_oath_modifier years = 15 }
 		add_prestige = 250
 		set_global_variable = eir_done_oath
+		set_global_variable = eir_story_done_provincial_oath
 	}
 
 	ai_will_do = {
@@ -1150,6 +1156,7 @@ eir_compile_brehon_laws_decision = {
 		add_character_flag = { flag = eir_dec_ev_0040 days = 43 }
 		trigger_event = { id = eir.0040 days = 40 }
 		set_global_variable = eir_unique_compile_brehon_laws
+		set_global_variable = eir_story_done_compile_brehon_laws
 	}
 
 	ai_will_do = {
@@ -1610,6 +1617,7 @@ eir_gaelic_revival_decision = {
 		eir_legend_title_effect = { TITLE = primary_title }
 		trigger_event = { id = eir.0216 days = 10 }
 		set_global_variable = eir_unique_gaelic_revival
+		set_global_variable = eir_story_done_gaelic_revival
 	}
 
 	ai_will_do = {
@@ -2435,6 +2443,7 @@ eir_four_provinces_decision = {
 		add_prestige = 500
 		eir_legend_title_effect = { TITLE = primary_title }
 		trigger_event = { id = eir.0172 days = 60 }
+		set_global_variable = eir_story_done_four_provinces
 	}
 
 	ai_will_do = {
@@ -2728,6 +2737,7 @@ eir_found_monastery_decision = {
 		add_piety = 250
 		set_global_variable = eir_done_monastery
 		set_global_variable = eir_unique_found_monastery
+		set_global_variable = eir_story_done_found_monastery
 	}
 
 	ai_will_do = {
@@ -4084,6 +4094,7 @@ eir_celtic_brotherhood_decision = {
 		set_global_variable = eir_done_brotherhood
 		trigger_event = { id = eir.0218 days = 10 }
 		set_global_variable = eir_unique_celtic_brotherhood
+		set_global_variable = eir_story_done_celtic_brotherhood
 	}
 
 	ai_will_do = {
@@ -4875,6 +4886,7 @@ eir_proclaim_gaeldom_decision = {
 		eir_legend_title_effect = { TITLE = title:e_eir_gaeldom }
 		trigger_event = { id = eir.0112 days = 7 }
 		set_global_variable = eir_unique_proclaim_gaeldom
+		set_global_variable = eir_story_done_proclaim_gaeldom
 	}
 
 	ai_will_do = {
@@ -6996,6 +7008,7 @@ eir_proclaim_insular_union_decision = {
 		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 6 }
 		eir_world_reacts_effect = yes
 		trigger_event = eir.0506
+		set_global_variable = eir_story_done_proclaim_insular_union
 	}
 
 	ai_will_do = {
@@ -7060,6 +7073,7 @@ eir_found_island_kingdom_decision = {
 		eir_legend_title_effect = { TITLE = title:k_eir_ynys_prydain }
 		set_global_variable = eir_unique_island_kingdom
 		trigger_event = eir.0509
+		set_global_variable = eir_story_done_found_island_kingdom
 	}
 
 	ai_will_do = {
@@ -7842,6 +7856,7 @@ eir_third_of_britannia_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_salt_hearth
 		}
+		set_global_variable = eir_story_done_third_of_britannia
 	}
 
 	ai_will_do = {
@@ -7912,6 +7927,7 @@ eir_unite_gaelic_kingdoms_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_brehon_peace
 		}
+		set_global_variable = eir_story_done_unite_gaelic_kingdoms
 	}
 
 	ai_will_do = {
@@ -7980,6 +7996,7 @@ eir_revive_arthur_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_grail
 		}
+		set_global_variable = eir_story_done_revive_arthur
 	}
 
 	ai_will_do = {
@@ -8389,6 +8406,7 @@ eir_final_revenge_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_high_circuit
 		}
+		set_global_variable = eir_story_done_final_revenge
 	}
 
 	ai_will_do = {
@@ -8464,6 +8482,7 @@ eir_mystic_celts_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_oak_rite
 		}
+		set_global_variable = eir_story_done_mystic_celts
 	}
 
 	ai_will_do = {
@@ -8528,6 +8547,7 @@ eir_celts_mainland_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_gael_voice
 		}
+		set_global_variable = eir_story_done_celts_mainland
 	}
 
 	ai_will_do = {
@@ -8598,6 +8618,7 @@ eir_return_france_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_gaul_vow
 		}
+		set_global_variable = eir_story_done_return_france
 	}
 
 	ai_will_do = {
@@ -8664,6 +8685,7 @@ eir_celt_france_decision = {
 		set_global_variable = eir_done_celt_france
 		add_character_flag = { flag = eir_dec_ev_0957 days = 3 }
 		trigger_event = eir.0957
+		set_global_variable = eir_story_done_celt_france
 	}
 
 	ai_will_do = {
@@ -8734,6 +8756,7 @@ eir_return_germany_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_wood_warden
 		}
+		set_global_variable = eir_story_done_return_germany
 	}
 
 	ai_will_do = {
@@ -8800,6 +8823,7 @@ eir_celt_germany_decision = {
 		set_global_variable = eir_done_celt_germany
 		add_character_flag = { flag = eir_dec_ev_0958 days = 3 }
 		trigger_event = eir.0958
+		set_global_variable = eir_story_done_celt_germany
 	}
 
 	ai_will_do = {
@@ -8869,6 +8893,7 @@ eir_return_spain_decision = {
 		set_global_variable = eir_done_return_spain
 		add_character_flag = { flag = eir_dec_ev_0954 days = 3 }
 		trigger_event = eir.0954
+		set_global_variable = eir_story_done_return_spain
 	}
 
 	ai_will_do = {
@@ -8935,6 +8960,7 @@ eir_celt_spain_decision = {
 		set_global_variable = eir_done_celt_spain
 		add_character_flag = { flag = eir_dec_ev_0959 days = 3 }
 		trigger_event = eir.0959
+		set_global_variable = eir_story_done_celt_spain
 	}
 
 	ai_will_do = {
@@ -9005,6 +9031,7 @@ eir_return_italy_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_brennus
 		}
+		set_global_variable = eir_story_done_return_italy
 	}
 
 	ai_will_do = {
@@ -9071,6 +9098,7 @@ eir_celt_italy_decision = {
 		set_global_variable = eir_done_celt_italy
 		add_character_flag = { flag = eir_dec_ev_0960 days = 3 }
 		trigger_event = eir.0960
+		set_global_variable = eir_story_done_celt_italy
 	}
 
 	ai_will_do = {
@@ -9141,6 +9169,7 @@ eir_return_galatia_decision = {
 			limit = { free_personal_tenet_slots > 0 }
 			set_personal_tenet = tenet:tenet_eir_galatian
 		}
+		set_global_variable = eir_story_done_return_galatia
 	}
 
 	ai_will_do = {
@@ -9207,6 +9236,7 @@ eir_celt_galatia_decision = {
 		set_global_variable = eir_done_celt_galatia
 		add_character_flag = { flag = eir_dec_ev_0961 days = 3 }
 		trigger_event = eir.0961
+		set_global_variable = eir_story_done_celt_galatia
 	}
 
 	ai_will_do = {
@@ -9843,6 +9873,243 @@ eir_tn_heavy_crown_decision = {
 		add_prestige = medium_prestige_gain
 		eir_world_reacts_effect = yes
 		trigger_event = eir.0984
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_kindle_old_fires_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_kindle_old_fires_decision_desc
+	selection_tooltip = eir_kindle_old_fires_decision_tooltip
+	confirm_text = eir_kindle_old_fires_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		NOT = { faith = faith:eir_druidic }
+		has_global_variable = eir_done_fili
+		has_global_variable = eir_done_sites
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_917a1c6d3c
+			eir_is_gael_ruler_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_dff378c7ad
+			has_global_variable = eir_done_fili
+		}
+		custom_description = {
+			text = eir_rq_147557f0a2
+			has_global_variable = eir_done_sites
+		}
+		piety >= 400
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+		piety = 400
+	}
+
+	effect = {
+		set_global_variable = eir_done_druidic_revival
+		set_character_faith_with_conversion = faith:eir_druidic
+		capital_county ?= { set_county_faith = faith:eir_druidic }
+		add_character_modifier = { modifier = eir_fires_kindled_modifier years = 30 }
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_stress = major_stress_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0991
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_return_to_the_cross_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_return_to_the_cross_decision_desc
+	selection_tooltip = eir_return_to_the_cross_decision_tooltip
+	confirm_text = eir_return_to_the_cross_decision_confirm
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		faith = faith:eir_druidic
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_0f8ec12295
+			faith = faith:eir_druidic
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 150
+		piety = 100
+	}
+
+	effect = {
+		if = {
+			limit = { current_year >= 1054 }
+			set_character_faith_with_conversion = faith:catholic
+		}
+		else = {
+			set_character_faith_with_conversion = faith:christian_faith
+		}
+		capital_county ?= {
+			if = {
+				limit = { current_year >= 1054 }
+				set_county_faith = faith:catholic
+			}
+			else = {
+				set_county_faith = faith:christian_faith
+			}
+		}
+		remove_character_modifier = eir_fires_kindled_modifier
+		add_character_modifier = { modifier = eir_penitent_modifier years = 10 }
+		add_prestige = major_prestige_loss
+		add_piety = medium_piety_gain
+		trigger_event = eir.0992
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_found_culdee_reform_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_found_culdee_reform_decision_desc
+	selection_tooltip = eir_found_culdee_reform_decision_tooltip
+	confirm_text = eir_found_culdee_reform_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_monastery
+		has_global_variable = eir_done_cashel
+		NOT = { has_global_variable = eir_culdee_rite_created }
+		faith.religion = religion:christianity_religion
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_917a1c6d3c
+			eir_is_gael_ruler_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
+		custom_description = {
+			text = eir_rq_fb7c5d1379
+			has_global_variable = eir_done_cashel
+		}
+		piety >= 500
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 500
+		piety = 500
+	}
+
+	effect = {
+		set_global_variable = eir_culdee_rite_created
+		if = {
+			limit = { faith = faith:catholic }
+			create_rite_from_type = { type = eir_culdee_rite_catholic save_scope_as = new_rite convert = yes }
+		}
+		else = {
+			create_rite_from_type = { type = eir_culdee_rite save_scope_as = new_rite convert = yes }
+		}
+		set_character_rite = scope:new_rite
+		capital_county ?= { set_county_rite = scope:new_rite }
+		every_courtier_or_guest = {
+			limit = { is_physically_able_ai = yes }
+			set_character_rite = scope:new_rite
+		}
+		add_character_modifier = { modifier = eir_culdee_reform_modifier years = 25 }
+		add_prestige = major_prestige_gain
+		add_piety = massive_piety_gain
+		eir_world_reacts_effect = yes
+		trigger_event = eir.0993
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_story_road_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_story_road_decision_desc
+	selection_tooltip = eir_story_road_decision_tooltip
+	confirm_text = eir_story_road_decision_confirm
+
+	cooldown = { days = 30 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		trigger_event = eir.0990
 	}
 
 	ai_will_do = {

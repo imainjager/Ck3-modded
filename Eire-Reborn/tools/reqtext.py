@@ -109,6 +109,8 @@ def describe(ctx, st):
         "eir_holds_somerset_trigger = yes": "Your realm holds the County of Somerset",
         "eir_holds_cornwall_trigger = yes": "Your realm holds the County of Cornwall",
         "eir_ten_knights_trigger = yes": "You have at least ten knights",
+        "eir_is_gael_ruler_trigger = yes": "You are a ruler of a Gaelic culture",
+        "faith = faith:eir_druidic": "You follow the Druidic faith",
         "eir_brit_100_trigger = yes": "Your realm holds all 93 counties of the Empire of Britannia (100%)",
         "eir_irish_emperor_trigger = yes": "You are an emperor of Irish culture",
         "eir_celt_france_claim_trigger = yes": "Your realm holds at least 14 of the 109 counties of the Empire of France",

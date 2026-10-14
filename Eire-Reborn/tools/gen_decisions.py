@@ -28,6 +28,7 @@ def build():
     import dec_v10  # noqa: F401  (Update 4: Britannia; costs are final)
     import dec_v12  # noqa: F401  (Update 6: Return of the Celts)
     import dec_v13  # noqa: F401  (Update 7: Celtic tenets)
+    import dec_v14  # noqa: F401  (Update 8: faiths and the road tracker)
     import re as _re
     import story_chain
     missing = [k for k in story_chain.STEP if k not in {x["key"] for x in DEC}]

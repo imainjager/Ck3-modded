@@ -1504,6 +1504,40 @@ eir_owes_cain_modifier = {
 	general_opinion = -3
 }
 
+eir_fires_kindled_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	monthly_prestige = 0.2
+	clergy_opinion = -15
+	vassal_opinion = -3
+	stress_gain_mult = 0.1
+}
+
+eir_penitent_modifier = {
+	icon = piety_negative
+	monthly_prestige = -0.2
+	clergy_opinion = 10
+	stress_gain_mult = -0.05
+	monthly_piety = 0.1
+}
+
+eir_culdee_reform_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.4
+	clergy_opinion = 8
+	monthly_prestige = 0.1
+	levy_size = -0.03
+}
+
+eir_end_of_strife_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	vassal_opinion = 8
+	general_opinion = 4
+	legitimacy_gain_mult = 0.15
+	stress_gain_mult = -0.1
+}
+
 
 ##### county modifiers #####
 
