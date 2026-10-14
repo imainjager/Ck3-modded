@@ -124,3 +124,18 @@
 1698 = {	# b_castletown
 	special_building_slot = eir_tynwald_hill_01
 }
+1544 = {	# b_winchester
+	special_building_slot = eir_final_winchester_01
+}
+1595 = {	# b_york
+	special_building_slot = eir_final_york_01
+}
+1727 = {	# b_edinburgh
+	special_building_slot = eir_final_edinburgh_01
+}
+1667 = {	# b_caernarfon
+	special_building_slot = eir_final_caernarfon_01
+}
+1576 = {	# b_bath
+	special_building_slot = eir_final_bath_01
+}

@@ -494,3 +494,27 @@ SPECIAL_MAA = {   # special building -> stationed bonuses (24 of 41; vanilla spe
     "eir_kinsale_haven": [("stationed_archers_pursuit_mult", LOWS)],
     "eir_holyhead_ferry": [("stationed_maa_screen_add", FPSS)],
 }
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# THE FINAL SPECIAL BUILDING (Last Revenge of the Celts). The player chooses where it stands; it is placed by the event (add_building),
+# cannot be built by hand, and is about 2.5x a wonder. (key, barony, name, description, stationed bonuses)
+FINAL_SITES = [
+    ("eir_final_winchester", "b_winchester", "Hall of the Returned Kings", "In the old capital of Wessex a Gaelic king sits where Alfred sat, under a roof raised by the whole island.",
+     [("stationed_heavy_infantry_damage_mult", 0.6), ("stationed_archers_toughness_mult", 0.4), ("stationed_maa_screen_add", 25)]),
+    ("eir_final_york", "b_york", "Minster of the Celtic Kings", "The Roman capital of the north, now a minster whose windows show every king of the Celts since the Romans left.",
+     [("stationed_pikemen_toughness_mult", 0.6), ("stationed_heavy_cavalry_damage_mult", 0.4), ("stationed_maa_toughness_add", 15)]),
+    ("eir_final_edinburgh", "b_edinburgh", "Rock of the Gaelic Crown", "A fortress on a volcanic rock above the Forth, where the crown of the whole island is kept.",
+     [("stationed_skirmishers_damage_mult", 0.6), ("stationed_archers_damage_mult", 0.6), ("stationed_maa_pursuit_add", 25)]),
+    ("eir_final_caernarfon", "b_caernarfon", "Citadel of the Pendragon", "A castle of banded stone at the mouth of the Menai, built to the dream of the Roman emperor Maxen, and finished by the heirs of Arthur.",
+     [("stationed_light_cavalry_damage_mult", 0.6), ("stationed_light_cavalry_pursuit_mult", 0.6), ("stationed_maa_damage_add", 15)]),
+    ("eir_final_bath", "b_bath", "Court of Badon", "The hot springs of Aquae Sulis under a hall that sits on the field where, the poets say, the Britons halted the Saxons for a generation.",
+     [("stationed_pikemen_damage_mult", 0.6), ("stationed_skirmishers_screen_mult", 0.4), ("stationed_maa_screen_add", 25)]),
+]
+FINAL_STATS = dict(
+    prov={"monthly_income": 8.0, "fort_level": 5, "defender_holding_advantage": 15},
+    cty={"development_growth_factor": 0.75, "development_growth": 0.5, "tax_mult": 0.75, "county_opinion_add": 30, "hostile_raid_time": 2.0, "levy_size": 0.5},
+    chr={"monthly_prestige": 1.6, "legitimacy_gain_mult": 0.3, "vassal_opinion": 12, "court_grandeur_baseline_add": 15, "monthly_dynasty_prestige_mult": 0.2,
+         "monthly_piety": 0.8, "knight_effectiveness_mult": 0.3, "knight_limit": 3, "army_maintenance_mult": -0.1},
+    top={"levy": 2500, "max_garrison": 2500},
+)

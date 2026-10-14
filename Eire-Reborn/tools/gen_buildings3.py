@@ -248,6 +248,34 @@ def build():
         L.add("building_%s_desc" % k, "$building_type_%s_desc$" % k)
         slots.append((ids[bar], k, bar))
 
+    # ---- the final building: five possible sites, placed by an event, never built by hand
+    L.section("final special buildings")
+    for key, bar, name, desc, mil in B.FINAL_SITES:
+        if bar not in ids:
+            raise SystemExit("barony %s for %s does not exist" % (bar, key))
+        k = key + "_01"
+        prov = dict(B.FINAL_STATS["prov"])
+        cty = dict(B.FINAL_STATS["cty"])
+        chr_ = dict(B.FINAL_STATS["chr"])
+        for f, v in mil:
+            prov[f] = v
+        for d in (prov, cty, chr_):
+            check_keys(k, d)
+        out.append("%s = {\n\tconstruction_time = very_slow_construction_time\n\n" % k)
+        out.append("\tcan_construct_potential = {\n\t\tbarony ?= title:%s\n\t}\n\n" % bar)
+        out.append("\tcan_construct = {\n\t\tcustom_description = {\n\t\t\ttext = eir_breq_final_building\n\t\t\talways = no\n\t\t}\n\t}\n\n")
+        out.append("\tcost_gold = 1\n\n")
+        for f_, v_ in B.FINAL_STATS["top"].items():
+            out.append("\t%s = %s\n" % (f_, num(v_)))
+        out.append(block("province_modifier", prov) + block("county_modifier", cty) + block("character_modifier", chr_))
+        out.append('\n\ttype_icon = "icon_structure_cologne_cathedral.dds"\n\n\ttype = special\n\tflag = travel_point_of_interest_wonder\n\n\tai_value = {\n\t\tbase = 0\n\t}\n}\n\n')
+        L.add("building_type_" + k, name)
+        L.add("building_type_%s_desc" % k, desc)
+        L.add("building_" + k, "$building_type_%s$" % k)
+        L.add("building_%s_desc" % k, "$building_type_%s_desc$" % k)
+        slots.append((ids[bar], k, bar))
+    L.add("eir_breq_final_building", "This building cannot be built by hand: it is placed by the decision The Last Revenge of the Celts")
+
     # requirement texts (added here so they sit in the same file)
     for g in sorted(gates):
         text = GATE_TEXT_BASIC.get(g) or GATE_TEXT.get(g)

@@ -21,3 +21,5 @@ nick_eir_triumphant = {}
 nick_eir_island_king = {}
 nick_eir_longphort_burner = {}
 nick_eir_warlord_slayer = {}
+nick_eir_once_future_king = {}
+nick_eir_last_of_the_celts = {}

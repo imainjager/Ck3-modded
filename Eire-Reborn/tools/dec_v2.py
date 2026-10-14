@@ -102,7 +102,7 @@ trigger_event = { id = eir.0110 days = 7 }""",
 
 D("eir_end_fragmentation_decision", "End the Tanistic Fragmentation",
   "For centuries a king's realm died with him. The High King can end it: have the vassals swear that the high kingship passes to a single heir, as in the feudal courts overseas, and build a guard that will defend the heir against every cousin.",
-  "Needs the High Kingship, the Circuit, the Provincial Oath, a feudal government and 25 counties. Abolishes the death of top titles, adds Stable High Kingship, unlocks the Guard of Tara.",
+  "Needs the High Kingship, the Circuit, the Provincial Oath, a feudal government and 10 counties of Ireland. Abolishes the death of top titles, adds Stable High Kingship, unlocks the Guard of Tara.",
   IRISH + "\n" + S4 + "\nhas_global_variable = eir_done_crowned\neir_collapse_active_trigger = yes",
   """culture ?= {
 	if = {
@@ -120,7 +120,7 @@ add_character_modifier = { modifier = eir_peace_of_tara_modifier years = 25 }
 add_prestige = 1500
 dynasty ?= { add_dynasty_modifier = { modifier = eir_house_high_kings_modifier years = 80 } }
 trigger_event = { id = eir.0110 days = 7 }""",
-  valid=req("government_has_flag = government_is_feudal", "eir_holds_irish_counties_trigger = { COUNT = 25 }", "is_independent_ruler = yes",
+  valid=req("government_has_flag = government_is_feudal", "eir_holds_irish_counties_trigger = { COUNT = 10 }", "is_independent_ruler = yes",
             "has_global_variable = eir_done_circuit", "has_global_variable = eir_done_oath"),
   cost=cost(gold=2000, prestige=3000), cd=36500, major=True, pic="decision_golden_age")
 

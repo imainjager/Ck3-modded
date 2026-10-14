@@ -224,8 +224,8 @@ eir_end_fragmentation_decision = {
 	is_valid = {
 		government_has_flag = government_is_feudal
 		custom_description = {
-			text = eir_rq_a7a5d92e90
-			eir_holds_irish_counties_trigger = { COUNT = 25 }
+			text = eir_rq_1377102d9c
+			eir_holds_irish_counties_trigger = { COUNT = 10 }
 		}
 		is_independent_ruler = yes
 		custom_description = {
@@ -7694,6 +7694,568 @@ eir_rebuild_ravaged_decision = {
 			add_piety = medium_piety_gain
 			add_character_modifier = { modifier = eir_honour_restored_modifier years = 10 }
 		}
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_third_of_britannia_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_third_of_britannia_decision_desc
+	selection_tooltip = eir_third_of_britannia_decision_tooltip
+	confirm_text = eir_third_of_britannia_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_irish_king_trigger = yes
+		NOT = { has_global_variable = eir_done_brit30 }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a79615ba85
+			eir_irish_king_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_e66d0a871c
+			eir_brit_30_trigger = yes
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 300
+		prestige = 800
+		piety = 100
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_brit_ascendancy_1_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_dread = minor_dread_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 6 }
+		every_sub_realm_county = {
+			limit = { empire = title:e_britannia }
+			add_county_modifier = { modifier = eir_island_pride_modifier years = 15 }
+		}
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_brit30
+		trigger_event = eir.0801
+		trigger_event = { id = eir.0804 days = 90 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_unite_gaelic_kingdoms_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_unite_gaelic_kingdoms_decision_desc
+	selection_tooltip = eir_unite_gaelic_kingdoms_decision_tooltip
+	confirm_text = eir_unite_gaelic_kingdoms_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_brit30
+		NOT = { has_global_variable = eir_done_gaelic_isles }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_acb7ef1720
+			eir_gael_king_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_3e97236030
+			eir_holds_both_kingdoms_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_cccfd668fe
+			has_global_variable = eir_done_brit30
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 500
+		prestige = 1500
+		piety = 250
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_brit_ascendancy_2_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_pressed_claim = title:e_britannia
+		eir_brit_isles_convert_effect = yes
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_gaelic_isles
+		trigger_event = eir.0802
+		trigger_event = { id = eir.0805 days = 60 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_revive_arthur_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_revive_arthur_decision_desc
+	selection_tooltip = eir_revive_arthur_decision_tooltip
+	confirm_text = eir_revive_arthur_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_gaelic_isles
+		NOT = { has_global_variable = eir_done_arthur }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_acb7ef1720
+			eir_gael_king_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_891800eedf
+			has_global_variable = eir_done_gaelic_isles
+		}
+		prestige_level >= 4
+		piety >= 1000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 800
+		prestige = 2500
+		piety = 500
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_arthur_reborn_modifier years = 40 }
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_trait_xp = { trait = lifestyle_poet value = 100 }
+		eir_arthur_legend_effect = yes
+		eir_make_artifact_effect = { NAME = eir_arthur_sword_name DESC = eir_arthur_sword_desc TYPE = sword VISUALS = sword MODIFIER = eir_arthur_sword_modifier }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_arthur
+		trigger_event = eir.0803
+		trigger_event = { id = eir.0806 days = 120 }
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_path_armor_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_path_armor_decision_desc
+	selection_tooltip = eir_path_armor_decision_tooltip
+	confirm_text = eir_path_armor_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_gaelic_isles
+		NOT = { has_global_variable = eir_path_armor_done }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_18be241c3e
+			has_global_variable = eir_done_arthur
+		}
+		custom_description = {
+			text = eir_rq_0914a672ef
+			eir_holds_cornwall_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_87d4424e01
+			eir_tintagel_built_trigger = yes
+		}
+		prestige_level >= 4
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1200
+		prestige = 2500
+		piety = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_path_armor_modifier years = 30 }
+		add_prestige = massive_prestige_gain
+		eir_make_artifact_effect = { NAME = eir_arthur_armor_name DESC = eir_arthur_armor_desc TYPE = armor_mail VISUALS = armor MODIFIER = eir_arthur_armor_modifier }
+		title:c_cornwall ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
+		set_global_variable = eir_path_armor_done
+		trigger_event = eir.0811
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_path_crown_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_path_crown_decision_desc
+	selection_tooltip = eir_path_crown_decision_tooltip
+	confirm_text = eir_path_crown_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_gaelic_isles
+		NOT = { has_global_variable = eir_path_crown_done }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_18be241c3e
+			has_global_variable = eir_done_arthur
+		}
+		custom_description = {
+			text = eir_rq_25c8ecaeb7
+			eir_wales_all_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_c8beb8526c
+			eir_caerleon_built_trigger = yes
+		}
+		prestige >= 3500
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1500
+		prestige = 3500
+		piety = 400
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_path_crown_modifier years = 30 }
+		add_prestige = massive_prestige_gain
+		eir_make_artifact_effect = { NAME = eir_arthur_crown_name DESC = eir_arthur_crown_desc TYPE = regalia VISUALS = crown MODIFIER = eir_arthur_crown_modifier }
+		title:c_monmouthshire ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
+		set_global_variable = eir_path_crown_done
+		trigger_event = eir.0812
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_path_brooch_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_path_brooch_decision_desc
+	selection_tooltip = eir_path_brooch_decision_tooltip
+	confirm_text = eir_path_brooch_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_gaelic_isles
+		NOT = { has_global_variable = eir_path_brooch_done }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_18be241c3e
+			has_global_variable = eir_done_arthur
+		}
+		custom_description = {
+			text = eir_rq_94f1d3fa5f
+			eir_holds_somerset_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
+		piety >= 3000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 800
+		prestige = 1500
+		piety = 800
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_path_brooch_modifier years = 30 }
+		add_prestige = major_prestige_gain
+		add_piety = massive_piety_gain
+		eir_make_artifact_effect = { NAME = eir_arthur_brooch_name DESC = eir_arthur_brooch_desc TYPE = brooch VISUALS = brooch MODIFIER = eir_arthur_brooch_modifier }
+		title:c_somerset ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
+		set_global_variable = eir_path_brooch_done
+		trigger_event = eir.0813
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_path_spear_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_siege_warfare.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_path_spear_decision_desc
+	selection_tooltip = eir_path_spear_decision_tooltip
+	confirm_text = eir_path_spear_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_gaelic_isles
+		NOT = { has_global_variable = eir_path_spear_done }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_18be241c3e
+			has_global_variable = eir_done_arthur
+		}
+		custom_description = {
+			text = eir_rq_ed48a5859c
+			eir_brit_60_trigger = yes
+		}
+		prestige_level >= 4
+		martial >= 24
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2000
+		prestige = 3000
+		piety = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_path_spear_modifier years = 30 }
+		add_prestige = massive_prestige_gain
+		eir_make_artifact_effect = { NAME = eir_arthur_spear_name DESC = eir_arthur_spear_desc TYPE = spear VISUALS = spear MODIFIER = eir_arthur_spear_modifier }
+		title:c_somerset ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
+		set_global_variable = eir_path_spear_done
+		trigger_event = eir.0814
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_path_table_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_path_table_decision_desc
+	selection_tooltip = eir_path_table_decision_tooltip
+	confirm_text = eir_path_table_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_gaelic_isles
+		NOT = { has_global_variable = eir_path_table_done }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_18be241c3e
+			has_global_variable = eir_done_arthur
+		}
+		custom_description = {
+			text = eir_rq_60548b88e8
+			eir_ten_knights_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_927555eeb1
+			eir_tara_built_trigger = yes
+		}
+		diplomacy >= 22
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2500
+		prestige = 2000
+		piety = 300
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_path_table_modifier years = 30 }
+		add_prestige = massive_prestige_gain
+		eir_make_artifact_effect = { NAME = eir_arthur_table_name DESC = eir_arthur_table_desc TYPE = tapestry VISUALS = tapestry MODIFIER = eir_arthur_table_modifier }
+		capital_county ?= { add_county_modifier = { modifier = eir_arthur_site_modifier years = 25 } }
+		set_global_variable = eir_path_table_done
+		trigger_event = eir.0815
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_final_revenge_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_final_revenge_decision_desc
+	selection_tooltip = eir_final_revenge_decision_tooltip
+	confirm_text = eir_final_revenge_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_gael_ruler_trigger = yes
+		has_global_variable = eir_done_arthur
+		NOT = { has_global_variable = eir_done_final_revenge }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_acb7ef1720
+			eir_gael_king_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_18be241c3e
+			has_global_variable = eir_done_arthur
+		}
+		custom_description = {
+			text = eir_rq_4287ed21dc
+			eir_brit_95_trigger = yes
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2000
+		prestige = 5000
+		piety = 800
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_brit_ascendancy_3_modifier years = 50 }
+		add_character_modifier = { modifier = eir_final_revenge_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_legitimacy = major_legitimacy_gain
+		add_dread = medium_dread_gain
+		give_nickname = nick_eir_last_of_the_celts
+		every_sub_realm_county = {
+			limit = { empire = title:e_britannia }
+			add_county_modifier = { modifier = eir_island_pride_modifier years = 25 }
+		}
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 12 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_final_revenge
+		trigger_event = eir.0820
 	}
 
 	ai_will_do = {

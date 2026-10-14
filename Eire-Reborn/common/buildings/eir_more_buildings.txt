@@ -8665,3 +8665,283 @@ eir_tynwald_hill_01 = {
 	}
 }
 
+eir_final_winchester_01 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		barony ?= title:b_winchester
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_final_building
+			always = no
+		}
+	}
+
+	cost_gold = 1
+
+	levy = 2500
+	max_garrison = 2500
+	province_modifier = {
+		monthly_income = 8
+		fort_level = 5
+		defender_holding_advantage = 15
+		stationed_heavy_infantry_damage_mult = 0.6
+		stationed_archers_toughness_mult = 0.4
+		stationed_maa_screen_add = 25
+	}
+	county_modifier = {
+		development_growth_factor = 0.75
+		development_growth = 0.5
+		tax_mult = 0.75
+		county_opinion_add = 30
+		hostile_raid_time = 2
+		levy_size = 0.5
+	}
+	character_modifier = {
+		monthly_prestige = 1.6
+		legitimacy_gain_mult = 0.3
+		vassal_opinion = 12
+		court_grandeur_baseline_add = 15
+		monthly_dynasty_prestige_mult = 0.2
+		monthly_piety = 0.8
+		knight_effectiveness_mult = 0.3
+		knight_limit = 3
+		army_maintenance_mult = -0.1
+	}
+
+	type_icon = "icon_structure_cologne_cathedral.dds"
+
+	type = special
+	flag = travel_point_of_interest_wonder
+
+	ai_value = {
+		base = 0
+	}
+}
+
+eir_final_york_01 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		barony ?= title:b_york
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_final_building
+			always = no
+		}
+	}
+
+	cost_gold = 1
+
+	levy = 2500
+	max_garrison = 2500
+	province_modifier = {
+		monthly_income = 8
+		fort_level = 5
+		defender_holding_advantage = 15
+		stationed_pikemen_toughness_mult = 0.6
+		stationed_heavy_cavalry_damage_mult = 0.4
+		stationed_maa_toughness_add = 15
+	}
+	county_modifier = {
+		development_growth_factor = 0.75
+		development_growth = 0.5
+		tax_mult = 0.75
+		county_opinion_add = 30
+		hostile_raid_time = 2
+		levy_size = 0.5
+	}
+	character_modifier = {
+		monthly_prestige = 1.6
+		legitimacy_gain_mult = 0.3
+		vassal_opinion = 12
+		court_grandeur_baseline_add = 15
+		monthly_dynasty_prestige_mult = 0.2
+		monthly_piety = 0.8
+		knight_effectiveness_mult = 0.3
+		knight_limit = 3
+		army_maintenance_mult = -0.1
+	}
+
+	type_icon = "icon_structure_cologne_cathedral.dds"
+
+	type = special
+	flag = travel_point_of_interest_wonder
+
+	ai_value = {
+		base = 0
+	}
+}
+
+eir_final_edinburgh_01 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		barony ?= title:b_edinburgh
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_final_building
+			always = no
+		}
+	}
+
+	cost_gold = 1
+
+	levy = 2500
+	max_garrison = 2500
+	province_modifier = {
+		monthly_income = 8
+		fort_level = 5
+		defender_holding_advantage = 15
+		stationed_skirmishers_damage_mult = 0.6
+		stationed_archers_damage_mult = 0.6
+		stationed_maa_pursuit_add = 25
+	}
+	county_modifier = {
+		development_growth_factor = 0.75
+		development_growth = 0.5
+		tax_mult = 0.75
+		county_opinion_add = 30
+		hostile_raid_time = 2
+		levy_size = 0.5
+	}
+	character_modifier = {
+		monthly_prestige = 1.6
+		legitimacy_gain_mult = 0.3
+		vassal_opinion = 12
+		court_grandeur_baseline_add = 15
+		monthly_dynasty_prestige_mult = 0.2
+		monthly_piety = 0.8
+		knight_effectiveness_mult = 0.3
+		knight_limit = 3
+		army_maintenance_mult = -0.1
+	}
+
+	type_icon = "icon_structure_cologne_cathedral.dds"
+
+	type = special
+	flag = travel_point_of_interest_wonder
+
+	ai_value = {
+		base = 0
+	}
+}
+
+eir_final_caernarfon_01 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		barony ?= title:b_caernarfon
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_final_building
+			always = no
+		}
+	}
+
+	cost_gold = 1
+
+	levy = 2500
+	max_garrison = 2500
+	province_modifier = {
+		monthly_income = 8
+		fort_level = 5
+		defender_holding_advantage = 15
+		stationed_light_cavalry_damage_mult = 0.6
+		stationed_light_cavalry_pursuit_mult = 0.6
+		stationed_maa_damage_add = 15
+	}
+	county_modifier = {
+		development_growth_factor = 0.75
+		development_growth = 0.5
+		tax_mult = 0.75
+		county_opinion_add = 30
+		hostile_raid_time = 2
+		levy_size = 0.5
+	}
+	character_modifier = {
+		monthly_prestige = 1.6
+		legitimacy_gain_mult = 0.3
+		vassal_opinion = 12
+		court_grandeur_baseline_add = 15
+		monthly_dynasty_prestige_mult = 0.2
+		monthly_piety = 0.8
+		knight_effectiveness_mult = 0.3
+		knight_limit = 3
+		army_maintenance_mult = -0.1
+	}
+
+	type_icon = "icon_structure_cologne_cathedral.dds"
+
+	type = special
+	flag = travel_point_of_interest_wonder
+
+	ai_value = {
+		base = 0
+	}
+}
+
+eir_final_bath_01 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		barony ?= title:b_bath
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_final_building
+			always = no
+		}
+	}
+
+	cost_gold = 1
+
+	levy = 2500
+	max_garrison = 2500
+	province_modifier = {
+		monthly_income = 8
+		fort_level = 5
+		defender_holding_advantage = 15
+		stationed_pikemen_damage_mult = 0.6
+		stationed_skirmishers_screen_mult = 0.4
+		stationed_maa_screen_add = 25
+	}
+	county_modifier = {
+		development_growth_factor = 0.75
+		development_growth = 0.5
+		tax_mult = 0.75
+		county_opinion_add = 30
+		hostile_raid_time = 2
+		levy_size = 0.5
+	}
+	character_modifier = {
+		monthly_prestige = 1.6
+		legitimacy_gain_mult = 0.3
+		vassal_opinion = 12
+		court_grandeur_baseline_add = 15
+		monthly_dynasty_prestige_mult = 0.2
+		monthly_piety = 0.8
+		knight_effectiveness_mult = 0.3
+		knight_limit = 3
+		army_maintenance_mult = -0.1
+	}
+
+	type_icon = "icon_structure_cologne_cathedral.dds"
+
+	type = special
+	flag = travel_point_of_interest_wonder
+
+	ai_value = {
+		base = 0
+	}
+}
+

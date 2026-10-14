@@ -96,6 +96,19 @@ def describe(ctx, st):
         "has_character_flag = eir_vowed_vengeance": "You have sworn a vow of vengeance",
         "has_variable = eir_norse_enclave": "You have agreed to a Norse enclave on your coast",
         "eir_has_ravaged_county_trigger = yes": "A county of your realm lies ravaged by a conqueror",
+        "eir_irish_king_trigger = yes": "You are an Irish king (Irish culture, a kingdom-level title or higher)",
+        "eir_gael_king_trigger = yes": "You are a king (kingdom-level title or higher) of a Gaelic culture",
+        "eir_holds_both_kingdoms_trigger = yes": "You hold both the Kingdom of Ireland and the Kingdom of Scotland",
+        "eir_brit_30_trigger = yes": "Your realm holds at least 28 of the 93 counties of the Empire of Britannia (30%)",
+        "eir_brit_60_trigger = yes": "Your realm holds at least 56 of the 93 counties of the Empire of Britannia (60%)",
+        "eir_brit_95_trigger = yes": "Your realm holds at least 89 of the 93 counties of the Empire of Britannia (95%)",
+        "eir_wales_all_trigger = yes": "Your realm holds every county of Wales",
+        "eir_tintagel_built_trigger = yes": "The Fortress of Tintagel has been built in your realm",
+        "eir_caerleon_built_trigger = yes": "Caerleon has been built in your realm",
+        "eir_tara_built_trigger = yes": "The Hall of Tara has been built in your realm",
+        "eir_holds_somerset_trigger = yes": "Your realm holds the County of Somerset",
+        "eir_holds_cornwall_trigger = yes": "Your realm holds the County of Cornwall",
+        "eir_ten_knights_trigger = yes": "You have at least ten knights",
     }
     if st in simple:
         return simple[st]
