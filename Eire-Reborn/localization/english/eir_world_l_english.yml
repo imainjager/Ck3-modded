@@ -453,6 +453,8 @@
  eir_revenge_vow_modifier_desc:0 "You have sworn on the relics to avenge the raid. Your poets keep the oath; your enemies keep an eye on the road."
  eir_raid_lament_modifier:0 "The Lament"
  eir_raid_lament_modifier_desc:0 "The poets have composed a lament for the burned land, and every hall on the island has heard it."
+ eir_expedition_leader_modifier:0 "Leader of the Expedition"
+ eir_expedition_leader_modifier_desc:0 "Fate, the sea and a sponsor have given this person a host and a coast."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"
@@ -621,6 +623,10 @@
  eir_raider_settlement_modifier_desc:0 "Strangers hold the land: their language is in the lanes, their cattle are in the fields and their gods are in the groves. The old families wait in the hills with long memories."
  eir_scorched_county_modifier:0 "Scorched Earth"
  eir_scorched_county_modifier_desc:0 "The fields were burned, the barns were burned and the herds were driven off. It will take years for anyone to farm here again."
+ eir_expedition_unrest_modifier:0 "Conquered by Strangers"
+ eir_expedition_unrest_modifier_desc:0 "Foreigners took this county by the sword. They have their own tongue and their own gods, and the people have not been asked to like either."
+ eir_expedition_settled_modifier:0 "A New Home for the Kin"
+ eir_expedition_settled_modifier_desc:0 "The settlers have brought their language and their faith, and the county is slowly learning to speak with their voice."
 
  # ---------- province modifiers ----------
  eir_ringfort_province_modifier:0 "Ringfort"

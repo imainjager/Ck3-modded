@@ -37,3 +37,8 @@ Not added, and why: **dynasties and houses** (the base game already has thousand
 ## If something goes wrong
 * A crash on load: send the last lines of `error.log` and `crash` folder if there is one. The likeliest suspects are the faith, the rite or the struggle; each of them is one generator, and I can switch any of them off by removing it from `tools/build_all.py` and rebuilding.
 * A missing icon or blank art is harmless; it only logs.
+
+## Update 9 (v0.15-0.16): raids and expeditions
+* Raiding: 26 new raid events (Gaelic and Brythonic only; tools/ev_u8d.py, relays in tools/gen_script_raid.py), three casus belli (Avenge the Raid, Demand the Blood-Price, Drive Out the Settlers; tools/gen_cb2.py) and the raiding tradition line (Bo-aire, Tain Bo, Raiders of the Four Seas).
+* Sponsor an Expedition (tools/gen_expedition.py): a vanilla option-list widget decision; the war is a script-only conquest CB; the base game does not change culture or faith after a conquest, so eir_expedition_victory_effect does it.
+* Untested in the game: random_county_in_region, the option-list widget, the landing (create_title_and_vassal_change independency), and every raid scope. Read error.log first.

@@ -61,3 +61,13 @@ C("eir_revenge_vow_modifier", "prestige_mixed", {"advantage": 3, "stress_gain_mu
   "A Vow of Revenge", "You have sworn on the relics to avenge the raid. Your poets keep the oath; your enemies keep an eye on the road.")
 C("eir_raid_lament_modifier", "prestige_negative", {"monthly_prestige": -0.2, "vassal_opinion": -3, "stress_gain_mult": 0.1},
   "The Lament", "The poets have composed a lament for the burned land, and every hall on the island has heard it.")
+
+# ---- expedition
+K("eir_expedition_unrest_modifier", "county_modifier_control_negative",
+  {"county_opinion_add": -60, "monthly_county_control_growth_add": -0.5, "tax_mult": -0.3, "levy_size": -0.3, "development_growth_factor": -0.3},
+  "Conquered by Strangers", "Foreigners took this county by the sword. They have their own tongue and their own gods, and the people have not been asked to like either.")
+K("eir_expedition_settled_modifier", "county_modifier_development_positive",
+  {"county_opinion_add": -10, "monthly_county_control_growth_add": 0.1, "development_growth_factor": 0.1},
+  "A New Home for the Kin", "The settlers have brought their language and their faith, and the county is slowly learning to speak with their voice.")
+C("eir_expedition_leader_modifier", "prestige_positive", {"advantage": 3, "monthly_prestige": 0.3, "levy_reinforcement_rate": 0.1, "stress_gain_mult": -0.1},
+  "Leader of the Expedition", "Fate, the sea and a sponsor have given this person a host and a coast.")

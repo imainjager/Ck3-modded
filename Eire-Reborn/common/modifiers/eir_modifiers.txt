@@ -1561,6 +1561,14 @@ eir_raid_lament_modifier = {
 	stress_gain_mult = 0.1
 }
 
+eir_expedition_leader_modifier = {
+	icon = prestige_positive
+	advantage = 3
+	monthly_prestige = 0.3
+	levy_reinforcement_rate = 0.1
+	stress_gain_mult = -0.1
+}
+
 
 ##### county modifiers #####
 
@@ -2104,6 +2112,22 @@ eir_scorched_county_modifier = {
 	tax_mult = -0.25
 	county_opinion_add = -15
 	levy_size = -0.15
+}
+
+eir_expedition_unrest_modifier = {
+	icon = county_modifier_control_negative
+	county_opinion_add = -60
+	monthly_county_control_growth_add = -0.5
+	tax_mult = -0.3
+	levy_size = -0.3
+	development_growth_factor = -0.3
+}
+
+eir_expedition_settled_modifier = {
+	icon = county_modifier_development_positive
+	county_opinion_add = -10
+	monthly_county_control_growth_add = 0.1
+	development_growth_factor = 0.1
 }
 
 
