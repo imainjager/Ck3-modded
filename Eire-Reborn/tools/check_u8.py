@@ -1,0 +1,88 @@
+"""Update 8 cross-checks (run after build_all.py): braces balance in every generated file, every key a new system uses has localization,
+every cross-reference points at something that exists. Prints problems; exit code 1 if any.
+Run: python tools/check_u8.py"""
+import glob
+import os
+import re
+import sys
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game"
+problems = []
+
+
+def read(path):
+    return open(path, encoding="utf-8-sig", errors="replace").read()
+
+
+def strip(t):
+    return re.sub(r"#[^\n]*", "", t)
+
+
+# ---------------------------------------------------------------- localization keys
+loc = {}
+for fn in glob.glob(os.path.join(ROOT, "localization", "english", "*.yml")):
+    for m in re.finditer(r'^ ([A-Za-z0-9_.\-]+):\d* "(.*)"$', read(fn), re.M):
+        loc[m.group(1)] = m.group(2)
+
+
+def need_loc(owner, *keys):
+    for k in keys:
+        if k not in loc:
+            problems.append("%s: missing localization key %s" % (owner, k))
+
+
+# ---------------------------------------------------------------- 1. brace balance in everything the update writes
+for pattern in ("common/activities/**/*.txt", "common/scripted_triggers/eir_triggers_act*.txt", "common/scripted_effects/eir_effects_act*.txt",
+                "common/script_values/*.txt", "common/religion/**/*.txt", "common/culture/**/*.txt", "common/casus_belli_types/*.txt",
+                "common/court_positions/**/*.txt", "common/laws/*.txt", "common/struggle/**/*.txt", "common/dynasties/*.txt",
+                "common/dynasty_houses/*.txt", "common/council_tasks/*.txt", "common/game_concepts/*.txt", "common/scripted_modifiers/*.txt",
+                "common/succession_election/*.txt", "common/governments/*.txt", "common/inspirations/*.txt", "common/situation/**/*.txt",
+                "common/on_action/*.txt", "common/decisions/*.txt", "events/*.txt"):
+    for fn in glob.glob(os.path.join(ROOT, pattern.replace("/", os.sep)), recursive=True):
+        t = strip(re.sub(r'"[^"\n]*"', '""', read(fn)))
+        if t.count("{") != t.count("}"):
+            problems.append("%s: braces do not balance (%d open, %d close)" % (os.path.relpath(fn, ROOT), t.count("{"), t.count("}")))
+
+# ---------------------------------------------------------------- 2. activities
+act_file = os.path.join(ROOT, "common", "activities", "activity_types", "eir_activities.txt")
+if os.path.exists(act_file):
+    t = strip(read(act_file))
+    pulses = strip(read(os.path.join(ROOT, "common", "activities", "pulse_actions", "eir_pulse_actions.txt")))
+    intents = strip(read(os.path.join(ROOT, "common", "activities", "intents", "eir_intents.txt")))
+    pulse_keys = set(re.findall(r"^(eir_[a-z_]+) = \{", pulses, re.M))
+    intent_keys = set(re.findall(r"^(eir_[a-z_]+_intent) = \{", intents, re.M))
+    for m in re.finditer(r"^(activity_eir_[a-z_]+) = \{", t, re.M):
+        a = m.group(1)
+        need_loc(a, a, a + "_name", a + "_owner", a + "_desc", a + "_selection_tooltip", a + "_host_desc", a + "_guest_desc",
+                 a + "_guest_help_text", a + "_conclusion_desc", a + "_predicted_cost", "TRAVEL_NAME_FOR_" + a)
+    for k in re.findall(r"^\t\t(eir_[a-z_]+_phase) = \{", t, re.M):
+        need_loc("phase", k, k + "_desc")
+    for cat in re.findall(r"^\t\t(eir_[a-z]+_(?:scale|focus)) = \{", t, re.M):
+        need_loc("option category", cat)
+    for opt in re.findall(r"^\t\t\t(eir_[a-z]+_(?:scale|focus)_[a-z]+) = \{", t, re.M):
+        need_loc("option", opt, opt + "_desc")
+    for e in re.findall(r"entries = \{ ([^}]*) \}", t):
+        for p in e.split():
+            if p not in pulse_keys:
+                problems.append("activity lists pulse action %s which is not defined" % p)
+            need_loc("pulse action", p, p + "_title")
+    for i in re.findall(r"intents = \{ ([^}]*) \}", t):
+        for p in i.split():
+            if p.startswith("eir_") and p not in intent_keys:
+                problems.append("activity lists intent %s which is not defined" % p)
+    for i in intent_keys:
+        need_loc("intent", i, i + "_desc")
+    for k in re.findall(r"key = (eir_[a-z_]+_conc)\b", t):
+        need_loc("conclusion", k, k + "_title")
+    # every option used in a pulse weight exists
+    opts = set(re.findall(r"^\t\t\t(eir_[a-z]+_(?:scale|focus)_[a-z]+) = \{", t, re.M))
+    for o in re.findall(r"option = (eir_[a-z_]+)", pulses + t):
+        if o not in opts:
+            problems.append("an activity refers to option %s which does not exist" % o)
+
+if problems:
+    for p in problems:
+        print("PROBLEM", p)
+print("check_u8: %d problem(s)" % len(problems))
+sys.exit(1 if problems else 0)

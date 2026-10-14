@@ -782,6 +782,9 @@
  eir_slighted_envoy_opinion:0 "Slighted my envoy"
  eir_traitor_unmasked_opinion:0 "Unmasked as a traitor"
  eir_triumph_opinion:0 "Witnessed a triumph"
+ eir_act_hosted_opinion:0 "Hosted a fine gathering"
+ eir_act_insulted_opinion:0 "Insulted at the gathering"
+ eir_act_brawl_opinion:0 "Brawled at the gathering"
 
  # ---------- culture traditions ----------
  tradition_eir_tanistic_fragmentation_name:0 "Tanistic Fragmentation"

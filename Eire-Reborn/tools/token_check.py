@@ -33,16 +33,15 @@ def tokens_of(path_globs):
 
 def main():
     vanilla = tokens_of([GAME + r"\events\**\*.txt", GAME + r"\common\**\*.txt", GAME + r"\history\**\*.txt"])
-    mine_dirs = [ROOT + r"\events\*.txt", ROOT + r"\common\decisions\*.txt", ROOT + r"\common\scripted_effects\*.txt",
-                 ROOT + r"\common\scripted_triggers\*.txt", ROOT + r"\common\on_action\*.txt", ROOT + r"\common\buildings\*.txt",
-                 ROOT + r"\common\men_at_arms_types\*.txt", ROOT + r"\common\culture\traditions\*.txt", ROOT + r"\history\provinces\*.txt"]
+    # everything the mod ships: events, every folder under common/ (Update 8 added activities, religion, culture, laws, ...) and history
+    mine_dirs = [ROOT + r"\events\*.txt", ROOT + r"\common\**\*.txt", ROOT + r"\history\**\*.txt"]
     defined = set()
     for g in mine_dirs:
-        for f in glob.glob(g):
-            defined.update(re.findall(r"^([a-z_][a-z0-9_]*) = \{", strip_comments(read(f)), re.M))
+        for f in glob.glob(g, recursive=True):
+            defined.update(re.findall(r"^\s*([a-z_][a-z0-9_]*) = \{", strip_comments(read(f)), re.M))
     bad = {}
     for g in mine_dirs:
-        for f in glob.glob(g):
+        for f in glob.glob(g, recursive=True):
             for tok in set(TOKEN.findall(strip_comments(read(f)))):
                 if tok in vanilla or tok in defined:
                     continue
