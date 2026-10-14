@@ -1,0 +1,9 @@
+﻿l_english:
+
+ # ---------- siege weapons ----------
+ eir_fire_brands:0 "Fire-Brands"
+ eir_fire_brands_flavor:0 "#F Teams of men with torches, pitch and bundles of thatch. The Irish annals burn a stronghold far more often than they storm one, and a burned timber hall or round tower is as good as a taken one.#!"
+ eir_wall_hook_crews:0 "Wall-Hook and Ladder Crews"
+ eir_wall_hook_crews_flavor:0 "#F Long poles with iron hooks to pull down palisades and a hundred ladders for the rest. The Gauls tore down Caesar's works this way at Alesia, and the Welsh and Irish took many small forts the same way.#!"
+ eir_hide_rams:0 "Hide-Covered Rams"
+ eir_hide_rams_flavor:0 "#F A ram-beam on a frame, roofed with wet cattle hides against fire and arrows. The Gauls and Britons learned it from Rome, and the Irish and Welsh kept it for the gate that would not burn.#!"
