@@ -14,7 +14,7 @@ eir.1201 = {
 			greedy = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 		}
-		add_gold = medium_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m1 }
 		add_prestige = minor_prestige_gain
 		scope:eir_county ?= { change_development_level = -1 }
 		add_character_modifier = { modifier = eir_raider_glory_modifier years = 5 }
@@ -34,7 +34,7 @@ eir.1201 = {
 			generous = minor_stress_impact_loss
 			greedy = minor_stress_impact_gain
 		}
-		add_gold = minor_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_s2 }
 		add_trait_xp = { trait = lifestyle_reveler value = 15 }
 		add_stress = minor_stress_loss
 		scope:eir_county ?= { change_development_level = -2 }
@@ -49,7 +49,7 @@ eir.1201 = {
 			cynical = minor_stress_impact_gain
 		}
 		add_piety = medium_piety_gain
-		add_gold = minor_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_s1 }
 		scope:eir_county ?= { change_development_level = -1 }
 		ai_chance = {
 			base = 30
@@ -75,6 +75,7 @@ eir.1202 = {
 			compassionate = minor_stress_impact_gain
 		}
 		scope:eir_county ?= { change_development_level = -3 }
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m3 }
 		scope:eir_county ?= { add_county_modifier = { modifier = eir_scorched_county_modifier years = 10 } }
 		add_dread = major_dread_gain
 		add_prestige = minor_prestige_gain
@@ -102,6 +103,7 @@ eir.1202 = {
 			trusting = minor_stress_impact_gain
 		}
 		scope:eir_county ?= { change_development_level = -2 }
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_s2 }
 		add_dread = minor_dread_gain
 		scope:eir_victim ?= { add_opinion = { target = scope:eir_raider modifier = eir_raid_grudge_opinion opinion = -20 } }
 		ai_chance = { base = 35 }
@@ -113,7 +115,7 @@ eir.1202 = {
 			greedy = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 		}
-		add_gold = medium_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m1 }
 		scope:eir_county ?= { change_development_level = -1 }
 		ai_chance = { base = 30 }
 	}
@@ -226,7 +228,8 @@ eir.1204 = {
 			greedy = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 		}
-		add_gold = medium_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m1 }
+		scope:eir_county ?= { change_development_level = -1 }
 		scope:eir_victim ?= { add_opinion = { target = scope:eir_raider modifier = eir_raid_grudge_opinion opinion = -20 } }
 		ai_chance = { base = 30 }
 	}
@@ -271,6 +274,7 @@ eir.1205 = {
 			add_county_modifier = { modifier = eir_raider_settlement_modifier years = 25 }
 		}
 		add_pressed_claim = scope:eir_county
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m5 }
 		add_prestige = major_prestige_gain
 		add_dread = medium_dread_gain
 		add_character_modifier = { modifier = eir_raider_glory_modifier years = 5 }
@@ -300,6 +304,7 @@ eir.1205 = {
 			compassionate = minor_stress_impact_gain
 		}
 		scope:eir_county ?= { change_development_level = -5 }
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m5 }
 		scope:eir_county ?= { add_county_modifier = { modifier = eir_scorched_county_modifier years = 15 } }
 		add_dread = major_dread_gain
 		scope:eir_victim ?= {
@@ -325,7 +330,7 @@ eir.1205 = {
 			greedy = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 		}
-		add_gold = medium_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m1 }
 		scope:eir_county ?= { change_development_level = -1 }
 		scope:eir_victim ?= { add_opinion = { target = scope:eir_raider modifier = eir_raid_grudge_opinion opinion = -20 } }
 		ai_chance = {
@@ -362,7 +367,7 @@ eir.1206 = {
 			sadistic = minor_stress_impact_loss
 			compassionate = minor_stress_impact_gain
 		}
-		add_gold = medium_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m2 }
 		scope:eir_county ?= { change_development_level = -2 }
 		add_dread = medium_dread_gain
 		add_piety = major_piety_loss
@@ -389,7 +394,7 @@ eir.1206 = {
 			greedy = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 		}
-		add_gold = minor_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_s1 }
 		add_piety = minor_piety_loss
 		scope:eir_county ?= { change_development_level = -1 }
 		scope:eir_victim ?= { add_opinion = { target = scope:eir_raider modifier = eir_raid_grudge_opinion opinion = -20 } }
@@ -426,7 +431,7 @@ eir.1207 = {
 			greedy = minor_stress_impact_loss
 			generous = minor_stress_impact_gain
 		}
-		add_gold = medium_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_m2 }
 		scope:eir_county ?= { change_development_level = -2 }
 		add_piety = minor_piety_loss
 		scope:eir_victim ?= { add_opinion = { target = scope:eir_raider modifier = eir_raid_grudge_opinion opinion = -20 } }
@@ -466,7 +471,7 @@ eir.1207 = {
 			callous = minor_stress_impact_gain
 			sadistic = minor_stress_impact_gain
 		}
-		add_gold = minor_gold_value
+		scope:eir_raid_army ?= { add_loot = eir_raid_loot_s1 }
 		add_piety = medium_piety_gain
 		scope:eir_county ?= { change_development_level = -1 }
 		ai_chance = {

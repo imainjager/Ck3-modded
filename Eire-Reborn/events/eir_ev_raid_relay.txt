@@ -8,6 +8,7 @@ eir.1200 = {
 	scope = army
 
 	immediate = {
+		save_scope_as = eir_raid_army
 		scope:raider = { save_scope_as = eir_raider }
 		scope:barony = { save_scope_as = eir_barony }
 		scope:county = { save_scope_as = eir_county }

@@ -9,6 +9,11 @@ import ev_h
 EVENTS = ev_h.EVENTS = []
 
 
+def LOOT(tier, dev):
+    """loot goes to the raid army (the base game's add_loot) and is delivered when the raiders come home; more devastation, more loot"""
+    return "scope:eir_raid_army ?= { add_loot = eir_raid_loot_%s%d }" % (tier, dev)
+
+
 def DEV(n):
     return "scope:eir_county ?= { change_development_level = -%d }" % n
 
@@ -26,19 +31,19 @@ ev(1201, "The Herds of the Border",
    "The raid has gathered more cattle than your men can drive, and the borderers are watching from the ridge.",
    "They are good cattle: red-flecked, long-horned, fed on the lush grass of the river meadows. Your men have been gathering them since dawn and are now arguing about which of them to eat. The lord of the land has not answered the smoke, and nobody can say whether that is cowardice or patience.",
    [
-       O("Drive every beast home.", GAIN_M, PRESTIGE_S, DEV(1), FAME, LIGHT_GRUDGE, st=S_GREED, ai=40, ai_mod=[("greedy", 15)]),
-       O("Slaughter half of them and feast on the spot.", GAIN_S, xp("lifestyle_reveler", 15), STRESS_DOWN, DEV(2), LIGHT_GRUDGE, st=S_GEN, ai=30),
-       O("Leave a tithe of the herd at the church door.", PIETY_M, GAIN_S, DEV(1), st=S_ZEAL, ai=30, ai_mod=[("zealous", 15)]),
+       O("Drive every beast home.", LOOT("m", 1), PRESTIGE_S, DEV(1), FAME, LIGHT_GRUDGE, st=S_GREED, ai=40, ai_mod=[("greedy", 15)]),
+       O("Slaughter half of them and feast on the spot.", LOOT("s", 2), xp("lifestyle_reveler", 15), STRESS_DOWN, DEV(2), LIGHT_GRUDGE, st=S_GEN, ai=30),
+       O("Leave a tithe of the herd at the church door.", PIETY_M, LOOT("s", 1), DEV(1), st=S_ZEAL, ai=30, ai_mod=[("zealous", 15)]),
    ], "war", guarded=False)
 
 ev(1202, "Burn the Fields",
    "The standing grain in the valley is ripe, and your captains are looking at it the way a smith looks at iron.",
    "A match, a wind from the south and an hour's patience would take a year of the valley's bread. Some of your men think it is good policy. Others have farms of their own.",
    [
-       O("Burn everything that will burn.", DEV(3), "scope:eir_county ?= { add_county_modifier = { modifier = eir_scorched_county_modifier years = 10 } }", "add_dread = major_dread_gain", PRESTIGE_S, GRUDGE,
+       O("Burn everything that will burn.", DEV(3), LOOT("m", 3), "scope:eir_county ?= { add_county_modifier = { modifier = eir_scorched_county_modifier years = 10 } }", "add_dread = major_dread_gain", PRESTIGE_S, GRUDGE,
          st=S_HARD, ai=15, ai_mod=[("sadistic", 25), ("wrathful", 15)]),
-       O("Burn the barns and spare the fields.", DEV(2), "add_dread = minor_dread_gain", LIGHT_GRUDGE, st=S_SHREWD, ai=35),
-       O("Spare the harvest and carry it home.", GAIN_M, DEV(1), st=S_GREED, ai=30),
+       O("Burn the barns and spare the fields.", DEV(2), LOOT("s", 2), "add_dread = minor_dread_gain", LIGHT_GRUDGE, st=S_SHREWD, ai=35),
+       O("Spare the harvest and carry it home.", LOOT("m", 1), DEV(1), st=S_GREED, ai=30),
    ], "war", guarded=False)
 
 ev(1203, "The Satire",
@@ -55,7 +60,7 @@ ev(1204, "Hostages at the Ford",
    "There is a girl of about twelve who has not stopped glaring at you. There is a boy of about six who has not stopped crying. There is an old nurse who has not stopped talking. The raiders are, it seems, as unsettled as the hostages.",
    [
        O("Take the lord's youngest son as a foster-child and a hostage.", PRESTIGE_S, HOOK, GRUDGE, "add_character_modifier = { modifier = eir_hostages_modifier years = 8 }", st=S_HARD, ai=30, ai_mod=[("callous", 15)]),
-       O("Take cattle in place of the hostages.", GAIN_M, LIGHT_GRUDGE, st=S_GREED, ai=30),
+       O("Take cattle in place of the hostages.", LOOT("m", 1), DEV(1), LIGHT_GRUDGE, st=S_GREED, ai=30),
        O("Free them and send them home with a gift.", GOLD_S, PIETY_M, PRESTIGE_S, "scope:eir_victim ?= { add_opinion = { target = scope:eir_raider modifier = eir_blood_price_paid_opinion opinion = 25 } }", st=S_KIND, ai=25, ai_mod=[("compassionate", 25)]),
    ], "war", guarded=False)
 
@@ -65,11 +70,11 @@ ev(1205, "Settle the Raided Land",
    [
        O("Settle your own people here. The land is yours now.",
          "scope:eir_county ?= {\n\tchange_development_level = -5\n\tset_county_culture = scope:eir_raider.culture\n\tset_county_faith = scope:eir_raider.faith\n\tadd_county_modifier = { modifier = eir_raider_settlement_modifier years = 25 }\n}",
-         "add_pressed_claim = scope:eir_county", PRESTIGE_L, "add_dread = medium_dread_gain", FAME, GRUDGE, "add_piety = minor_piety_loss",
+         "add_pressed_claim = scope:eir_county", LOOT("m", 5), PRESTIGE_L, "add_dread = medium_dread_gain", FAME, GRUDGE, "add_piety = minor_piety_loss",
          st=S_ARROG, ai=20, ai_mod=[("ambitious", 25), ("callous", 10)]),
-       O("Burn it to the ground and leave it empty.", DEV(5), "scope:eir_county ?= { add_county_modifier = { modifier = eir_scorched_county_modifier years = 15 } }", "add_dread = major_dread_gain", GRUDGE,
+       O("Burn it to the ground and leave it empty.", DEV(5), LOOT("m", 5), "scope:eir_county ?= { add_county_modifier = { modifier = eir_scorched_county_modifier years = 15 } }", "add_dread = major_dread_gain", GRUDGE,
          st=S_HARD, ai=15, ai_mod=[("sadistic", 25), ("wrathful", 15)]),
-       O("Take the county's tribute for a year and go home.", GAIN_M, DEV(1), LIGHT_GRUDGE, st=S_GREED, ai=40, ai_mod=[("greedy", 20)]),
+       O("Take the county's tribute for a year and go home.", LOOT("m", 1), DEV(1), LIGHT_GRUDGE, st=S_GREED, ai=40, ai_mod=[("greedy", 20)]),
        O("Withdraw. A raid is a raid.", STRESS_DOWN, st=S_PATIENT, ai=20),
    ], "war", guarded=False)
 
@@ -77,8 +82,8 @@ ev(1206, "The Church Is Burning",
    "The raiders have broken into the church, and the monks are standing in front of the altar with their arms folded.",
    "There is silver on the altar, a gospel book in a shrine and a very large abbot. The abbot is pointing out, in a clear voice, that the saint buried here was a king's son and a friend of Columba. A young raider is considering the silver with great attention.",
    [
-       O("Strip the altar and burn the roof.", GAIN_M, DEV(2), "add_dread = medium_dread_gain", "add_piety = major_piety_loss", GRUDGE, st=S_HARD, ai=10, ai_mod=[("sadistic", 20), ("cynical", 20)]),
-       O("Take the silver only and leave the saint alone.", GAIN_S, "add_piety = minor_piety_loss", DEV(1), LIGHT_GRUDGE, st=S_GREED, ai=30),
+       O("Strip the altar and burn the roof.", LOOT("m", 2), DEV(2), "add_dread = medium_dread_gain", "add_piety = major_piety_loss", GRUDGE, st=S_HARD, ai=10, ai_mod=[("sadistic", 20), ("cynical", 20)]),
+       O("Take the silver only and leave the saint alone.", LOOT("s", 1), "add_piety = minor_piety_loss", DEV(1), LIGHT_GRUDGE, st=S_GREED, ai=30),
        O("Leave the church untouched and ask the abbot for a blessing.", PIETY_L, "add_character_modifier = { modifier = eir_saints_blessing_modifier years = 5 }", st=S_ZEAL, ai=30, ai_mod=[("zealous", 25)]),
    ], "legend", guarded=False)
 
@@ -86,9 +91,9 @@ ev(1207, "The Slave Train",
    "Your men are bringing a line of captives down the road, tied at the neck, and they are expecting you to say what happens next.",
    "There are two hundred of them: farmhands, a few craftsmen, a priest and a very angry woman who is the village's brewer. The slave-traders from Dublin and Bristol are already hovering at the edge of the camp.",
    [
-       O("Sell them to the merchants.", GAIN_M, DEV(2), "add_piety = minor_piety_loss", LIGHT_GRUDGE, st=S_GREED, ai=30, ai_mod=[("greedy", 20), ("callous", 15)]),
+       O("Sell them to the merchants.", LOOT("m", 2), DEV(2), "add_piety = minor_piety_loss", LIGHT_GRUDGE, st=S_GREED, ai=30, ai_mod=[("greedy", 20), ("callous", 15)]),
        O("Settle them as workers on your own land.", PRESTIGE_S, "capital_county ?= { add_county_modifier = { modifier = eir_island_pride_modifier years = 6 } }", DEV(2), GRUDGE, st=S_SHREWD, ai=25),
-       O("Free the priest and the monks and ransom the rest.", GAIN_S, PIETY_M, DEV(1), st=S_KIND, ai=25, ai_mod=[("compassionate", 20)]),
+       O("Free the priest and the monks and ransom the rest.", LOOT("s", 1), PIETY_M, DEV(1), st=S_KIND, ai=25, ai_mod=[("compassionate", 20)]),
    ], "war", guarded=False)
 
 ev(1208, "The Ogham of the Raid",
