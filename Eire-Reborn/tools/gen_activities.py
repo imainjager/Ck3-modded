@@ -194,6 +194,7 @@ eir_act_intent_reward_effect = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = %(weeks)d } }
+					trigger_event = { id = eir.%(open)04d days = 2 }
 				}
 			}
 
@@ -201,6 +202,7 @@ eir_act_intent_reward_effect = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.%(close)04d days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_%(k)s_conc
@@ -221,7 +223,7 @@ eir_act_intent_reward_effect = {
 				}
 			}
 		}
-	}""" % dict(ph=phase, weeks=a["weeks"], k=k, rew=rew_chain))
+	}""" % dict(ph=phase, weeks=a["weeks"], k=k, rew=rew_chain, open=1101 + 2 * list(ACTS).index(k), close=1102 + 2 * list(ACTS).index(k)))
         pulse_keys = " ".join(p[0] for p in a["pulses"])
         o.append("\tpulse_actions = {\n\t\tentries = { %s }\n\t\tchance_of_no_event = 15\n\t}" % pulse_keys)
         o.append("\tmax_guests = %d" % a["guests"])

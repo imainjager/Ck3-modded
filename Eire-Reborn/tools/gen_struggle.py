@@ -32,6 +32,31 @@ STRUGGLE = """eir_irish_struggle = {
 		trigger_event = eir.0994
 	}
 
+	# Root = struggle. Every player ruler involved in the struggle hears of the new phase.
+	on_change_phase = {
+		if = {
+			limit = { is_struggle_phase = eir_struggle_phase_kin_strife }
+			every_involved_ruler = {
+				limit = { is_ai = no }
+				trigger_event = eir.0997
+			}
+		}
+		else_if = {
+			limit = { is_struggle_phase = eir_struggle_phase_over_kings }
+			every_involved_ruler = {
+				limit = { is_ai = no }
+				trigger_event = eir.0998
+			}
+		}
+		else_if = {
+			limit = { is_struggle_phase = eir_struggle_phase_truce_of_saints }
+			every_involved_ruler = {
+				limit = { is_ai = no }
+				trigger_event = eir.0999
+			}
+		}
+	}
+
 	transition_state_duration = { months = 6 }
 
 	start_phase = eir_struggle_phase_kin_strife

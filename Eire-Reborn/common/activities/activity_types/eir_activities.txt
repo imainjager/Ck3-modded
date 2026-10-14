@@ -133,6 +133,7 @@ activity_eir_oenach = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
+					trigger_event = { id = eir.1101 days = 2 }
 				}
 			}
 
@@ -140,6 +141,7 @@ activity_eir_oenach = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.1102 days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_oenach_conc
@@ -462,6 +464,7 @@ activity_eir_festival = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = 2 } }
+					trigger_event = { id = eir.1103 days = 2 }
 				}
 			}
 
@@ -469,6 +472,7 @@ activity_eir_festival = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.1104 days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_festival_conc
@@ -793,6 +797,7 @@ activity_eir_feis = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
+					trigger_event = { id = eir.1105 days = 2 }
 				}
 			}
 
@@ -800,6 +805,7 @@ activity_eir_feis = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.1106 days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_feis_conc
@@ -1124,6 +1130,7 @@ activity_eir_pilgrimage = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
+					trigger_event = { id = eir.1107 days = 2 }
 				}
 			}
 
@@ -1131,6 +1138,7 @@ activity_eir_pilgrimage = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.1108 days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_pilgrimage_conc
@@ -1453,6 +1461,7 @@ activity_eir_hosting = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = 2 } }
+					trigger_event = { id = eir.1109 days = 2 }
 				}
 			}
 
@@ -1460,6 +1469,7 @@ activity_eir_hosting = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.1110 days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_hosting_conc
@@ -1784,6 +1794,7 @@ activity_eir_bardic = {
 				if = {
 					limit = { this = scope:host }
 					scope:activity = { progress_activity_phase_after = { weeks = 2 } }
+					trigger_event = { id = eir.1111 days = 2 }
 				}
 			}
 
@@ -1791,6 +1802,7 @@ activity_eir_bardic = {
 				eir_act_intent_reward_effect = yes
 				if = {
 					limit = { this = scope:host }
+					trigger_event = { id = eir.1112 days = 3 }
 					scope:activity = {
 						add_activity_log_entry = {
 							key = eir_bardic_conc

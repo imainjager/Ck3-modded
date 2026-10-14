@@ -66,7 +66,7 @@ eir_yearly_global = {
 
 # Flavour pulse: one chance per year for each playable Irish ruler to see something happen.
 random_yearly_playable_pulse = {
-	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse eir_flavor_pulse_v7 eir_recelt_pulse eir_blackhost_pulse eir_blackhost_forced_pulse eir_early_pulse eir_invasion_pulse_v8 eir_norse_pulse_v8 eir_gael_pulse_v8 eir_britain_pulse_v8 eir_conqueror_pulse_1 eir_conqueror_pulse_2 eir_conqueror_pulse_3 eir_conqueror_pulse_4 eir_conqueror_pulse_5 eir_brit_conversion_pulse eir_gsu_pulse eir_celt_conversion_pulse eir_forest_dominion_pulse eir_struggle_pulse }
+	on_actions = { eir_flavor_pulse eir_invasion_pulse eir_history_pulse eir_resistance_pulse eir_flavor_pulse_v7 eir_recelt_pulse eir_blackhost_pulse eir_blackhost_forced_pulse eir_early_pulse eir_invasion_pulse_v8 eir_norse_pulse_v8 eir_gael_pulse_v8 eir_britain_pulse_v8 eir_conqueror_pulse_1 eir_conqueror_pulse_2 eir_conqueror_pulse_3 eir_conqueror_pulse_4 eir_conqueror_pulse_5 eir_brit_conversion_pulse eir_gsu_pulse eir_celt_conversion_pulse eir_forest_dominion_pulse eir_struggle_pulse eir_court_pulse eir_faith_pulse }
 }
 
 eir_flavor_pulse = {
