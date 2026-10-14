@@ -421,3 +421,51 @@ tradition_eir_clan_war_law = {
 	}
 }
 
+tradition_eir_forest_warriors = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = forest.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+	can_pick = {
+		always = no
+	}
+
+	parameters = {
+		eir_forest_warriors = yes
+		easier_to_hybridize = yes
+		cheaper_to_hybridize = yes
+		cheaper_convert_to_local_culture = yes
+	}
+
+	character_modifier = {
+		different_culture_opinion = -20
+		same_heritage_county_advantage_add = 10
+		faith_conversion_piety_cost_mult = -0.4
+		forest_advantage = 5
+		monthly_prestige_gain_mult = 0.05
+		knight_effectiveness_mult = 0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 20
+	}
+}
+

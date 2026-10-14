@@ -478,7 +478,7 @@ def build():
     L.section("culture traditions")
     for key, (bg, item, _x, params, mods, disp, desc) in TRADITIONS.items():
         check_keys(key, mods)
-        hidden = key in ("tradition_eir_tanistic_fragmentation", "tradition_eir_high_kingship")
+        hidden = key in ("tradition_eir_tanistic_fragmentation", "tradition_eir_high_kingship", "tradition_eir_forest_warriors")
         out.append("%s = {\n\tcategory = regional\n\n\tlayers = {\n\t\t0 = %s\n\t\t1 = western\n\t\t4 = %s\n\t}\n\n" % (key, bg, item))
         if hidden:
             out.append("\tis_shown = {\n\t\talways = no\n\t}\n\tcan_pick = {\n\t\talways = no\n\t}\n\n")
@@ -500,6 +500,8 @@ def build():
         prov = {"infantry_cheap": 3, "infantry_moderate": 7}[d["prov"]]
         if d.get("open"):
             recruit = "\tcan_recruit = {\n\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t}\n"
+        elif d.get("only_param"):
+            recruit = "\tcan_recruit = {\n\t\tculture ?= { has_cultural_parameter = %s }\n\t}\n" % d["param"]
         elif not d.get("param"):
             recruit = ("\tcan_recruit = {\n\t\tculture ?= { has_cultural_pillar = heritage_goidelic }\n\t\thas_global_variable = %s\n\t}\n" % d["flag"])
         else:

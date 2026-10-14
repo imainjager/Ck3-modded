@@ -8263,3 +8263,778 @@ eir_final_revenge_decision = {
 	}
 }
 
+eir_mystic_celts_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_mystic_celts_decision_desc
+	selection_tooltip = eir_mystic_celts_decision_tooltip
+	confirm_text = eir_mystic_celts_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		eir_irish_emperor_trigger = yes
+		NOT = { has_global_variable = eir_done_mystic_celts }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_759a06cd0a
+			eir_brit_100_trigger = yes
+		}
+		prestige >= 5000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2000
+		prestige = 1000
+		piety = 500
+	}
+
+	effect = {
+		culture ?= {
+			if = {
+				limit = { NOT = { has_cultural_tradition = tradition_eir_forest_warriors } }
+				add_culture_tradition = tradition_eir_forest_warriors
+			}
+		}
+		set_global_variable = eir_unlock_nemeton
+		add_character_modifier = { modifier = eir_mystic_celts_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_dread = medium_dread_gain
+		every_sub_realm_county = {
+			limit = { empire = title:e_britannia }
+			add_county_modifier = { modifier = eir_forest_dominion_modifier years = 2 }
+		}
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_mystic_celts
+		trigger_event = eir.0950
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_celts_mainland_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_celts_mainland_decision_desc
+	selection_tooltip = eir_celts_mainland_decision_tooltip
+	confirm_text = eir_celts_mainland_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_mystic_celts
+		NOT = { has_global_variable = eir_done_celts_mainland }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_9c0a83a730
+			has_global_variable = eir_done_mystic_celts
+		}
+		prestige >= 3000
+		piety >= 1000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 1000
+		prestige = 1000
+		piety = 250
+	}
+
+	effect = {
+		add_character_modifier = { modifier = eir_celts_mainland_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_celts_mainland
+		trigger_event = eir.0951
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_return_france_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_return_france_decision_desc
+	selection_tooltip = eir_return_france_decision_tooltip
+	confirm_text = eir_return_france_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_celts_mainland
+		NOT = { has_global_variable = eir_done_return_france }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_60c1924298
+			has_global_variable = eir_done_celts_mainland
+		}
+		custom_description = {
+			text = eir_rq_df10e8400b
+			eir_celt_france_claim_trigger = yes
+		}
+		prestige >= 6000
+		martial >= 22
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2500
+		prestige = 3000
+		piety = 400
+	}
+
+	effect = {
+		add_pressed_claim = title:e_france
+		add_character_modifier = { modifier = eir_return_france_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_dread = minor_dread_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_return_france
+		trigger_event = eir.0952
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_celt_france_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_celt_france_decision_desc
+	selection_tooltip = eir_celt_france_decision_tooltip
+	confirm_text = eir_celt_france_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_return_france
+		NOT = { has_global_variable = eir_done_celt_france }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_cae70785d5
+			has_global_variable = eir_done_return_france
+		}
+		custom_description = {
+			text = eir_rq_8d3a9e0893
+			eir_celt_france_conquest_trigger = yes
+		}
+		piety >= 1500
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2500
+		prestige = 3500
+		piety = 600
+	}
+
+	effect = {
+		eir_celt_half_convert_france_effect = yes
+		add_character_modifier = { modifier = eir_celt_france_won_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_legitimacy = major_legitimacy_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_celt_france
+		trigger_event = eir.0957
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_return_germany_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_return_germany_decision_desc
+	selection_tooltip = eir_return_germany_decision_tooltip
+	confirm_text = eir_return_germany_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_celts_mainland
+		NOT = { has_global_variable = eir_done_return_germany }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_60c1924298
+			has_global_variable = eir_done_celts_mainland
+		}
+		custom_description = {
+			text = eir_rq_af8fbc76e0
+			eir_celt_germany_claim_trigger = yes
+		}
+		prestige_level >= 4
+		martial >= 26
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2800
+		prestige = 3500
+		piety = 300
+	}
+
+	effect = {
+		add_pressed_claim = title:e_germany
+		add_character_modifier = { modifier = eir_return_germany_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_dread = minor_dread_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_return_germany
+		trigger_event = eir.0953
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_celt_germany_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_celt_germany_decision_desc
+	selection_tooltip = eir_celt_germany_decision_tooltip
+	confirm_text = eir_celt_germany_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_return_germany
+		NOT = { has_global_variable = eir_done_celt_germany }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_27c6eedf00
+			has_global_variable = eir_done_return_germany
+		}
+		custom_description = {
+			text = eir_rq_bd9680ae61
+			eir_celt_germany_conquest_trigger = yes
+		}
+		prestige >= 4000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 3000
+		prestige = 3500
+		piety = 500
+	}
+
+	effect = {
+		eir_celt_half_convert_germany_effect = yes
+		add_character_modifier = { modifier = eir_celt_germany_won_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_legitimacy = major_legitimacy_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_celt_germany
+		trigger_event = eir.0958
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_return_spain_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_return_spain_decision_desc
+	selection_tooltip = eir_return_spain_decision_tooltip
+	confirm_text = eir_return_spain_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_celts_mainland
+		NOT = { has_global_variable = eir_done_return_spain }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_60c1924298
+			has_global_variable = eir_done_celts_mainland
+		}
+		custom_description = {
+			text = eir_rq_26ae360b6c
+			eir_celt_spain_claim_trigger = yes
+		}
+		piety >= 2500
+		custom_description = {
+			text = eir_rq_32d6d02cb7
+			has_global_variable = eir_done_monastery
+		}
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2200
+		prestige = 2500
+		piety = 900
+	}
+
+	effect = {
+		add_pressed_claim = title:e_spain
+		add_character_modifier = { modifier = eir_return_spain_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_dread = minor_dread_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_return_spain
+		trigger_event = eir.0954
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_celt_spain_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_celt_spain_decision_desc
+	selection_tooltip = eir_celt_spain_decision_tooltip
+	confirm_text = eir_celt_spain_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_return_spain
+		NOT = { has_global_variable = eir_done_celt_spain }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_f594743f18
+			has_global_variable = eir_done_return_spain
+		}
+		custom_description = {
+			text = eir_rq_bddd0ecd23
+			eir_celt_spain_conquest_trigger = yes
+		}
+		stewardship >= 20
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2400
+		prestige = 3000
+		piety = 700
+	}
+
+	effect = {
+		eir_celt_half_convert_spain_effect = yes
+		add_character_modifier = { modifier = eir_celt_spain_won_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_legitimacy = major_legitimacy_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_celt_spain
+		trigger_event = eir.0959
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_return_italy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_return_italy_decision_desc
+	selection_tooltip = eir_return_italy_decision_tooltip
+	confirm_text = eir_return_italy_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_celts_mainland
+		NOT = { has_global_variable = eir_done_return_italy }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_60c1924298
+			has_global_variable = eir_done_celts_mainland
+		}
+		custom_description = {
+			text = eir_rq_19026a4abc
+			eir_celt_italy_claim_trigger = yes
+		}
+		diplomacy >= 24
+		prestige >= 5000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 3000
+		prestige = 3000
+		piety = 400
+	}
+
+	effect = {
+		add_pressed_claim = title:e_italy
+		add_character_modifier = { modifier = eir_return_italy_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_dread = minor_dread_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_return_italy
+		trigger_event = eir.0955
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_celt_italy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_celt_italy_decision_desc
+	selection_tooltip = eir_celt_italy_decision_tooltip
+	confirm_text = eir_celt_italy_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_return_italy
+		NOT = { has_global_variable = eir_done_celt_italy }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_a2a7ce3076
+			has_global_variable = eir_done_return_italy
+		}
+		custom_description = {
+			text = eir_rq_4f3c167168
+			eir_celt_italy_conquest_trigger = yes
+		}
+		prestige >= 3000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 3200
+		prestige = 3500
+		piety = 500
+	}
+
+	effect = {
+		eir_celt_half_convert_italy_effect = yes
+		add_character_modifier = { modifier = eir_celt_italy_won_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_legitimacy = major_legitimacy_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_celt_italy
+		trigger_event = eir.0960
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_return_galatia_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_return_galatia_decision_desc
+	selection_tooltip = eir_return_galatia_decision_tooltip
+	confirm_text = eir_return_galatia_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_celts_mainland
+		NOT = { has_global_variable = eir_done_return_galatia }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_60c1924298
+			has_global_variable = eir_done_celts_mainland
+		}
+		custom_description = {
+			text = eir_rq_276fe034c1
+			eir_celt_galatia_claim_trigger = yes
+		}
+		learning >= 20
+		prestige >= 5000
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2600
+		prestige = 3200
+		piety = 500
+	}
+
+	effect = {
+		add_pressed_claim = title:e_byzantium
+		add_character_modifier = { modifier = eir_return_galatia_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_piety = medium_piety_gain
+		add_dread = minor_dread_gain
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_return_galatia
+		trigger_event = eir.0956
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+eir_celt_galatia_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 0
+	sort_order = 40
+	desc = eir_celt_galatia_decision_desc
+	selection_tooltip = eir_celt_galatia_decision_tooltip
+	confirm_text = eir_celt_galatia_decision_confirm
+
+	cooldown = { days = 36500 }
+
+	is_shown = {
+		eir_is_irish_ruler_trigger = yes
+		has_global_variable = eir_done_return_galatia
+		NOT = { has_global_variable = eir_done_celt_galatia }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = eir_rq_a0aabb7120
+			eir_irish_emperor_trigger = yes
+		}
+		custom_description = {
+			text = eir_rq_51327aeb0f
+			has_global_variable = eir_done_return_galatia
+		}
+		custom_description = {
+			text = eir_rq_28ebe78898
+			eir_celt_galatia_conquest_trigger = yes
+		}
+		martial >= 24
+		is_at_war = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_imprisoned = no
+	}
+
+	cost = {
+		gold = 2800
+		prestige = 3800
+		piety = 600
+	}
+
+	effect = {
+		eir_celt_half_convert_galatia_effect = yes
+		add_character_modifier = { modifier = eir_celt_galatia_won_modifier years = 50 }
+		add_prestige = massive_prestige_gain
+		add_prestige = massive_prestige_gain
+		add_piety = major_piety_gain
+		add_legitimacy = major_legitimacy_gain
+		eir_vassal_opinion_effect = { MODIFIER = eir_shared_spoils_opinion OPINION = 8 }
+		eir_world_reacts_effect = yes
+		set_global_variable = eir_done_celt_galatia
+		trigger_event = eir.0961
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+

@@ -109,6 +109,18 @@ def describe(ctx, st):
         "eir_holds_somerset_trigger = yes": "Your realm holds the County of Somerset",
         "eir_holds_cornwall_trigger = yes": "Your realm holds the County of Cornwall",
         "eir_ten_knights_trigger = yes": "You have at least ten knights",
+        "eir_brit_100_trigger = yes": "Your realm holds all 93 counties of the Empire of Britannia (100%)",
+        "eir_irish_emperor_trigger = yes": "You are an emperor of Irish culture",
+        "eir_celt_france_claim_trigger = yes": "Your realm holds at least 14 of the 109 counties of the Empire of France",
+        "eir_celt_france_conquest_trigger = yes": "Your realm holds at least 30 of the 109 counties of the Empire of France",
+        "eir_celt_germany_claim_trigger = yes": "Your realm holds at least 12 of the 147 counties of the Empire of Germany",
+        "eir_celt_germany_conquest_trigger = yes": "Your realm holds at least 36 of the 147 counties of the Empire of Germany",
+        "eir_celt_spain_claim_trigger = yes": "Your realm holds at least 11 of the 87 counties of the Empire of Spain (Iberia)",
+        "eir_celt_spain_conquest_trigger = yes": "Your realm holds at least 27 of the 87 counties of the Empire of Spain (Iberia)",
+        "eir_celt_italy_claim_trigger = yes": "Your realm holds at least 8 of the 53 counties of the Empire of Italy",
+        "eir_celt_italy_conquest_trigger = yes": "Your realm holds at least 21 of the 53 counties of the Empire of Italy",
+        "eir_celt_galatia_claim_trigger = yes": "Your realm holds at least 6 of the 19 counties of the Kingdom of Anatolia (Galatia)",
+        "eir_celt_galatia_conquest_trigger = yes": "Your realm holds at least 12 of the 19 counties of the Kingdom of Anatolia (Galatia)",
     }
     if st in simple:
         return simple[st]

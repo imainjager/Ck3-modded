@@ -247,6 +247,14 @@ FAMILIES = [
       ("Royal Shipyard", "A yard of sixty-oared galleys and a staff of the best shipwrights on the coast.")],
      [("supply_limit", "SUPPLY"), ("monthly_income", "INC"), ("levy", "LEVYB"), ("knight_effectiveness_mult", "KNIGHT"),
       ("levy_reinforcement_rate", "REINF"), ("monthly_prestige", "PRES")]),
+    ("eir_nemeton", "Sacred Grove (Nemeton)", ("castle", "church", "city"), "eir_unlock_nemeton", False, "icon_building_hill_forts.dds",
+     "A clearing in the old forest, ringed with oaks and standing stones, where the druids met and the Forest Warriors keep their vigil. Only a realm that has taken up the Mystical Celtic Warriors can raise one.",
+     [("Oak Clearing", "A ring of oaks round a standing stone, where the Forest Warriors make their vows."),
+      ("Hallowed Nemeton", "A walled grove with a feasting hall, a spring and a lodge of warrior-priests."),
+      ("Great Nemeton", "A grove older than any kingdom, whose oaks have watched a thousand years of oaths."),
+      ("Nemeton of the Whole Island", "The mother-grove of the Celtic revival, with a ring of oaks that stretches to the sea.")],
+     [("development_growth_factor", [0.25, 0.25, 0.25, 0.25]), ("stationed_skirmishers_damage_mult", "MAAUP"), ("levy_size", "LEVYM"),
+      ("monthly_piety", "PIETY"), ("knight_effectiveness_mult", "KNIGHT"), ("health", "HEALTH"), ("owned_legend_spread_mult", "LEGEND")]),
 ]
 
 # Duchy-capital chains: (key, duchy or None, celt-gate, name, family desc, [3 level names], flavor [(field, [3 values])])

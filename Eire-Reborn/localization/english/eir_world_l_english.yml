@@ -377,6 +377,30 @@
  eir_saxon_shaken_modifier_desc:0 "The English took the duchies back, burned what they could not hold and left the throne with the smell of smoke on it."
  eir_saxon_amnesty_modifier:0 "The Winchester Amnesty"
  eir_saxon_amnesty_modifier_desc:0 "You pardoned the leaders who laid down their arms, and the English remember who was merciful."
+ eir_mystic_celts_modifier:0 "Emperor of the Oaks"
+ eir_mystic_celts_modifier_desc:0 "The druids' groves are planted again and the Forest Warriors walk out of them. Your men fear nothing, and everyone else is a little afraid of them."
+ eir_celts_mainland_modifier:0 "The Celts Look to the Mainland"
+ eir_celts_mainland_modifier_desc:0 "The island is whole. The poets have begun to recite the names of the tribes that lived across the sea."
+ eir_return_france_modifier:0 "The Return of the Celts to France"
+ eir_return_france_modifier_desc:0 "The Gael has set a claim on the Empire of France, and every Gaulish county in your realm hears the old tongue five times as often. Gaul is where the Celts were before they were Romans, and Franks, and French. The poets can recite the tribes in their order."
+ eir_celt_france_won_modifier:0 "The Celts Return to France"
+ eir_celt_france_won_modifier_desc:0 "Half of the counties of the Empire of France now speak your tongue. Gaul is where the Celts were before they were Romans, and Franks, and French. The poets can recite the tribes in their order."
+ eir_return_germany_modifier:0 "The Return of the Celts to Germany"
+ eir_return_germany_modifier_desc:0 "The Gael has set a claim on the Empire of Germany, and every Hercynian county in your realm hears the old tongue five times as often. The Hercynian Forest was Celtic before it was German. The mountain tribes remembered the old names when the Romans came."
+ eir_celt_germany_won_modifier:0 "The Celts Return to Germany"
+ eir_celt_germany_won_modifier_desc:0 "Half of the counties of the Empire of Germany now speak your tongue. The Hercynian Forest was Celtic before it was German. The mountain tribes remembered the old names when the Romans came."
+ eir_return_spain_modifier:0 "The Return of the Celts to Spain and Iberia"
+ eir_return_spain_modifier_desc:0 "The Gael has set a claim on the Empire of Spain (Iberia), and every Celtiberian county in your realm hears the old tongue five times as often. The Celtiberians held the high plateau of Iberia, and the Irish chroniclers say that the first Gaels sailed from there."
+ eir_celt_spain_won_modifier:0 "The Celts Return to Spain and Iberia"
+ eir_celt_spain_won_modifier_desc:0 "Half of the counties of the Empire of Spain (Iberia) now speak your tongue. The Celtiberians held the high plateau of Iberia, and the Irish chroniclers say that the first Gaels sailed from there."
+ eir_return_italy_modifier:0 "The Return of the Celts to Italy"
+ eir_return_italy_modifier_desc:0 "The Gael has set a claim on the Empire of Italy, and every Cisalpine county in your realm hears the old tongue five times as often. Cisalpine Gaul was Celtic from the Alps to the Po, and Rome burned for it once. The Gael remembers who sacked the city."
+ eir_celt_italy_won_modifier:0 "The Celts Return to Italy"
+ eir_celt_italy_won_modifier_desc:0 "Half of the counties of the Empire of Italy now speak your tongue. Cisalpine Gaul was Celtic from the Alps to the Po, and Rome burned for it once. The Gael remembers who sacked the city."
+ eir_return_galatia_modifier:0 "The Return of the Celts to Galatia"
+ eir_return_galatia_modifier_desc:0 "The Gael has set a claim on the Kingdom of Anatolia (Galatia), and every Galatian county in your realm hears the old tongue five times as often. A Celtic people crossed the Bosphorus and held the heart of Anatolia for four hundred years. Saint Paul wrote to them."
+ eir_celt_galatia_won_modifier:0 "The Celts Return to Galatia"
+ eir_celt_galatia_won_modifier_desc:0 "Half of the counties of the Kingdom of Anatolia (Galatia) now speak your tongue. A Celtic people crossed the Bosphorus and held the heart of Anatolia for four hundred years. Saint Paul wrote to them."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"
@@ -537,6 +561,10 @@
  eir_island_pride_modifier_desc:0 "A king rules the whole island, and the county knows it was part of the reason."
  eir_arthur_site_modifier:0 "Seat of the Pendragon's Memory"
  eir_arthur_site_modifier_desc:0 "Pilgrims from three kingdoms come to stand where the king is said to have stood."
+ eir_forest_dominion_modifier:0 "Realm of the Oaks"
+ eir_forest_dominion_modifier_desc:0 "The old forests of the island are being replanted and walked again, and what grows under the oaks no longer holds the county back."
+ eir_mainland_resistance_modifier:0 "Resisting the Celtic Revival"
+ eir_mainland_resistance_modifier_desc:0 "The county was told to speak the old tongue of the Celts, and its people would rather not."
 
  # ---------- province modifiers ----------
  eir_ringfort_province_modifier:0 "Ringfort"
@@ -740,6 +768,8 @@
  tradition_eir_kinship_law_desc:0 "A man is his kindred. The elders have written down who owes what, who pays for a death and who may speak for the house. Replaces Strong Kinship; keeps all its effects and softens its worst."
  tradition_eir_clan_war_law_name:0 "Law of the Sword and the Clan"
  tradition_eir_clan_war_law_desc:0 "The war-leaders of the Highlands wrote down their customs: how a clan musters, who leads, how spoil is divided. Replaces Highland Warriors; keeps all its effects."
+ tradition_eir_forest_warriors_name:0 "Mystical Celtic Warriors"
+ tradition_eir_forest_warriors_desc:0 "The druids' groves have been planted again and the Forest Warriors have come out of them. The culture finds it easier to hybridise, to diverge and to convert its neighbours, and holds its own lands with +10 advantage, but those outside the oaks like it much less. Unlocks the Forest Warriors and the Sacred Grove (Nemeton)."
 
  # ---------- men-at-arms ----------
  eir_gallowglass:0 "Gallowglass"
@@ -756,6 +786,8 @@
  eir_insular_spears_flavor:0 "#F Welsh, Cornish, Pictish and Gaelic spearmen who have learned to stand in the same line.#!"
  eir_norse_bane_axemen:0 "Norse-Bane Axemen"
  eir_norse_bane_axemen_flavor:0 "#F Axemen who stood on the strand, and who have never forgotten how a shield wall breaks.#!"
+ eir_forest_warriors:0 "Forest Warriors"
+ eir_forest_warriors_flavor:0 "#F Painted warriors of the old Celtic revival, who fight best under the oaks and have never lost a wood to anyone.#!"
 
  # ---------- buildings ----------
 

@@ -743,6 +743,34 @@ eir_ravage_province_effect = {
 			limit = { has_building = eir_longship_yard_t_01 }
 			remove_building = eir_longship_yard_t_01
 		}
+		if = {
+			limit = { has_building = eir_nemeton_04 }
+			remove_building = eir_nemeton_04
+			hidden_effect = { add_building = eir_nemeton_03 }
+		}
+		else_if = {
+			limit = { has_building = eir_nemeton_03 }
+			remove_building = eir_nemeton_03
+			hidden_effect = { add_building = eir_nemeton_02 }
+		}
+		else_if = {
+			limit = { has_building = eir_nemeton_02 }
+			remove_building = eir_nemeton_02
+			hidden_effect = { add_building = eir_nemeton_01 }
+		}
+		else_if = {
+			limit = { has_building = eir_nemeton_01 }
+			remove_building = eir_nemeton_01
+		}
+		if = {
+			limit = { has_building = eir_nemeton_t_02 }
+			remove_building = eir_nemeton_t_02
+			hidden_effect = { add_building = eir_nemeton_t_01 }
+		}
+		else_if = {
+			limit = { has_building = eir_nemeton_t_01 }
+			remove_building = eir_nemeton_t_01
+		}
 	}
 }
 

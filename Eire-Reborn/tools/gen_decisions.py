@@ -26,6 +26,7 @@ def build():
     import dec_v7  # noqa: F401  (v0.7 decisions; costs are final)
     import dec_v8  # noqa: F401  (Update 2 decisions; costs are final)
     import dec_v10  # noqa: F401  (Update 4: Britannia; costs are final)
+    import dec_v12  # noqa: F401  (Update 6: Return of the Celts)
     import re as _re
     import reqtext
     import gen_world

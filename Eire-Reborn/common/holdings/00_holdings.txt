@@ -19,6 +19,7 @@ castle_holding = {
 		eir_fianna_lodge_01
 		eir_hosting_ground_01
 		eir_longship_yard_01
+		eir_nemeton_01
 
 		capital_bureau_01
 		
@@ -99,6 +100,7 @@ tribal_holding = {
 		eir_hosting_ground_t_01
 		eir_sea_quay_t_01
 		eir_longship_yard_t_01
+		eir_nemeton_t_01
 
 		palisades_01
 		war_camps_01
@@ -139,6 +141,7 @@ city_holding = {
 		eir_fosterage_hall_01
 		eir_sea_quay_01
 		eir_longship_yard_01
+		eir_nemeton_01
 
 		hospices_01
 		outposts_01
@@ -201,6 +204,7 @@ church_holding = {
 		eir_hermitage_01
 		eir_pilgrim_hospice_01
 		eir_ogham_stones_01
+		eir_nemeton_01
 
 		hospices_01
 		scriptorium_01

@@ -54,8 +54,9 @@ def build():
     import v9_world
     import v10_world
     import v11_world
-    nicks += [(k, n, d, False) for k, n, d in v8_world.NICKS + v9_world.NICKS + v10_world.NICKS + v11_world.NICKS]
-    for k, t in v8_world.LOC + v9_world.LOC + v10_world.LOC + v11_world.LOC:
+    import v12_world
+    nicks += [(k, n, d, False) for k, n, d in v8_world.NICKS + v9_world.NICKS + v10_world.NICKS + v11_world.NICKS + v12_world.NICKS]
+    for k, t in v8_world.LOC + v9_world.LOC + v10_world.LOC + v11_world.LOC + v12_world.LOC:
         L.add(k, t)
     body = "# Eire Reborn - nicknames\n\n" +"".join("%s = %s\n" % (k, "{ is_bad = yes }" if bad else "{}") for k, _, _, bad in nicks)
     write("common/nicknames/eir_nicknames.txt", body)

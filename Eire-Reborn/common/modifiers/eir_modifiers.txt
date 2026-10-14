@@ -1267,6 +1267,107 @@ eir_saxon_amnesty_modifier = {
 	monthly_prestige = 0.15
 }
 
+eir_mystic_celts_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1.5
+	knight_effectiveness_mult = 0.15
+	advantage = 3
+	monthly_piety = 0.5
+	owned_legend_spread_mult = 0.3
+	vassal_opinion = 8
+	general_opinion = -5
+}
+
+eir_celts_mainland_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1
+	advantage = 3
+	vassal_opinion = 6
+	dread_gain_mult = 0.2
+	stress_gain_mult = -0.1
+}
+
+eir_return_france_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.6
+	advantage = 3
+	knight_effectiveness_mult = 0.1
+}
+
+eir_celt_france_won_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1.2
+	vassal_opinion = 8
+	knight_effectiveness_mult = 0.15
+	general_opinion = 4
+}
+
+eir_return_germany_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	advantage = 3
+	martial = 2
+	levy_size = 0.1
+}
+
+eir_celt_germany_won_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1.2
+	levy_size = 0.2
+	martial = 3
+	vassal_opinion = 8
+}
+
+eir_return_spain_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.5
+	monthly_piety = 0.3
+	advantage = 3
+	diplomacy = 2
+}
+
+eir_celt_spain_won_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1
+	monthly_piety = 0.6
+	diplomacy = 3
+	vassal_opinion = 8
+	general_opinion = 4
+}
+
+eir_return_italy_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.6
+	dread_gain_mult = 0.2
+	advantage = 3
+	stewardship = 2
+}
+
+eir_celt_italy_won_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1.2
+	dread_gain_mult = 0.3
+	stewardship = 3
+	monthly_income = 3
+}
+
+eir_return_galatia_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 0.6
+	advantage = 3
+	learning = 2
+	owned_legend_spread_mult = 0.2
+}
+
+eir_celt_galatia_won_modifier = {
+	icon = prestige_positive
+	monthly_prestige = 1.2
+	learning = 3
+	owned_legend_spread_mult = 0.3
+	vassal_opinion = 8
+	monthly_piety = 0.4
+}
+
 
 ##### county modifiers #####
 
@@ -1779,6 +1880,21 @@ eir_arthur_site_modifier = {
 	development_growth_factor = 0.1
 	tax_mult = 0.08
 	hostile_raid_time = 0.5
+}
+
+eir_forest_dominion_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.25
+	forest_development_growth_factor = 0.5
+	county_opinion_add = 3
+}
+
+eir_mainland_resistance_modifier = {
+	icon = county_modifier_control_negative
+	county_opinion_add = -30
+	monthly_county_control_growth_add = -0.4
+	tax_mult = -0.15
+	levy_size = -0.15
 }
 
 

@@ -5475,6 +5475,234 @@ eir_longship_yard_04 = {
 	}
 }
 
+eir_nemeton_t_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+		scope:holder = {
+			culture = { has_cultural_pillar = heritage_goidelic }
+		}
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_eir_unlock_nemeton
+			has_global_variable = eir_unlock_nemeton
+		}
+	}
+
+	cost_gold = 75
+	cost_prestige = 200
+
+	county_modifier = {
+		development_growth_factor = 0.25
+		levy_size = 0.08
+	}
+	character_modifier = {
+		monthly_piety = 0.13
+		knight_effectiveness_mult = 0.03
+		health = 0.05
+		owned_legend_spread_mult = 0.03
+	}
+	next_building = eir_nemeton_t_02
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 3
+	}
+}
+
+eir_nemeton_t_02 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+		scope:holder = {
+			culture = { has_cultural_pillar = heritage_goidelic }
+		}
+	}
+
+	cost_gold = 100
+	cost_prestige = 350
+
+	county_modifier = {
+		development_growth_factor = 0.25
+		levy_size = 0.16
+	}
+	character_modifier = {
+		monthly_piety = 0.26
+		knight_effectiveness_mult = 0.05
+		health = 0.08
+		owned_legend_spread_mult = 0.05
+	}
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 3
+	}
+}
+
+eir_nemeton_01 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		OR = {
+			has_holding_type = castle_holding
+			has_holding_type = church_holding
+			has_holding_type = city_holding
+		}
+		scope:holder = {
+			culture = { has_cultural_pillar = heritage_goidelic }
+		}
+	}
+
+	can_construct = {
+		custom_description = {
+			text = eir_breq_eir_unlock_nemeton
+			has_global_variable = eir_unlock_nemeton
+		}
+	}
+
+	cost_gold = 150
+
+	county_modifier = {
+		development_growth_factor = 0.25
+		levy_size = 0.08
+	}
+	character_modifier = {
+		monthly_piety = 0.13
+		knight_effectiveness_mult = 0.03
+		health = 0.05
+		owned_legend_spread_mult = 0.03
+	}
+	next_building = eir_nemeton_02
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 4
+	}
+}
+
+eir_nemeton_02 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		OR = {
+			has_holding_type = castle_holding
+			has_holding_type = church_holding
+			has_holding_type = city_holding
+		}
+		scope:holder = {
+			culture = { has_cultural_pillar = heritage_goidelic }
+		}
+	}
+
+	cost_gold = 250
+
+	county_modifier = {
+		development_growth_factor = 0.25
+		levy_size = 0.16
+	}
+	character_modifier = {
+		monthly_piety = 0.26
+		knight_effectiveness_mult = 0.05
+		health = 0.08
+		owned_legend_spread_mult = 0.05
+	}
+	next_building = eir_nemeton_03
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 4
+	}
+}
+
+eir_nemeton_03 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		OR = {
+			has_holding_type = castle_holding
+			has_holding_type = church_holding
+			has_holding_type = city_holding
+		}
+		scope:holder = {
+			culture = { has_cultural_pillar = heritage_goidelic }
+		}
+	}
+
+	cost_gold = 340
+
+	county_modifier = {
+		development_growth_factor = 0.25
+		levy_size = 0.23
+	}
+	character_modifier = {
+		monthly_piety = 0.39
+		knight_effectiveness_mult = 0.08
+		health = 0.1
+		owned_legend_spread_mult = 0.08
+	}
+	next_building = eir_nemeton_04
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 4
+	}
+}
+
+eir_nemeton_04 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		OR = {
+			has_holding_type = castle_holding
+			has_holding_type = church_holding
+			has_holding_type = city_holding
+		}
+		scope:holder = {
+			culture = { has_cultural_pillar = heritage_goidelic }
+		}
+	}
+
+	cost_gold = 500
+
+	county_modifier = {
+		development_growth_factor = 0.25
+		levy_size = 0.3
+	}
+	character_modifier = {
+		monthly_piety = 0.52
+		knight_effectiveness_mult = 0.1
+		health = 0.13
+		owned_legend_spread_mult = 0.1
+	}
+
+	type_icon = "icon_building_hill_forts.dds"
+
+	ai_value = {
+		base = 4
+	}
+}
+
 eir_rightech_01 = {
 	construction_time = slow_construction_time
 

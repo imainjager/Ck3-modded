@@ -265,3 +265,39 @@ eir_norse_bane_axemen = {
 	icon = danish_huskarls
 }
 
+eir_forest_warriors = {
+	type = skirmishers
+
+	damage = 35
+	toughness = 20
+	pursuit = 15
+	screen = 20
+
+	terrain_bonus = {
+		forest = { damage = 20 }
+		jungle = { damage = 20 }
+		desert = { damage = -20 }
+		plains = { damage = 5 }
+		hills = { damage = 10 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+		archers = 1
+	}
+
+	can_recruit = {
+		culture ?= { has_cultural_parameter = eir_forest_warriors }
+	}
+
+
+	buy_cost = { gold = huscarls_recruitment_cost }
+	low_maintenance_cost = { gold = huscarls_low_maint_cost }
+	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = 7
+
+	stack = 100
+	ai_quality = { value = 20 }
+	icon = mountaineer
+}
+

@@ -75,7 +75,7 @@ def main():
                     cost = "%dg" % gold
                 ratios = []
                 for f, vals in VANILLA.items():
-                    if f in st:
+                    if f in st and not (k.startswith("eir_nemeton") and f == "development_growth_factor"):   # the Nemeton's flat +25% is deliberate
                         ratios.append((st[f] / vals[lv], f))
                 for f in EXACT:
                     if f in st and st[f] != lv + 1:

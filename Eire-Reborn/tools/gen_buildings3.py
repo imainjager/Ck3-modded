@@ -33,6 +33,7 @@ GATE_TEXT = {
     "eir_unlock_brehon_court": "Unlocked by the decision Compile the Brehon Laws",
     "eir_unlock_sea_trade": "Unlocked by the decision Claim the Irish Sea",
     "eir_unlock_fianna": "Unlocked by the decision Charter the Schools of the Filí",
+    "eir_unlock_nemeton": "Unlocked by the decision Mystical Celtic Warriors",
     "eir_done_tara_hall": "Requires the decision Rebuild the Hall of Tara to have been carried out",
     "eir_done_armagh": "Requires the decision Claim the Primacy for Armagh to have been carried out",
     "eir_done_dublin": "Requires the return of Dublin to Irish hands (the decision Celebrate the Return of Dublin)",
