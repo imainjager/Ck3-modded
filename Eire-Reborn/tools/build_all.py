@@ -5,7 +5,7 @@ import os
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-for name in ("gen_world", "gen_decisions", "gen_events", "gen_misc", "gen_buildings3", "gen_script_v8", "gen_script_conq", "gen_script_brit", "gen_script_gsu", "gen_script_celt", "gen_tenets", "gen_activities", "gen_culture", "gen_court", "gen_cb", "gen_religion", "gen_struggle", "gen_script_u8"):
+for name in ("gen_world", "gen_decisions", "gen_events", "gen_misc", "gen_buildings3", "gen_script_v8", "gen_script_conq", "gen_script_brit", "gen_script_gsu", "gen_script_celt", "gen_tenets", "gen_activities", "gen_culture", "gen_court", "gen_cb", "gen_religion", "gen_struggle", "gen_script_u8", "gen_cb2", "gen_script_raid"):
     try:
         mod = importlib.import_module(name)
     except ModuleNotFoundError as e:

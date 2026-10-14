@@ -447,6 +447,12 @@
  eir_culdee_reform_modifier_desc:0 "Your Church is a Church of hermits and small houses, and its abbots live on barley bread and good report. The great bishops are not happy."
  eir_end_of_strife_modifier:0 "The Strife Ended"
  eir_end_of_strife_modifier_desc:0 "The great quarrel of the kings is over, and nobody now alive remembers who began it."
+ eir_raider_glory_modifier:0 "Terror of the Marches"
+ eir_raider_glory_modifier_desc:0 "The border lords speak your name as a curse and the poets as a boast."
+ eir_revenge_vow_modifier:0 "A Vow of Revenge"
+ eir_revenge_vow_modifier_desc:0 "You have sworn on the relics to avenge the raid. Your poets keep the oath; your enemies keep an eye on the road."
+ eir_raid_lament_modifier:0 "The Lament"
+ eir_raid_lament_modifier_desc:0 "The poets have composed a lament for the burned land, and every hall on the island has heard it."
 
  # ---------- county modifiers ----------
  eir_tara_hill_modifier:0 "Hill of Tara"
@@ -611,6 +617,10 @@
  eir_forest_dominion_modifier_desc:0 "The old forests of the island are being replanted and walked again, and what grows under the oaks no longer holds the county back."
  eir_mainland_resistance_modifier:0 "Resisting the Celtic Revival"
  eir_mainland_resistance_modifier_desc:0 "The county was told to speak the old tongue of the Celts, and its people would rather not."
+ eir_raider_settlement_modifier:0 "Raiders' Settlement"
+ eir_raider_settlement_modifier_desc:0 "Strangers hold the land: their language is in the lanes, their cattle are in the fields and their gods are in the groves. The old families wait in the hills with long memories."
+ eir_scorched_county_modifier:0 "Scorched Earth"
+ eir_scorched_county_modifier_desc:0 "The fields were burned, the barns were burned and the herds were driven off. It will take years for anyone to farm here again."
 
  # ---------- province modifiers ----------
  eir_ringfort_province_modifier:0 "Ringfort"
@@ -799,6 +809,8 @@
  eir_act_hosted_opinion:0 "Hosted a fine gathering"
  eir_act_insulted_opinion:0 "Insulted at the gathering"
  eir_act_brawl_opinion:0 "Brawled at the gathering"
+ eir_raid_grudge_opinion:0 "Raided and burned my land"
+ eir_blood_price_paid_opinion:0 "Paid the blood-price"
 
  # ---------- culture traditions ----------
  tradition_eir_tanistic_fragmentation_name:0 "Tanistic Fragmentation"

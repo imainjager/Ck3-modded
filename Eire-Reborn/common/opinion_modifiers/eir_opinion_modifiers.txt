@@ -264,3 +264,15 @@ eir_act_brawl_opinion = {
 	stacking = yes
 }
 
+eir_raid_grudge_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+
+eir_blood_price_paid_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+	stacking = yes
+}
+

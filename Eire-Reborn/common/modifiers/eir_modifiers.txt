@@ -1538,6 +1538,29 @@ eir_end_of_strife_modifier = {
 	stress_gain_mult = -0.1
 }
 
+eir_raider_glory_modifier = {
+	icon = dread_mixed
+	monthly_prestige = 0.3
+	dread_gain_mult = 0.2
+	knight_effectiveness_mult = 0.05
+	general_opinion = -4
+}
+
+eir_revenge_vow_modifier = {
+	icon = prestige_mixed
+	advantage = 3
+	stress_gain_mult = -0.05
+	monthly_prestige = 0.1
+	general_opinion = 2
+}
+
+eir_raid_lament_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.2
+	vassal_opinion = -3
+	stress_gain_mult = 0.1
+}
+
 
 ##### county modifiers #####
 
@@ -2064,6 +2087,22 @@ eir_mainland_resistance_modifier = {
 	county_opinion_add = -30
 	monthly_county_control_growth_add = -0.4
 	tax_mult = -0.15
+	levy_size = -0.15
+}
+
+eir_raider_settlement_modifier = {
+	icon = county_modifier_control_negative
+	county_opinion_add = -20
+	monthly_county_control_growth_add = -0.3
+	development_growth_factor = -0.5
+	levy_size = -0.2
+}
+
+eir_scorched_county_modifier = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.4
+	tax_mult = -0.25
+	county_opinion_add = -15
 	levy_size = -0.15
 }
 

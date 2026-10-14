@@ -85,3 +85,4 @@ Two hidden traditions run the tanistry rule (`tradition_eir_tanistic_fragmentati
 - 0.13.2 the 30 decisions of the main story are purple (tools/story_chain.py lists them in four acts); the rest are unchanged.
 - 0.14.0 (Update 8) six Irish activities, ten culture innovations, four court positions, three casus belli, twelve holy sites, the Druidic faith and the Culdee Reform, the Fragmentation of Ireland struggle, the road tracker and 40 new events (see docs/UPDATE8.md).
 - 0.14.1 the Irish raiding line: Bó-aire lets feudal rulers raid over land, Táin Bó adds sea raids, Raiders of the Four Seas opens every raid type (two new tradition upgrades and decisions).
+- 0.15.0 raiding: 26 new Gaelic/Brythonic raid events (the base game has 13), the Settle the Raided Land event (-5 development, culture and faith change, a claim), and three new casus belli: Avenge the Raid, Demand the Blood-Price, Drive Out the Settlers.

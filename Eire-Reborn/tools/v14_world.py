@@ -45,3 +45,19 @@ C("eir_culdee_reform_modifier", "piety_positive", {"monthly_piety": 0.4, "clergy
 # ---- struggle
 C("eir_end_of_strife_modifier", "prestige_positive", {"monthly_prestige": 0.5, "vassal_opinion": 8, "general_opinion": 4, "legitimacy_gain_mult": 0.15, "stress_gain_mult": -0.1},
   "The Strife Ended", "The great quarrel of the kings is over, and nobody now alive remembers who began it.")
+
+# ---- raiding
+OPINIONS["eir_raid_grudge_opinion"] = "Raided and burned my land"
+OPINIONS["eir_blood_price_paid_opinion"] = "Paid the blood-price"
+K("eir_raider_settlement_modifier", "county_modifier_control_negative",
+  {"county_opinion_add": -20, "monthly_county_control_growth_add": -0.3, "development_growth_factor": -0.5, "levy_size": -0.2},
+  "Raiders' Settlement", "Strangers hold the land: their language is in the lanes, their cattle are in the fields and their gods are in the groves. The old families wait in the hills with long memories.")
+K("eir_scorched_county_modifier", "county_modifier_development_negative",
+  {"development_growth_factor": -0.4, "tax_mult": -0.25, "county_opinion_add": -15, "levy_size": -0.15},
+  "Scorched Earth", "The fields were burned, the barns were burned and the herds were driven off. It will take years for anyone to farm here again.")
+C("eir_raider_glory_modifier", "dread_mixed", {"monthly_prestige": 0.3, "dread_gain_mult": 0.2, "knight_effectiveness_mult": 0.05, "general_opinion": -4},
+  "Terror of the Marches", "The border lords speak your name as a curse and the poets as a boast.")
+C("eir_revenge_vow_modifier", "prestige_mixed", {"advantage": 3, "stress_gain_mult": -0.05, "monthly_prestige": 0.1, "general_opinion": 2},
+  "A Vow of Revenge", "You have sworn on the relics to avenge the raid. Your poets keep the oath; your enemies keep an eye on the road.")
+C("eir_raid_lament_modifier", "prestige_negative", {"monthly_prestige": -0.2, "vassal_opinion": -3, "stress_gain_mult": 0.1},
+  "The Lament", "The poets have composed a lament for the burned land, and every hall on the island has heard it.")
